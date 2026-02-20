@@ -559,10 +559,12 @@ footer .f-note {
 
 /* ── MOBILE PHONE (≤ 480px) ── */
 @media (max-width: 480px) {
-  /* Hero image — shift focal point up for portrait framing */
-  .hero-bg { background-position: center 38%; }
-
-  .hero { min-height: 100svh; }
+  /* Hero image — portrait framing: fixed height so image shows at specific size */
+  .hero {
+    height: 60svh;
+    min-height: unset;
+  }
+  .hero-bg { background-position: center 20%; }
   .hero-content { padding: 0 20px 36px; }
 
   /* HUD — tighter corners and labels on small screens */
