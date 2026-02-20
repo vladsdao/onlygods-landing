@@ -536,16 +536,106 @@ footer .f-note {
   letter-spacing: 0.25em;
 }
 
-/* ── MOBILE LANDSCAPE ONLY ── */
+/* ── TABLET (≤ 900px) ── */
 @media (max-width: 900px) {
   .hero { min-height: 100svh; }
-  .hero-content { padding: 0 28px 44px; }
+  .hero-content { padding: 0 36px 48px; }
   .hud-label-tl, .hud-label-tr { font-size: 8px; top: 20px; }
   .hud-label-tl { left: 20px; }
   .hud-label-tr { right: 20px; }
-  .body-section { padding: 70px 28px; }
-  .terminal-block { padding-left: 20px; }
-  footer { padding: 24px 28px; }
+  .body-section { padding: 80px 36px; }
+  .terminal-block { padding-left: 22px; margin-bottom: 52px; }
+  .sep { margin: 48px 0; }
+  footer { padding: 24px 36px; }
+  /* Form — stack vertically on tablet */
+  .form-row { flex-direction: column; max-width: 420px; }
+  .email-input {
+    border-right: 1px solid rgba(255,255,255,0.30);
+    border-bottom: none;
+    font-size: 16px;
+  }
+  .submit-btn { padding: 16px 24px; }
+}
+
+/* ── MOBILE PHONE (≤ 480px) ── */
+@media (max-width: 480px) {
+  /* Hero image — shift focal point up for portrait framing */
+  .hero-bg { background-position: center 38%; }
+
+  .hero { min-height: 100svh; }
+  .hero-content { padding: 0 20px 36px; }
+
+  /* HUD — tighter corners and labels on small screens */
+  .hud-frame { inset: 14px; }
+  .hud-corner { width: 22px; height: 22px; }
+  .hud-label-tl, .hud-label-tr {
+    font-size: 7px;
+    top: 14px;
+    letter-spacing: 0.15em;
+  }
+  .hud-label-tl { left: 14px; }
+  .hud-label-tr { right: 14px; }
+
+  /* Glitch title — responsive to actual screen width */
+  .glitch-main,
+  .glitch-ghost-r,
+  .glitch-ghost-c { font-size: clamp(40px, 13vw, 60px); }
+
+  /* Subtitle — tighter tracking prevents wrapping */
+  .hero-subtitle {
+    font-size: clamp(10px, 3.2vw, 14px);
+    letter-spacing: 0.16em;
+    margin-bottom: 12px;
+  }
+
+  /* Divider */
+  .hero-divider { gap: 10px; }
+  .hero-divider-line { width: 28px; }
+  .hero-divider-text { font-size: 8px; letter-spacing: 0.18em; }
+
+  /* Hide scroll hint — short mobile viewports have no room */
+  .scroll-hint { display: none; }
+
+  /* Body section */
+  .body-section { padding: 56px 20px; }
+  .terminal-block { padding-left: 14px; margin-bottom: 40px; }
+  .sep { margin: 40px 0; }
+
+  /* Node counter — scaled to screen */
+  .node-big,
+  .node-big-sub { font-size: clamp(48px, 16vw, 80px); }
+  .node-counter { gap: 10px; margin-bottom: 40px; }
+  .node-label { letter-spacing: 0.18em; font-size: 10px; }
+
+  /* CTA */
+  .cta-section { margin-top: 48px; }
+  .cta-sub { letter-spacing: 0.15em; font-size: 10px; }
+
+  /* Form — full width stacked */
+  .form-row { flex-direction: column; max-width: 100%; }
+  .email-input {
+    border-right: 1px solid rgba(255,255,255,0.30);
+    border-bottom: none;
+    font-size: 16px; /* prevents iOS auto-zoom on focus */
+    padding: 15px 16px;
+  }
+  .submit-btn {
+    padding: 15px 20px;
+    width: 100%;
+    letter-spacing: 0.25em;
+  }
+
+  /* Tags */
+  .tags { margin-top: 56px; gap: 8px; }
+  .tag { font-size: 8px; padding: 5px 10px; }
+
+  /* Footer */
+  footer {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 }
 
 
