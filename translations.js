@@ -941,9 +941,9 @@ var T = {
   ua: 'Технології'
 },
 'technologies.tools.title': {
-  ru: 'High-tech Digital Solutions',
+  ru: 'Цифровые Решения Высоких Технологий',
   en: 'High-tech Digital Solutions',
-  ua: 'High-tech Digital Solutions'
+  ua: 'Цифрові Рішення Високих Технологій'
 },
 'technologies.tools.p1': {
   ru: 'Цифровая инфраструктура для визуализации эгрегора: трекинг резонанса, AI-интеграция, блокчейн-governance и инструменты энергетического менеджмента.',
@@ -1448,7 +1448,121 @@ var T = {
 },
 'meta.p9.ref': { ru: 'Jung, HeartMath, Rizzolatti, GCP, Maharishi, Radin, Penrose, Bohm', en: 'Jung, HeartMath, Rizzolatti, GCP, Maharishi, Radin, Penrose, Bohm', ua: 'Jung, HeartMath, Rizzolatti, GCP, Maharishi, Radin, Penrose, Bohm' },
 'meta.sources.label': { ru: 'Источники', en: 'Sources', ua: 'Джерела' },
-'meta.back': { ru: '← Technologies', en: '← Technologies', ua: '← Technologies' }
+'meta.back': { ru: '← Technologies', en: '← Technologies', ua: '← Technologies' },
+
+// ─── ROADMAP PAGE ───
+'roadmap.title': { ru: 'OnlyGods — Roadmap', en: 'OnlyGods — Roadmap', ua: 'OnlyGods — Roadmap' },
+'roadmap.hero.subtitle': { ru: 'Карта пути', en: 'The Path', ua: 'Карта шляху' },
+'roadmap.hero.title': { ru: 'Roadmap', en: 'Roadmap', ua: 'Roadmap' },
+'roadmap.hero.tagline': {
+  ru: 'Ключевые моменты, которые привели нас сюда — и точки, куда мы идём',
+  en: 'Key moments that brought us here — and where we are headed',
+  ua: 'Ключові моменти, що привели нас сюди — і точки, куди ми йдемо'
+},
+'roadmap.e1.label': { ru: 'Начало', en: 'Origin', ua: 'Початок' },
+'roadmap.e1.title': {
+  ru: 'Рождение идеи',
+  en: 'Birth of the Idea',
+  ua: 'Народження ідеї'
+},
+'roadmap.e1.text': {
+  ru: 'Момент, когда стало ясно: индивидуальное сознание имеет потолок. Нужна инфраструктура для коллективного поля.',
+  en: 'The moment it became clear: individual consciousness has a ceiling. Infrastructure for a collective field was needed.',
+  ua: 'Момент, коли стало зрозуміло: індивідуальна свідомість має стелю. Потрібна інфраструктура для колективного поля.'
+},
+'roadmap.e2.label': { ru: 'Формирование', en: 'Formation', ua: 'Формування' },
+'roadmap.e2.title': {
+  ru: 'Первое поле',
+  en: 'First Field',
+  ua: 'Перше поле'
+},
+'roadmap.e2.text': {
+  ru: 'Мы.Боги. Первая когорта. Первый опыт управляемого эгрегора. ir4 методология v0.',
+  en: 'We.Gods. First cohort. First experience of a managed egregore. ir4 methodology v0.',
+  ua: 'Ми.Боги. Перша когорта. Перший досвід керованого егрегора. ir4 методологія v0.'
+},
+'roadmap.e3.label': { ru: 'Масштабирование', en: 'Scaling', ua: 'Масштабування' },
+'roadmap.e3.title': {
+  ru: 'OnlyGods запуск',
+  en: 'OnlyGods Launch',
+  ua: 'OnlyGods запуск'
+},
+'roadmap.e3.text': {
+  ru: '300 подписчиков. Quantum Lab. Контентная экосистема. Мост между наукой и прямым опытом.',
+  en: '300 subscribers. Quantum Lab. Content ecosystem. A bridge between science and direct experience.',
+  ua: '300 підписників. Quantum Lab. Контентна екосистема. Міст між наукою та прямим досвідом.'
+},
+'roadmap.e4.year': { ru: 'Далее', en: 'Next', ua: 'Далі' },
+'roadmap.e4.label': { ru: 'Горизонт', en: 'Horizon', ua: 'Горизонт' },
+'roadmap.e4.title': {
+  ru: 'Автономный эгрегор',
+  en: 'Autonomous Egregore',
+  ua: 'Автономний егрегор'
+},
+'roadmap.e4.text': {
+  ru: 'DaoDedo. Автономная экономика сознания. √1% — порог критической массы. 9000 когерентных сознаний меняют планетарное поле.',
+  en: 'DaoDedo. Autonomous consciousness economy. √1% — critical mass threshold. 9,000 coherent minds shift the planetary field.',
+  ua: 'DaoDedo. Автономна економіка свідомості. √1% — поріг критичної маси. 9000 когерентних свідомостей змінюють планетарне поле.'
+},
+
+// ─── QUANTUM LAB PAGE ───
+'qlab.title': { ru: 'OnlyGods — Quantum Lab', en: 'OnlyGods — Quantum Lab', ua: 'OnlyGods — Quantum Lab' },
+'qlab.hero.subtitle': { ru: 'Исследования', en: 'Research', ua: 'Дослідження' },
+'qlab.hero.title': { ru: 'Quantum Lab', en: 'Quantum Lab', ua: 'Quantum Lab' },
+'qlab.hero.tagline': {
+  ru: 'Программы и публикации на стыке сознания, физики и измеримого опыта',
+  en: 'Programs and publications at the intersection of consciousness, physics, and measurable experience',
+  ua: 'Програми та публікації на стику свідомості, фізики та вимірюваного досвіду'
+},
+'qlab.featured.label': { ru: 'Программа', en: 'Program', ua: 'Програма' },
+'qlab.featured.title': { ru: 'ir4 — Resonance Measurement', en: 'ir4 — Resonance Measurement', ua: 'ir4 — Resonance Measurement' },
+'qlab.featured.desc': {
+  ru: 'Методология измерения резонанса в реальном времени. Трекинг когерентности поля, динамики участников и качества коллективной уваги.',
+  en: 'Real-time resonance measurement methodology. Tracking field coherence, participant dynamics, and collective attention quality.',
+  ua: 'Методологія вимірювання резонансу в реальному часі. Трекінг когерентності поля, динаміки учасників та якості колективної уваги.'
+},
+'qlab.featured.status': { ru: 'В разработке →', en: 'In development →', ua: 'В розробці →' },
+'qlab.areas.label': { ru: 'Направления исследований', en: 'Research Areas', ua: 'Напрямки досліджень' },
+'qlab.area1.label': { ru: '01', en: '01', ua: '01' },
+'qlab.area1.title': { ru: 'Измерение резонанса', en: 'Resonance Measurement', ua: 'Вимірювання резонансу' },
+'qlab.area1.desc': {
+  ru: 'ir4 протокол. Квантификация когерентности. Метрики синхронизации группового поля.',
+  en: 'ir4 protocol. Coherence quantification. Group field synchronization metrics.',
+  ua: 'ir4 протокол. Квантифікація когерентності. Метрики синхронізації групового поля.'
+},
+'qlab.area2.label': { ru: '02', en: '02', ua: '02' },
+'qlab.area2.title': { ru: 'Протоколы когерентности', en: 'Coherence Protocols', ua: 'Протоколи когерентності' },
+'qlab.area2.desc': {
+  ru: 'Практики синхронизации нервной системы, сердечного ритма и внимания. Тета-гамма мосты.',
+  en: 'Nervous system, heart rhythm, and attention synchronization practices. Theta-gamma bridges.',
+  ua: 'Практики синхронізації нервової системи, серцевого ритму та уваги. Тета-гамма мости.'
+},
+'qlab.area3.label': { ru: '03', en: '03', ua: '03' },
+'qlab.area3.title': { ru: 'Коллективное сознание', en: 'Collective Consciousness', ua: 'Колективна свідомість' },
+'qlab.area3.desc': {
+  ru: 'Данные об эгрегорных эффектах. GCP-модель. √1% порог критической массы.',
+  en: 'Egregore effect data. GCP model. √1% critical mass threshold.',
+  ua: 'Дані про егрегорні ефекти. GCP-модель. √1% поріг критичної маси.'
+},
+'qlab.area4.label': { ru: '04', en: '04', ua: '04' },
+'qlab.area4.title': { ru: 'Биофотонные исследования', en: 'Biophoton Studies', ua: 'Біофотонні дослідження' },
+'qlab.area4.desc': {
+  ru: 'Когерентность света живых систем. ДНК как антенна. Попп, микротрубочки, ZPF-связь.',
+  en: 'Coherence of light in living systems. DNA as antenna. Popp, microtubules, ZPF coupling.',
+  ua: 'Когерентність світла живих систем. ДНК як антена. Попп, мікротрубочки, ZPF-зв\'язок.'
+},
+'qlab.pubs.label': { ru: 'Публикации', en: 'Publications', ua: 'Публікації' },
+'qlab.pub1.title': { ru: '9 столпов Поля Объединённого Сознания', en: '9 Pillars of the Unified Consciousness Field', ua: '9 стовпів Поля Об\'єднаної Свідомості' },
+'qlab.pub1.date': { ru: 'Читать →', en: 'Read →', ua: 'Читати →' },
+'qlab.pub2.title': { ru: 'ir4 Whitepaper', en: 'ir4 Whitepaper', ua: 'ir4 Whitepaper' },
+'qlab.pub2.date': { ru: 'Скоро', en: 'Soon', ua: 'Скоро' },
+'qlab.pub3.title': { ru: 'Протокол когерентности v1', en: 'Coherence Protocol v1', ua: 'Протокол когерентності v1' },
+'qlab.pub3.date': { ru: 'Скоро', en: 'Soon', ua: 'Скоро' },
+'qlab.pubs.note': {
+  ru: 'Публикации обновляются по мере завершения исследований',
+  en: 'Publications are updated as research is completed',
+  ua: 'Публікації оновлюються по мірі завершення досліджень'
+}
 
 };
 
@@ -1474,7 +1588,7 @@ var T = {
     var els = document.querySelectorAll('[data-i18n]');
     for(var i = 0; i < els.length; i++){
       var key = els[i].getAttribute('data-i18n');
-      if(T[key] && T[key][lang]) els[i].textContent = T[key][lang];
+      if(T[key] && T[key][lang]) els[i].innerHTML = T[key][lang];
     }
 
     var phs = document.querySelectorAll('[data-i18n-placeholder]');

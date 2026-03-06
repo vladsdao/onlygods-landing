@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru" data-i18n-title="events.title">
+<html lang="ru" data-i18n-title="roadmap.title">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OnlyGods — Events</title>
+<title>OnlyGods — Roadmap</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,9 +70,9 @@ body, html {
 .nav-mobile a:hover, .nav-mobile a.active { color: #1d1d1f; }
 
 .page-hero {
-    min-height: 50vh; display: flex; flex-direction: column;
+    min-height: 70vh; display: flex; flex-direction: column;
     justify-content: center; align-items: center; text-align: center;
-    padding: 120px 20px 60px;
+    padding: 120px 20px 80px;
 }
 
 .page-hero .hero-subtitle {
@@ -82,15 +82,16 @@ body, html {
 
 .page-hero h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(48px, 8vw, 100px); font-weight: 400;
+    font-size: clamp(40px, 7vw, 88px); font-weight: 400;
     letter-spacing: -2px; line-height: 1;
+    max-width: 800px;
 }
 
 .page-hero .hero-tagline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(18px, 2.2vw, 22px); color: #86868b;
-    max-width: 500px; line-height: 1.5; font-weight: 400;
-    font-style: italic; margin-top: 20px;
+    font-size: clamp(17px, 2vw, 21px); color: #86868b;
+    max-width: 560px; line-height: 1.55; font-weight: 400;
+    font-style: italic; margin-top: 24px;
 }
 
 .content-section { max-width: 1080px; margin: 0 auto; padding: 100px 40px; }
@@ -103,21 +104,40 @@ body, html {
 .section-divider { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
 .section-divider::after { content: ''; display: block; width: 100%; height: 1px; background: #e5e5e7; }
 
-.video-section { max-width: 1080px; margin: 0 auto; padding: 40px 40px 0; }
-
-.video-container {
-    width: 100%; aspect-ratio: 16 / 9;
-    background: #000000; border-radius: 3px;
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden; position: relative;
-}
-
-.video-container .video-placeholder {
-    color: #48484a; font-size: 14px;
-    letter-spacing: 1.5px; text-transform: uppercase;
-}
-
 .body-text { font-size: 17px; color: #48484a; line-height: 1.75; max-width: 860px; }
+.body-text + .body-text { margin-top: 20px; }
+
+/* Timeline */
+.timeline-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(60px, 8vw, 100px); font-weight: 300;
+    color: #f0f0f2; line-height: 0.9; margin-bottom: -12px;
+    position: relative; z-index: 0;
+}
+
+.timeline-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 3.5vw, 40px); font-weight: 400;
+    letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 16px;
+    position: relative; z-index: 1;
+}
+
+.timeline-media {
+    max-width: 860px; margin: 32px 0;
+    border-radius: 2px; overflow: hidden;
+}
+
+.timeline-media img, .timeline-media video {
+    width: 100%; height: auto; display: block;
+    border-radius: 2px;
+}
+
+.timeline-link {
+    display: inline-block; font-size: 13px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #86868b; text-decoration: none;
+    font-weight: 500; transition: color 0.3s ease; margin-top: 16px;
+}
+.timeline-link:hover { color: #1d1d1f; }
 
 .site-footer {
     text-align: center; padding: 60px 20px 40px;
@@ -132,10 +152,10 @@ body, html {
 
 @media (max-width: 768px) {
     .content-section { padding: 60px 20px; }
-    .video-section { padding: 20px 20px 0; }
     .nav-links { display: none; }
     .nav-burger { display: flex; }
     .site-nav { padding: 0 20px; }
+    .timeline-year { font-size: 60px; margin-bottom: -6px; }
 }
 </style>
 </head>
@@ -148,9 +168,9 @@ body, html {
         <a href="community.html">Community</a>
         <a href="research.html">Publications</a>
         <a href="technologies.html">Technologies</a>
-        <a href="events.html" class="active">Events</a>
+        <a href="events.html">Events</a>
         <a href="shop.html">Shop</a>
-        <a href="roadmap.html">Roadmap</a>
+        <a href="roadmap.html" class="active">Roadmap</a>
         <a href="quantumlab.html">Quantum Lab</a>
         <a href="dao.html">DAO</a>
         <span class="nav-divider"></span>
@@ -171,9 +191,9 @@ body, html {
     <a href="community.html">Community</a>
     <a href="research.html">Publications</a>
     <a href="technologies.html">Technologies</a>
-    <a href="events.html" class="active">Events</a>
+    <a href="events.html">Events</a>
     <a href="shop.html">Shop</a>
-    <a href="roadmap.html">Roadmap</a>
+    <a href="roadmap.html" class="active">Roadmap</a>
     <a href="quantumlab.html">Quantum Lab</a>
     <a href="dao.html">DAO</a>
     <div class="lang-switcher">
@@ -187,28 +207,66 @@ body, html {
 
 <section class="page-hero">
     <div class="fade-in-up">
-        <div class="hero-subtitle" data-i18n="events.hero.subtitle">Прямой опыт</div>
-        <h1 data-i18n="events.hero.title">Direct Experience</h1>
-        <p class="hero-tagline" data-i18n="events.hero.tagline">Живые трансляции и события объединённого сознания</p>
+        <div class="hero-subtitle" data-i18n="roadmap.hero.subtitle">Карта пути</div>
+        <h1 data-i18n="roadmap.hero.title">Roadmap</h1>
+        <p class="hero-tagline" data-i18n="roadmap.hero.tagline">Ключевые моменты, которые привели нас сюда — и точки, куда мы идём</p>
     </div>
 </section>
 
-<div class="video-section fade-in-up">
-    <div class="video-container">
-        <!-- Replace with iframe: <iframe src="YOUR_STREAM_URL" frameborder="0" allowfullscreen style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe> -->
-        <span class="video-placeholder" data-i18n="events.video.placeholder">Streaming / Video</span>
+<div class="section-divider"></div>
+
+<!-- ENTRY 1 -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="timeline-year">2024</div>
+        <div class="section-label" data-i18n="roadmap.e1.label">Начало</div>
+        <h2 class="timeline-title" data-i18n="roadmap.e1.title">Рождение идеи</h2>
+        <p class="body-text" data-i18n="roadmap.e1.text">Момент, когда стало ясно: индивидуальное сознание имеет потолок. Нужна инфраструктура для коллективного поля.</p>
+        <div class="timeline-media">
+            <!-- <img src="" alt=""> -->
+        </div>
     </div>
 </div>
 
-<div class="section-divider" style="margin-top: 60px;"></div>
+<div class="section-divider"></div>
 
+<!-- ENTRY 2 -->
 <div class="content-section">
     <div class="fade-in-up">
-        <div class="section-label" data-i18n="events.about.label">О трансляциях</div>
-        <p class="body-text" data-i18n="events.about.text">
-            Пространство прямого переживания. Здесь происходят живые сессии, групповые практики
-            и трансляции, где участники входят в поле объединённого сознания в реальном времени.
-        </p>
+        <div class="timeline-year">2025</div>
+        <div class="section-label" data-i18n="roadmap.e2.label">Формирование</div>
+        <h2 class="timeline-title" data-i18n="roadmap.e2.title">Первое поле</h2>
+        <p class="body-text" data-i18n="roadmap.e2.text">Мы.Боги. Первая когорта. Первый опыт управляемого эгрегора. ir4 методология v0.</p>
+        <div class="timeline-media">
+            <!-- <img src="" alt=""> -->
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ENTRY 3 -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="timeline-year">2026</div>
+        <div class="section-label" data-i18n="roadmap.e3.label">Масштабирование</div>
+        <h2 class="timeline-title" data-i18n="roadmap.e3.title">OnlyGods запуск</h2>
+        <p class="body-text" data-i18n="roadmap.e3.text">300 подписчиков. Quantum Lab. Контентная экосистема. Мост между наукой и прямым опытом.</p>
+        <div class="timeline-media">
+            <!-- <img src="" alt=""> -->
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ENTRY 4 -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="timeline-year" data-i18n="roadmap.e4.year">Далее</div>
+        <div class="section-label" data-i18n="roadmap.e4.label">Горизонт</div>
+        <h2 class="timeline-title" data-i18n="roadmap.e4.title">Автономный эгрегор</h2>
+        <p class="body-text" data-i18n="roadmap.e4.text">DaoDedo. Автономная экономика сознания. √1% — порог критической массы. 9000 когерентных сознаний меняют планетарное поле.</p>
     </div>
 </div>
 
