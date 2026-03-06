@@ -514,9 +514,9 @@ var T = {
   ua: 'OnlyFans? Ви серйозно?'
 },
 'index.qa.a1': {
-  ru: 'Абсолютно. Мы намеренно выбрали самый провокационный контейнер. Если название платформы вызывает сопротивление — это и есть первый тест: способны ли Вы видеть содержание за формой? Священное в профанном — не ошибка. Это метод.',
-  en: 'Absolutely. We deliberately chose the most provocative container. If the platform name triggers resistance — that\'s the first test: can you see substance beyond form? The sacred in the profane is not a mistake. It\'s the method.',
-  ua: 'Абсолютно. Ми свідомо обрали найпровокативніший контейнер. Якщо назва платформи викликає спротив — це і є перший тест: чи здатні Ви бачити зміст за формою? Священне в профанному — не помилка. Це метод.'
+  ru: 'Когнитивный диссонанс (Festinger, 1957) \u2014 состояние, когда реальность не совпадает с ожиданием \u2014 заставляет мозг включить префронтальную кору и обрабатывать информацию глубже. Ваше сопротивление к названию платформы \u2014 это автоматическая категоризация. Способность отделить контейнер от содержания \u2014 базовый навык различения, без которого работа с сознанием невозможна. Это не провокация. Это первый тест на вход.',
+  en: 'Cognitive dissonance (Festinger, 1957) \u2014 the state where reality contradicts expectation \u2014 forces the brain to engage the prefrontal cortex and process information at a deeper level. Your resistance to the platform name is automatic categorization. The ability to separate container from content is a fundamental discernment skill, without which consciousness work is impossible. This isn\u2019t provocation. It\u2019s the first entry test.',
+  ua: 'Когнітивний дисонанс (Festinger, 1957) \u2014 стан, коли реальність не збігається з очікуванням \u2014 змушує мозок увімкнути префронтальну кору й обробляти інформацію глибше. Ваш спротив до назви платформи \u2014 це автоматична категоризація. Здатність відділити контейнер від змісту \u2014 базова навичка розрізнення, без якої робота зі свідомістю неможлива. Це не провокація. Це перший тест на вхід.'
 },
 'index.qa.q2': {
   ru: '936€ в месяц — за что именно?',
@@ -524,9 +524,9 @@ var T = {
   ua: '936€ на місяць — за що саме?'
 },
 'index.qa.a2': {
-  ru: 'За среду. Еженедельные живые практики с обоими архитекторами. NDA-материалы и стримы. AI-бот для ежедневной синхронизации и отслеживания Вашего состояния. Внутренняя экономика, в которой участники создают и обмениваются ценностью. Но если Вы ищете список услуг — Вы ищете не то. Здесь покупают не сервис. Здесь инвестируют в поле, которое меняет качество жизни.',
-  en: 'The environment. Weekly live practices with both architects. NDA materials and streams. An AI bot for daily synchronization and tracking your state. An internal economy where participants create and exchange value. But if you\'re looking for a list of services — you\'re looking for the wrong thing. This isn\'t a service. It\'s an investment in a field that changes the quality of your life.',
-  ua: 'За середовище. Щотижневі живі практики з обома архітекторами. NDA-матеріали та стріми. AI-бот для щоденної синхронізації та відстеження Вашого стану. Внутрішня економіка, в якій учасники створюють та обмінюються цінністю. Але якщо Ви шукаєте список послуг — Ви шукаєте не те. Тут купують не сервіс. Тут інвестують у поле, яке змінює якість життя.'
+  ru: 'Нервная система человека биологически незавершена в изоляции. Social Baseline Theory (Coan, 2006) доказала: мозг по умолчанию рассчитывает на ко-регуляцию с другими \u2014 одиночная обработка стресса энергетически дороже. Вы платите за среду, в которой работает этот принцип: еженедельные живые практики с обоими архитекторами, AI-трекинг вашего состояния, NDA-материалы, внутренняя экономика участников. Ценность сети растёт как n\u00B2 (закон Меткалфа). Инвестиция в поле \u2014 не расход. Это вложение с нелинейной отдачей.',
+  en: 'The human nervous system is biologically incomplete in isolation. Social Baseline Theory (Coan, 2006) demonstrated that the brain defaults to co-regulation with others \u2014 solo stress processing is energetically more expensive. You pay for an environment where this principle operates: weekly live practices with both architects, AI-tracking of your state, NDA materials, an internal participant economy. Network value scales as n\u00B2 (Metcalfe\u2019s law). Investing in the field is not an expense. It\u2019s a commitment with nonlinear returns.',
+  ua: 'Нервова система людини біологічно незавершена в ізоляції. Social Baseline Theory (Coan, 2006) довела: мозок за замовчуванням розраховує на ко-регуляцію з іншими \u2014 одиночна обробка стресу енергетично дорожча. Ви платите за середовище, в якому працює цей принцип: щотижневі живі практики з обома архітекторами, AI-трекінг вашого стану, NDA-матеріали, внутрішня економіка учасників. Цінність мережі зростає як n\u00B2 (закон Меткалфа). Інвестиція в поле \u2014 не витрата. Це вкладення з нелінійною віддачею.'
 },
 'index.qa.q3': {
   ru: 'Что такое «поле» на практике? Не метафора ли это?',
@@ -534,9 +534,9 @@ var T = {
   ua: 'Що таке «поле» на практиці? Чи не метафора це?'
 },
 'index.qa.a3': {
-  ru: 'Не метафора. Поле — это живая сеть резонанса между участниками, которую мы строим через технологию, практику и прямой контакт. AI-бот в Telegram отслеживает состояние каждого участника, помогает синхронизироваться с группой и строит резонансную карту сообщества в реальном времени. Вы чувствуете это как совпадения, ясность, ускорение. Мы измеряем это как данные.',
-  en: 'Not a metaphor. The field is a living resonance network between participants, built through technology, practice, and direct contact. A Telegram AI bot tracks each participant\'s state, helps synchronize with the group, and builds a real-time resonance map of the community. You feel it as coincidences, clarity, acceleration. We measure it as data.',
-  ua: 'Не метафора. Поле — це жива мережа резонансу між учасниками, яку ми будуємо через технологію, практику та прямий контакт. AI-бот у Telegram відстежує стан кожного учасника, допомагає синхронізуватися з групою та будує резонансну карту спільноти в реальному часі. Ви відчуваєте це як збіги, ясність, прискорення. Ми вимірюємо це як дані.'
+  ru: 'Физический факт: электромагнитное поле сердца регистрируется на расстоянии свыше 3 метров (McCraty, HeartMath Institute, 2004). Связанные осцилляторы синхронизируются спонтанно \u2014 это открыл Гюйгенс в 1665 году на маятниковых часах, а Строгац формализовал математически в 2003-м. ЭЭГ-исследования фиксируют тета-гамма связь между медитирующими в одном пространстве (Lutz et al., 2004). Global Consciousness Project в Принстоне за 20+ лет накопил данные о возникновении порядка в генераторах случайных чисел во время событий коллективного фокуса. Мы не используем метафору. Мы измеряем эти явления через ir4 в реальном времени.',
+  en: 'Physical fact: the heart\u2019s electromagnetic field is detectable at distances exceeding 3 meters (McCraty, HeartMath Institute, 2004). Coupled oscillators synchronize spontaneously \u2014 Huygens discovered this in 1665 with pendulum clocks; Strogatz formalized it mathematically in 2003. EEG studies register theta-gamma coupling between meditators sharing the same space (Lutz et al., 2004). The Global Consciousness Project at Princeton has accumulated 20+ years of data showing order emerging in random number generators during collective focus events. We don\u2019t use a metaphor. We measure these phenomena through ir4 in real time.',
+  ua: 'Фізичний факт: електромагнітне поле серця реєструється на відстані понад 3 метри (McCraty, HeartMath Institute, 2004). Зв\u2019язані осцилятори синхронізуються спонтанно \u2014 це відкрив Гюйгенс у 1665 році на маятникових годинниках, а Строгац формалізував математично у 2003-му. ЕЕГ-дослідження фіксують тета-гамма зв\u2019язок між медитуючими в одному просторі (Lutz et al., 2004). Global Consciousness Project у Принстоні за 20+ років накопичив дані про виникнення порядку в генераторах випадкових чисел під час подій колективного фокусу. Ми не використовуємо метафору. Ми вимірюємо ці явища через ir4 в реальному часі.'
 },
 'index.qa.q4': {
   ru: 'Это секта?',
@@ -544,9 +544,9 @@ var T = {
   ua: 'Це секта?'
 },
 'index.qa.a4': {
-  ru: 'Секта запрещает уходить. Мы делаем так, что не хочется. Здесь нет гуру, нет догмы, нет единственной правды. Есть два архитектора, технология и люди, которые честно живут в поле. Вы можете уйти в любой момент. Подписка — помесячная, не контракт.',
-  en: 'A cult forbids leaving. We make it so you don\'t want to. There\'s no guru, no dogma, no single truth. There are two architects, technology, and people who honestly live in the field. You can leave at any moment. The subscription is monthly, not a contract.',
-  ua: 'Секта забороняє йти. Ми робимо так, що не хочеться. Тут немає гуру, немає догми, немає єдиної правди. Є два архітектори, технологія і люди, які чесно живуть у полі. Ви можете піти в будь-який момент. Підписка — помісячна, не контракт.'
+  ru: 'Существует формальный инструмент проверки: 8 критериев контроля сознания Роберта Лифтона (1961). Примените каждый. Контроль среды \u2014 отсутствует, вы живёте свою жизнь. Мистическое манипулирование \u2014 отсутствует, методология открыта. Требование чистоты, ритуалы исповеди, сакральная наука, нагруженный язык, доктрина выше личности, право решать кто достоин существования \u2014 ни один пункт не применим. Подписка помесячная. Методология фальсифицируема. Если она не работает \u2014 вы это увидите в данных, а не услышите от нас.',
+  en: 'There is a formal verification tool: Robert Lifton\u2019s 8 criteria of thought reform (1961). Apply each one. Milieu control \u2014 absent, you live your own life. Mystical manipulation \u2014 absent, the methodology is open. Demand for purity, confession rituals, sacred science, loaded language, doctrine over person, dispensing of existence \u2014 not a single criterion applies. Subscription is monthly. The methodology is falsifiable. If it doesn\u2019t work, you\u2019ll see it in the data, not hear it from us.',
+  ua: 'Існує формальний інструмент перевірки: 8 критеріїв контролю свідомості Роберта Ліфтона (1961). Застосуйте кожен. Контроль середовища \u2014 відсутній, ви живете своє життя. Містичне маніпулювання \u2014 відсутнє, методологія відкрита. Вимога чистоти, ритуали сповіді, сакральна наука, навантажена мова, доктрина вище особистості, право вирішувати хто гідний існування \u2014 жоден пункт не застосовний. Підписка помісячна. Методологія фальсифіковна. Якщо вона не працює \u2014 ви це побачите в даних, а не почуєте від нас.'
 },
 'index.qa.q5': {
   ru: 'Кто Вы такие и почему я должен Вам доверять?',
@@ -554,9 +554,9 @@ var T = {
   ua: 'Хто Ви такі і чому я маю Вам довіряти?'
 },
 'index.qa.a5': {
-  ru: 'Не должны. Доверие здесь — не входной билет, а результат опыта. Влад проектирует архитектуру сознания и систем. Лиза проводит трансформацию напрямую. Вместе мы ведём каждую практику, каждый стрим, каждый процесс. Всё открыто — философия, структура, подход. Решение — за Вами.',
-  en: 'You shouldn\'t. Trust here isn\'t the entry ticket — it\'s the result of experience. Vlad designs the architecture of consciousness and systems. Liza facilitates transformation directly. Together we lead every practice, every stream, every process. Everything is open — philosophy, structure, approach. The decision is yours.',
-  ua: 'Не маєте. Довіра тут — не вхідний квиток, а результат досвіду. Влад проєктує архітектуру свідомості та систем. Ліза проводить трансформацію напряму. Разом ми ведемо кожну практику, кожен стрім, кожен процес. Все відкрито — філософія, структура, підхід. Рішення — за Вами.'
+  ru: 'Не должны. Доверие, основанное на авторитете \u2014 логическая ошибка (argumentum ad verecundiam). Здесь другой стандарт: фальсифицируемость (Поппер). Влад проектирует архитектуру систем и сознания. Лиза проводит трансформационные процессы напрямую. ir4 \u2014 методология, построенная для независимой верификации: если измеримые результаты отсутствуют, модель обновляется. Это наука, не вера. Проверяйте.',
+  en: 'You shouldn\u2019t. Trust based on authority is a logical fallacy (argumentum ad verecundiam). We operate on a different standard: falsifiability (Popper). Vlad designs the architecture of systems and consciousness. Liza facilitates transformation processes directly. ir4 is a methodology built for independent verification: if measurable results are absent, the model updates. This is science, not faith. Verify it.',
+  ua: 'Не маєте. Довіра, заснована на авторитеті \u2014 логічна помилка (argumentum ad verecundiam). Тут інший стандарт: фальсифіковність (Поппер). Влад проєктує архітектуру систем і свідомості. Ліза проводить трансформаційні процеси напряму. ir4 \u2014 методологія, побудована для незалежної верифікації: якщо вимірювані результати відсутні, модель оновлюється. Це наука, не віра. Перевіряйте.'
 },
 'index.qa.q6': {
   ru: 'Мне нужно быть на камеру? Показывать себя?',
@@ -564,9 +564,9 @@ var T = {
   ua: 'Мені потрібно бути на камеру? Показувати себе?'
 },
 'index.qa.a6': {
-  ru: 'Нет. OnlyFans — платформа доставки, не формат участия. Вы — участник поля, не автор канала. Ваша приватность полностью в Ваших руках. Мы не просим ничего, кроме честного присутствия.',
-  en: 'No. OnlyFans is the delivery platform, not the participation format. You\'re a field participant, not a channel creator. Your privacy is entirely in your hands. We ask for nothing but honest presence.',
-  ua: 'Ні. OnlyFans — платформа доставки, не формат участі. Ви — учасник поля, не автор каналу. Ваша приватність повністю у Ваших руках. Ми не просимо нічого, крім чесної присутності.'
+  ru: 'Нет. OnlyFans выбран как инфраструктура: DRM-защита контента, 20+ способов оплаты, 190+ стран, встроенное управление подписками. Техническое решение, не идеологическое. Вы \u2014 участник поля, не создатель контента. Полная анонимность возможна и поддерживается.',
+  en: 'No. OnlyFans was chosen as infrastructure: content DRM protection, 20+ payment methods, 190+ countries, built-in subscription management. A technical decision, not an ideological one. You are a field participant, not a content creator. Full anonymity is possible and supported.',
+  ua: 'Ні. OnlyFans обрано як інфраструктуру: DRM-захист контенту, 20+ способів оплати, 190+ країн, вбудоване управління підписками. Технічне рішення, не ідеологічне. Ви \u2014 учасник поля, не творець контенту. Повна анонімність можлива і підтримується.'
 },
 'index.qa.q7': {
   ru: 'У меня есть духовная практика. Зачем мне ещё одно сообщество?',
@@ -574,9 +574,9 @@ var T = {
   ua: 'У мене є духовна практика. Навіщо мені ще одна спільнота?'
 },
 'index.qa.a7': {
-  ru: 'Практика в одиночестве — это тренировка. Практика в поле — это жизнь. Большинство сообществ предлагают знания. Мы предлагаем среду, в которой знания становятся состоянием. Разница — как между чтением о плавании и океаном.',
-  en: 'Practice alone is training. Practice in the field is life. Most communities offer knowledge. We offer an environment where knowledge becomes a state of being. The difference is like reading about swimming versus the ocean.',
-  ua: 'Практика наодинці — це тренування. Практика в полі — це життя. Більшість спільнот пропонують знання. Ми пропонуємо середовище, в якому знання стають станом. Різниця — як між читанням про плавання та океаном.'
+  ru: 'Одиночная практика ограничена пропускной способностью одной нервной системы \u2014 один мозг, один набор осцилляторов, один потолок частот. Связанные осцилляторы порождают частоты, недоступные каждому по отдельности (Strogatz, Sync, 2003). Это принцип эмерджентности в сложных системах: свойства целого несводимы к сумме частей. Одна скрипка не может взять аккорд. Social Baseline Theory подтверждает: ко-регуляция \u2014 биологический дефолт, одиночная обработка \u2014 отклонение, которое мозг компенсирует ценой повышенного расхода ресурсов.',
+  en: 'Solo practice is limited by the bandwidth of a single nervous system \u2014 one brain, one set of oscillators, one frequency ceiling. Coupled oscillators generate frequencies inaccessible to each individually (Strogatz, Sync, 2003). This is the principle of emergence in complex systems: properties of the whole are irreducible to the sum of parts. A single violin cannot play a chord. Social Baseline Theory confirms: co-regulation is the biological default; solo processing is a deviation the brain compensates for at increased resource cost.',
+  ua: 'Одиночна практика обмежена пропускною здатністю однієї нервової системи \u2014 один мозок, один набір осциляторів, одна стеля частот. Зв\u2019язані осцилятори породжують частоти, недоступні кожному окремо (Strogatz, Sync, 2003). Це принцип емерджентності у складних системах: властивості цілого незвідні до суми частин. Одна скрипка не може взяти акорд. Social Baseline Theory підтверджує: ко-регуляція \u2014 біологічний дефолт, одиночна обробка \u2014 відхилення, яке мозок компенсує ціною підвищеного витрачання ресурсів.'
 },
 'index.qa.q8': {
   ru: 'Чем это отличается от других сообществ осознанности?',
@@ -584,9 +584,9 @@ var T = {
   ua: 'Чим це відрізняється від інших спільнот усвідомленості?'
 },
 'index.qa.a8': {
-  ru: 'Мы не называем себя духовными. Здесь нет мантр, свечей и благостных улыбок. Есть радикальная честность, экономика внимания и AI-инфраструктура, которая делает невидимое — измеримым. Если Вам нужны «высокие вибрации» — это не сюда. Если Вам нужно настоящее — добро пожаловать.',
-  en: 'We don\'t call ourselves spiritual. There are no mantras, candles, or blissful smiles here. There\'s radical honesty, an attention economy, and AI infrastructure that makes the invisible measurable. If you need "high vibrations" — this isn\'t the place. If you need the real thing — welcome.',
-  ua: 'Ми не називаємо себе духовними. Тут немає мантр, свічок і блаженних посмішок. Є радикальна чесність, економіка уваги та AI-інфраструктура, яка робить невидиме — вимірюваним. Якщо Вам потрібні «високі вібрації» — це не сюди. Якщо Вам потрібне справжнє — ласкаво просимо.'
+  ru: 'Критерием демаркации. Большинство сообществ осознанности построены на нефальсифицируемых утверждениях \u2014 субъективная валидация, нет механизма опровержения (Поппер, 1959). Здесь: если когерентность поля не растёт измеримо \u2014 методология обновляется. AI-инфраструктура квантифицирует то, что другие оставляют на уровне ощущений. Мы не просим верить. Мы предъявляем данные. Если данные не убеждают \u2014 значит, модель ещё не доработана, а не «вы просто не чувствуете».',
+  en: 'The criterion of demarcation. Most consciousness communities are built on unfalsifiable claims \u2014 subjective validation, no mechanism for disproof (Popper, 1959). Here: if field coherence doesn\u2019t grow measurably, the methodology updates. AI infrastructure quantifies what others leave at the level of feelings. We don\u2019t ask you to believe. We present data. If the data isn\u2019t convincing, the model needs refinement \u2014 not \u201Cyou just don\u2019t feel it.\u201D',
+  ua: 'Критерієм демаркації. Більшість спільнот усвідомленості побудовані на нефальсифіковних твердженнях \u2014 суб\u2019єктивна валідація, немає механізму спростування (Поппер, 1959). Тут: якщо когерентність поля не зростає вимірювано \u2014 методологія оновлюється. AI-інфраструктура квантифікує те, що інші залишають на рівні відчуттів. Ми не просимо вірити. Ми пред\u2019являємо дані. Якщо дані не переконують \u2014 значить, модель ще не доопрацьована, а не «ви просто не відчуваєте».'
 },
 'index.qa.q9': {
   ru: 'Можно сначала попробовать?',
@@ -594,9 +594,9 @@ var T = {
   ua: 'Можна спочатку спробувати?'
 },
 'index.qa.a9': {
-  ru: 'Нет. И это не жадность — это уважение к полю. Человек, который входит «посмотреть», приносит энергию наблюдателя. Это разрушает пространство для тех, кто вложился. Ваш входной билет — это инвестиция в собственную серьёзность. Поле чувствует разницу.',
-  en: 'No. And it\'s not greed — it\'s respect for the field. A person who enters "to look around" brings observer energy. That disrupts the space for those who\'ve invested. Your entry ticket is an investment in your own seriousness. The field feels the difference.',
-  ua: 'Ні. І це не жадібність — це повага до поля. Людина, яка входить «подивитися», приносить енергію спостерігача. Це руйнує простір для тих, хто вклався. Ваш вхідний квиток — це інвестиція у власну серйозність. Поле відчуває різницю.'
+  ru: 'Нет. Это не жадность \u2014 это управление когерентностью. Хоторнский эффект (Mayo, Western Electric, 1924\u20131932): присутствие наблюдателя изменяет поведение системы. Человек без вложения вносит декогеренцию в когерентную группу \u2014 снижает отношение сигнал/шум для всех. Нейрофизиологически: уровень вовлечённости префронтальной коры прямо коррелирует с величиной инвестиции (commitment bias). Пробный доступ порождает поверхностную обработку. Поле требует глубины.',
+  en: 'No. This isn\u2019t greed \u2014 it\u2019s coherence management. The Hawthorne effect (Mayo, Western Electric, 1924\u20131932): an observer\u2019s presence changes system behavior. A person without investment introduces decoherence into a coherent group \u2014 reducing the signal-to-noise ratio for everyone. Neurophysiologically: prefrontal cortex engagement directly correlates with investment magnitude (commitment bias). Trial access produces shallow processing. The field requires depth.',
+  ua: 'Ні. Це не жадібність \u2014 це управління когерентністю. Хоторнський ефект (Mayo, Western Electric, 1924\u20131932): присутність спостерігача змінює поведінку системи. Людина без вкладення вносить декогеренцію в когерентну групу \u2014 знижує відношення сигнал/шум для всіх. Нейрофізіологічно: рівень залученості префронтальної кори прямо корелює з величиною інвестиції (commitment bias). Пробний доступ породжує поверхневу обробку. Поле вимагає глибини.'
 },
 'index.qa.q10': {
   ru: 'Нужно ли сначала пройти курс Мы.Боги?',
@@ -604,9 +604,9 @@ var T = {
   ua: 'Чи потрібно спочатку пройти курс Ми.Боги?'
 },
 'index.qa.a10': {
-  ru: 'Курс — это двухмесячная настройка перед входом в поле. Большинство участников OnlyGods прошли его. Но это не единственный путь. Если Вы чувствуете, что готовы — напишите нам. Мы поговорим и поймём вместе.',
-  en: 'The course is a two-month calibration before entering the field. Most OnlyGods participants have completed it. But it\'s not the only path. If you feel ready — write to us. We\'ll talk and figure it out together.',
-  ua: 'Курс — це двомісячне налаштування перед входом у поле. Більшість учасників OnlyGods пройшли його. Але це не єдиний шлях. Якщо Ви відчуваєте, що готові — напишіть нам. Ми поговоримо і зрозуміємо разом.'
+  ru: 'В электротехнике максимальная передача мощности происходит при согласовании импеданса \u2014 когда сопротивление источника равно сопротивлению нагрузки. Курс «Мы.Боги» \u2014 это двухмесячная калибровка вашей системы под рабочую частоту поля. Без согласования энергия отражается вместо того, чтобы передаваться. Большинство участников OnlyGods прошли этот путь. Но он не единственный \u2014 свяжитесь с нами для оценки совместимости.',
+  en: 'In electrical engineering, maximum power transfer occurs when impedance is matched \u2014 when source resistance equals load resistance. The We.Gods course is a two-month calibration of your system to the field\u2019s operating frequency. Without matching, energy reflects instead of transferring. Most OnlyGods participants have taken this path. But it\u2019s not the only one \u2014 contact us for a compatibility assessment.',
+  ua: 'В електротехніці максимальна передача потужності відбувається при узгодженні імпедансу \u2014 коли опір джерела дорівнює опору навантаження. Курс «Ми.Боги» \u2014 це двомісячна калібровка вашої системи під робочу частоту поля. Без узгодження енергія відбивається замість того, щоб передаватися. Більшість учасників OnlyGods пройшли цей шлях. Але він не єдиний \u2014 зв\u2019яжіться з нами для оцінки сумісності.'
 },
 
 // ─── JOIN SECTION ───
