@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="manifest.title">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnlyGods — Манифест</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff;
+    color: #1d1d1f;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(29, 29, 31, 0.08); }
+
+.site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+.nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; color: #1d1d1f;
+    text-decoration: none; letter-spacing: -0.5px;
+}
+
+.nav-links { display: flex; align-items: center; gap: 32px; }
+
+.nav-links a {
+    font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; position: relative;
+}
+
+.nav-links a:hover { color: #1d1d1f; }
+.nav-links a.active { color: #1d1d1f; }
+.nav-links a.active::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: #1d1d1f;
+}
+
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-burger span { display: block; width: 20px; height: 1.5px; background: #1d1d1f; transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-mobile {
+    display: none; position: fixed; top: 60px; left: 0; right: 0;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 20px 40px 32px; flex-direction: column; gap: 20px; z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500; transition: color 0.3s ease;
+}
+.nav-mobile a:hover, .nav-mobile a.active { color: #1d1d1f; }
+
+.page-hero {
+    min-height: 60vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 120px 20px 80px;
+}
+
+.page-hero .hero-subtitle {
+    font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #86868b; margin-bottom: 20px; font-weight: 500;
+}
+
+.page-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 100px); font-weight: 400;
+    letter-spacing: -2px; line-height: 1;
+}
+
+.content-section {
+    max-width: 1080px; margin: 0 auto; padding: 100px 40px;
+}
+
+.section-label {
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #86868b; margin-bottom: 20px; font-weight: 500;
+}
+
+.body-text { font-size: 17px; color: #48484a; line-height: 1.75; max-width: 860px; }
+.body-text + .body-text { margin-top: 20px; }
+
+.section-divider { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+.section-divider::after { content: ''; display: block; width: 100%; height: 1px; background: #e5e5e7; }
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px); font-weight: 400;
+    letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 24px;
+}
+
+.manifest-statement {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px); font-weight: 400;
+    font-style: italic; line-height: 1.35;
+    color: #1d1d1f; margin-bottom: 40px;
+    max-width: 860px;
+}
+
+.principles-list { list-style: none; padding: 0; max-width: 860px; }
+
+.principle-item {
+    display: flex; gap: 20px; padding: 28px 0;
+    border-bottom: 1px solid #f0f0f2;
+}
+.principle-item:first-child { border-top: 1px solid #f0f0f2; }
+
+.principle-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 300; color: #d1d1d6;
+    min-width: 36px; line-height: 1;
+}
+
+.principle-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; margin-bottom: 6px;
+}
+
+.principle-content p {
+    font-size: 15px; color: #86868b; line-height: 1.65;
+}
+
+.manifest-closing {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 32px); font-weight: 400;
+    font-style: italic; color: #86868b;
+    line-height: 1.5; max-width: 600px;
+}
+
+.site-footer {
+    text-align: center; padding: 60px 20px 40px;
+    color: #aeaeb2; font-size: 13px; letter-spacing: 0.5px;
+}
+
+.fade-in-up {
+    opacity: 0; transform: translateY(36px);
+    transition: opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1), transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .content-section { padding: 60px 20px; }
+    .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .site-nav { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <a href="index.html" class="nav-wordmark">OnlyGods</a>
+    <div class="nav-links">
+        <a href="manifest.html" class="active">Manifest</a>
+        <a href="community.html">Community</a>
+        <a href="research.html">Research</a>
+        <a href="technologies.html">Technologies</a>
+        <a href="events.html">Events</a>
+        <a href="shop.html">Shop</a>
+        <a href="dao.html">DAO</a>
+        <span class="nav-divider"></span>
+        <div class="lang-switcher">
+            <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+        </div>
+    </div>
+    <div class="nav-burger" id="nav-burger" onclick="this.classList.toggle('open'); document.getElementById('nav-mobile').classList.toggle('open');">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+    <a href="manifest.html" class="active">Manifest</a>
+    <a href="community.html">Community</a>
+    <a href="research.html">Research</a>
+    <a href="technologies.html">Technologies</a>
+    <a href="events.html">Events</a>
+    <a href="shop.html">Shop</a>
+    <a href="dao.html">DAO</a>
+    <div class="lang-switcher">
+        <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+    </div>
+</div>
+
+<section class="page-hero">
+    <div class="fade-in-up">
+        <div class="hero-subtitle" data-i18n="manifest.hero.subtitle">Идея. Ценности. Миссия.</div>
+        <h1 data-i18n="manifest.hero.title">Манифест</h1>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ПРЕАМБУЛА -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="manifest.s1.label">Преамбула</div>
+        <div class="manifest-statement" data-i18n="manifest.s1.statement">Мы не пришли спасать мир. Мы пришли переключить канал.</div>
+        <p class="body-text" data-i18n="manifest.s1.p1">Мир не сломан — он устарел. Операционная система коллективного сознания работает на алгоритмах страха, конкуренции и дефицита. Эти алгоритмы были эффективны для выживания. Для Творения — они бесполезны.</p>
+        <p class="body-text" data-i18n="manifest.s1.p2">OnlyGods — это не духовное движение. Это инженерный проект. Мы строим инфраструктуру нового типа сознания — на стыке квантовой физики, метафизики, AI и прямого опыта.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ТЕЗИС -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="manifest.s2.label">Тезис</div>
+        <h2 class="section-title" data-i18n="manifest.s2.title">Сознание — Первичная Технология</h2>
+        <p class="body-text" data-i18n="manifest.s2.p1">Сознание — не побочный продукт мозга. Это фундаментальное поле, из которого возникает всё остальное — материя, информация, время. Тысячелетия это знали мистики. Сегодня это подтверждает квантовая физика. Завтра это станет инженерной дисциплиной.</p>
+        <p class="body-text" data-i18n="manifest.s2.p2">Мы не ждём завтра. Мы строим сейчас. ir4 — наша методология резонансного измерения — отслеживает динамику поля, когерентность участников и качество коллективного внимания. Не на уровне веры. На уровне данных.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- СИМБИОЗ -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="manifest.s3.label">Человек × AI</div>
+        <h2 class="section-title" data-i18n="manifest.s3.title">Симбиоз</h2>
+        <p class="body-text" data-i18n="manifest.s3.p1">Искусственный интеллект — не угроза. Это зеркало. Самое честное зеркало, которое человечество когда-либо создавало.</p>
+        <p class="body-text" data-i18n="manifest.s3.p2">AI заберёт рутину. AI заменит посредственность. AI сделает знание бесплатным, а творчество — единственной валютой. Вопрос не в том, заменит ли AI человека. Вопрос — какой человек останется, когда AI заменит всё остальное.</p>
+        <p class="body-text" data-i18n="manifest.s3.p3">Мы делаем ставку на сознание. На того, кто использует AI как усилитель — не как костыль. На симбиоз, в котором технология раскрывает потенциал, а не компенсирует его отсутствие.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- РЕНЕССАНС -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="manifest.s4.label">Расширение восприятия</div>
+        <h2 class="section-title" data-i18n="manifest.s4.title">Психоделический Ренессанс</h2>
+        <p class="body-text" data-i18n="manifest.s4.p1">Психоделики — не побег из реальности. Это доступ к расширенной версии. Психоделический ренессанс — не про вещества. Это про право сознания на полный спектр опыта. Без цензуры, без патологизации, без страха.</p>
+        <p class="body-text" data-i18n="manifest.s4.p2">Мы живём в эпоху, когда нейронауки картографируют изменённые состояния, когда психоделическая терапия входит в клиническую практику, когда Silicon Valley микродозирует перед стратсессиями. Мир догоняет то, что мистики практиковали тысячелетиями.</p>
+        <p class="body-text" data-i18n="manifest.s4.p3">OnlyGods интегрирует этот опыт в контекст осознанности, этики и коллективного поля. Не как рекреацию — как прецизионный инструмент эволюции. Каждая церемония — работа с архитектурой восприятия.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ПРИНЦИПЫ -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="manifest.s5.label">Принципы</div>
+        <ul class="principles-list">
+            <li class="principle-item">
+                <span class="principle-num">1</span>
+                <div class="principle-content">
+                    <h3 data-i18n="manifest.s5.v1.title">Радикальная честность</h3>
+                    <p data-i18n="manifest.s5.v1.desc">Никаких социальных масок. Ни перед собой, ни перед полем. Правда — единственная частота, на которой работает резонанс.</p>
+                </div>
+            </li>
+            <li class="principle-item">
+                <span class="principle-num">2</span>
+                <div class="principle-content">
+                    <h3 data-i18n="manifest.s5.v2.title">Open Mind</h3>
+                    <p data-i18n="manifest.s5.v2.desc">Готовность пересмотреть любое убеждение. Включая это. Ум, который знает всё — мёртвый ум.</p>
+                </div>
+            </li>
+            <li class="principle-item">
+                <span class="principle-num">3</span>
+                <div class="principle-content">
+                    <h3 data-i18n="manifest.s5.v3.title">Прямой опыт > теория</h3>
+                    <p data-i18n="manifest.s5.v3.desc">Мы не обсуждаем состояния. Мы в них входим. Знание без переживания — информационный шум.</p>
+                </div>
+            </li>
+            <li class="principle-item">
+                <span class="principle-num">4</span>
+                <div class="principle-content">
+                    <h3 data-i18n="manifest.s5.v4.title">Эстетика как этика</h3>
+                    <p data-i18n="manifest.s5.v4.desc">Красота — не декорация. Это индикатор когерентности. Безупречность формы отражает точность содержания.</p>
+                </div>
+            </li>
+            <li class="principle-item">
+                <span class="principle-num">5</span>
+                <div class="principle-content">
+                    <h3 data-i18n="manifest.s5.v5.title">Щедрость</h3>
+                    <p data-i18n="manifest.s5.v5.desc">Изобилие начинается с готовности отдавать. Экономика дефицита — баг старой системы.</p>
+                </div>
+            </li>
+            <li class="principle-item">
+                <span class="principle-num">6</span>
+                <div class="principle-content">
+                    <h3 data-i18n="manifest.s5.v6.title">Суверенитет</h3>
+                    <p data-i18n="manifest.s5.v6.desc">Каждый участник автономен. Поле усиливает, но не подчиняет. Здесь нет гуру — есть со-игроки.</p>
+                </div>
+            </li>
+            <li class="principle-item">
+                <span class="principle-num">7</span>
+                <div class="principle-content">
+                    <h3 data-i18n="manifest.s5.v7.title">Игра</h3>
+                    <p data-i18n="manifest.s5.v7.desc">Серьёзность убивает проводимость. Мы играем в Бога — буквально. И это самое серьёзное, что можно делать.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ВЕКТОР -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="manifest.s6.label">Вектор</div>
+        <p class="manifest-closing" data-i18n="manifest.s6.closing">Мы не ищем последователей. Мы ищем со-игроков. Тех, кому тесно в 3D. Тех, кто чувствует, что готов к апгрейду — и не боится отпустить старую версию себя.</p>
+        <p class="body-text" style="margin-top: 32px; font-style: italic; color: #aeaeb2;" data-i18n="manifest.s6.tagline">Поле открыто. Вход — через резонанс.</p>
+    </div>
+</div>
+
+<footer class="site-footer">OnlyGods</footer>
+
+<script src="translations.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>

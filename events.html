@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="events.title">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnlyGods — Events</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff; color: #1d1d1f;
+    overflow-x: hidden; scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(29, 29, 31, 0.08); }
+
+.site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+.nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; color: #1d1d1f;
+    text-decoration: none; letter-spacing: -0.5px;
+}
+
+.nav-links { display: flex; align-items: center; gap: 32px; }
+
+.nav-links a {
+    font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; position: relative;
+}
+.nav-links a:hover { color: #1d1d1f; }
+.nav-links a.active { color: #1d1d1f; }
+.nav-links a.active::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: #1d1d1f;
+}
+
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-burger span { display: block; width: 20px; height: 1.5px; background: #1d1d1f; transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-mobile {
+    display: none; position: fixed; top: 60px; left: 0; right: 0;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 20px 40px 32px; flex-direction: column; gap: 20px; z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500; transition: color 0.3s ease;
+}
+.nav-mobile a:hover, .nav-mobile a.active { color: #1d1d1f; }
+
+.page-hero {
+    min-height: 50vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 120px 20px 60px;
+}
+
+.page-hero .hero-subtitle {
+    font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #86868b; margin-bottom: 20px; font-weight: 500;
+}
+
+.page-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 100px); font-weight: 400;
+    letter-spacing: -2px; line-height: 1;
+}
+
+.page-hero .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.2vw, 22px); color: #86868b;
+    max-width: 500px; line-height: 1.5; font-weight: 400;
+    font-style: italic; margin-top: 20px;
+}
+
+.content-section { max-width: 1080px; margin: 0 auto; padding: 100px 40px; }
+
+.section-label {
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #86868b; margin-bottom: 20px; font-weight: 500;
+}
+
+.section-divider { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+.section-divider::after { content: ''; display: block; width: 100%; height: 1px; background: #e5e5e7; }
+
+.video-section { max-width: 1080px; margin: 0 auto; padding: 40px 40px 0; }
+
+.video-container {
+    width: 100%; aspect-ratio: 16 / 9;
+    background: #000000; border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; position: relative;
+}
+
+.video-container .video-placeholder {
+    color: #48484a; font-size: 14px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+}
+
+.body-text { font-size: 17px; color: #48484a; line-height: 1.75; max-width: 860px; }
+
+.site-footer {
+    text-align: center; padding: 60px 20px 40px;
+    color: #aeaeb2; font-size: 13px; letter-spacing: 0.5px;
+}
+
+.fade-in-up {
+    opacity: 0; transform: translateY(36px);
+    transition: opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1), transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .content-section { padding: 60px 20px; }
+    .video-section { padding: 20px 20px 0; }
+    .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .site-nav { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <a href="index.html" class="nav-wordmark">OnlyGods</a>
+    <div class="nav-links">
+        <a href="manifest.html">Manifest</a>
+        <a href="community.html">Community</a>
+        <a href="research.html">Research</a>
+        <a href="technologies.html">Technologies</a>
+        <a href="events.html" class="active">Events</a>
+        <a href="shop.html">Shop</a>
+        <a href="dao.html">DAO</a>
+        <span class="nav-divider"></span>
+        <div class="lang-switcher">
+            <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+        </div>
+    </div>
+    <div class="nav-burger" id="nav-burger" onclick="this.classList.toggle('open'); document.getElementById('nav-mobile').classList.toggle('open');">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+    <a href="manifest.html">Manifest</a>
+    <a href="community.html">Community</a>
+    <a href="research.html">Research</a>
+    <a href="technologies.html">Technologies</a>
+    <a href="events.html" class="active">Events</a>
+    <a href="shop.html">Shop</a>
+    <a href="dao.html">DAO</a>
+    <div class="lang-switcher">
+        <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+    </div>
+</div>
+
+<section class="page-hero">
+    <div class="fade-in-up">
+        <div class="hero-subtitle" data-i18n="events.hero.subtitle">Прямой опыт</div>
+        <h1 data-i18n="events.hero.title">Direct Experience</h1>
+        <p class="hero-tagline" data-i18n="events.hero.tagline">Живые трансляции и события объединённого сознания</p>
+    </div>
+</section>
+
+<div class="video-section fade-in-up">
+    <div class="video-container">
+        <!-- Replace with iframe: <iframe src="YOUR_STREAM_URL" frameborder="0" allowfullscreen style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe> -->
+        <span class="video-placeholder" data-i18n="events.video.placeholder">Streaming / Video</span>
+    </div>
+</div>
+
+<div class="section-divider" style="margin-top: 60px;"></div>
+
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="events.about.label">О трансляциях</div>
+        <p class="body-text" data-i18n="events.about.text">
+            Пространство прямого переживания. Здесь происходят живые сессии, групповые практики
+            и трансляции, где участники входят в поле объединённого сознания в реальном времени.
+        </p>
+    </div>
+</div>
+
+<footer class="site-footer">OnlyGods</footer>
+
+<script src="translations.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>
