@@ -56,6 +56,14 @@ body, html {
 .nav-burger.open span:nth-child(2) { opacity: 0; }
 .nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
+.nav-join {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 16px; border: 1px solid #1d1d1f; border-radius: 20px;
+    color: #1d1d1f; text-decoration: none; font-weight: 500;
+    margin-left: 16px; margin-right: auto; transition: all 0.3s ease;
+}
+.nav-join:hover { background: #1d1d1f; color: #ffffff; }
+
 .nav-mobile {
     display: none; position: fixed; top: 60px; left: 0; right: 0;
     background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
@@ -143,14 +151,12 @@ body, html {
 
 <nav class="site-nav">
     <a href="index.html" class="nav-wordmark">OnlyGods</a>
+    <a href="index.html#join" class="nav-join" data-i18n="nav.join">Join</a>
     <div class="nav-links">
         <a href="manifest.html">Manifest</a>
-        <a href="community.html">Community</a>
-        <a href="research.html">Publications</a>
         <a href="technologies.html">Technologies</a>
-        <a href="events.html" class="active">Events</a>
-        <a href="shop.html">Shop</a>
-        <a href="roadmap.html">Roadmap</a>
+        <a href="community.html">Creators</a>
+        <a href="research.html">Publications</a>
         <a href="quantumlab.html">Quantum Lab</a>
         <a href="dao.html">DAO</a>
         <span class="nav-divider"></span>
@@ -168,12 +174,9 @@ body, html {
 </nav>
 <div class="nav-mobile" id="nav-mobile">
     <a href="manifest.html">Manifest</a>
-    <a href="community.html">Community</a>
-    <a href="research.html">Publications</a>
     <a href="technologies.html">Technologies</a>
-    <a href="events.html" class="active">Events</a>
-    <a href="shop.html">Shop</a>
-    <a href="roadmap.html">Roadmap</a>
+    <a href="community.html">Creators</a>
+    <a href="research.html">Publications</a>
     <a href="quantumlab.html">Quantum Lab</a>
     <a href="dao.html">DAO</a>
     <div class="lang-switcher">

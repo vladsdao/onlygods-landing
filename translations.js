@@ -19,6 +19,9 @@ document.head.appendChild(s);
 // === TRANSLATIONS ===
 var T = {
 
+// ─── NAV ───
+'nav.join': { ru: 'Вступить', en: 'Join', ua: 'Вступити' },
+
 // ─── PAGE TITLES ───
 'index.title': {
   ru: 'OnlyGods — Резонансная Сеть Объединенного Сознания',
