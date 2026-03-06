@@ -36,9 +36,9 @@ var T = {
   ua: 'OnlyGods — Community'
 },
 'research.title': {
-  ru: 'OnlyGods — Research',
-  en: 'OnlyGods — Research',
-  ua: 'OnlyGods — Research'
+  ru: 'OnlyGods — Publications',
+  en: 'OnlyGods — Publications',
+  ua: 'OnlyGods — Publications'
 },
 'technologies.title': {
   ru: 'OnlyGods — Technologies',
@@ -844,9 +844,9 @@ var T = {
   ua: 'Дослідження та публікації'
 },
 'research.hero.title': {
-  ru: 'Research',
-  en: 'Research',
-  ua: 'Research'
+  ru: 'Publications',
+  en: 'Publications',
+  ua: 'Publications'
 },
 'research.featured.date': {
   ru: '2026',
