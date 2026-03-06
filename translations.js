@@ -1450,59 +1450,74 @@ var T = {
 'meta.sources.label': { ru: 'Источники', en: 'Sources', ua: 'Джерела' },
 'meta.back': { ru: '← Technologies', en: '← Technologies', ua: '← Technologies' },
 
-// ─── ROADMAP PAGE ───
+// ─── ROADMAP PAGE (interactive scroll timeline) ───
 'roadmap.title': { ru: 'OnlyGods — Roadmap', en: 'OnlyGods — Roadmap', ua: 'OnlyGods — Roadmap' },
-'roadmap.hero.subtitle': { ru: 'Карта пути', en: 'The Path', ua: 'Карта шляху' },
-'roadmap.hero.title': { ru: 'Roadmap', en: 'Roadmap', ua: 'Roadmap' },
-'roadmap.hero.tagline': {
-  ru: 'Ключевые моменты, которые привели нас сюда — и точки, куда мы идём',
-  en: 'Key moments that brought us here — and where we are headed',
-  ua: 'Ключові моменти, що привели нас сюди — і точки, куди ми йдемо'
+'roadmap.arrow.past': { ru: '\u2191 Прошлое', en: '\u2191 Past', ua: '\u2191 Минуле' },
+'roadmap.arrow.future': { ru: 'Будущее \u2193', en: 'Future \u2193', ua: 'Майбутнє \u2193' },
+'roadmap.center.quote': {
+  ru: '\u00ABВыбери то, что движет тобой сильнее всего, и следуй за этим\u00BB',
+  en: '\u00ABChoose what drives you the most and follow it\u00BB',
+  ua: '\u00ABОбери те, що рухає тобою найсильніше, і йди за цим\u00BB'
 },
-'roadmap.e1.label': { ru: 'Начало', en: 'Origin', ua: 'Початок' },
-'roadmap.e1.title': {
-  ru: 'Рождение идеи',
-  en: 'Birth of the Idea',
-  ua: 'Народження ідеї'
+'roadmap.past.2020': {
+  ru: 'Первый опыт с изменёнными состояниями сознания.',
+  en: 'First experiences with altered states of consciousness.',
+  ua: 'Перший досвід зі зміненими станами свідомості.'
 },
-'roadmap.e1.text': {
-  ru: 'Момент, когда стало ясно: индивидуальное сознание имеет потолок. Нужна инфраструктура для коллективного поля.',
-  en: 'The moment it became clear: individual consciousness has a ceiling. Infrastructure for a collective field was needed.',
-  ua: 'Момент, коли стало зрозуміло: індивідуальна свідомість має стелю. Потрібна інфраструктура для колективного поля.'
+'roadmap.past.2021': {
+  ru: 'Систематическое изучение герметических принципов.',
+  en: 'Systematic study of hermetic principles begins.',
+  ua: 'Систематичне вивчення герметичних принципів.'
 },
-'roadmap.e2.label': { ru: 'Формирование', en: 'Formation', ua: 'Формування' },
-'roadmap.e2.title': {
-  ru: 'Первое поле',
-  en: 'First Field',
-  ua: 'Перше поле'
+'roadmap.past.2022': {
+  ru: 'Встреча с Лизой. Два поля сливаются в одно.',
+  en: 'Meeting Liza. Two fields merge into one.',
+  ua: 'Зустріч з Лізою. Два поля зливаються в одне.'
 },
-'roadmap.e2.text': {
-  ru: 'Мы.Боги. Первая когорта. Первый опыт управляемого эгрегора. ir4 методология v0.',
-  en: 'We.Gods. First cohort. First experience of a managed egregore. ir4 methodology v0.',
-  ua: 'Ми.Боги. Перша когорта. Перший досвід керованого егрегора. ir4 методологія v0.'
+'roadmap.past.2023': {
+  ru: 'Первые эксперименты с сообществом. Proof of concept.',
+  en: 'First community experiments. Proof of concept.',
+  ua: 'Перші експерименти зі спільнотою. Proof of concept.'
 },
-'roadmap.e3.label': { ru: 'Масштабирование', en: 'Scaling', ua: 'Масштабування' },
-'roadmap.e3.title': {
-  ru: 'OnlyGods запуск',
-  en: 'OnlyGods Launch',
-  ua: 'OnlyGods запуск'
+'roadmap.past.2024': {
+  ru: 'Рождение идеи: индивидуальное сознание имеет потолок.',
+  en: 'Birth of the idea: individual consciousness has a ceiling.',
+  ua: 'Народження ідеї: індивідуальна свідомість має стелю.'
 },
-'roadmap.e3.text': {
-  ru: '300 подписчиков. Quantum Lab. Контентная экосистема. Мост между наукой и прямым опытом.',
-  en: '300 subscribers. Quantum Lab. Content ecosystem. A bridge between science and direct experience.',
-  ua: '300 підписників. Quantum Lab. Контентна екосистема. Міст між наукою та прямим досвідом.'
+'roadmap.past.2025': {
+  ru: 'Мы.Боги \u2014 первая когорта. ir4 методология v0.',
+  en: 'We.Gods first cohort. ir4 methodology v0.',
+  ua: 'Ми.Боги \u2014 перша когорта. ir4 методологія v0.'
 },
-'roadmap.e4.year': { ru: 'Далее', en: 'Next', ua: 'Далі' },
-'roadmap.e4.label': { ru: 'Горизонт', en: 'Horizon', ua: 'Горизонт' },
-'roadmap.e4.title': {
-  ru: 'Автономный эгрегор',
-  en: 'Autonomous Egregore',
-  ua: 'Автономний егрегор'
+'roadmap.future.2027': {
+  ru: 'Запуск исследовательской программы Quantum Lab.',
+  en: 'Quantum Lab research program launches.',
+  ua: 'Запуск дослідницької програми Quantum Lab.'
 },
-'roadmap.e4.text': {
-  ru: 'DaoDedo. Автономная экономика сознания. √1% — порог критической массы. 9000 когерентных сознаний меняют планетарное поле.',
-  en: 'DaoDedo. Autonomous consciousness economy. √1% — critical mass threshold. 9,000 coherent minds shift the planetary field.',
-  ua: 'DaoDedo. Автономна економіка свідомості. √1% — поріг критичної маси. 9000 когерентних свідомостей змінюють планетарне поле.'
+'roadmap.future.2028': {
+  ru: '300 подписчиков. Протоколы когерентности v1.',
+  en: '300 subscribers. Coherence protocols v1.',
+  ua: '300 підписників. Протоколи когерентності v1.'
+},
+'roadmap.future.2029': {
+  ru: 'DaoDedo \u2014 автономное управление запущено.',
+  en: 'DaoDedo autonomous governance goes live.',
+  ua: 'DaoDedo \u2014 автономне управління запущено.'
+},
+'roadmap.future.2030': {
+  ru: 'Критическая масса: 9 000 когерентных сознаний.',
+  en: 'Critical mass: 9,000 coherent minds.',
+  ua: 'Критична маса: 9 000 когерентних свідомостей.'
+},
+'roadmap.future.2035': {
+  ru: 'Планетарный сдвиг поля, измеримый через ir4.',
+  en: 'Planetary field shift measurable by ir4.',
+  ua: 'Планетарний зсув поля, вимірюваний через ir4.'
+},
+'roadmap.future.2067': {
+  ru: 'Автономный эгрегор. Самоподдерживающаяся сеть сознания.',
+  en: 'Autonomous egregore. Self-sustaining consciousness network.',
+  ua: 'Автономний егрегор. Самопідтримувана мережа свідомості.'
 },
 
 // ─── QUANTUM LAB PAGE ───
