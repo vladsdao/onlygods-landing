@@ -814,14 +814,14 @@ var T = {
 
 // ─── COMMUNITY PAGE ───
 'community.hero.subtitle': {
-  ru: 'Люди поля',
-  en: 'People of the Field',
-  ua: 'Люди поля'
+  ru: 'Архитекторы',
+  en: 'The Architects',
+  ua: 'Архітектори'
 },
 'community.hero.title': {
-  ru: 'Community',
-  en: 'Community',
-  ua: 'Community'
+  ru: 'Creators',
+  en: 'Creators',
+  ua: 'Creators'
 },
 'community.architects.label': {
   ru: 'Основатели', en: 'Founders', ua: 'Засновники'
