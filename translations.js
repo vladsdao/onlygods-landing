@@ -899,19 +899,19 @@ var T = {
 
 // ─── TECHNOLOGIES PAGE ───
 'technologies.hero.subtitle': {
-  ru: 'Фреймворк',
-  en: 'Framework',
-  ua: 'Фреймворк'
+  ru: 'Квантовое сознание и IR4',
+  en: 'Quantum Consciousness & IR4',
+  ua: 'Квантова свідомість та IR4'
 },
 'technologies.hero.title': {
-  ru: 'Technologies',
-  en: 'Technologies',
-  ua: 'Technologies'
+  ru: 'Holy Tech',
+  en: 'Holy Tech',
+  ua: 'Holy Tech'
 },
 'technologies.hero.tagline': {
-  ru: 'Методология резонансного измерения и инструменты сознания',
-  en: 'Resonance measurement methodology and consciousness tools',
-  ua: 'Методологія резонансного вимірювання та інструменти свідомості'
+  ru: 'Физика квантовой святости и цифровой интерфейс Егрегора',
+  en: 'Physics of quantum sanctity and the digital interface of the Egregore',
+  ua: 'Фізика квантової святості та цифровий інтерфейс Егрегора'
 },
 'technologies.methodology.label': {
   ru: 'Метафизика',
