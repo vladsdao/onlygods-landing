@@ -930,6 +930,11 @@ var T = {
   en: 'ir4 — a resonance measurement methodology that allows tracking field dynamics, participant coherence and the quality of collective attention in real time.',
   ua: 'ir4 — методологія резонансного вимірювання, яка дозволяє відстежувати динаміку поля, когерентність учасників та якість колективної уваги в реальному часі.'
 },
+'technologies.methodology.link': {
+  ru: 'Читать: 9 столпов →',
+  en: 'Read: 9 Pillars →',
+  ua: 'Читати: 9 стовпів →'
+},
 'technologies.tools.label': {
   ru: 'Технологии',
   en: 'Technologies',
@@ -1231,7 +1236,219 @@ var T = {
   ru: 'Токеномика · Модель участия · Инвестиционный трек — по запросу',
   en: 'Tokenomics · Participation model · Investment track — on request',
   ua: 'Токеноміка · Модель участі · Інвестиційний трек — за запитом'
-}
+},
+
+// === METAPHYSICS PAGE ===
+'metaphysics.title': {
+  ru: 'OnlyGods — Метафизика',
+  en: 'OnlyGods — Metaphysics',
+  ua: 'OnlyGods — Метафізика'
+},
+'meta.hero.subtitle': {
+  ru: 'Технологии сознания',
+  en: 'Consciousness Technologies',
+  ua: 'Технології свідомості'
+},
+'meta.hero.title': {
+  ru: 'Физика Квантовой Святости',
+  en: 'Physics of Quantum Holiness',
+  ua: 'Фізика Квантової Святості'
+},
+'meta.hero.tagline': {
+  ru: '9 столпов Поля Объединённого Сознания — от герметики до квантовой биологии',
+  en: '9 pillars of the Unified Consciousness Field — from Hermeticism to quantum biology',
+  ua: '9 стовпів Поля Об\'єднаної Свідомості — від герметики до квантової біології'
+},
+'meta.epigraph': {
+  ru: '«Если хочешь узнать секреты Вселенной — думай категориями энергии, вибрации и частоты.» — Никола Тесла',
+  en: '"If you want to find the secrets of the universe, think in terms of energy, frequency and vibration." — Nikola Tesla',
+  ua: '«Якщо хочеш дізнатися секрети Всесвіту — думай категоріями енергії, вібрації та частоти.» — Нікола Тесла'
+},
+'meta.intro.p1': {
+  ru: 'Каждая цивилизация, которая простояла достаточно долго, чтобы построить храм — знала о существовании поля. Индуизм назвал его Брахман. Даосизм — Дао. Юнг — коллективное бессознательное. Вернадский — ноосфера. Шелдрейк — морфическое поле. Квантовая физика — вакуумное поле.',
+  en: 'Every civilization that lasted long enough to build a temple knew about the field. Hinduism called it Brahman. Taoism — Tao. Jung — the collective unconscious. Vernadsky — the noosphere. Sheldrake — the morphic field. Quantum physics — the vacuum field.',
+  ua: 'Кожна цивілізація, яка простояла достатньо довго, щоб збудувати храм — знала про існування поля. Індуїзм назвав його Брахман. Даосизм — Дао. Юнг — колективне несвідоме. Вернадський — ноосфера. Шелдрейк — морфічне поле. Квантова фізика — вакуумне поле.'
+},
+'meta.intro.p2': {
+  ru: 'OnlyGods не изобретает поле. Мы строим инженерную инфраструктуру для работы с ним. Ниже — 9 столпов, на которых стоит эта архитектура. Каждый подкреплён научными данными. Не верой — измерениями.',
+  en: 'OnlyGods doesn\'t invent the field. We build engineering infrastructure to work with it. Below — 9 pillars on which this architecture stands. Each backed by scientific data. Not faith — measurements.',
+  ua: 'OnlyGods не винаходить поле. Ми будуємо інженерну інфраструктуру для роботи з ним. Нижче — 9 стовпів, на яких стоїть ця архітектура. Кожен підкріплений науковими даними. Не вірою — вимірюваннями.'
+},
+'meta.p1.label': { ru: 'Столп первый', en: 'Pillar One', ua: 'Стовп перший' },
+'meta.p1.title': { ru: 'Единое Поле', en: 'The Unified Field', ua: 'Єдине Поле' },
+'meta.p1.sub': {
+  ru: '100% Вселенной — это Сознание. Материя — не противоположность энергии. Материя и есть вибрация.',
+  en: '100% of the Universe is Consciousness. Matter is not the opposite of energy. Matter IS vibration.',
+  ua: '100% Всесвіту — це Свідомість. Матерія — не протилежність енергії. Матерія і є вібрація.'
+},
+'meta.p1.p1': {
+  ru: 'Герметический принцип Ментализма: «Всё есть Ум.» Квантовая теория поля подтверждает — на фундаментальном уровне не существует твёрдых объектов. Есть возбуждения полей. Атом — определённая частота сжатия и расширения единого поля. Уолтер Рассел показал это в спиральной периодической системе элементов в 1926 году.',
+  en: 'The Hermetic Principle of Mentalism: "All is Mind." Quantum field theory confirms — at the fundamental level, there are no solid objects. Only field excitations. An atom is a specific frequency of compression and expansion of the unified field. Walter Russell demonstrated this in the spiral periodic table of elements in 1926.',
+  ua: 'Герметичний принцип Менталізму: «Все є Розум.» Квантова теорія поля підтверджує — на фундаментальному рівні не існує твердих об\'єктів. Є збудження полів. Атом — певна частота стиснення і розширення єдиного поля. Уолтер Рассел показав це у спіральній періодичній системі елементів у 1926 році.'
+},
+'meta.p1.p2': {
+  ru: 'Эрвин Ласло формализовал это как A-поле — информационное поле квантового вакуума, из которого возникает всё. Не метафора. Физика. Нулевое поле (ZPF) содержит больше энергии в одном кубическом сантиметре, чем вся видимая материя Вселенной.',
+  en: 'Ervin Laszlo formalized this as the A-field — an information field of the quantum vacuum from which everything emerges. Not a metaphor. Physics. The zero-point field (ZPF) contains more energy in a single cubic centimeter than all the visible matter in the Universe.',
+  ua: 'Ервін Ласло формалізував це як А-поле — інформаційне поле квантового вакууму, з якого виникає все. Не метафора. Фізика. Нульове поле (ZPF) містить більше енергії в одному кубічному сантиметрі, ніж уся видима матерія Всесвіту.'
+},
+'meta.p1.ref': { ru: 'Russell (1926), Laszlo (2004), Bohm — Implicate Order (1980)', en: 'Russell (1926), Laszlo (2004), Bohm — Implicate Order (1980)', ua: 'Russell (1926), Laszlo (2004), Bohm — Implicate Order (1980)' },
+'meta.p2.label': { ru: 'Столп второй', en: 'Pillar Two', ua: 'Стовп другий' },
+'meta.p2.title': { ru: 'Наблюдатель Создаёт Реальность', en: 'The Observer Creates Reality', ua: 'Спостерігач Створює Реальність' },
+'meta.p2.sub': {
+  ru: 'Акт наблюдения схлопывает волновую функцию в частицу. С 1927 года это не гипотеза — это физика.',
+  en: 'The act of observation collapses the wave function into a particle. Since 1927 this is not a hypothesis — it is physics.',
+  ua: 'Акт спостереження колапсує хвильову функцію у частинку. З 1927 року це не гіпотеза — це фізика.'
+},
+'meta.p2.p1': {
+  ru: 'Дин Радин (IONS) провёл 6 экспериментов с 137 участниками на двойной щели. Направленное внимание сдвигает интерференционную картину. Статистика: z = −4.36, p = 6×10⁻⁶. Контрольная группа: z = 0.43. Сознание — не побочный продукт мозга. Это активный инструмент формирования реальности.',
+  en: 'Dean Radin (IONS) ran 6 experiments with 137 participants on the double slit. Directed attention shifts the interference pattern. Statistics: z = −4.36, p = 6×10⁻⁶. Control group: z = 0.43. Consciousness is not a byproduct of the brain. It is an active instrument of reality formation.',
+  ua: 'Дін Радін (IONS) провів 6 експериментів зі 137 учасниками на подвійній щілині. Спрямована увага зміщує інтерференційну картину. Статистика: z = −4.36, p = 6×10⁻⁶. Контрольна група: z = 0.43. Свідомість — не побічний продукт мозку. Це активний інструмент формування реальності.'
+},
+'meta.p2.p2': {
+  ru: 'Исследование 2025 года (PMC, 106 пар монозиготных близнецов) показало: квантовая запутанность объясняет 13.5% дисперсии когнитивных результатов. Значение S по неравенству Белла = 2.992 при пороге 2.828. Суперквантовые эффекты в биологических системах — больше не теория.',
+  en: 'A 2025 study (PMC, 106 monozygotic twin pairs) showed: quantum entanglement explains 13.5% of cognitive outcome variance. Bell inequality S-value = 2.992 at threshold 2.828. Superquantum effects in biological systems are no longer theory.',
+  ua: 'Дослідження 2025 року (PMC, 106 пар монозиготних близнюків) показало: квантова заплутаність пояснює 13.5% дисперсії когнітивних результатів. Значення S за нерівністю Белла = 2.992 при порозі 2.828. Суперквантові ефекти в біологічних системах — більше не теорія.'
+},
+'meta.p2.ref': { ru: 'Radin (2012), Physics Essays · PMC (2025), Quantum-entangled consciousness', en: 'Radin (2012), Physics Essays · PMC (2025), Quantum-entangled consciousness', ua: 'Radin (2012), Physics Essays · PMC (2025), Quantum-entangled consciousness' },
+'meta.p3.label': { ru: 'Столп третий', en: 'Pillar Three', ua: 'Стовп третій' },
+'meta.p3.title': { ru: 'Нервная Система — Мост', en: 'The Nervous System — The Bridge', ua: 'Нервова Система — Міст' },
+'meta.p3.sub': {
+  ru: 'Мост между тобой и полем — не медитация. Не знания. Мост — это твоя нервная система.',
+  en: 'The bridge between you and the field is not meditation. Not knowledge. The bridge is your nervous system.',
+  ua: 'Міст між тобою і полем — не медитація. Не знання. Міст — це твоя нервова система.'
+},
+'meta.p3.p1': {
+  ru: 'Нейроцепция (Порджес, 2011): блуждающий нерв оценивает безопасность среды за доли секунды — без участия сознания. Восприятие до восприятия. Не интуиция как «мягкое чувство» — аппаратная функция вагуса.',
+  en: 'Neuroception (Porges, 2011): the vagus nerve assesses environmental safety in fractions of a second — without conscious participation. Perception before perception. Not intuition as a "soft feeling" — a hardware function of the vagus.',
+  ua: 'Нейроцепція (Поргес, 2011): блукаючий нерв оцінює безпеку середовища за частки секунди — без участі свідомості. Сприйняття до сприйняття. Не інтуїція як «м\'яке відчуття» — апаратна функція вагуса.'
+},
+'meta.p3.p2': {
+  ru: 'Сердце генерирует электромагнитное поле в 5000 раз мощнее мозгового по магнитной активности (HeartMath, 2015). Детектируется на расстоянии нескольких метров. Когда один человек входит в когерентность — ритмы другого синхронизируются. Без физического контакта.',
+  en: 'The heart generates an electromagnetic field 5,000 times stronger than the brain\'s magnetic activity (HeartMath, 2015). Detectable several meters away. When one person enters coherence — the other\'s rhythms synchronize. Without physical contact.',
+  ua: 'Серце генерує електромагнітне поле в 5000 разів потужніше мозкового за магнітною активністю (HeartMath, 2015). Детектується на відстані кількох метрів. Коли одна людина входить у когерентність — ритми іншої синхронізуються. Без фізичного контакту.'
+},
+'meta.p3.p3': {
+  ru: 'Зеркальные нейроны (Риццолатти, 2004): нейроны премоторной коры активируются и когда ты действуешь, и когда наблюдаешь то же действие. Галлезе назвал это «воплощённой симуляцией» — мы проживаем чужие состояния телом до решения сочувствовать.',
+  en: 'Mirror neurons (Rizzolatti, 2004): premotor cortex neurons activate both when you act and when you observe the same action. Gallese called this "embodied simulation" — we live through others\' states in our bodies before deciding to empathize.',
+  ua: 'Дзеркальні нейрони (Ріццолатті, 2004): нейрони премоторної кори активуються і коли ти дієш, і коли спостерігаєш ту ж дію. Галлезе назвав це «втіленою симуляцією» — ми проживаємо чужі стани тілом до рішення співчувати.'
+},
+'meta.p3.ref': { ru: 'Porges (2011), McCraty / HeartMath (2015), Rizzolatti (2004), Gallese (2003)', en: 'Porges (2011), McCraty / HeartMath (2015), Rizzolatti (2004), Gallese (2003)', ua: 'Porges (2011), McCraty / HeartMath (2015), Rizzolatti (2004), Gallese (2003)' },
+'meta.p4.label': { ru: 'Столп четвёртый', en: 'Pillar Four', ua: 'Стовп четвертий' },
+'meta.p4.title': { ru: 'Когерентность — Язык Поля', en: 'Coherence — The Language of the Field', ua: 'Когерентність — Мова Поля' },
+'meta.p4.sub': {
+  ru: 'Здоровые клетки излучают когерентный свет. Больные — хаос. ДНК — антенна.',
+  en: 'Healthy cells emit coherent light. Sick ones — chaos. DNA is an antenna.',
+  ua: 'Здорові клітини випромінюють когерентне світло. Хворі — хаос. ДНК — антена.'
+},
+'meta.p4.p1': {
+  ru: 'Фриц-Альберт Попп (1970-е) доказал: все живые клетки излучают биофотоны — когерентный свет. ДНК вибрирует более 1 миллиарда раз в секунду. Когерентность излучения = здоровье. Потеря когерентности = болезнь. Тело — это светящаяся антенна.',
+  en: 'Fritz-Albert Popp (1970s) proved: all living cells emit biophotons — coherent light. DNA vibrates more than 1 billion times per second. Coherent emission = health. Loss of coherence = disease. The body is a luminous antenna.',
+  ua: 'Фріц-Альберт Попп (1970-ті) довів: усі живі клітини випромінюють біофотони — когерентне світло. ДНК вібрує більше 1 мільярда разів на секунду. Когерентність випромінювання = здоров\'я. Втрата когерентності = хвороба. Тіло — це світна антена.'
+},
+'meta.p4.p2': {
+  ru: 'Диспенза (2017) показал: в тета-медитации (4–8 Гц) мозг становится когерентным — все области синхронизируются. Бета (12–30 Гц) — рассеянный режим, коллективные паттерны. Тета — программирование поля. Гамма (30+ Гц) — прямое знание. Когерентность — не абстракция. Это измеримое состояние мозга, сердца и ДНК.',
+  en: 'Dispenza (2017) showed: in theta meditation (4–8 Hz) the brain becomes coherent — all regions synchronize. Beta (12–30 Hz) — scattered mode, collective patterns. Theta — field programming. Gamma (30+ Hz) — direct knowing. Coherence is not an abstraction. It is a measurable state of the brain, heart and DNA.',
+  ua: 'Діспенза (2017) показав: у тета-медитації (4–8 Гц) мозок стає когерентним — усі ділянки синхронізуються. Бета (12–30 Гц) — розсіяний режим, колективні патерни. Тета — програмування поля. Гамма (30+ Гц) — пряме знання. Когерентність — не абстракція. Це вимірюваний стан мозку, серця та ДНК.'
+},
+'meta.p4.ref': { ru: 'Popp (2003), Dispenza (2017), Phys.org / Zero-point field (2025)', en: 'Popp (2003), Dispenza (2017), Phys.org / Zero-point field (2025)', ua: 'Popp (2003), Dispenza (2017), Phys.org / Zero-point field (2025)' },
+'meta.p5.label': { ru: 'Столп пятый', en: 'Pillar Five', ua: 'Стовп п\'ятий' },
+'meta.p5.title': { ru: 'Тень — Деконструкция Помех', en: 'Shadow — Interference Deconstruction', ua: 'Тінь — Деконструкція Перешкод' },
+'meta.p5.sub': {
+  ru: 'Ты не можешь настроить антенну, пока она забита помехами. Тень — это помехи.',
+  en: 'You cannot tune an antenna while it\'s jammed with interference. Shadow is the interference.',
+  ua: 'Ти не можеш налаштувати антену, поки вона забита перешкодами. Тінь — це перешкоди.'
+},
+'meta.p5.p1': {
+  ru: 'Юнг: «Пока ты не сделаешь бессознательное сознательным, оно будет направлять твою жизнь — и ты будешь называть это судьбой.» Травма хранится не в памяти — в теле (Ван дер Колк, 2014). Мышечный панцирь блокирует чувствование. Чувствование отрезано = отрезан от поля.',
+  en: 'Jung: "Until you make the unconscious conscious, it will direct your life and you will call it fate." Trauma is stored not in memory — in the body (Van der Kolk, 2014). Muscle armor blocks feeling. Feeling cut off = cut off from the field.',
+  ua: 'Юнг: «Поки ти не зробиш несвідоме свідомим, воно керуватиме твоїм життям — і ти називатимеш це долею.» Травма зберігається не в пам\'яті — у тілі (Ван дер Колк, 2014). М\'язовий панцир блокує відчування. Відчування відрізано = відрізано від поля.'
+},
+'meta.p5.p2': {
+  ru: 'Шкала Хокинса: ниже 200 — сжатие (стыд, страх, гнев). Выше 200 — расширение. Цель — не «стать лучше». Вернуть себе весь спектр. В контексте OnlyGods теневая работа — не терапия. Это инженерная процедура: деконструкция автоматизмов, пересмотр архитектуры, очищение канала приёма.',
+  en: 'Hawkins Scale: below 200 — contraction (shame, fear, anger). Above 200 — expansion. The goal is not to "become better." Reclaim the full spectrum. In the OnlyGods context, shadow work is not therapy. It\'s an engineering procedure: deconstruction of automatisms, architecture review, clearing the reception channel.',
+  ua: 'Шкала Хокінса: нижче 200 — стиснення (сором, страх, гнів). Вище 200 — розширення. Мета — не «стати кращим». Повернути собі весь спектр. У контексті OnlyGods тіньова робота — не терапія. Це інженерна процедура: деконструкція автоматизмів, перегляд архітектури, очищення каналу прийому.'
+},
+'meta.p5.ref': { ru: 'Jung (1951), Van der Kolk (2014), Levine (1997), Hawkins (1995)', en: 'Jung (1951), Van der Kolk (2014), Levine (1997), Hawkins (1995)', ua: 'Jung (1951), Van der Kolk (2014), Levine (1997), Hawkins (1995)' },
+'meta.p6.label': { ru: 'Столп шестой', en: 'Pillar Six', ua: 'Стовп шостий' },
+'meta.p6.title': { ru: 'Резонанс: Целое + Целое = Третье Поле', en: 'Resonance: Whole + Whole = Third Field', ua: 'Резонанс: Ціле + Ціле = Третє Поле' },
+'meta.p6.sub': {
+  ru: 'Два когерентных поля синхронизируются — результат не складывается. Умножается.',
+  en: 'Two coherent fields synchronize — the result doesn\'t add up. It multiplies.',
+  ua: 'Два когерентних поля синхронізуються — результат не складається. Множиться.'
+},
+'meta.p6.p1': {
+  ru: 'Когда два человека с очищенными каналами входят в контакт — они создают третье поле. Нервная система, сердечный ритм, дыхание синхронизируются. Экспоненциально усиленный сигнал. Не партнёрство 50/50. Два целых существа из точки полноты.',
+  en: 'When two people with clear channels make contact — they create a third field. Nervous system, heart rhythm, breathing synchronize. Exponentially amplified signal. Not a 50/50 partnership. Two whole beings from a point of fullness.',
+  ua: 'Коли дві людини з очищеними каналами входять у контакт — вони створюють третє поле. Нервова система, серцевий ритм, дихання синхронізуються. Експоненціально підсилений сигнал. Не партнерство 50/50. Дві цілі істоти з точки повноти.'
+},
+'meta.p6.p2': {
+  ru: 'Теория резонанса сознания (Frontiers in Human Neuroscience, 2019): общий резонанс позволяет разным частям системы достичь фазового перехода в скорости и полосе пропускания информационных потоков. Вильгельм Райх назвал это оргоном — целостный энергетический заряд организма. Тантрическая традиция описывала тот же процесс тысячелетия назад.',
+  en: 'Resonance Theory of Consciousness (Frontiers in Human Neuroscience, 2019): shared resonance allows different parts of the system to achieve a phase transition in speed and bandwidth of information flows. Wilhelm Reich called this orgone — the holistic energy charge of the organism. The Tantric tradition described the same process millennia ago.',
+  ua: 'Теорія резонансу свідомості (Frontiers in Human Neuroscience, 2019): спільний резонанс дозволяє різним частинам системи досягти фазового переходу у швидкості та пропускній здатності інформаційних потоків. Вільгельм Райх назвав це оргоном — цілісний енергетичний заряд організму. Тантрична традиція описувала той самий процес тисячоліття тому.'
+},
+'meta.p6.ref': { ru: 'HeartMath — Global Coherence · Hunt (2019), Resonance Theory · Reich (1942)', en: 'HeartMath — Global Coherence · Hunt (2019), Resonance Theory · Reich (1942)', ua: 'HeartMath — Global Coherence · Hunt (2019), Resonance Theory · Reich (1942)' },
+'meta.p7.label': { ru: 'Столп седьмой', en: 'Pillar Seven', ua: 'Стовп сьомий' },
+'meta.p7.title': { ru: 'Эгрегор — Коллективный Разум как Сущность', en: 'Egregore — Collective Mind as Entity', ua: 'Егрегор — Колективний Розум як Сутність' },
+'meta.p7.sub': {
+  ru: 'Каждая группа с общей целью создаёт мыслеформу с квазиавтономным существованием.',
+  en: 'Every group with a shared purpose creates a thought-form with quasi-autonomous existence.',
+  ua: 'Кожна група зі спільною метою створює мислеформу з квазіавтономним існуванням.'
+},
+'meta.p7.stat': { ru: '> триллион к одному', en: '> trillion to one', ua: '> трильйон до одного' },
+'meta.p7.stat.cap': {
+  ru: 'Отклонение от случайности в проекте Global Consciousness Project, Принстон (1998–2018). 70 генераторов случайных чисел, 500 событий. 6σ.',
+  en: 'Deviation from randomness in the Global Consciousness Project, Princeton (1998–2018). 70 random number generators, 500 events. 6σ.',
+  ua: 'Відхилення від випадковості у проекті Global Consciousness Project, Принстон (1998–2018). 70 генераторів випадкових чисел, 500 подій. 6σ.'
+},
+'meta.p7.p1': {
+  ru: 'Эффект Махариши (1975): 12 городов, 1% населения в медитации — снижение преступности 16%. Вашингтон (1993): 4000 медитаторов — насилие −23.3%, p < 0.000000002. Морфическое поле Шелдрейка: системы наследуют память через резонанс без прямой передачи информации.',
+  en: 'Maharishi Effect (1975): 12 cities, 1% of population meditating — crime reduced 16%. Washington (1993): 4,000 meditators — violence −23.3%, p < 0.000000002. Sheldrake\'s morphic field: systems inherit memory through resonance without direct information transfer.',
+  ua: 'Ефект Махаріші (1975): 12 міст, 1% населення в медитації — зниження злочинності 16%. Вашингтон (1993): 4000 медитаторів — насильство −23.3%, p < 0.000000002. Морфічне поле Шелдрейка: системи успадковують пам\'ять через резонанс без прямої передачі інформації.'
+},
+'meta.p7.p2': {
+  ru: '√1% — это порог. Для планеты с 8 млрд населения — около 9000 когерентных сознаний. OnlyGods строит инфраструктуру для управляемого эгрегора. Не случайного. Сознательного.',
+  en: '√1% is the threshold. For a planet of 8 billion — approximately 9,000 coherent consciousnesses. OnlyGods builds infrastructure for a managed egregore. Not random. Conscious.',
+  ua: '√1% — це поріг. Для планети з 8 млрд населення — близько 9000 когерентних свідомостей. OnlyGods будує інфраструктуру для керованого егрегора. Не випадкового. Свідомого.'
+},
+'meta.p7.ref': { ru: 'Nelson / GCP Princeton (2015), Dillbeck & Cavanaugh (2016), Sheldrake (1981)', en: 'Nelson / GCP Princeton (2015), Dillbeck & Cavanaugh (2016), Sheldrake (1981)', ua: 'Nelson / GCP Princeton (2015), Dillbeck & Cavanaugh (2016), Sheldrake (1981)' },
+'meta.p8.label': { ru: 'Столп восьмой', en: 'Pillar Eight', ua: 'Стовп восьмий' },
+'meta.p8.title': { ru: 'Квантовое Сознание — Микротрубочки и Свет', en: 'Quantum Consciousness — Microtubules and Light', ua: 'Квантова Свідомість — Мікротрубочки та Світло' },
+'meta.p8.sub': {
+  ru: 'Сознание — не в синапсах. В тубулиновых структурах внутри нейронов.',
+  en: 'Consciousness is not in synapses. It\'s in tubulin structures inside neurons.',
+  ua: 'Свідомість — не в синапсах. У тубулінових структурах всередині нейронів.'
+},
+'meta.p8.p1': {
+  ru: 'Пенроуз и Хамерофф (Orch-OR): сознание возникает на уровне квантовых вычислений в микротрубочках нейронов. 2024, Wellesley College: стабилизация микротрубочек продлевает сознание под анестезией. 2024, Тушинский: квантовые реакции длительностью 5 наносекунд — в тысячи раз дольше ожидаемого теоретического предела.',
+  en: 'Penrose and Hameroff (Orch-OR): consciousness arises at the level of quantum computation in neuronal microtubules. 2024, Wellesley College: stabilizing microtubules prolongs consciousness under anesthesia. 2024, Tuszynski: quantum reactions lasting 5 nanoseconds — thousands of times longer than theoretically expected.',
+  ua: 'Пенроуз і Хамерофф (Orch-OR): свідомість виникає на рівні квантових обчислень у мікротрубочках нейронів. 2024, Wellesley College: стабілізація мікротрубочок продовжує свідомість під анестезією. 2024, Тушинський: квантові реакції тривалістю 5 наносекунд — у тисячі разів довше очікуваної теоретичної межі.'
+},
+'meta.p8.p2': {
+  ru: 'Модель резонансной связи мозга с квантовым нулевым полем (Phys.org, 2025): кортикальные микроколонки — около 100 нейронов — напрямую связываются с ZPF через глутамат, создавая домены когерентности. Осознанные состояния связаны с синхронизированной активностью мозга в бета- и гамма-диапазонах. Бессознательные — с нарушением критической динамики.',
+  en: 'Brain-ZPF resonant coupling model (Phys.org, 2025): cortical microcolumns — about 100 neurons — couple directly with ZPF through glutamate, creating coherence domains. Conscious states are linked to synchronized brain activity in beta and gamma ranges. Unconscious states — to disrupted critical dynamics.',
+  ua: 'Модель резонансного зв\'язку мозку з квантовим нульовим полем (Phys.org, 2025): кортикальні мікроколонки — близько 100 нейронів — напряму зв\'язуються з ZPF через глутамат, створюючи домени когерентності. Усвідомлені стани пов\'язані з синхронізованою активністю мозку в бета- та гамма-діапазонах. Несвідомі — з порушенням критичної динаміки.'
+},
+'meta.p8.ref': { ru: 'Hameroff & Penrose (2014), Tuszynski (2024), Babcock (2024), Pribram (1991)', en: 'Hameroff & Penrose (2014), Tuszynski (2024), Babcock (2024), Pribram (1991)', ua: 'Hameroff & Penrose (2014), Tuszynski (2024), Babcock (2024), Pribram (1991)' },
+'meta.p9.label': { ru: 'Столп девятый', en: 'Pillar Nine', ua: 'Стовп дев\'ятий' },
+'meta.p9.title': { ru: 'Я → Мы → Боги', en: 'I → We → Gods', ua: 'Я → Ми → Боги' },
+'meta.p9.sub': {
+  ru: 'Индивидуальное сознание имеет потолок. Коллективное — нет.',
+  en: 'Individual consciousness has a ceiling. Collective — does not.',
+  ua: 'Індивідуальна свідомість має стелю. Колективна — ні.'
+},
+'meta.p9.p1': {
+  ru: '<strong>Я</strong> — деконструкция ума. Тело как био-антенна. Убрать шум. Навести резкость. Выстроить уникальную частотную архитектуру нервной системы. <strong>Мы</strong> — резонансные связи. Психо-эмоциональный интернет, в котором коллективный разум работает на каждого. <strong>Боги</strong> — коллективный усилитель. Индивидуальное сознание имеет потолок. Два когерентных поля создают экспоненциальный результат.',
+  en: '<strong>I</strong> — mind deconstruction. Body as bio-antenna. Remove noise. Sharpen focus. Build a unique frequency architecture of the nervous system. <strong>We</strong> — resonance connections. A psycho-emotional internet where collective intelligence works for everyone. <strong>Gods</strong> — collective amplifier. Individual consciousness has a ceiling. Two coherent fields create an exponential result.',
+  ua: '<strong>Я</strong> — деконструкція розуму. Тіло як біо-антена. Прибрати шум. Навести різкість. Вибудувати унікальну частотну архітектуру нервової системи. <strong>Ми</strong> — резонансні зв\'язки. Психо-емоційний інтернет, в якому колективний розум працює на кожного. <strong>Боги</strong> — колективний підсилювач. Індивідуальна свідомість має стелю. Два когерентних поля створюють експоненціальний результат.'
+},
+'meta.p9.p2': {
+  ru: 'Самый ценный ресурс поля — внимание. Квантовый инструмент перенаправления энергии. Мы не продаём духовность. Мы строим инфраструктуру для прямого опыта нелокального Сознания. Не обещание — протокол.',
+  en: 'The most valuable resource of the field is attention. A quantum instrument for redirecting energy. We don\'t sell spirituality. We build infrastructure for direct experience of nonlocal Consciousness. Not a promise — a protocol.',
+  ua: 'Найцінніший ресурс поля — увага. Квантовий інструмент перенаправлення енергії. Ми не продаємо духовність. Ми будуємо інфраструктуру для прямого досвіду нелокальної Свідомості. Не обіцянка — протокол.'
+},
+'meta.p9.ref': { ru: 'Jung, HeartMath, Rizzolatti, GCP, Maharishi, Radin, Penrose, Bohm', en: 'Jung, HeartMath, Rizzolatti, GCP, Maharishi, Radin, Penrose, Bohm', ua: 'Jung, HeartMath, Rizzolatti, GCP, Maharishi, Radin, Penrose, Bohm' },
+'meta.sources.label': { ru: 'Источники', en: 'Sources', ua: 'Джерела' },
+'meta.back': { ru: '← Technologies', en: '← Technologies', ua: '← Technologies' }
 
 };
 

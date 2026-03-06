@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="metaphysics.title">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnlyGods — Метафизика</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff; color: #1d1d1f;
+    overflow-x: hidden; scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(29, 29, 31, 0.08); }
+
+.site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+.nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; color: #1d1d1f;
+    text-decoration: none; letter-spacing: -0.5px;
+}
+
+.nav-links { display: flex; align-items: center; gap: 32px; }
+
+.nav-links a {
+    font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; position: relative;
+}
+.nav-links a:hover { color: #1d1d1f; }
+.nav-links a.active { color: #1d1d1f; }
+.nav-links a.active::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: #1d1d1f;
+}
+
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-burger span { display: block; width: 20px; height: 1.5px; background: #1d1d1f; transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-mobile {
+    display: none; position: fixed; top: 60px; left: 0; right: 0;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 20px 40px 32px; flex-direction: column; gap: 20px; z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500; transition: color 0.3s ease;
+}
+.nav-mobile a:hover, .nav-mobile a.active { color: #1d1d1f; }
+
+.page-hero {
+    min-height: 70vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 120px 20px 80px;
+}
+
+.page-hero .hero-subtitle {
+    font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #86868b; margin-bottom: 20px; font-weight: 500;
+}
+
+.page-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 7vw, 88px); font-weight: 400;
+    letter-spacing: -2px; line-height: 1;
+    max-width: 800px;
+}
+
+.page-hero .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(17px, 2vw, 21px); color: #86868b;
+    max-width: 560px; line-height: 1.55; font-weight: 400;
+    font-style: italic; margin-top: 24px;
+}
+
+.content-section { max-width: 1080px; margin: 0 auto; padding: 100px 40px; }
+
+.section-label {
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #86868b; margin-bottom: 20px; font-weight: 500;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px); font-weight: 400;
+    letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 24px;
+}
+
+.section-divider { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+.section-divider::after { content: ''; display: block; width: 100%; height: 1px; background: #e5e5e7; }
+
+.body-text { font-size: 17px; color: #48484a; line-height: 1.75; max-width: 860px; }
+.body-text + .body-text { margin-top: 20px; }
+
+.epigraph {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 32px); font-weight: 400;
+    font-style: italic; color: #86868b;
+    line-height: 1.5; max-width: 700px; margin-bottom: 48px;
+}
+
+.pillar-num-large {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(80px, 10vw, 140px); font-weight: 300;
+    color: #f0f0f2; line-height: 0.85; margin-bottom: -20px;
+    position: relative; z-index: 0;
+}
+
+.pillar-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px); font-weight: 400;
+    letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 8px;
+    position: relative; z-index: 1;
+}
+
+.pillar-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 400; font-style: italic;
+    color: #86868b; margin-bottom: 28px;
+}
+
+.pillar-ref {
+    font-size: 13px; color: #aeaeb2; margin-top: 20px;
+    letter-spacing: 0.3px; font-style: italic;
+}
+
+.traditions-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    margin: 32px 0; max-width: 860px;
+}
+.traditions-grid .tg-cell {
+    padding: 16px 20px; background: #fbfbfd;
+    font-size: 14px; color: #48484a; line-height: 1.45;
+}
+.traditions-grid .tg-cell:first-child { font-weight: 500; color: #1d1d1f; }
+.traditions-grid .tg-header {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #86868b; font-weight: 500; padding: 12px 20px;
+    background: #f5f5f7;
+}
+
+.stat-highlight {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 56px); font-weight: 300;
+    color: #1d1d1f; margin: 32px 0 12px;
+    letter-spacing: -1px; line-height: 1.1;
+}
+
+.stat-caption {
+    font-size: 14px; color: #86868b; letter-spacing: 0.5px;
+    margin-bottom: 28px;
+}
+
+.sources-list { max-width: 860px; }
+.sources-list .source-item {
+    display: flex; gap: 16px; padding: 12px 0;
+    border-bottom: 1px solid #f5f5f7; font-size: 14px; color: #86868b; line-height: 1.5;
+}
+.sources-list .source-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 300; color: #d1d1d6;
+    min-width: 24px; flex-shrink: 0;
+}
+
+.back-link {
+    display: inline-block; font-size: 13px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #86868b; text-decoration: none;
+    font-weight: 500; transition: color 0.3s ease; margin-top: 48px;
+}
+.back-link:hover { color: #1d1d1f; }
+
+.site-footer {
+    text-align: center; padding: 60px 20px 40px;
+    color: #aeaeb2; font-size: 13px; letter-spacing: 0.5px;
+}
+
+.fade-in-up {
+    opacity: 0; transform: translateY(36px);
+    transition: opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1), transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .content-section { padding: 60px 20px; }
+    .traditions-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .site-nav { padding: 0 20px; }
+    .pillar-num-large { font-size: 80px; margin-bottom: -10px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <a href="index.html" class="nav-wordmark">OnlyGods</a>
+    <div class="nav-links">
+        <a href="manifest.html">Manifest</a>
+        <a href="community.html">Community</a>
+        <a href="research.html">Publications</a>
+        <a href="technologies.html" class="active">Technologies</a>
+        <a href="events.html">Events</a>
+        <a href="shop.html">Shop</a>
+        <a href="dao.html">DAO</a>
+        <span class="nav-divider"></span>
+        <div class="lang-switcher">
+            <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+        </div>
+    </div>
+    <div class="nav-burger" id="nav-burger" onclick="this.classList.toggle('open'); document.getElementById('nav-mobile').classList.toggle('open');">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+    <a href="manifest.html">Manifest</a>
+    <a href="community.html">Community</a>
+    <a href="research.html">Publications</a>
+    <a href="technologies.html" class="active">Technologies</a>
+    <a href="events.html">Events</a>
+    <a href="shop.html">Shop</a>
+    <a href="dao.html">DAO</a>
+    <div class="lang-switcher">
+        <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+    </div>
+</div>
+
+<section class="page-hero">
+    <div class="fade-in-up">
+        <div class="hero-subtitle" data-i18n="meta.hero.subtitle">Технологии сознания</div>
+        <h1 data-i18n="meta.hero.title">Физика Квантовой Святости</h1>
+        <p class="hero-tagline" data-i18n="meta.hero.tagline">9 столпов Поля Объединённого Сознания — от герметики до квантовой биологии</p>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- INTRO -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <p class="epigraph" data-i18n="meta.epigraph">«Если хочешь узнать секреты Вселенной — думай категориями энергии, вибрации и частоты.» — Никола Тесла</p>
+        <p class="body-text" data-i18n="meta.intro.p1">Каждая цивилизация, которая простояла достаточно долго, чтобы построить храм — знала о существовании поля. Индуизм назвал его Брахман. Даосизм — Дао. Юнг — коллективное бессознательное. Вернадский — ноосфера. Шелдрейк — морфическое поле. Квантовая физика — вакуумное поле.</p>
+        <p class="body-text" data-i18n="meta.intro.p2">OnlyGods не изобретает поле. Мы строим инженерную инфраструктуру для работы с ним. Ниже — 9 столпов, на которых стоит эта архитектура. Каждый подкреплён научными данными. Не верой — измерениями.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- PILLAR 1 -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="pillar-num-large">I</div>
+        <div class="section-label" data-i18n="meta.p1.label">Столп первый</div>
+        <h2 class="pillar-title" data-i18n="meta.p1.title">Единое Поле</h2>
+        <div class="pillar-subtitle" data-i18n="meta.p1.sub">100% Вселенной — это Сознание. Материя — не противоположность энергии. Материя и есть вибрация.</div>
+        <p class="body-text" data-i18n="meta.p1.p1">Герметический принцип Ментализма: «Всё есть Ум.» Квантовая теория поля подтверждает — на фундаментальном уровне не существует твёрдых объектов. Есть возбуждения полей. Атом — определённая частота сжатия и расширения единого поля. Уолтер Рассел показал это в спиральной периодической системе элементов в 1926 году.</p>
+        <p class="body-text" data-i18n="meta.p1.p2">Эрвин Ласло формализовал это как A-поле — информационное поле квантового вакуума, из которого возникает всё. Не метафора. Физика. Нулевое поле (ZPF) содержит больше энергии в одном кубическом сантиметре, чем вся видимая материя Вселенной.</p>
+        <p class="pillar-ref" data-i18n="meta.p1.ref">Russell (1926), Laszlo (2004), Bohm — Implicate Order (1980)</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- PILLAR 2 -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="pillar-num-large">II</div>
+        <div class="section-label" data-i18n="meta.p2.label">Столп второй</div>
+        <h2 class="pillar-title" data-i18n="meta.p2.title">Наблюдатель Создаёт Реальность</h2>
+        <div class="pillar-subtitle" data-i18n="meta.p2.sub">Акт наблюдения схлопывает волновую функцию в частицу. С 1927 года это не гипотеза — это физика.</div>
+        <p class="body-text" data-i18n="meta.p2.p1">Дин Радин (IONS) провёл 6 экспериментов с 137 участниками на двойной щели. Направленное внимание сдвигает интерференционную картину. Статистика: z = −4.36, p = 6×10⁻⁶. Контрольная группа: z = 0.43. Сознание — не побочный продукт мозга. Это активный инструмент формирования реальности.</p>
+        <p class="body-text" data-i18n="meta.p2.p2">Исследование 2025 года (PMC, 106 пар монозиготных близнецов) показало: квантовая запутанность объясняет 13.5% дисперсии когнитивных результатов. Значение S по неравенству Белла = 2.992 при пороге 2.828. Суперквантовые эффекты в биологических системах — больше не теория.</p>
+        <p class="pillar-ref" data-i18n="meta.p2.ref">Radin (2012), Physics Essays · PMC (2025), Quantum-entangled consciousness</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- PILLAR 3 -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="pillar-num-large">III</div>
+        <div class="section-label" data-i18n="meta.p3.label">Столп третий</div>
+        <h2 class="pillar-title" data-i18n="meta.p3.title">Нервная Система — Мост</h2>
+        <div class="pillar-subtitle" data-i18n="meta.p3.sub">Мост между тобой и полем — не медитация. Не знания. Мост — это твоя нервная система.</div>
+        <p class="body-text" data-i18n="meta.p3.p1">Нейроцепция (Порджес, 2011): блуждающий нерв оценивает безопасность среды за доли секунды — без участия сознания. Восприятие до восприятия. Не интуиция как «мягкое чувство» — аппаратная функция вагуса.</p>
+        <p class="body-text" data-i18n="meta.p3.p2">Сердце генерирует электромагнитное поле в 5000 раз мощнее мозгового по магнитной активности (HeartMath, 2015). Детектируется на расстоянии нескольких метров. Когда один человек входит в когерентность — ритмы другого синхронизируются. Без физического контакта.</p>
+        <p class="body-text" data-i18n="meta.p3.p3">Зеркальные нейроны (Риццолатти, 2004): нейроны премоторной коры активируются и когда ты действуешь, и когда наблюдаешь то же действие. Галлезе назвал это «воплощённой симуляцией» — мы проживаем чужие состояния телом до решения сочувствовать.</p>
+        <p class="pillar-ref" data-i18n="meta.p3.ref">Porges (2011), McCraty / HeartMath (2015), Rizzolatti (2004), Gallese (2003)</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- PILLAR 4 -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="pillar-num-large">IV</div>
+        <div class="section-label" data-i18n="meta.p4.label">Столп четвёртый</div>
+        <h2 class="pillar-title" data-i18n="meta.p4.title">Когерентность — Язык Поля</h2>
+        <div class="pillar-subtitle" data-i18n="meta.p4.sub">Здоровые клетки излучают когерентный свет. Больные — хаос. ДНК — антенна.</div>
+        <p class="body-text" data-i18n="meta.p4.p1">Фриц-Альберт Попп (1970-е) доказал: все живые клетки излучают биофотоны — когерентный свет. ДНК вибрирует более 1 миллиарда раз в секунду. Когерентность излучения = здоровье. Потеря когерентности = болезнь. Тело — это светящаяся антенна.</p>
+        <p class="body-text" data-i18n="meta.p4.p2">Диспенза (2017) показал: в тета-медитации (4–8 Гц) мозг становится когерентным — все области синхронизируются. Бета (12–30 Гц) — рассеянный режим, коллективные паттерны. Тета — программирование поля. Гамма (30+ Гц) — прямое знание. Когерентность — не абстракция. Это измеримое состояние мозга, сердца и ДНК.</p>
+        <p class="pillar-ref" data-i18n="meta.p4.ref">Popp (2003), Dispenza (2017), Phys.org / Zero-point field (2025)</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- PILLAR 5 -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="pillar-num-large">V</div>
+        <div class="section-label" data-i18n="meta.p5.label">Столп пятый</div>
+        <h2 class="pillar-title" data-i18n="meta.p5.title">Тень — Деконструкция Помех</h2>
+        <div class="pillar-subtitle" data-i18n="meta.p5.sub">Ты не можешь настроить антенну, пока она забита помехами. Тень — это помехи.</div>
+        <p class="body-text" data-i18n="meta.p5.p1">Юнг: «Пока ты не сделаешь бессознательное сознательным, оно будет направлять твою жизнь — и ты будешь называть это судьбой.» Травма хранится не в памяти — в теле (Ван дер Колк, 2014). Мышечный панцирь блокирует чувствование. Чувствование отрезано = отрезан от поля.</p>
+        <p class="body-text" data-i18n="meta.p5.p2">Шкала Хокинса: ниже 200 — сжатие (стыд, страх, гнев). Выше 200 — расширение. Цель — не «стать лучше». Вернуть себе весь спектр. В контексте OnlyGods теневая работа — не терапия. Это инженерная процедура: деконструкция автоматизмов, пересмотр архитектуры, очищение канала приёма.</p>
+        <p class="pillar-ref" data-i18n="meta.p5.ref">Jung (1951), Van der Kolk (2014), Levine (1997), Hawkins (1995)</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- PILLAR 6 -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="pillar-num-large">VI</div>
+        <div class="section-label" data-i18n="meta.p6.label">Столп шестой</div>
+        <h2 class="pillar-title" data-i18n="meta.p6.title">Резонанс: Целое + Целое = Третье Поле</h2>
+        <div class="pillar-subtitle" data-i18n="meta.p6.sub">Два когерентных поля синхронизируются — результат не складывается. Умножается.</div>
+        <p class="body-text" data-i18n="meta.p6.p1">Когда два человека с очищенными каналами входят в контакт — они создают третье поле. Нервная система, сердечный ритм, дыхание синхронизируются. Экспоненциально усиленный сигнал. Не партнёрство 50/50. Два целых существа из точки полноты.</p>
+        <p class="body-text" data-i18n="meta.p6.p2">Теория резонанса сознания (Frontiers in Human Neuroscience, 2019): общий резонанс позволяет разным частям системы достичь фазового перехода в скорости и полосе пропускания информационных потоков. Вильгельм Райх назвал это оргоном — целостный энергетический заряд организма. Тантрическая традиция описывала тот же процесс тысячелетия назад.</p>
+        <p class="pillar-ref" data-i18n="meta.p6.ref">HeartMath — Global Coherence · Hunt (2019), Resonance Theory · Reich (1942)</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- PILLAR 7 -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="pillar-num-large">VII</div>
+        <div class="section-label" data-i18n="meta.p7.label">Столп седьмой</div>
+        <h2 class="pillar-title" data-i18n="meta.p7.title">Эгрегор — Коллективный Разум как Сущность</h2>
+        <div class="pillar-subtitle" data-i18n="meta.p7.sub">Каждая группа с общей целью создаёт мыслеформу с квазиавтономным существованием.</div>
+        <div class="stat-highlight" data-i18n="meta.p7.stat">> триллион к одному</div>
+        <div class="stat-caption" data-i18n="meta.p7.stat.cap">Отклонение от случайности в проекте Global Consciousness Project, Принстон (1998–2018). 70 генераторов случайных чисел, 500 событий. 6σ.</div>
+        <p class="body-text" data-i18n="meta.p7.p1">Эффект Махариши (1975): 12 городов, 1% населения в медитации — снижение преступности 16%. Вашингтон (1993): 4000 медитаторов — насилие −23.3%, p < 0.000000002. Морфическое поле Шелдрейка: системы наследуют память через резонанс без прямой передачи информации.</p>
+        <p class="body-text" data-i18n="meta.p7.p2">√1% — это порог. Для планеты с 8 млрд населения — около 9000 когерентных сознаний. OnlyGods строит инфраструктуру для управляемого эгрегора. Не случайного. Сознательного.</p>
+        <p class="pillar-ref" data-i18n="meta.p7.ref">Nelson / GCP Princeton (2015), Dillbeck & Cavanaugh (2016), Sheldrake (1981)</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- PILLAR 8 -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="pillar-num-large">VIII</div>
+        <div class="section-label" data-i18n="meta.p8.label">Столп восьмой</div>
+        <h2 class="pillar-title" data-i18n="meta.p8.title">Квантовое Сознание — Микротрубочки и Свет</h2>
+        <div class="pillar-subtitle" data-i18n="meta.p8.sub">Сознание — не в синапсах. В тубулиновых структурах внутри нейронов.</div>
+        <p class="body-text" data-i18n="meta.p8.p1">Пенроуз и Хамерофф (Orch-OR): сознание возникает на уровне квантовых вычислений в микротрубочках нейронов. 2024, Wellesley College: стабилизация микротрубочек продлевает сознание под анестезией. 2024, Тушинский: квантовые реакции длительностью 5 наносекунд — в тысячи раз дольше ожидаемого теоретического предела.</p>
+        <p class="body-text" data-i18n="meta.p8.p2">Модель резонансной связи мозга с квантовым нулевым полем (Phys.org, 2025): кортикальные микроколонки — около 100 нейронов — напрямую связываются с ZPF через глутамат, создавая домены когерентности. Осознанные состояния связаны с синхронизированной активностью мозга в бета- и гамма-диапазонах. Бессознательные — с нарушением критической динамики.</p>
+        <p class="pillar-ref" data-i18n="meta.p8.ref">Hameroff & Penrose (2014), Tuszynski (2024), Babcock (2024), Pribram (1991)</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- PILLAR 9 -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="pillar-num-large">IX</div>
+        <div class="section-label" data-i18n="meta.p9.label">Столп девятый</div>
+        <h2 class="pillar-title" data-i18n="meta.p9.title">Я → Мы → Боги</h2>
+        <div class="pillar-subtitle" data-i18n="meta.p9.sub">Индивидуальное сознание имеет потолок. Коллективное — нет.</div>
+        <p class="body-text" data-i18n="meta.p9.p1"><strong>Я</strong> — деконструкция ума. Тело как био-антенна. Убрать шум. Навести резкость. Выстроить уникальную частотную архитектуру нервной системы. <strong>Мы</strong> — резонансные связи. Психо-эмоциональный интернет, в котором коллективный разум работает на каждого. <strong>Боги</strong> — коллективный усилитель. Индивидуальное сознание имеет потолок. Два когерентных поля создают экспоненциальный результат.</p>
+        <p class="body-text" data-i18n="meta.p9.p2">Самый ценный ресурс поля — внимание. Квантовый инструмент перенаправления энергии. Мы не продаём духовность. Мы строим инфраструктуру для прямого опыта нелокального Сознания. Не обещание — протокол.</p>
+        <p class="pillar-ref" data-i18n="meta.p9.ref">Jung, HeartMath, Rizzolatti, GCP, Maharishi, Radin, Penrose, Bohm</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- SOURCES -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="meta.sources.label">Источники</div>
+        <div class="sources-list">
+            <div class="source-item"><span class="source-num">1</span><span>Bohm, D. (1980). <em>Wholeness and the Implicate Order.</em> Routledge</span></div>
+            <div class="source-item"><span class="source-num">2</span><span>Dispenza, J. (2017). <em>Becoming Supernatural.</em> Hay House</span></div>
+            <div class="source-item"><span class="source-num">3</span><span>Dillbeck & Cavanaugh (2016). Sociological Effects of the Maharishi Effect. <em>SAGE Open</em></span></div>
+            <div class="source-item"><span class="source-num">4</span><span>Gallese, V. (2003). The Shared Manifold Hypothesis. <em>Psychopathology</em></span></div>
+            <div class="source-item"><span class="source-num">5</span><span>Hameroff, S. & Penrose, R. (2014). Orch OR. <em>Physics of Life Reviews</em></span></div>
+            <div class="source-item"><span class="source-num">6</span><span>Hawkins, D. (1995). <em>Power vs. Force.</em> Hay House</span></div>
+            <div class="source-item"><span class="source-num">7</span><span>Hunt, T. & Schooler, J. (2019). The Easy Part of the Hard Problem. <em>Frontiers in Human Neuroscience</em></span></div>
+            <div class="source-item"><span class="source-num">8</span><span>Jung, C.G. (1951). <em>Aion.</em> Princeton UP</span></div>
+            <div class="source-item"><span class="source-num">9</span><span>Laszlo, E. (2004). <em>Science and the Akashic Field.</em> Inner Traditions</span></div>
+            <div class="source-item"><span class="source-num">10</span><span>Levine, P. (1997). <em>Waking the Tiger.</em> North Atlantic</span></div>
+            <div class="source-item"><span class="source-num">11</span><span>McCraty, R. (2015). <em>Science of the Heart, Vol.2.</em> HeartMath Institute</span></div>
+            <div class="source-item"><span class="source-num">12</span><span>Nelson, R. (2015). <em>Global Consciousness Project.</em> Princeton</span></div>
+            <div class="source-item"><span class="source-num">13</span><span>PMC (2025). Evidence of quantum-entangled higher states of consciousness. <em>ScienceDirect</em></span></div>
+            <div class="source-item"><span class="source-num">14</span><span>Popp, F.-A. (2003). Biophotons. <em>Indian J. Exp. Biology</em></span></div>
+            <div class="source-item"><span class="source-num">15</span><span>Porges, S. (2011). <em>The Polyvagal Theory.</em> Norton</span></div>
+            <div class="source-item"><span class="source-num">16</span><span>Pribram, K. (1991). <em>Brain and Perception: Holonomy and Structure.</em> LEA</span></div>
+            <div class="source-item"><span class="source-num">17</span><span>Radin, D. (2012). Consciousness and the double-slit. <em>Physics Essays</em></span></div>
+            <div class="source-item"><span class="source-num">18</span><span>Reich, W. (1942). <em>The Function of the Orgasm.</em> Farrar Straus</span></div>
+            <div class="source-item"><span class="source-num">19</span><span>Rizzolatti, G. (2004). Mirror neurons. <em>Annual Review of Neuroscience</em></span></div>
+            <div class="source-item"><span class="source-num">20</span><span>Russell, W. (1926). <em>The Universal One.</em></span></div>
+            <div class="source-item"><span class="source-num">21</span><span>Sheldrake, R. (1981). <em>A New Science of Life.</em> Blond & Briggs</span></div>
+            <div class="source-item"><span class="source-num">22</span><span>Tuszynski, J. et al. (2024). Quantum reactions in microtubules. <em>University of Alberta</em></span></div>
+            <div class="source-item"><span class="source-num">23</span><span>Van der Kolk, B. (2014). <em>The Body Keeps the Score.</em> Viking</span></div>
+            <div class="source-item"><span class="source-num">24</span><span>Phys.org (2025). Quantum clues to consciousness: brain and zero-point field</span></div>
+        </div>
+        <a href="technologies.html" class="back-link" data-i18n="meta.back">← Technologies</a>
+    </div>
+</div>
+
+<footer class="site-footer">OnlyGods</footer>
+
+<script src="translations.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>
