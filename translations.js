@@ -502,21 +502,111 @@ var T = {
   ua: 'Інвестиції, розвиток екосистеми, управління. Близьке коло друзів — про це розкажемо особисто.'
 },
 
-// ─── INDEX: Q&A ───
+// ─── INDEX: Q&A — ДИАЛОГ С ТЕНЬЮ ───
 'index.qa.label': {
-  ru: 'Q&A',
-  en: 'Q&A',
-  ua: 'Q&A'
+  ru: 'То, о чём Вы думаете прямо сейчас',
+  en: 'What you\'re thinking right now',
+  ua: 'Те, про що Ви думаєте прямо зараз'
 },
 'index.qa.q1': {
-  ru: 'формат программы, график, сколько доступ, стоимость',
-  en: 'program format, schedule, access duration, cost',
-  ua: 'формат програми, графік, скільки доступ, вартість'
+  ru: 'OnlyFans? Вы серьёзно?',
+  en: 'OnlyFans? Seriously?',
+  ua: 'OnlyFans? Ви серйозно?'
+},
+'index.qa.a1': {
+  ru: 'Абсолютно. Мы намеренно выбрали самый провокационный контейнер. Если название платформы вызывает сопротивление — это и есть первый тест: способны ли Вы видеть содержание за формой? Священное в профанном — не ошибка. Это метод.',
+  en: 'Absolutely. We deliberately chose the most provocative container. If the platform name triggers resistance — that\'s the first test: can you see substance beyond form? The sacred in the profane is not a mistake. It\'s the method.',
+  ua: 'Абсолютно. Ми свідомо обрали найпровокативніший контейнер. Якщо назва платформи викликає спротив — це і є перший тест: чи здатні Ви бачити зміст за формою? Священне в профанному — не помилка. Це метод.'
 },
 'index.qa.q2': {
-  ru: 'нужно ли обязательно быть на ОФ?',
-  en: 'is it mandatory to be on OF?',
-  ua: 'чи обов\'язково бути на ОФ?'
+  ru: '936€ в месяц — за что именно?',
+  en: '936€ per month — for what exactly?',
+  ua: '936€ на місяць — за що саме?'
+},
+'index.qa.a2': {
+  ru: 'За среду. Еженедельные живые практики с обоими архитекторами. NDA-материалы и стримы. AI-бот для ежедневной синхронизации и отслеживания Вашего состояния. Внутренняя экономика, в которой участники создают и обмениваются ценностью. Но если Вы ищете список услуг — Вы ищете не то. Здесь покупают не сервис. Здесь инвестируют в поле, которое меняет качество жизни.',
+  en: 'The environment. Weekly live practices with both architects. NDA materials and streams. An AI bot for daily synchronization and tracking your state. An internal economy where participants create and exchange value. But if you\'re looking for a list of services — you\'re looking for the wrong thing. This isn\'t a service. It\'s an investment in a field that changes the quality of your life.',
+  ua: 'За середовище. Щотижневі живі практики з обома архітекторами. NDA-матеріали та стріми. AI-бот для щоденної синхронізації та відстеження Вашого стану. Внутрішня економіка, в якій учасники створюють та обмінюються цінністю. Але якщо Ви шукаєте список послуг — Ви шукаєте не те. Тут купують не сервіс. Тут інвестують у поле, яке змінює якість життя.'
+},
+'index.qa.q3': {
+  ru: 'Что такое «поле» на практике? Не метафора ли это?',
+  en: 'What is the "field" in practice? Isn\'t it just a metaphor?',
+  ua: 'Що таке «поле» на практиці? Чи не метафора це?'
+},
+'index.qa.a3': {
+  ru: 'Не метафора. Поле — это живая сеть резонанса между участниками, которую мы строим через технологию, практику и прямой контакт. AI-бот в Telegram отслеживает состояние каждого участника, помогает синхронизироваться с группой и строит резонансную карту сообщества в реальном времени. Вы чувствуете это как совпадения, ясность, ускорение. Мы измеряем это как данные.',
+  en: 'Not a metaphor. The field is a living resonance network between participants, built through technology, practice, and direct contact. A Telegram AI bot tracks each participant\'s state, helps synchronize with the group, and builds a real-time resonance map of the community. You feel it as coincidences, clarity, acceleration. We measure it as data.',
+  ua: 'Не метафора. Поле — це жива мережа резонансу між учасниками, яку ми будуємо через технологію, практику та прямий контакт. AI-бот у Telegram відстежує стан кожного учасника, допомагає синхронізуватися з групою та будує резонансну карту спільноти в реальному часі. Ви відчуваєте це як збіги, ясність, прискорення. Ми вимірюємо це як дані.'
+},
+'index.qa.q4': {
+  ru: 'Это секта?',
+  en: 'Is this a cult?',
+  ua: 'Це секта?'
+},
+'index.qa.a4': {
+  ru: 'Секта запрещает уходить. Мы делаем так, что не хочется. Здесь нет гуру, нет догмы, нет единственной правды. Есть два архитектора, технология и люди, которые честно живут в поле. Вы можете уйти в любой момент. Подписка — помесячная, не контракт.',
+  en: 'A cult forbids leaving. We make it so you don\'t want to. There\'s no guru, no dogma, no single truth. There are two architects, technology, and people who honestly live in the field. You can leave at any moment. The subscription is monthly, not a contract.',
+  ua: 'Секта забороняє йти. Ми робимо так, що не хочеться. Тут немає гуру, немає догми, немає єдиної правди. Є два архітектори, технологія і люди, які чесно живуть у полі. Ви можете піти в будь-який момент. Підписка — помісячна, не контракт.'
+},
+'index.qa.q5': {
+  ru: 'Кто Вы такие и почему я должен Вам доверять?',
+  en: 'Who are you and why should I trust you?',
+  ua: 'Хто Ви такі і чому я маю Вам довіряти?'
+},
+'index.qa.a5': {
+  ru: 'Не должны. Доверие здесь — не входной билет, а результат опыта. Влад проектирует архитектуру сознания и систем. Лиза проводит трансформацию напрямую. Вместе мы ведём каждую практику, каждый стрим, каждый процесс. Всё открыто — философия, структура, подход. Решение — за Вами.',
+  en: 'You shouldn\'t. Trust here isn\'t the entry ticket — it\'s the result of experience. Vlad designs the architecture of consciousness and systems. Liza facilitates transformation directly. Together we lead every practice, every stream, every process. Everything is open — philosophy, structure, approach. The decision is yours.',
+  ua: 'Не маєте. Довіра тут — не вхідний квиток, а результат досвіду. Влад проєктує архітектуру свідомості та систем. Ліза проводить трансформацію напряму. Разом ми ведемо кожну практику, кожен стрім, кожен процес. Все відкрито — філософія, структура, підхід. Рішення — за Вами.'
+},
+'index.qa.q6': {
+  ru: 'Мне нужно быть на камеру? Показывать себя?',
+  en: 'Do I need to be on camera? Show myself?',
+  ua: 'Мені потрібно бути на камеру? Показувати себе?'
+},
+'index.qa.a6': {
+  ru: 'Нет. OnlyFans — платформа доставки, не формат участия. Вы — участник поля, не автор канала. Ваша приватность полностью в Ваших руках. Мы не просим ничего, кроме честного присутствия.',
+  en: 'No. OnlyFans is the delivery platform, not the participation format. You\'re a field participant, not a channel creator. Your privacy is entirely in your hands. We ask for nothing but honest presence.',
+  ua: 'Ні. OnlyFans — платформа доставки, не формат участі. Ви — учасник поля, не автор каналу. Ваша приватність повністю у Ваших руках. Ми не просимо нічого, крім чесної присутності.'
+},
+'index.qa.q7': {
+  ru: 'У меня есть духовная практика. Зачем мне ещё одно сообщество?',
+  en: 'I already have a spiritual practice. Why do I need another community?',
+  ua: 'У мене є духовна практика. Навіщо мені ще одна спільнота?'
+},
+'index.qa.a7': {
+  ru: 'Практика в одиночестве — это тренировка. Практика в поле — это жизнь. Большинство сообществ предлагают знания. Мы предлагаем среду, в которой знания становятся состоянием. Разница — как между чтением о плавании и океаном.',
+  en: 'Practice alone is training. Practice in the field is life. Most communities offer knowledge. We offer an environment where knowledge becomes a state of being. The difference is like reading about swimming versus the ocean.',
+  ua: 'Практика наодинці — це тренування. Практика в полі — це життя. Більшість спільнот пропонують знання. Ми пропонуємо середовище, в якому знання стають станом. Різниця — як між читанням про плавання та океаном.'
+},
+'index.qa.q8': {
+  ru: 'Чем это отличается от других сообществ осознанности?',
+  en: 'How is this different from other consciousness communities?',
+  ua: 'Чим це відрізняється від інших спільнот усвідомленості?'
+},
+'index.qa.a8': {
+  ru: 'Мы не называем себя духовными. Здесь нет мантр, свечей и благостных улыбок. Есть радикальная честность, экономика внимания и AI-инфраструктура, которая делает невидимое — измеримым. Если Вам нужны «высокие вибрации» — это не сюда. Если Вам нужно настоящее — добро пожаловать.',
+  en: 'We don\'t call ourselves spiritual. There are no mantras, candles, or blissful smiles here. There\'s radical honesty, an attention economy, and AI infrastructure that makes the invisible measurable. If you need "high vibrations" — this isn\'t the place. If you need the real thing — welcome.',
+  ua: 'Ми не називаємо себе духовними. Тут немає мантр, свічок і блаженних посмішок. Є радикальна чесність, економіка уваги та AI-інфраструктура, яка робить невидиме — вимірюваним. Якщо Вам потрібні «високі вібрації» — це не сюди. Якщо Вам потрібне справжнє — ласкаво просимо.'
+},
+'index.qa.q9': {
+  ru: 'Можно сначала попробовать?',
+  en: 'Can I try it first?',
+  ua: 'Можна спочатку спробувати?'
+},
+'index.qa.a9': {
+  ru: 'Нет. И это не жадность — это уважение к полю. Человек, который входит «посмотреть», приносит энергию наблюдателя. Это разрушает пространство для тех, кто вложился. Ваш входной билет — это инвестиция в собственную серьёзность. Поле чувствует разницу.',
+  en: 'No. And it\'s not greed — it\'s respect for the field. A person who enters "to look around" brings observer energy. That disrupts the space for those who\'ve invested. Your entry ticket is an investment in your own seriousness. The field feels the difference.',
+  ua: 'Ні. І це не жадібність — це повага до поля. Людина, яка входить «подивитися», приносить енергію спостерігача. Це руйнує простір для тих, хто вклався. Ваш вхідний квиток — це інвестиція у власну серйозність. Поле відчуває різницю.'
+},
+'index.qa.q10': {
+  ru: 'Нужно ли сначала пройти курс Мы.Боги?',
+  en: 'Do I need to take the We.Gods course first?',
+  ua: 'Чи потрібно спочатку пройти курс Ми.Боги?'
+},
+'index.qa.a10': {
+  ru: 'Курс — это двухмесячная настройка перед входом в поле. Большинство участников OnlyGods прошли его. Но это не единственный путь. Если Вы чувствуете, что готовы — напишите нам. Мы поговорим и поймём вместе.',
+  en: 'The course is a two-month calibration before entering the field. Most OnlyGods participants have completed it. But it\'s not the only path. If you feel ready — write to us. We\'ll talk and figure it out together.',
+  ua: 'Курс — це двомісячне налаштування перед входом у поле. Більшість учасників OnlyGods пройшли його. Але це не єдиний шлях. Якщо Ви відчуваєте, що готові — напишіть нам. Ми поговоримо і зрозуміємо разом.'
 },
 
 // ─── JOIN SECTION ───

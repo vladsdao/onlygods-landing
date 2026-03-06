@@ -360,26 +360,87 @@ body, html {
 }
 
 /* ====================================== */
-/* Q&A                                    */
+/* Q&A ACCORDION                          */
 /* ====================================== */
 .qa-section {
-    padding: 80px 0;
+    padding: 40px 0;
+}
+
+.qa-accordion {
+    border-top: 1px solid #e5e5e7;
 }
 
 .qa-item {
-    font-size: 16px;
-    color: #86868b;
-    line-height: 1.7;
-    padding: 8px 0 8px 20px;
-    position: relative;
+    border-bottom: 1px solid #e5e5e7;
 }
 
-.qa-item::before {
-    content: '?';
-    position: absolute;
-    left: 0;
+.qa-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    cursor: pointer;
+    gap: 20px;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.qa-question h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.2vw, 22px);
     font-weight: 500;
-    color: #aeaeb2;
+    font-style: italic;
+    color: #1d1d1f;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.qa-toggle {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.qa-toggle::before,
+.qa-toggle::after {
+    content: '';
+    position: absolute;
+    background: #86868b;
+    border-radius: 1px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+}
+
+.qa-toggle::before {
+    width: 16px;
+    height: 1.5px;
+}
+
+.qa-toggle::after {
+    width: 1.5px;
+    height: 16px;
+}
+
+.qa-item.active .qa-toggle::after {
+    opacity: 0;
+}
+
+.qa-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.qa-answer-inner {
+    padding: 0 0 28px 0;
+    font-size: 15px;
+    color: #48484a;
+    line-height: 1.8;
+    max-width: 720px;
 }
 
 /* ====================================== */
@@ -946,14 +1007,95 @@ body, html {
 <div class="section-divider"></div>
 
 <!-- ====================================== -->
-<!-- Q&A                                    -->
+<!-- Q&A — ДИАЛОГ С ТЕНЬЮ                  -->
 <!-- ====================================== -->
 <div class="content-section">
     <div class="fade-in-up">
-        <div class="section-label" data-i18n="index.qa.label">Q&A</div>
+        <div class="section-label" data-i18n="index.qa.label">То, о чём Вы думаете прямо сейчас</div>
         <div class="qa-section">
-            <p class="qa-item" data-i18n="index.qa.q1">формат программы, график, сколько доступ, стоимость</p>
-            <p class="qa-item" data-i18n="index.qa.q2">нужно ли обязательно быть на ОФ?</p>
+            <div class="qa-accordion">
+
+                <div class="qa-item">
+                    <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+                        <h3 data-i18n="index.qa.q1">OnlyFans? Вы серьёзно?</h3>
+                        <span class="qa-toggle"></span>
+                    </div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a1">Абсолютно. Мы намеренно выбрали самый провокационный контейнер. Если название платформы вызывает сопротивление — это и есть первый тест: способны ли Вы видеть содержание за формой? Священное в профанном — не ошибка. Это метод.</div></div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+                        <h3 data-i18n="index.qa.q2">936€ в месяц — за что именно?</h3>
+                        <span class="qa-toggle"></span>
+                    </div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a2">За среду. Еженедельные живые практики с обоими архитекторами. NDA-материалы и стримы. AI-бот для ежедневной синхронизации и отслеживания Вашего состояния. Внутренняя экономика, в которой участники создают и обмениваются ценностью. Но если Вы ищете список услуг — Вы ищете не то. Здесь покупают не сервис. Здесь инвестируют в поле, которое меняет качество жизни.</div></div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+                        <h3 data-i18n="index.qa.q3">Что такое «поле» на практике? Не метафора ли это?</h3>
+                        <span class="qa-toggle"></span>
+                    </div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a3">Не метафора. Поле — это живая сеть резонанса между участниками, которую мы строим через технологию, практику и прямой контакт. AI-бот в Telegram отслеживает состояние каждого участника, помогает синхронизироваться с группой и строит резонансную карту сообщества в реальном времени. Вы чувствуете это как совпадения, ясность, ускорение. Мы измеряем это как данные.</div></div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+                        <h3 data-i18n="index.qa.q4">Это секта?</h3>
+                        <span class="qa-toggle"></span>
+                    </div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a4">Секта запрещает уходить. Мы делаем так, что не хочется. Здесь нет гуру, нет догмы, нет единственной правды. Есть два архитектора, технология и люди, которые честно живут в поле. Вы можете уйти в любой момент. Подписка — помесячная, не контракт.</div></div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+                        <h3 data-i18n="index.qa.q5">Кто Вы такие и почему я должен Вам доверять?</h3>
+                        <span class="qa-toggle"></span>
+                    </div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a5">Не должны. Доверие здесь — не входной билет, а результат опыта. Влад проектирует архитектуру сознания и систем. Лиза проводит трансформацию напрямую. Вместе мы ведём каждую практику, каждый стрим, каждый процесс. Всё открыто — философия, структура, подход. Решение — за Вами.</div></div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+                        <h3 data-i18n="index.qa.q6">Мне нужно быть на камеру? Показывать себя?</h3>
+                        <span class="qa-toggle"></span>
+                    </div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a6">Нет. OnlyFans — платформа доставки, не формат участия. Вы — участник поля, не автор канала. Ваша приватность полностью в Ваших руках. Мы не просим ничего, кроме честного присутствия.</div></div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+                        <h3 data-i18n="index.qa.q7">У меня есть духовная практика. Зачем мне ещё одно сообщество?</h3>
+                        <span class="qa-toggle"></span>
+                    </div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a7">Практика в одиночестве — это тренировка. Практика в поле — это жизнь. Большинство сообществ предлагают знания. Мы предлагаем среду, в которой знания становятся состоянием. Разница — как между чтением о плавании и океаном.</div></div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+                        <h3 data-i18n="index.qa.q8">Чем это отличается от других сообществ осознанности?</h3>
+                        <span class="qa-toggle"></span>
+                    </div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a8">Мы не называем себя духовными. Здесь нет мантр, свечей и благостных улыбок. Есть радикальная честность, экономика внимания и AI-инфраструктура, которая делает невидимое — измеримым. Если Вам нужны «высокие вибрации» — это не сюда. Если Вам нужно настоящее — добро пожаловать.</div></div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+                        <h3 data-i18n="index.qa.q9">Можно сначала попробовать?</h3>
+                        <span class="qa-toggle"></span>
+                    </div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a9">Нет. И это не жадность — это уважение к полю. Человек, который входит «посмотреть», приносит энергию наблюдателя. Это разрушает пространство для тех, кто вложился. Ваш входной билет — это инвестиция в собственную серьёзность. Поле чувствует разницу.</div></div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+                        <h3 data-i18n="index.qa.q10">Нужно ли сначала пройти курс Мы.Боги?</h3>
+                        <span class="qa-toggle"></span>
+                    </div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a10">Курс — это двухмесячная настройка перед входом в поле. Большинство участников OnlyGods прошли его. Но это не единственный путь. Если Вы чувствуете, что готовы — напишите нам. Мы поговорим и поймём вместе.</div></div>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
