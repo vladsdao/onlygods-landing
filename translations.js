@@ -899,9 +899,9 @@ var T = {
 
 // ─── TECHNOLOGIES PAGE ───
 'technologies.hero.subtitle': {
-  ru: 'Квантовое сознание и IR4',
-  en: 'Quantum Consciousness & IR4',
-  ua: 'Квантова свідомість та IR4'
+  ru: 'Квантовое сознание',
+  en: 'Quantum Consciousness',
+  ua: 'Квантова свідомість'
 },
 'technologies.hero.title': {
   ru: 'Holy Tech',
@@ -1248,14 +1248,14 @@ var T = {
   ua: 'OnlyGods — Метафізика'
 },
 'meta.hero.subtitle': {
-  ru: 'Технологии сознания',
-  en: 'Consciousness Technologies',
-  ua: 'Технології свідомості'
+  ru: 'Метафизика',
+  en: 'Metaphysics',
+  ua: 'Метафізика'
 },
 'meta.hero.title': {
-  ru: 'Физика Квантовой Святости',
-  en: 'Physics of Quantum Holiness',
-  ua: 'Фізика Квантової Святості'
+  ru: 'Физика квантово-волновой святости и цифровой шаманизм',
+  en: 'Physics of Quantum-Wave Holiness and Digital Shamanism',
+  ua: 'Фізика квантово-хвильової святості та цифровий шаманізм'
 },
 'meta.hero.tagline': {
   ru: '9 столпов Поля Объединённого Сознания — от герметики до квантовой биологии',
@@ -1451,7 +1451,7 @@ var T = {
 },
 'meta.p9.ref': { ru: 'Jung, HeartMath, Rizzolatti, GCP, Maharishi, Radin, Penrose, Bohm', en: 'Jung, HeartMath, Rizzolatti, GCP, Maharishi, Radin, Penrose, Bohm', ua: 'Jung, HeartMath, Rizzolatti, GCP, Maharishi, Radin, Penrose, Bohm' },
 'meta.sources.label': { ru: 'Источники', en: 'Sources', ua: 'Джерела' },
-'meta.back': { ru: '← Technologies', en: '← Technologies', ua: '← Technologies' },
+'meta.back': { ru: '← Holy Tech', en: '← Holy Tech', ua: '← Holy Tech' },
 
 // ─── ROADMAP PAGE (interactive scroll timeline) ───
 'roadmap.title': { ru: 'OnlyGods — Roadmap', en: 'OnlyGods — Roadmap', ua: 'OnlyGods — Roadmap' },
