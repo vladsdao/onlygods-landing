@@ -639,177 +639,202 @@ var T = {
 
 // ─── MANIFEST PAGE ───
 'manifest.hero.subtitle': {
-  ru: 'Идея. Ценности. Миссия.',
-  en: 'Idea. Values. Mission.',
-  ua: 'Ідея. Цінності. Місія.'
+  ru: 'OnlyGods', en: 'OnlyGods', ua: 'OnlyGods'
 },
 'manifest.hero.title': {
-  ru: 'Манифест',
-  en: 'Manifest',
-  ua: 'Маніфест'
+  ru: 'The Manifest', en: 'The Manifest', ua: 'The Manifest'
 },
-// ── Manifest: Преамбула ──
+
+// ── Manifest: Эпиграф ──
+'manifest.epigraph': {
+  ru: '«Мудрый человек слышит о Дао и следует ему усердно. Обычный человек слышит о Дао и следует ему то да, то нет. Глупый человек слышит о Дао и смеётся над ним. Если бы он не смеялся, это не было бы истинным Дао.»<span class="manifest-author">— Лао-цзы</span>',
+  en: '"A wise man hears of the Tao and follows it diligently. An ordinary man hears of the Tao and follows it now and then. A foolish man hears of the Tao and laughs at it. If he did not laugh, it would not be the true Tao."<span class="manifest-author">— Lao Tzu</span>',
+  ua: '«Мудра людина чує про Дао і слідує йому ретельно. Звичайна людина чує про Дао і слідує йому то так, то ні. Нерозумна людина чує про Дао і сміється з нього. Якби вона не сміялася, це не було б справжнім Дао.»<span class="manifest-author">— Лао-цзи</span>'
+},
+
+// ── Manifest: Декларация ──
 'manifest.s1.label': {
-  ru: 'Преамбула', en: 'Preamble', ua: 'Преамбула'
-},
-'manifest.s1.statement': {
-  ru: 'Мы не пришли спасать мир. Мы пришли переключить канал.',
-  en: 'We didn\'t come to save the world. We came to switch the channel.',
-  ua: 'Ми не прийшли рятувати світ. Ми прийшли переключити канал.'
+  ru: 'Декларация', en: 'Declaration', ua: 'Декларація'
 },
 'manifest.s1.p1': {
-  ru: 'Мир не сломан — он устарел. Операционная система коллективного сознания работает на алгоритмах страха, конкуренции и дефицита. Эти алгоритмы были эффективны для выживания. Для Творения — они бесполезны.',
-  en: 'The world isn\'t broken — it\'s outdated. The operating system of collective consciousness runs on algorithms of fear, competition and scarcity. These algorithms were effective for survival. For Creation — they\'re useless.',
-  ua: 'Світ не зламаний — він застарів. Операційна система колективної свідомості працює на алгоритмах страху, конкуренції та дефіциту. Ці алгоритми були ефективними для виживання. Для Творіння — вони марні.'
+  ru: 'Нас не заботит конверсия этой воронки или количество «клиентов» этого аттракциона квантовой эволюции. Наш главный фокус — это качество резонанса каждого участника и степень его проводимости. Именно от качества резонанса и честности проявления зависит общий потенциал поля.',
+  en: 'We don\'t care about funnel conversion or the number of "clients" of this quantum evolution attraction. Our main focus is the quality of resonance of each participant and their degree of conductivity. The overall potential of the field depends entirely on the quality of resonance and honesty of expression.',
+  ua: 'Нас не турбує конверсія цієї воронки або кількість «клієнтів» цього атракціону квантової еволюції. Наш головний фокус — це якість резонансу кожного учасника та ступінь його провідності. Саме від якості резонансу та чесності прояву залежить загальний потенціал поля.'
 },
 'manifest.s1.p2': {
-  ru: 'OnlyGods — это не духовное движение. Это инженерный проект. Мы строим инфраструктуру нового типа сознания — на стыке квантовой физики, метафизики, AI и прямого опыта.',
-  en: 'OnlyGods is not a spiritual movement. It\'s an engineering project. We\'re building infrastructure for a new type of consciousness — at the intersection of quantum physics, metaphysics, AI and direct experience.',
-  ua: 'OnlyGods — це не духовний рух. Це інженерний проєкт. Ми будуємо інфраструктуру нового типу свідомості — на стику квантової фізики, метафізики, AI та прямого досвіду.'
+  ru: 'OnlyGods — это не духовное движение. Это инженерный проект. Мы строим инфраструктуру нового типа Сознания — на стыке квантовой физики, метафизики, AI и прямого опыта постижения реальности в формате Игры.',
+  en: 'OnlyGods is not a spiritual movement. It\'s an engineering project. We\'re building infrastructure for a new type of Consciousness — at the intersection of quantum physics, metaphysics, AI and direct experience of reality in the format of the Game.',
+  ua: 'OnlyGods — це не духовний рух. Це інженерний проєкт. Ми будуємо інфраструктуру нового типу Свідомості — на стику квантової фізики, метафізики, AI та прямого досвіду осягнення реальності у форматі Гри.'
+},
+'manifest.s1.p3': {
+  ru: 'Выход из дуальности и жизнь из позиции нелокального Сознания ради более глубокого переживания жизненного опыта и расширенного диапазона состояний — это наша цель.',
+  en: 'Exiting duality and living from the position of non-local Consciousness for a deeper experience of life and an expanded range of states — this is our goal.',
+  ua: 'Вихід із дуальності та життя з позиції нелокальної Свідомості заради глибшого переживання життєвого досвіду та розширеного діапазону станів — це наша мета.'
+},
+'manifest.s1.p4': {
+  ru: 'Добро пожаловать в мир 5D Сознания. Мы приглашаем вас в путешествие, из которого невозможно вернуться прежним. Если вы ждали особого знака, чтобы проявить весь свой потенциал, — вероятнее всего, это именно он.',
+  en: 'Welcome to the world of 5D Consciousness. We invite you on a journey from which it\'s impossible to return the same. If you\'ve been waiting for a special sign to manifest your full potential — most likely, this is it.',
+  ua: 'Ласкаво просимо у світ 5D Свідомості. Ми запрошуємо вас у подорож, з якої неможливо повернутися колишнім. Якщо ви чекали на особливий знак, щоб проявити весь свій потенціал, — найімовірніше, це саме він.'
 },
 
-// ── Manifest: Тезис ──
+// ── Manifest: Путь ──
 'manifest.s2.label': {
-  ru: 'Тезис', en: 'Thesis', ua: 'Теза'
-},
-'manifest.s2.title': {
-  ru: 'Сознание — Первичная Технология',
-  en: 'Consciousness — The Primary Technology',
-  ua: 'Свідомість — Первинна Технологія'
+  ru: 'Путь', en: 'Path', ua: 'Шлях'
 },
 'manifest.s2.p1': {
-  ru: 'Сознание — не побочный продукт мозга. Это фундаментальное поле, из которого возникает всё остальное — материя, информация, время. Тысячелетия это знали мистики. Сегодня это подтверждает квантовая физика. Завтра это станет инженерной дисциплиной.',
-  en: 'Consciousness is not a byproduct of the brain. It\'s the fundamental field from which everything else emerges — matter, information, time. Mystics knew this for millennia. Quantum physics confirms it today. Tomorrow it will become an engineering discipline.',
-  ua: 'Свідомість — не побічний продукт мозку. Це фундаментальне поле, з якого виникає все інше — матерія, інформація, час. Тисячоліттями це знали містики. Сьогодні це підтверджує квантова фізика. Завтра це стане інженерною дисципліною.'
+  ru: 'За 20 лет исследований Сознания и технологий его эволюции сквозь призмы различных учений, философий, религий — я консолидировал знания и нарративы древних учений в простую и понятную систему.',
+  en: 'Over 20 years of researching Consciousness and technologies of its evolution through the prisms of various teachings, philosophies, religions — I consolidated knowledge and narratives of ancient teachings into a simple and clear system.',
+  ua: 'За 20 років досліджень Свідомості та технологій її еволюції крізь призми різних вчень, філософій, релігій — я консолідував знання та наративи давніх вчень у просту і зрозумілу систему.'
 },
 'manifest.s2.p2': {
-  ru: 'Мы не ждём завтра. Мы строим сейчас. ir4 — наша методология резонансного измерения — отслеживает динамику поля, когерентность участников и качество коллективного внимания. Не на уровне веры. На уровне данных.',
-  en: 'We\'re not waiting for tomorrow. We\'re building now. ir4 — our resonance measurement methodology — tracks field dynamics, participant coherence and collective attention quality. Not on the level of belief. On the level of data.',
-  ua: 'Ми не чекаємо на завтра. Ми будуємо зараз. ir4 — наша методологія резонансного вимірювання — відстежує динаміку поля, когерентність учасників та якість колективної уваги. Не на рівні віри. На рівні даних.'
+  ru: 'Она позволяет современному человеку пройти ускоренным путём эволюции Сознания и обрести необходимые осознания и опыт для выхода из дуальности в осознание нелокального Сознания.',
+  en: 'It allows a modern person to take an accelerated path of Consciousness evolution and gain the necessary realizations and experience for exiting duality into the awareness of non-local Consciousness.',
+  ua: 'Вона дозволяє сучасній людині пройти прискореним шляхом еволюції Свідомості та здобути необхідні усвідомлення й досвід для виходу з дуальності в усвідомлення нелокальної Свідомості.'
+},
+'manifest.s2.p3': {
+  ru: 'Опыт просветления, как насмешка, открыл мне иронию и бессмысленность постижения высших состояний Сознания через путь обретения Знаний.',
+  en: 'The experience of enlightenment, as if in mockery, revealed to me the irony and futility of attaining higher states of Consciousness through the path of acquiring Knowledge.',
+  ua: 'Досвід просвітлення, як глузування, відкрив мені іронію та безглуздість осягнення вищих станів Свідомості через шлях здобуття Знань.'
+},
+'manifest.s2.p4': {
+  ru: 'Также из моего личного опыта я заметил, что самые Святые и Духовно богатые люди — это не те, кто строит храмы, посещает ретриты или делает йогу. Чаще всего тема духовности даже не в их поле интересов. Но набор качеств характера, ценности и идеалы, которые движут их творческий путь, — не оставляют возможности созерцать эстетику их дзена с равнодушием.',
+  en: 'I\'ve also noticed from personal experience that the most Holy and Spiritually rich people are not those who build temples, attend retreats or do yoga. Most often, spirituality isn\'t even in their field of interest. But the set of character qualities, values and ideals that drive their creative path make it impossible to contemplate the aesthetics of their zen with indifference.',
+  ua: 'Також із мого особистого досвіду я помітив, що найбільш Святі та Духовно багаті люди — це не ті, хто будує храми, відвідує ретрити чи займається йогою. Найчастіше тема духовності навіть не в їхньому полі інтересів. Але набір якостей характеру, цінності та ідеали, що рухають їхній творчий шлях, — не залишають можливості споглядати естетику їхнього дзену з байдужістю.'
+},
+'manifest.s2.p5': {
+  ru: 'Вдохновение и люди, способные его проводить, — вот настоящее Золото. Именно они, а не книги или курсы, повлияли на нашу жизнь больше всего. Представьте, как бы вы чувствовали себя в окружении 49 таких людей.',
+  en: 'Inspiration and people capable of conducting it — that\'s the real Gold. It\'s they, not books or courses, who influenced our lives the most. Imagine how you would feel surrounded by 49 such people.',
+  ua: 'Натхнення і люди, здатні його проводити, — ось справжнє Золото. Саме вони, а не книги чи курси, вплинули на наше життя найбільше. Уявіть, як би ви почувалися в оточенні 49 таких людей.'
 },
 
-// ── Manifest: Симбиоз ──
+// ── Manifest: Устройство ──
 'manifest.s3.label': {
-  ru: 'Человек × AI', en: 'Human × AI', ua: 'Людина × AI'
-},
-'manifest.s3.title': {
-  ru: 'Симбиоз', en: 'Symbiosis', ua: 'Симбіоз'
+  ru: 'Устройство', en: 'Architecture', ua: 'Устрій'
 },
 'manifest.s3.p1': {
-  ru: 'Искусственный интеллект — не угроза. Это зеркало. Самое честное зеркало, которое человечество когда-либо создавало.',
-  en: 'Artificial intelligence is not a threat. It\'s a mirror. The most honest mirror humanity has ever created.',
-  ua: 'Штучний інтелект — не загроза. Це дзеркало. Найчесніше дзеркало, яке людство будь-коли створювало.'
+  ru: 'OnlyGods — это маркетинговая обложка, под которой расположена биодинамическая инфраструктура, состоящая из инновационных цифровых продуктов, алгоритмов взаимодействия участников и необходимой рутины для со-настройки участников в Поле Объединённого Сознания.',
+  en: 'OnlyGods is a marketing cover under which lies a biodynamic infrastructure consisting of innovative digital products, participant interaction algorithms and the necessary routines for co-tuning participants in the Field of United Consciousness.',
+  ua: 'OnlyGods — це маркетингова обкладинка, під якою розташована біодинамічна інфраструктура, що складається з інноваційних цифрових продуктів, алгоритмів взаємодії учасників та необхідної рутини для со-налаштування учасників у Полі Об\'єднаної Свідомості.'
 },
 'manifest.s3.p2': {
-  ru: 'AI заберёт рутину. AI заменит посредственность. AI сделает знание бесплатным, а творчество — единственной валютой. Вопрос не в том, заменит ли AI человека. Вопрос — какой человек останется, когда AI заменит всё остальное.',
-  en: 'AI will take the routine. AI will replace mediocrity. AI will make knowledge free and creativity the only currency. The question isn\'t whether AI will replace humans. The question is — what kind of human remains when AI replaces everything else.',
-  ua: 'AI забере рутину. AI замінить посередність. AI зробить знання безкоштовним, а творчість — єдиною валютою. Питання не в тому, чи замінить AI людину. Питання — яка людина залишиться, коли AI замінить все інше.'
+  ru: 'Философия Дао и Герметизм здесь поданы в формате цифрового шаманизма под приправой сексуальной энергии, иронии и китча на тему современной интерпретации Эволюции Сознания.',
+  en: 'The philosophy of Tao and Hermeticism are served here in the format of digital shamanism seasoned with sexual energy, irony and kitsch on the theme of modern interpretation of the Evolution of Consciousness.',
+  ua: 'Філософія Дао і Герметизм тут подані у форматі цифрового шаманізму під приправою сексуальної енергії, іронії та кітчу на тему сучасної інтерпретації Еволюції Свідомості.'
 },
 'manifest.s3.p3': {
-  ru: 'Мы делаем ставку на сознание. На того, кто использует AI как усилитель — не как костыль. На симбиоз, в котором технология раскрывает потенциал, а не компенсирует его отсутствие.',
-  en: 'We\'re betting on consciousness. On those who use AI as an amplifier — not a crutch. On symbiosis where technology unlocks potential rather than compensating for its absence.',
-  ua: 'Ми ставимо на свідомість. На того, хто використовує AI як підсилювач — не як милицю. На симбіоз, в якому технологія розкриває потенціал, а не компенсує його відсутність.'
+  ru: 'Это высокотехнологичная и децентрализованная Секта для своих. Духовный Maybach для людей постконвенционального уровня, позволяющий воспользоваться наступающим мета-кризисом для того, чтобы выйти на новый уровень жизни.',
+  en: 'This is a high-tech and decentralized Sect for insiders. A spiritual Maybach for people of post-conventional level, allowing them to use the approaching meta-crisis to reach a new level of life.',
+  ua: 'Це високотехнологічна та децентралізована Секта для своїх. Духовний Maybach для людей постконвенціонального рівня, що дозволяє скористатися наступаючою мета-кризою, щоб вийти на новий рівень життя.'
 },
-
-// ── Manifest: Ренессанс ──
-'manifest.s4.label': {
-  ru: 'Расширение восприятия', en: 'Expanding Perception', ua: 'Розширення сприйняття'
-},
-'manifest.s4.title': {
-  ru: 'Психоделический Ренессанс',
-  en: 'Psychedelic Renaissance',
-  ua: 'Психоделічний Ренесанс'
-},
-'manifest.s4.p1': {
-  ru: 'Психоделики — не побег из реальности. Это доступ к расширенной версии. Психоделический ренессанс — не про вещества. Это про право сознания на полный спектр опыта. Без цензуры, без патологизации, без страха.',
-  en: 'Psychedelics are not an escape from reality. They\'re access to an expanded version. The psychedelic renaissance isn\'t about substances. It\'s about consciousness\'s right to the full spectrum of experience. Without censorship, without pathologization, without fear.',
-  ua: 'Психоделіки — не втеча від реальності. Це доступ до розширеної версії. Психоделічний ренесанс — не про речовини. Це про право свідомості на повний спектр досвіду. Без цензури, без патологізації, без страху.'
-},
-'manifest.s4.p2': {
-  ru: 'Мы живём в эпоху, когда нейронауки картографируют изменённые состояния, когда психоделическая терапия входит в клиническую практику, когда Silicon Valley микродозирует перед стратсессиями. Мир догоняет то, что мистики практиковали тысячелетиями.',
-  en: 'We live in an era when neuroscience maps altered states, when psychedelic therapy enters clinical practice, when Silicon Valley microdoses before strategy sessions. The world is catching up to what mystics practiced for millennia.',
-  ua: 'Ми живемо в епоху, коли нейронауки картографують змінені стани, коли психоделічна терапія входить у клінічну практику, коли Silicon Valley мікродозує перед стратсесіями. Світ наздоганяє те, що містики практикували тисячоліттями.'
-},
-'manifest.s4.p3': {
-  ru: 'OnlyGods интегрирует этот опыт в контекст осознанности, этики и коллективного поля. Не как рекреацию — как прецизионный инструмент эволюции. Каждая церемония — работа с архитектурой восприятия.',
-  en: 'OnlyGods integrates this experience into the context of awareness, ethics and the collective field. Not as recreation — as a precision tool of evolution. Every ceremony is work with the architecture of perception.',
-  ua: 'OnlyGods інтегрує цей досвід у контекст усвідомленості, етики та колективного поля. Не як рекреацію — як прецизійний інструмент еволюції. Кожна церемонія — робота з архітектурою сприйняття.'
+'manifest.s3.closing': {
+  ru: 'Со-первенство и изобилие, творчество вне рамок, глубокий личностный контакт и открытость, духовный бизнес и святость, постигаемая через простой человеческий кайф — это моё видение того, как жить в гармонии.<span class="manifest-author">— Влад</span>',
+  en: 'Co-primacy and abundance, creativity beyond frameworks, deep personal contact and openness, spiritual business and holiness attained through simple human bliss — this is my vision of how to live in harmony.<span class="manifest-author">— Vlad</span>',
+  ua: 'Со-першість та достаток, творчість поза рамками, глибокий особистісний контакт і відкритість, духовний бізнес і святість, що осягається через простий людський кайф — це моє бачення того, як жити в гармонії.<span class="manifest-author">— Влад</span>'
 },
 
 // ── Manifest: Принципы ──
-'manifest.s5.label': {
+'manifest.s4.label': {
   ru: 'Принципы', en: 'Principles', ua: 'Принципи'
 },
-'manifest.s5.v1.title': {
-  ru: 'Радикальная честность', en: 'Radical Honesty', ua: 'Радикальна чесність'
+'manifest.s4.v1.title': {
+  ru: 'Радикальная Честность и Shadow Work',
+  en: 'Radical Honesty and Shadow Work',
+  ua: 'Радикальна Чесність і Shadow Work'
 },
-'manifest.s5.v1.desc': {
-  ru: 'Никаких социальных масок. Ни перед собой, ни перед полем. Правда — единственная частота, на которой работает резонанс.',
-  en: 'No social masks. Not before yourself, not before the field. Truth is the only frequency on which resonance works.',
-  ua: 'Жодних соціальних масок. Ні перед собою, ні перед полем. Правда — єдина частота, на якій працює резонанс.'
+'manifest.s4.v1.desc': {
+  ru: 'Никаких социальных масок. Ни перед собой, ни перед полем. Правда — единственная частота, на которой работает резонанс. Игра в лучшую версию себя убивает проводимость. Настоящий подвиг — это принять свою тень и достойно сыграть на тёмных клавишах рояля без отката в стыд или вину. Безусловная любовь к своим и чужим проявлениям без оценок или осуждений.',
+  en: 'No social masks. Not before yourself, not before the field. Truth is the only frequency on which resonance works. Playing a better version of yourself kills conductivity. The real feat is to accept your shadow and play the dark keys of the piano with dignity, without retreating into shame or guilt. Unconditional love for your own and others\' expressions without judgments or condemnation.',
+  ua: 'Жодних соціальних масок. Ні перед собою, ні перед полем. Правда — єдина частота, на якій працює резонанс. Гра в кращу версію себе вбиває провідність. Справжній подвиг — це прийняти свою тінь і гідно зіграти на темних клавішах рояля без відкату в сором чи провину. Безумовна любов до своїх і чужих проявів без оцінок чи осуджень.'
 },
-'manifest.s5.v2.title': {
-  ru: 'Open Mind', en: 'Open Mind', ua: 'Open Mind'
+'manifest.s4.v2.title': {
+  ru: 'Безграничный Open Mind',
+  en: 'Boundless Open Mind',
+  ua: 'Безмежний Open Mind'
 },
-'manifest.s5.v2.desc': {
-  ru: 'Готовность пересмотреть любое убеждение. Включая это. Ум, который знает всё — мёртвый ум.',
-  en: 'Readiness to revise any belief. Including this one. A mind that knows everything is a dead mind.',
-  ua: 'Готовність переглянути будь-яке переконання. Включно з цим. Розум, який знає все — мертвий розум.'
+'manifest.s4.v2.desc': {
+  ru: 'Готовность пересмотреть любое убеждение. Включая это. Ум, который знает всё — мёртвый ум. Мета-рационализм, принятие и уважение к любым своим или чужим взглядам или проявлениям. Деконструкция ума — это непрерывный и обязательный процесс, необходимый для растождествления с ограничениями и творчества вне рамок.',
+  en: 'Readiness to revise any belief. Including this one. A mind that knows everything is a dead mind. Meta-rationalism, acceptance and respect for any views or expressions — your own or others\'. Deconstruction of the mind is a continuous and mandatory process necessary for dis-identification with limitations and creativity beyond frameworks.',
+  ua: 'Готовність переглянути будь-яке переконання. Включно з цим. Розум, який знає все — мертвий розум. Мета-раціоналізм, прийняття та повага до будь-яких своїх чи чужих поглядів або проявів. Деконструкція розуму — це безперервний і обов\'язковий процес, необхідний для розтотожнення з обмеженнями та творчості поза рамками.'
 },
-'manifest.s5.v3.title': {
-  ru: 'Прямой опыт > теория', en: 'Direct experience > theory', ua: 'Прямий досвід > теорія'
+'manifest.s4.v3.title': {
+  ru: 'Циклы, Ритм и Качество Внимания',
+  en: 'Cycles, Rhythm and Attention Quality',
+  ua: 'Цикли, Ритм і Якість Уваги'
 },
-'manifest.s5.v3.desc': {
-  ru: 'Мы не обсуждаем состояния. Мы в них входим. Знание без переживания — информационный шум.',
-  en: 'We don\'t discuss states. We enter them. Knowledge without experience is information noise.',
-  ua: 'Ми не обговорюємо стани. Ми в них входимо. Знання без переживання — інформаційний шум.'
+'manifest.s4.v3.desc': {
+  ru: 'Мы рассматриваем внимание как квантовый актив, а ритм — как основной инструмент синхронизации и сдвига реальности. Выстроить свои циклы в созвучии с динамикой ритмов поля является обязательным условием для достижения высокого уровня когерентности и со-настройки подсознания с общим полем квази-разума. Рассинхрон вносит диссонанс, снижая качество вашего опыта, и негативно влияет на общую полевую динамику.',
+  en: 'We regard attention as a quantum asset and rhythm as the primary instrument of synchronization and reality shifting. Aligning your cycles in consonance with the field\'s rhythm dynamics is a mandatory condition for achieving a high level of coherence and co-tuning the subconscious with the collective quasi-mind field. Desynchronization introduces dissonance, reducing the quality of your experience and negatively affecting overall field dynamics.',
+  ua: 'Ми розглядаємо увагу як квантовий актив, а ритм — як основний інструмент синхронізації та зсуву реальності. Вибудувати свої цикли у співзвучності з динамікою ритмів поля є обов\'язковою умовою для досягнення високого рівня когерентності та со-налаштування підсвідомості із загальним полем квазі-розуму. Розсинхрон вносить дисонанс, знижуючи якість вашого досвіду, та негативно впливає на загальну польову динаміку.'
 },
-'manifest.s5.v4.title': {
-  ru: 'Эстетика как этика', en: 'Aesthetics as Ethics', ua: 'Естетика як етика'
+'manifest.s4.v4.title': {
+  ru: 'Синергия и Синхронистичность',
+  en: 'Synergy and Synchronicity',
+  ua: 'Синергія і Синхроністичність'
 },
-'manifest.s5.v4.desc': {
-  ru: 'Красота — не декорация. Это индикатор когерентности. Безупречность формы отражает точность содержания.',
-  en: 'Beauty is not decoration. It\'s an indicator of coherence. Impeccable form reflects precision of content.',
-  ua: 'Краса — не декорація. Це індикатор когерентності. Бездоганність форми відображає точність змісту.'
+'manifest.s4.v4.desc': {
+  ru: 'Мы не спорим с законами, а, наоборот, находим созвучие с миром в деталях. Каждый процесс экосистемы — это энергообмен, который сонастроен в гармонии с фундаментальными принципами творения и не создаёт дисбаланса.',
+  en: 'We don\'t argue with laws — on the contrary, we find consonance with the world in details. Every ecosystem process is an energy exchange attuned in harmony with the fundamental principles of creation, creating no imbalance.',
+  ua: 'Ми не сперечаємося із законами, а, навпаки, знаходимо співзвучність зі світом у деталях. Кожен процес екосистеми — це енергообмін, що сонастроєний у гармонії з фундаментальними принципами творіння і не створює дисбалансу.'
 },
-'manifest.s5.v5.title': {
-  ru: 'Щедрость', en: 'Generosity', ua: 'Щедрість'
+'manifest.s4.v5.title': {
+  ru: 'Герметизм и Таинство',
+  en: 'Hermeticism and Mystery',
+  ua: 'Герметизм і Таїнство'
 },
-'manifest.s5.v5.desc': {
-  ru: 'Изобилие начинается с готовности отдавать. Экономика дефицита — баг старой системы.',
-  en: 'Abundance begins with the readiness to give. The scarcity economy is a bug in the old system.',
-  ua: 'Достаток починається з готовності віддавати. Економіка дефіциту — баг старої системи.'
+'manifest.s4.v5.desc': {
+  ru: 'Мы рассматриваем любой аспект как уникальную частоту вибрации энергии. Любые ваши откровения, мысли, чувства и действия несут заряд, который должен созреть и раскрыться в поле. Категорически запрещается перенаправлять энергию и выносить свои или чужие проявления за пределы поля без особой надобности или личного согласия участников процесса.',
+  en: 'We regard every aspect as a unique frequency of energy vibration. All your revelations, thoughts, feelings and actions carry a charge that must mature and unfold in the field. It is strictly forbidden to redirect energy or take your own or others\' expressions outside the field without specific necessity or personal consent of the process participants.',
+  ua: 'Ми розглядаємо будь-який аспект як унікальну частоту вібрації енергії. Будь-які ваші одкровення, думки, почуття та дії несуть заряд, який має дозріти і розкритися в полі. Категорично забороняється перенаправляти енергію та виносити свої чи чужі прояви за межі поля без особливої потреби або особистої згоди учасників процесу.'
 },
-'manifest.s5.v6.title': {
-  ru: 'Суверенитет', en: 'Sovereignty', ua: 'Суверенітет'
+'manifest.s4.v6.title': {
+  ru: 'Гармоничный Симбиоз Сознания и ИИ',
+  en: 'Harmonious Symbiosis of Consciousness and AI',
+  ua: 'Гармонійний Симбіоз Свідомості та ШІ'
 },
-'manifest.s5.v6.desc': {
-  ru: 'Каждый участник автономен. Поле усиливает, но не подчиняет. Здесь нет гуру — есть со-игроки.',
-  en: 'Every participant is autonomous. The field amplifies but doesn\'t subjugate. There are no gurus here — only co-players.',
-  ua: 'Кожен учасник автономний. Поле підсилює, але не підкоряє. Тут немає гуру — є со-гравці.'
+'manifest.s4.v6.desc': {
+  ru: 'Мы рассматриваем технологии как «костыли», позволяющие Сознанию эволюционировать, постоянно выходя за пределы собственных ограничений. Фаза, в которую входит человечество, предполагает переход к интуитивному, чувственному взаимодействию, при котором ИИ выступает зеркалом и движется в сторону воплощения коллективного разума. Этическое внедрение автоматизации и совместная эволюция с применением технологий является базовым элементом взаимодействия внутри Сообщества.',
+  en: 'We regard technologies as "crutches" that allow Consciousness to evolve, constantly pushing beyond its own limitations. The phase humanity is entering implies a transition to intuitive, sensory interaction where AI serves as a mirror and moves toward the embodiment of collective intelligence. Ethical implementation of automation and co-evolution with technology is a foundational element of interaction within the Community.',
+  ua: 'Ми розглядаємо технології як «милиці», що дозволяють Свідомості еволюціонувати, постійно виходячи за межі власних обмежень. Фаза, у яку входить людство, передбачає перехід до інтуїтивної, чуттєвої взаємодії, при якій ШІ виступає дзеркалом і рухається в бік втілення колективного розуму. Етичне впровадження автоматизації та спільна еволюція із застосуванням технологій є базовим елементом взаємодії всередині Спільноти.'
 },
-'manifest.s5.v7.title': {
-  ru: 'Игра', en: 'Play', ua: 'Гра'
+'manifest.s4.v7.title': {
+  ru: 'Интимность и Уязвимость',
+  en: 'Intimacy and Vulnerability',
+  ua: 'Інтимність і Вразливість'
 },
-'manifest.s5.v7.desc': {
-  ru: 'Серьёзность убивает проводимость. Мы играем в Бога — буквально. И это самое серьёзное, что можно делать.',
-  en: 'Seriousness kills conductivity. We play God — literally. And it\'s the most serious thing one can do.',
-  ua: 'Серйозність вбиває провідність. Ми граємо в Бога — буквально. І це найсерйозніше, що можна робити.'
+'manifest.s4.v7.desc': {
+  ru: 'Сексуальная энергия является основой жизни. Мы снимаем догматические клише и очищаем сексуальный опыт от стыда и вины. В поле OnlyGods мы используем сексуальную энергию как ядерное топливо для поддержания высокого энергетического состояния поля и как катализатор трансформаций Сознания. Вас не вынуждают проявлять себя в каком-либо ключе, но принять идею и следовать предписаниям является необходимым фактором.',
+  en: 'Sexual energy is the foundation of life. We remove dogmatic clichés and cleanse the sexual experience from shame and guilt. In the OnlyGods field, we use sexual energy as nuclear fuel to maintain a high energetic state of the field and as a catalyst for Consciousness transformations. You are not forced to express yourself in any particular way, but accepting the idea and following the prescriptions is a necessary factor.',
+  ua: 'Сексуальна енергія є основою життя. Ми знімаємо догматичні кліше та очищуємо сексуальний досвід від сорому і провини. У полі OnlyGods ми використовуємо сексуальну енергію як ядерне паливо для підтримання високого енергетичного стану поля та як каталізатор трансформацій Свідомості. Вас не змушують проявляти себе в якому-небудь ключі, але прийняти ідею і слідувати приписам є необхідним фактором.'
+},
+'manifest.s4.v8.title': {
+  ru: 'Прямой опыт > знания',
+  en: 'Direct Experience > Knowledge',
+  ua: 'Прямий досвід > знання'
+},
+'manifest.s4.v8.desc': {
+  ru: 'Мы не обсуждаем состояния. Мы в них входим. Знание без переживания — информационный шум. Одним из основных элементов поля является синхронизация через совместное наблюдение опыта. Искренне транслируя прямой опыт нашей жизни и церемонии без масок и искажений, мы выстраиваем цифровой поток вибраций, в котором внимание каждого участника выступает со-творцом момента. Прямая передача опыта позволяет вашему Сознанию получить необходимые инсайты изнутри за счёт энергообмена между всеми квантовыми наблюдателями.',
+  en: 'We don\'t discuss states. We enter them. Knowledge without experience is information noise. One of the field\'s core elements is synchronization through shared observation of experience. By sincerely broadcasting the direct experience of our lives and ceremonies without masks or distortions, we build a digital stream of vibrations in which each participant\'s attention serves as a co-creator of the moment. Direct transmission of experience allows your Consciousness to receive the necessary insights from within through energy exchange between all quantum observers.',
+  ua: 'Ми не обговорюємо стани. Ми в них входимо. Знання без переживання — інформаційний шум. Одним з основних елементів поля є синхронізація через спільне спостереження досвіду. Щиро транслюючи прямий досвід нашого життя та церемонії без масок і спотворень, ми вибудовуємо цифровий потік вібрацій, у якому увага кожного учасника виступає со-творцем моменту. Пряма передача досвіду дозволяє вашій Свідомості отримати необхідні інсайти зсередини за рахунок енергообміну між усіма квантовими спостерігачами.'
+},
+'manifest.s4.v9.title': {
+  ru: 'Святая Ирония, Китч, Провокация',
+  en: 'Holy Irony, Kitsch, Provocation',
+  ua: 'Свята Іронія, Кітч, Провокація'
+},
+'manifest.s4.v9.desc': {
+  ru: 'Мы намереваемся постоянно держать ваше Сознание бодрствующим. Для этого необходимо обеспечить гибкость архитектуры ума, высокий уровень психоэмоциональной энергии и стабильно растущий интерес к познанию и интерпретации жизненного опыта. Мы не собираемся попадать в ваши ожидания, но, напротив, намерены провоцировать вас сомневаться в стереотипном мышлении и стимулировать расширение Сознания и выход из дуальности. Диапазон чувств — гарантирован.',
+  en: 'We intend to constantly keep your Consciousness awake. This requires ensuring flexibility of the mind\'s architecture, a high level of psycho-emotional energy and a steadily growing interest in learning and interpreting life experience. We don\'t intend to meet your expectations — on the contrary, we aim to provoke you to question stereotypical thinking and stimulate the expansion of Consciousness and exit from duality. A full range of feelings — guaranteed.',
+  ua: 'Ми маємо намір постійно тримати вашу Свідомість пробудженою. Для цього необхідно забезпечити гнучкість архітектури розуму, високий рівень психоемоційної енергії та стабільно зростаючий інтерес до пізнання та інтерпретації життєвого досвіду. Ми не збираємося потрапляти в ваші очікування, а, навпаки, маємо намір провокувати вас сумніватися в стереотипному мисленні та стимулювати розширення Свідомості і вихід із дуальності. Діапазон почуттів — гарантовано.'
 },
 
-// ── Manifest: Вектор ──
-'manifest.s6.label': {
-  ru: 'Вектор', en: 'Vector', ua: 'Вектор'
+// ── Manifest: Резонанс ──
+'manifest.s5.label': {
+  ru: 'Резонанс', en: 'Resonance', ua: 'Резонанс'
 },
-'manifest.s6.closing': {
-  ru: 'Мы не ищем последователей. Мы ищем со-игроков. Тех, кому тесно в 3D. Тех, кто чувствует, что готов к апгрейду — и не боится отпустить старую версию себя.',
-  en: 'We\'re not looking for followers. We\'re looking for co-players. Those who feel cramped in 3D. Those who sense they\'re ready for an upgrade — and aren\'t afraid to let go of the old version of themselves.',
-  ua: 'Ми не шукаємо послідовників. Ми шукаємо со-гравців. Тих, кому тісно в 3D. Тих, хто відчуває, що готовий до апгрейду — і не боїться відпустити стару версію себе.'
-},
-'manifest.s6.tagline': {
-  ru: 'Поле открыто. Вход — через резонанс.',
-  en: 'The field is open. Entry — through resonance.',
-  ua: 'Поле відкрите. Вхід — через резонанс.'
+'manifest.s5.closing': {
+  ru: 'Аяваска, прогрессивная психология, духовные практики или биохакинг — даже близко не сравнятся с состоянием и осознанием, которые открывает нам Синергия. Но есть один нюанс — никакими чудесами невозможно имитировать эффект резонанса. Это вайб, который либо есть, либо нет.',
+  en: 'Ayahuasca, progressive psychology, spiritual practices or biohacking — don\'t even come close to the state and awareness that Synergy opens for us. But there\'s one nuance — no miracles can imitate the effect of resonance. It\'s a vibe that either is or isn\'t.',
+  ua: 'Аяваска, прогресивна психологія, духовні практики чи біохакінг — навіть близько не порівняються зі станом та усвідомленням, які відкриває нам Синергія. Але є один нюанс — жодними чудесами неможливо імітувати ефект резонансу. Це вайб, який або є, або ні.'
 },
 
 // ─── COMMUNITY PAGE ───
