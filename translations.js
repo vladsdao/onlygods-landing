@@ -1453,6 +1453,59 @@ var T = {
 'meta.sources.label': { ru: 'Источники', en: 'Sources', ua: 'Джерела' },
 'meta.back': { ru: '← Holy Tech', en: '← Holy Tech', ua: '← Holy Tech' },
 
+// ─── PLAYGROUND PAGE (vibecode apps) ───
+'playground.title': { ru: 'OnlyGods — Playground', en: 'OnlyGods — Playground', ua: 'OnlyGods — Playground' },
+'playground.hero.subtitle': { ru: 'Playground', en: 'Playground', ua: 'Playground' },
+'playground.hero.title': { ru: 'Vibecode Apps', en: 'Vibecode Apps', ua: 'Vibecode Apps' },
+'playground.hero.tagline': {
+  ru: 'Интерактивные инструменты сознания, собранные на вибрациях и коде',
+  en: 'Interactive consciousness tools, built on vibrations and code',
+  ua: 'Інтерактивні інструменти свідомості, зібрані на вібраціях та коді'
+},
+'playground.intro': {
+  ru: 'Каждый инструмент здесь — эксперимент на стыке кода и сознания. Мы строим их быстро, тестируем на поле и оставляем то, что работает. Не продукт — процесс.',
+  en: 'Every tool here is an experiment at the intersection of code and consciousness. We build fast, test on the field, and keep what works. Not a product — a process.',
+  ua: 'Кожен інструмент тут — експеримент на стику коду і свідомості. Ми будуємо швидко, тестуємо на полі і залишаємо те, що працює. Не продукт — процес.'
+},
+'playground.grid.label': { ru: 'Приложения', en: 'Apps', ua: 'Додатки' },
+'playground.app1.label': { ru: '01', en: '01', ua: '01' },
+'playground.app1.title': { ru: 'Resonance Scanner', en: 'Resonance Scanner', ua: 'Resonance Scanner' },
+'playground.app1.desc': {
+  ru: 'Визуализация состояния поля в реальном времени. Пульс когерентности группы.',
+  en: 'Real-time field state visualization. Group coherence pulse.',
+  ua: 'Візуалізація стану поля в реальному часі. Пульс когерентності групи.'
+},
+'playground.app1.status': { ru: 'Скоро →', en: 'Coming soon →', ua: 'Скоро →' },
+'playground.app2.label': { ru: '02', en: '02', ua: '02' },
+'playground.app2.title': { ru: 'Shadow Decoder', en: 'Shadow Decoder', ua: 'Shadow Decoder' },
+'playground.app2.desc': {
+  ru: 'AI-ассистент для деконструкции теневых паттернов. Вопросы, которые ты не задашь себе сам.',
+  en: 'AI assistant for shadow pattern deconstruction. Questions you won\'t ask yourself.',
+  ua: 'AI-асистент для деконструкції тіньових патернів. Питання, які ти не поставиш собі сам.'
+},
+'playground.app2.status': { ru: 'Скоро →', en: 'Coming soon →', ua: 'Скоро →' },
+'playground.app3.label': { ru: '03', en: '03', ua: '03' },
+'playground.app3.title': { ru: 'Frequency Generator', en: 'Frequency Generator', ua: 'Frequency Generator' },
+'playground.app3.desc': {
+  ru: 'Генератор аудио-частот для синхронизации. Тета, гамма, бинауральные мосты.',
+  en: 'Audio frequency generator for synchronization. Theta, gamma, binaural bridges.',
+  ua: 'Генератор аудіо-частот для синхронізації. Тета, гамма, бінауральні мости.'
+},
+'playground.app3.status': { ru: 'Скоро →', en: 'Coming soon →', ua: 'Скоро →' },
+'playground.app4.label': { ru: '04', en: '04', ua: '04' },
+'playground.app4.title': { ru: 'Coherence Tracker', en: 'Coherence Tracker', ua: 'Coherence Tracker' },
+'playground.app4.desc': {
+  ru: 'Персональный дневник когерентности. Отслеживай паттерны, находи свой ритм.',
+  en: 'Personal coherence journal. Track patterns, find your rhythm.',
+  ua: 'Персональний щоденник когерентності. Відстежуй патерни, знаходь свій ритм.'
+},
+'playground.app4.status': { ru: 'Скоро →', en: 'Coming soon →', ua: 'Скоро →' },
+'playground.note': {
+  ru: 'Новые инструменты появляются по мере вибрации',
+  en: 'New tools appear as the vibration demands',
+  ua: 'Нові інструменти з\'являються в міру вібрації'
+},
+
 // ─── ROADMAP PAGE (interactive scroll timeline) ───
 'roadmap.title': { ru: 'OnlyGods — Roadmap', en: 'OnlyGods — Roadmap', ua: 'OnlyGods — Roadmap' },
 'roadmap.arrow.past': { ru: '\u2191 Прошлое', en: '\u2191 Past', ua: '\u2191 Минуле' },
