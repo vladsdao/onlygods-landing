@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="dashboard.title">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnlyGods — Consciousness Field</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff; color: #1d1d1f;
+    overflow-x: hidden; scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(29, 29, 31, 0.08); }
+
+.site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+.nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; color: #1d1d1f;
+    text-decoration: none; letter-spacing: -0.5px;
+}
+
+.nav-links { display: flex; align-items: center; gap: 32px; }
+
+.nav-links a {
+    font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #6e6e73; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; position: relative;
+}
+.nav-links a:hover { color: #1d1d1f; }
+.nav-links a.active { color: #1d1d1f; }
+.nav-links a.active::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: #1d1d1f;
+}
+
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-burger span { display: block; width: 20px; height: 1.5px; background: #1d1d1f; transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-join {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 16px; border: 1px solid rgba(29,29,31,0.3); border-radius: 20px;
+    color: #1d1d1f; text-decoration: none; font-weight: 500;
+    margin-left: 16px; margin-right: auto; transition: all 0.3s ease;
+}
+.nav-join:hover { background: #1d1d1f; color: #ffffff; }
+
+.nav-mobile {
+    display: none; position: fixed; top: 60px; left: 0; right: 0;
+    background: rgba(255, 255, 255, 0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 20px 40px 32px; flex-direction: column; gap: 20px; z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #6e6e73; text-decoration: none; font-weight: 500; transition: color 0.3s ease;
+}
+.nav-mobile a:hover, .nav-mobile a.active { color: #1d1d1f; }
+
+/* === HERO === */
+.field-hero {
+    min-height: 50vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 120px 20px 60px; position: relative;
+}
+
+.field-hero .hero-subtitle {
+    font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #6e6e73; margin-bottom: 20px; font-weight: 500;
+}
+
+.coherence-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(100px, 20vw, 200px); font-weight: 300;
+    letter-spacing: -8px; line-height: 1; color: #1d1d1f;
+    transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.coherence-label {
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+    color: #6e6e73; margin-top: 8px; font-weight: 500;
+}
+
+.field-hero .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.2vw, 22px); color: #6e6e73;
+    max-width: 500px; line-height: 1.5; font-weight: 400;
+    font-style: italic; margin-top: 24px;
+}
+
+/* === LIVE INDICATOR === */
+.live-dot {
+    display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+    background: #30d158; margin-right: 6px;
+    animation: pulse-dot 2s ease infinite;
+}
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* === METRICS GRID === */
+.content-section { max-width: 1080px; margin: 0 auto; padding: 80px 40px; }
+
+.section-label {
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #6e6e73; margin-bottom: 20px; font-weight: 500;
+}
+
+.section-divider { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+.section-divider::after { content: ''; display: block; width: 100%; height: 1px; background: rgba(0,0,0,0.06); }
+
+.metrics-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    margin-top: 24px;
+}
+
+.metric-card {
+    background: #fbfbfd;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 16px; padding: 28px 24px;
+    transition: border-color 0.3s ease;
+}
+.metric-card:hover { border-color: rgba(0,0,0,0.12); }
+
+.metric-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px; font-weight: 300; color: #1d1d1f;
+    line-height: 1; margin-bottom: 8px;
+}
+
+.metric-label {
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #6e6e73; font-weight: 500;
+}
+
+.metric-sub { font-size: 13px; color: #6e6e73; margin-top: 6px; }
+
+/* === ENERGY CHART === */
+.chart-container {
+    margin-top: 24px;
+    background: #fbfbfd;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 16px; padding: 32px;
+}
+
+.chart-canvas { width: 100%; height: 240px; }
+
+/* === THEMES === */
+.themes-container {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px;
+}
+
+.theme-tag {
+    font-size: 14px; color: #86868b;
+    padding: 8px 18px;
+    background: rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+.theme-tag:hover { background: rgba(0,0,0,0.06); color: #1d1d1f; }
+
+/* === SYNTHESIS === */
+.synthesis-block {
+    margin-top: 24px;
+    background: #fbfbfd;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 16px; padding: 32px;
+}
+
+.synthesis-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 400; font-style: italic;
+    color: #86868b; line-height: 1.6;
+}
+
+.synthesis-time {
+    font-size: 12px; color: #6e6e73; margin-top: 16px;
+    letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* === DIGEST === */
+.digest-card {
+    margin-top: 16px;
+    background: #fbfbfd;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 16px; padding: 28px;
+}
+
+.digest-text {
+    font-size: 15px; color: #86868b; line-height: 1.7;
+}
+
+.digest-period {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #6e6e73; font-weight: 500; margin-bottom: 12px;
+}
+
+/* === FOOTER === */
+.site-footer {
+    text-align: center; padding: 60px 20px; color: #6e6e73;
+    font-size: 13px; letter-spacing: 1px;
+}
+
+/* === ANIMATIONS === */
+.fade-in-up { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .site-nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .content-section { padding: 60px 20px; }
+    .metric-card { padding: 20px 16px; }
+    .metric-value { font-size: 32px; }
+    .coherence-number { letter-spacing: -4px; }
+    .chart-container, .synthesis-block, .digest-card { padding: 20px; }
+}
+
+@media (max-width: 480px) {
+    .metrics-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <a href="../index.html" class="nav-wordmark">OnlyGods</a>
+    <a href="../index.html#join" class="nav-join" data-i18n="nav.join">Join</a>
+    <div class="nav-links">
+        <a href="../manifest.html">Manifest</a>
+        <a href="../technologies.html">Holy Tech</a>
+        <a href="../community.html">Creators</a>
+        <a href="../research.html">Publications</a>
+        <a href="../quantumlab.html">Quantum Lab</a>
+        <a href="../playground.html">Playground</a>
+        <a href="../dao.html">DAO</a>
+        <span class="nav-divider"></span>
+        <div class="lang-switcher">
+            <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+        </div>
+    </div>
+    <div class="nav-burger" id="nav-burger" onclick="this.classList.toggle('open'); document.getElementById('nav-mobile').classList.toggle('open');">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+    <a href="../manifest.html">Manifest</a>
+    <a href="../technologies.html">Holy Tech</a>
+    <a href="../community.html">Creators</a>
+    <a href="../research.html">Publications</a>
+    <a href="../quantumlab.html">Quantum Lab</a>
+    <a href="../playground.html">Playground</a>
+    <a href="../dao.html">DAO</a>
+    <div class="lang-switcher">
+        <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+    </div>
+</div>
+
+<!-- HERO: Coherence Score -->
+<section class="field-hero">
+    <div class="fade-in-up">
+        <div class="hero-subtitle"><span class="live-dot"></span> <span data-i18n="dashboard.hero.subtitle">Поле сознания</span></div>
+        <div class="coherence-number" id="coherence-score">—</div>
+        <div class="coherence-label" data-i18n="dashboard.hero.label">Когерентность</div>
+        <p class="hero-tagline" id="synthesis-tagline" data-i18n="dashboard.hero.tagline">Загрузка данных поля...</p>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- METRICS -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="dashboard.metrics.label">Метрики поля</div>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value" id="energy-avg">—</div>
+                <div class="metric-label" data-i18n="dashboard.metrics.energy">Энергия</div>
+                <div class="metric-sub" id="energy-direction"></div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="participation">—</div>
+                <div class="metric-label" data-i18n="dashboard.metrics.participation">Участие</div>
+                <div class="metric-sub" id="participation-detail"></div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="active-members">—</div>
+                <div class="metric-label" data-i18n="dashboard.metrics.synced">Синхронизировано</div>
+                <div class="metric-sub" data-i18n="dashboard.metrics.today">сегодня</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="streak-field">—</div>
+                <div class="metric-label" data-i18n="dashboard.metrics.streak">Серия поля</div>
+                <div class="metric-sub" data-i18n="dashboard.metrics.days">дней</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ENERGY TREND CHART -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="dashboard.chart.label">Энергия за 7 дней</div>
+        <div class="chart-container">
+            <canvas id="energy-chart" class="chart-canvas"></canvas>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- THEMES + SYNTHESIS -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="dashboard.themes.label">Темы поля</div>
+        <div class="themes-container" id="themes-cloud"></div>
+    </div>
+</div>
+
+<div class="content-section" style="padding-top: 0;">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="dashboard.synthesis.label">AI Синтез</div>
+        <div class="synthesis-block">
+            <div class="synthesis-text" id="synthesis-text">—</div>
+            <div class="synthesis-time" id="synthesis-time"></div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- LATEST DIGEST -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="dashboard.digest.label">Последний дайджест</div>
+        <div class="digest-card" id="digest-container">
+            <div class="digest-period" id="digest-period"></div>
+            <div class="digest-text" id="digest-text" data-i18n="dashboard.digest.empty">Дайджест ещё не сформирован</div>
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">OnlyGods</footer>
+
+<!-- Supabase JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+
+<script src="../translations.js"></script>
+<script>
+const SUPABASE_URL = 'https://bnfkicmzxljkhahqxfla.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJuZmtpY216eGxqa2hhaHF4ZmxhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4MzkyOTAsImV4cCI6MjA4ODQxNTI5MH0.Rjnh0AlhclThIvFp1OA1gANoqkeAkvaasqnXHAROaWY';
+
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+let energyChart = null;
+
+// === LOAD FIELD DATA ===
+async function loadField() {
+    // Latest snapshot
+    const { data: snap } = await sb
+        .from('field_snapshots')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .single();
+
+    if (snap) {
+        updateSnapshot(snap);
+    }
+
+    // 7-day history for chart
+    const weekAgo = new Date();
+    weekAgo.setDate(weekAgo.getDate() - 7);
+
+    const { data: history } = await sb
+        .from('field_snapshots')
+        .select('energy_avg, coherence_score, created_at, period')
+        .gte('created_at', weekAgo.toISOString())
+        .neq('period', 'weekly')
+        .order('created_at', { ascending: true });
+
+    if (history && history.length > 0) {
+        renderChart(history);
+    }
+
+    // Latest digest
+    const { data: digest } = await sb
+        .from('chat_digests')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .single();
+
+    if (digest) {
+        updateDigest(digest);
+    }
+
+    // Field streak: consecutive days with snapshots
+    const { data: allSnaps } = await sb
+        .from('field_snapshots')
+        .select('created_at')
+        .neq('period', 'weekly')
+        .order('created_at', { ascending: false })
+        .limit(30);
+
+    if (allSnaps) {
+        const streak = calcStreak(allSnaps);
+        document.getElementById('streak-field').textContent = streak;
+    }
+}
+
+function updateSnapshot(snap) {
+    const score = snap.coherence_score;
+    const el = document.getElementById('coherence-score');
+    if (score !== null && score !== undefined) {
+        animateNumber(el, score);
+    }
+
+    const energy = snap.energy_avg;
+    if (energy !== null) {
+        document.getElementById('energy-avg').textContent = energy.toFixed(1);
+    }
+
+    const pct = snap.participation_pct;
+    if (pct !== null) {
+        document.getElementById('participation').textContent = Math.round(pct * 100) + '%';
+    }
+
+    if (snap.active_members !== null) {
+        document.getElementById('active-members').textContent = snap.active_members;
+    }
+
+    // Themes
+    if (snap.dominant_themes && snap.dominant_themes.length > 0) {
+        const container = document.getElementById('themes-cloud');
+        container.innerHTML = snap.dominant_themes
+            .map(t => `<span class="theme-tag">${t}</span>`)
+            .join('');
+    }
+
+    // Synthesis
+    if (snap.ai_synthesis) {
+        document.getElementById('synthesis-text').textContent = snap.ai_synthesis;
+        document.getElementById('synthesis-tagline').textContent = snap.ai_synthesis.substring(0, 80) + '...';
+    }
+
+    if (snap.created_at) {
+        const d = new Date(snap.created_at);
+        const period = snap.period === 'morning' ? 'утро' : snap.period === 'evening' ? 'вечер' : snap.period || '';
+        document.getElementById('synthesis-time').textContent =
+            d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) + ' · ' + period;
+    }
+
+    // Energy direction arrow
+    const dirEl = document.getElementById('energy-direction');
+    if (snap.ai_synthesis) {
+        // Parse direction from recent snapshots comparison
+        dirEl.textContent = energy >= 7 ? '↑' : energy >= 5 ? '→' : '↓';
+    }
+}
+
+function updateDigest(digest) {
+    if (digest.digest_text) {
+        document.getElementById('digest-text').textContent = digest.digest_text;
+    }
+    if (digest.period) {
+        const label = digest.period === 'morning' ? 'Утренний дайджест' : 'Вечерний дайджест';
+        document.getElementById('digest-period').textContent = label;
+    }
+    if (digest.created_at) {
+        const d = new Date(digest.created_at);
+        document.getElementById('digest-period').textContent +=
+            ' · ' + d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' });
+    }
+}
+
+function calcStreak(snapshots) {
+    if (!snapshots.length) return 0;
+    let streak = 1;
+    const days = [...new Set(snapshots.map(s =>
+        new Date(s.created_at).toISOString().split('T')[0]
+    ))].sort().reverse();
+
+    for (let i = 1; i < days.length; i++) {
+        const prev = new Date(days[i - 1]);
+        const curr = new Date(days[i]);
+        const diff = (prev - curr) / (1000 * 60 * 60 * 24);
+        if (diff <= 1.5) streak++;
+        else break;
+    }
+    return streak;
+}
+
+function animateNumber(el, target) {
+    const start = parseInt(el.textContent) || 0;
+    const duration = 1200;
+    const startTime = performance.now();
+
+    function step(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(start + (target - start) * ease);
+        el.textContent = current;
+        if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+}
+
+// === CHART ===
+function renderChart(history) {
+    const ctx = document.getElementById('energy-chart').getContext('2d');
+
+    const labels = history.map(h => {
+        const d = new Date(h.created_at);
+        return d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' });
+    });
+
+    const energyData = history.map(h => h.energy_avg);
+    const coherenceData = history.map(h => h.coherence_score ? h.coherence_score / 10 : null);
+
+    if (energyChart) energyChart.destroy();
+
+    energyChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels,
+            datasets: [
+                {
+                    label: 'Энергия',
+                    data: energyData,
+                    borderColor: 'rgba(29, 29, 31, 0.6)',
+                    backgroundColor: 'rgba(29, 29, 31, 0.05)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 2,
+                    pointRadius: 3,
+                    pointBackgroundColor: '#1d1d1f',
+                },
+                {
+                    label: 'Когерентность /10',
+                    data: coherenceData,
+                    borderColor: 'rgba(134, 134, 139, 0.5)',
+                    borderDash: [5, 5],
+                    fill: false,
+                    tension: 0.4,
+                    borderWidth: 1.5,
+                    pointRadius: 2,
+                    pointBackgroundColor: '#86868b',
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: { color: '#86868b', font: { family: 'DM Sans', size: 11 } }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { color: '#86868b', font: { size: 10 } },
+                    grid: { color: 'rgba(0,0,0,0.04)' }
+                },
+                y: {
+                    min: 0, max: 10,
+                    ticks: { color: '#86868b', font: { size: 10 }, stepSize: 2 },
+                    grid: { color: 'rgba(0,0,0,0.04)' }
+                }
+            }
+        }
+    });
+}
+
+// === REALTIME SUBSCRIPTION ===
+function subscribeRealtime() {
+    sb.channel('field-live')
+        .on('postgres_changes', {
+            event: 'INSERT',
+            schema: 'public',
+            table: 'field_snapshots'
+        }, (payload) => {
+            console.log('New field snapshot:', payload.new);
+            updateSnapshot(payload.new);
+        })
+        .on('postgres_changes', {
+            event: 'INSERT',
+            schema: 'public',
+            table: 'chat_digests'
+        }, (payload) => {
+            console.log('New digest:', payload.new);
+            updateDigest(payload.new);
+        })
+        .subscribe();
+}
+
+// === INIT ===
+document.addEventListener('DOMContentLoaded', () => {
+    loadField();
+    subscribeRealtime();
+
+    // Fade-in observer with immediate check for above-fold elements
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.05, rootMargin: '50px 0px 0px 0px' });
+    document.querySelectorAll('.fade-in-up').forEach(el => {
+        // Immediately show elements already in viewport
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 50) {
+            el.classList.add('visible');
+        } else {
+            observer.observe(el);
+        }
+    });
+});
+</script>
+</body>
+</html>

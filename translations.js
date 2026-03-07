@@ -1455,12 +1455,12 @@ var T = {
 
 // ─── PLAYGROUND PAGE (vibecode apps) ───
 'playground.title': { ru: 'OnlyGods — Playground', en: 'OnlyGods — Playground', ua: 'OnlyGods — Playground' },
-'playground.hero.subtitle': { ru: 'Playground', en: 'Playground', ua: 'Playground' },
-'playground.hero.title': { ru: 'Vibecode Apps', en: 'Vibecode Apps', ua: 'Vibecode Apps' },
+'playground.hero.subtitle': { ru: 'Vibecoding the Reality', en: 'Vibecoding the Reality', ua: 'Vibecoding the Reality' },
+'playground.hero.title': { ru: 'Playground', en: 'Playground', ua: 'Playground' },
 'playground.hero.tagline': {
-  ru: 'Интерактивные инструменты сознания, собранные на вибрациях и коде',
-  en: 'Interactive consciousness tools, built on vibrations and code',
-  ua: 'Інтерактивні інструменти свідомості, зібрані на вібраціях та коді'
+  ru: 'Interactive User Experience',
+  en: 'Interactive User Experience',
+  ua: 'Interactive User Experience'
 },
 'playground.intro': {
   ru: 'Каждый инструмент здесь — эксперимент на стыке кода и сознания. Мы строим их быстро, тестируем на поле и оставляем то, что работает. Не продукт — процесс.',
@@ -1633,7 +1633,51 @@ var T = {
   ru: 'Публикации обновляются по мере завершения исследований',
   en: 'Publications are updated as research is completed',
   ua: 'Публікації оновлюються по мірі завершення досліджень'
-}
+},
+
+// ─── DASHBOARD PAGE (consciousness field) ───
+'dashboard.title': { ru: 'OnlyGods — Поле Сознания', en: 'OnlyGods — Consciousness Field', ua: 'OnlyGods — Поле Свідомості' },
+'dashboard.hero.subtitle': { ru: 'Поле сознания', en: 'Consciousness Field', ua: 'Поле свідомості' },
+'dashboard.hero.label': { ru: 'Когерентность', en: 'Coherence', ua: 'Когерентність' },
+'dashboard.hero.tagline': { ru: 'Загрузка данных поля...', en: 'Loading field data...', ua: 'Завантаження даних поля...' },
+'dashboard.metrics.label': { ru: 'Метрики поля', en: 'Field Metrics', ua: 'Метрики поля' },
+'dashboard.metrics.energy': { ru: 'Энергия', en: 'Energy', ua: 'Енергія' },
+'dashboard.metrics.participation': { ru: 'Участие', en: 'Participation', ua: 'Участь' },
+'dashboard.metrics.synced': { ru: 'Синхронизировано', en: 'Synced', ua: 'Синхронізовано' },
+'dashboard.metrics.today': { ru: 'сегодня', en: 'today', ua: 'сьогодні' },
+'dashboard.metrics.streak': { ru: 'Серия поля', en: 'Field Streak', ua: 'Серія поля' },
+'dashboard.metrics.days': { ru: 'дней', en: 'days', ua: 'днів' },
+'dashboard.chart.label': { ru: 'Энергия за 7 дней', en: '7-Day Energy', ua: 'Енергія за 7 днів' },
+'dashboard.themes.label': { ru: 'Темы поля', en: 'Field Themes', ua: 'Теми поля' },
+'dashboard.synthesis.label': { ru: 'AI Синтез', en: 'AI Synthesis', ua: 'AI Синтез' },
+'dashboard.digest.label': { ru: 'Последний дайджест', en: 'Latest Digest', ua: 'Останній дайджест' },
+'dashboard.digest.empty': { ru: 'Дайджест ещё не сформирован', en: 'No digest available yet', ua: 'Дайджест ще не сформовано' },
+
+// ─── PROFILE PAGE ───
+'profile.title': { ru: 'OnlyGods — Профиль', en: 'OnlyGods — Profile', ua: 'OnlyGods — Профіль' },
+'profile.auth.title': { ru: 'Твой профиль', en: 'Your Profile', ua: 'Твій профіль' },
+'profile.auth.desc': { ru: 'Получи персональную ссылку через бот', en: 'Get your personal link via the bot', ua: 'Отримай персональне посилання через бот' },
+'profile.auth.btn': { ru: 'Открыть бот', en: 'Open Bot', ua: 'Відкрити бот' },
+'profile.intention.label': { ru: 'Намерение', en: 'Intention', ua: 'Намір' },
+'profile.stats.label': { ru: 'Статистика', en: 'Statistics', ua: 'Статистика' },
+'profile.stats.pulses': { ru: 'Пульсов', en: 'Pulses', ua: 'Пульсів' },
+'profile.stats.energy': { ru: 'Ср. энергия', en: 'Avg Energy', ua: 'Сер. енергія' },
+'profile.stats.streak': { ru: 'Серия дней', en: 'Day Streak', ua: 'Серія днів' },
+'profile.stats.level': { ru: 'Уровень', en: 'Level', ua: 'Рівень' },
+'profile.trajectory.label': { ru: 'Траектория энергии', en: 'Energy Trajectory', ua: 'Траєкторія енергії' },
+'profile.evolution.label': { ru: 'Эволюция', en: 'Evolution', ua: 'Еволюція' },
+'profile.evolution.empty': { ru: 'Эволюция начнётся после первой недели участия', en: 'Evolution begins after your first week', ua: 'Еволюція розпочнеться після першого тижня' },
+'profile.insight.label': { ru: 'Последний инсайт', en: 'Latest Insight', ua: 'Останній інсайт' },
+'profile.insight.empty': { ru: 'Инсайты появятся после еженедельной настройки', en: 'Insights appear after weekly sync', ua: 'Інсайти з\'являться після тижневої настройки' },
+
+// ─── SYNC PAGE ───
+'sync.title': { ru: 'OnlyGods — Синхронизация', en: 'OnlyGods — Sync', ua: 'OnlyGods — Синхронізація' },
+'sync.hero.subtitle': { ru: 'Синхронизация', en: 'Synchronization', ua: 'Синхронізація' },
+'sync.hero.title': { ru: 'Поле', en: 'Field', ua: 'Поле' },
+'sync.hero.tagline': { ru: 'Коллективная настройка внимания', en: 'Collective attention alignment', ua: 'Колективне налаштування уваги' },
+'sync.counter.label': { ru: 'синхронизировано сегодня', en: 'synced today', ua: 'синхронізовано сьогодні' },
+'sync.breathe.start': { ru: 'Нажми чтобы<br>начать', en: 'Tap to<br>begin', ua: 'Натисни щоб<br>почати' },
+'sync.timer.label': { ru: 'медитация', en: 'meditation', ua: 'медитація' }
 
 };
 
