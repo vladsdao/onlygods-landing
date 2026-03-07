@@ -922,52 +922,461 @@ var T = {
   ua: 'Статті будуть оновлюватися'
 },
 
-// ─── GAMEOVER ARTICLE PAGE ───
+// ─── GAMEOVER ARTICLE ───
 'gameover.title': { ru: 'OnlyGods — 2026: GAME OVER', en: 'OnlyGods — 2026: GAME OVER', ua: 'OnlyGods — 2026: GAME OVER' },
 'gameover.back': { ru: '← Публикации', en: '← Publications', ua: '← Публікації' },
-'gameover.hero.subtitle': { ru: '2026', en: '2026', ua: '2026' },
 'gameover.hero.title': { ru: '2026 = GAME OVER', en: '2026 = GAME OVER', ua: '2026 = GAME OVER' },
 'gameover.hero.tagline': {
   ru: 'Математика конца света, точка разворота и протокол выхода из легального рабства',
   en: 'End-of-the-world mathematics, the turning point, and the protocol for exiting legal slavery',
   ua: 'Математика кінця світу, точка розвороту та протокол виходу з легального рабства'
 },
+'gameover.meta.author': { ru: 'Елизавета Сигорская', en: 'Elizaveta Sigorskaya', ua: 'Єлизавета Сігорська' },
 'gameover.meta.date': { ru: '2026', en: '2026', ua: '2026' },
 'gameover.meta.readtime': { ru: '15 мин', en: '15 min', ua: '15 хв' },
-'gameover.section1.title': {
-  ru: 'Мета-кризис',
-  en: 'Meta-Crisis',
-  ua: 'Мета-криза'
+
+// Section 1 — Intro
+'gameover.s1.p1': {
+  ru: 'Если вы думаете, что ваши панические атаки по ночам, ипотека на 20 лет, выгорание к тридцати и физиологическая неспособность к глубокому оргазму — это результат вашей личной некомпетентности, примите поздравления. Вас блестяще на!бали. Ваша невротическая наивность — самый ликвидный актив системы, в которой мы живем. Правда жить осталось недолго.',
+  en: 'If you think your nighttime panic attacks, your 20-year mortgage, your burnout by thirty, and your physiological inability to experience deep orgasm are the result of your personal incompetence — congratulations. You\'ve been brilliantly f!cked over. Your neurotic naivety is the most liquid asset of the system we live in. Though there isn\'t much living left to do.',
+  ua: 'Якщо ви думаєте, що ваші нічні панічні атаки, іпотека на 20 років, вигорання до тридцяти та фізіологічна нездатність до глибокого оргазму — це результат вашої особистої некомпетентності, прийміть привітання. Вас блискуче на!бали. Ваша невротична наївність — найліквідніший актив системи, у якій ми живемо. Щоправда, жити залишилось недовго.'
 },
-'gameover.section1.p1': {
-  ru: 'Мир вступил в фазу мета-кризиса — одновременного схлопывания финансовых, экологических, политических и когнитивных систем. Это не случайность и не заговор. Это математика.',
-  en: 'The world has entered a meta-crisis phase — the simultaneous collapse of financial, ecological, political, and cognitive systems. This is not an accident or a conspiracy. This is mathematics.',
-  ua: 'Світ вступив у фазу мета-кризи — одночасного схлопування фінансових, екологічних, політичних та когнітивних систем. Це не випадковість і не змова. Це математика.'
+'gameover.s1.p2': {
+  ru: 'Добро пожаловать в «горизонт событий». То, что ведущие вечерних новостей называют «турбулентностью», системные аналитики Давоса и Пентагона сухо именуют мета-кризисом. Это математическая точка невозврата, где экспоненциальный взрыв ИИ, агония биосферы (минус 73% популяций позвоночных с 1970 года) и глобальный долговой пузырь в $338 трлн стянулись в один фатальный узел.',
+  en: 'Welcome to the "event horizon." What evening news anchors call "turbulence," systems analysts at Davos and the Pentagon drily label a meta-crisis. This is the mathematical point of no return, where the exponential explosion of AI, the agony of the biosphere (minus 73% of vertebrate populations since 1970), and the global debt bubble of $338 trillion have converged into a single fatal knot.',
+  ua: 'Ласкаво просимо на «горизонт подій». Те, що ведучі вечірніх новин називають «турбулентністю», системні аналітики Давосу та Пентагону сухо іменують мета-кризою. Це математична точка неповернення, де експоненційний вибух ШІ, агонія біосфери (мінус 73% популяцій хребетних з 1970 року) та глобальна боргова бульбашка у $338 трлн стягнулися в один фатальний вузол.'
 },
-'gameover.section2.title': {
-  ru: 'Игра А vs Игра Б',
-  en: 'Game A vs Game B',
-  ua: 'Гра А vs Гра Б'
+'gameover.s1.p3': {
+  ru: 'Мета-кризис не случится завтра. Он уже обрушивается лавиной. Посмотрите на саммиты глав мира, вы услышите одну тему — коллапс экономической и политической систем. В атмосфере Земли ракет больше, чем самолетов. Новости кишат прогнозами третьей мировой. Представители мировых организаций признают, что не знают, как удержать мир от разрушения. Европа в панике.',
+  en: 'The meta-crisis won\'t happen tomorrow. It\'s already crashing down like an avalanche. Look at the world leaders\' summits — you\'ll hear one theme: the collapse of economic and political systems. There are more rockets in Earth\'s atmosphere than airplanes. The news swarms with predictions of World War III. Representatives of global organizations admit they don\'t know how to keep the world from falling apart. Europe is in panic.',
+  ua: 'Мета-криза не станеться завтра. Вона вже обвалюється лавиною. Подивіться на саміти лідерів світу — ви почуєте одну тему: колапс економічних та політичних систем. В атмосфері Землі ракет більше, ніж літаків. Новини кишать прогнозами третьої світової. Представники світових організацій визнають, що не знають, як утримати світ від руйнування. Європа в паніці.'
 },
-'gameover.section2.p1': {
-  ru: 'Игра А — текущая операционная система цивилизации. Конкуренция, экстракция, экспоненциальный рост на конечной планете. Математически неизбежный коллапс.',
-  en: 'Game A — the current operating system of civilization. Competition, extraction, exponential growth on a finite planet. Mathematically inevitable collapse.',
-  ua: 'Гра А — поточна операційна система цивілізації. Конкуренція, екстракція, експоненційне зростання на кінцевій планеті. Математично неминучий колапс.'
+'gameover.s1.p4': {
+  ru: 'Консерватизм и стабильность — наименее устойчивая форма жизни при глобальной смене полюсов, поэтому если вы относите себя к среднему классу — самое время бежать с корабля.',
+  en: 'Conservatism and stability are the least sustainable form of life during a global pole shift, so if you consider yourself middle class — it\'s time to abandon ship.',
+  ua: 'Консерватизм і стабільність — найменш стійка форма життя при глобальній зміні полюсів, тому якщо ви відносите себе до середнього класу — саме час тікати з корабля.'
 },
-'gameover.section2.p2': {
-  ru: 'Игра Б — квантовый переход. Новая координация, основанная на резонансе, а не конкуренции. Коллективное Сознание как инфраструктура.',
-  en: 'Game B — quantum transition. New coordination based on resonance, not competition. Collective Consciousness as infrastructure.',
-  ua: 'Гра Б — квантовий перехід. Нова координація, заснована на резонансі, а не конкуренції. Колективна Свідомість як інфраструктура.'
+'gameover.s1.p5': {
+  ru: 'При этом тема цивилизационного коллапса точно не попадает в чарты новостей и не фигурирует в планах на год большинства людей. Официально нам продают надвигающегося черного лебедя как временный локальный сбой. Но трезвый инженерный взгляд вскрывает иное: этот кризис — не внезапный. Это исход безупречно работающего алгоритма и предсказуемая мат-модель. Самоубийства.',
+  en: 'Meanwhile, the topic of civilizational collapse doesn\'t make the news charts and doesn\'t feature in most people\'s yearly plans. Officially, they\'re selling us the approaching black swan as a temporary local glitch. But a sober engineering perspective reveals something else: this crisis is not sudden. It\'s the outcome of a flawlessly running algorithm and a predictable mathematical model. Of suicide.',
+  ua: 'При цьому тема цивілізаційного колапсу точно не потрапляє у чарти новин і не фігурує у планах на рік більшості людей. Офіційно нам продають чорного лебедя, що насувається, як тимчасовий локальний збій. Але тверезий інженерний погляд розкриває інше: ця криза — не раптова. Це результат бездоганно працюючого алгоритму і передбачувана мат-модель. Самогубства.'
 },
-'gameover.section3.title': {
-  ru: 'Протокол перехода',
-  en: 'Transition Protocol',
-  ua: 'Протокол переходу'
+'gameover.s1.p6': {
+  ru: 'В системном анализе этот рубеж называют «Точкой Сингулярности Кризисов». Это момент, когда в зоне риска не отдельная система или государство, а все человечество.',
+  en: 'In systems analysis, this threshold is called the "Crisis Singularity Point." It\'s the moment when the risk zone encompasses not a single system or nation, but all of humanity.',
+  ua: 'У системному аналізі цей рубіж називають «Точкою Сингулярності Криз». Це момент, коли в зоні ризику не окрема система чи держава, а все людство.'
 },
-'gameover.section3.p1': {
-  ru: 'OnlyGods — это прототип Игры Б. Микро-экономика сознания, резонансная сеть, коллективный разум. Мы не ждём разрешения. Мы строим.',
-  en: 'OnlyGods is a Game B prototype. Consciousness micro-economy, resonance network, collective intelligence. We don\'t wait for permission. We build.',
-  ua: 'OnlyGods — це прототип Гри Б. Мікро-економіка свідомості, резонансна мережа, колективний розум. Ми не чекаємо дозволу. Ми будуємо.'
+'gameover.s1.p7': {
+  ru: 'Мы находимся внутри цивилизационной операционной системы, которую в современной теории игр (спасибо Джиму Ратту, Бретту Вайнштейну и Дэниелу Шмахтенбергеру) называют «Игра А».',
+  en: 'We are inside a civilizational operating system that modern game theory (thanks to Jim Rutt, Bret Weinstein, and Daniel Schmachtenberger) calls "Game A."',
+  ua: 'Ми перебуваємо всередині цивілізаційної операційної системи, яку в сучасній теорії ігор (дякуємо Джиму Ратту, Бретту Вайнштейну та Деніелу Шмахтенбергеру) називають «Гра А».'
+},
+
+// Section 2 — Что такое Игра А
+'gameover.s2.title': {
+  ru: 'Что такое «Игра А»?',
+  en: 'What Is "Game A"?',
+  ua: 'Що таке «Гра А»?'
+},
+'gameover.s2.p1': {
+  ru: '«Игра А» — это система, основанная на соперничестве (rivalrous dynamics). Проще говоря: паразитизм.',
+  en: '"Game A" is a system built on competition (rivalrous dynamics). In plain terms: parasitism.',
+  ua: '«Гра А» — це система, побудована на суперництві (rivalrous dynamics). Простіше кажучи: паразитизм.'
+},
+'gameover.s2.p2': {
+  ru: 'Её фундаментальный принцип: «Я выигрываю, если ты проигрываешь. Или мы оба выигрываем, но проигрывает общее поле (природа/будущее)».',
+  en: 'Its fundamental principle: "I win if you lose. Or we both win, but the commons loses (nature/the future)."',
+  ua: 'Її фундаментальний принцип: «Я виграю, якщо ти програєш. Або ми обидва виграємо, але програє спільне поле (природа/майбутнє)».'
+},
+'gameover.s2.p3': {
+  ru: 'Принято считать, что стратегия борьбы была не просто эффективна, а естественной и неизбежной последние 10 000 лет. Мы привыкли верить, что именно она позволила нам победить голод и построить небоскребы. Но нет.',
+  en: 'It\'s commonly believed that the strategy of struggle was not merely effective, but natural and inevitable for the last 10,000 years. We\'ve grown accustomed to believing it\'s what allowed us to defeat hunger and build skyscrapers. But no.',
+  ua: 'Прийнято вважати, що стратегія боротьби була не просто ефективною, а природною та неминучою останні 10 000 років. Ми звикли вірити, що саме вона дозволила нам перемогти голод і збудувати хмарочоси. Але ні.'
+},
+'gameover.s2.p4': {
+  ru: 'Стратегия паразитизма охватывала Землю последние 10 000 лет и взяла абсолютный верх над стратегией Холизма (симбиоз, целостность) около 2000 лет назад, в Римской Империи. Переход, который мы называем «Нашей Эрой».',
+  en: 'The parasitism strategy has engulfed Earth for the last 10,000 years and gained absolute dominance over the Holism strategy (symbiosis, wholeness) roughly 2,000 years ago, in the Roman Empire. The transition we call "Our Era."',
+  ua: 'Стратегія паразитизму охоплювала Землю останні 10 000 років і взяла абсолютний верх над стратегією Холізму (симбіоз, цілісність) близько 2000 років тому, у Римській Імперії. Перехід, який ми називаємо «Нашою Ерою».'
+},
+'gameover.s2.p5': {
+  ru: 'Специфика «Игры А» — заложенный в нее принцип самоуничтожения при условии ограниченных ресурсов. Ее исходный код — венчурный каннибализм и соперничающая динамика с нулевой суммой: чтобы я выиграл, ты должен сдохнуть, а издержки мы спишем на природу. Игра не может остановиться, потому что остановка означает крах долговой пирамиды.',
+  en: 'The specificity of "Game A" is its built-in self-destruction principle under conditions of limited resources. Its source code is venture cannibalism and zero-sum rivalrous dynamics: for me to win, you must die, and we\'ll write off the costs to nature. The game cannot stop, because stopping means the collapse of the debt pyramid.',
+  ua: 'Специфіка «Гри А» — закладений у неї принцип самознищення за умов обмежених ресурсів. Її вихідний код — венчурний канібалізм та суперницька динаміка з нульовою сумою: щоб я виграв, ти маєш здохнути, а витрати ми спишемо на природу. Гра не може зупинитися, бо зупинка означає крах боргової піраміди.'
+},
+'gameover.s2.p6': {
+  ru: 'Тысячелетиями этот паразитический движок обеспечивал экспансию элит. Но сегодня, будучи помноженным на мощь технологий XXI века в замкнутой колбе нашей планеты, этот код математически гарантирует 100-процентную самоликвидацию вида. «Игра А» оперирует в строгой логике раковой опухоли: она истово верит в бесконечный линейный рост, методично сжирает носителя и торжественно дохнет вместе с ним.',
+  en: 'For millennia, this parasitic engine powered the expansion of elites. But today, multiplied by the power of 21st-century technology inside the sealed flask of our planet, this code mathematically guarantees the 100-percent self-liquidation of the species. "Game A" operates in the strict logic of a cancerous tumor: it fervently believes in infinite linear growth, methodically devours its host, and ceremoniously dies alongside it.',
+  ua: 'Тисячоліттями цей паразитичний двигун забезпечував експансію еліт. Але сьогодні, будучи помноженим на потужність технологій XXI століття у замкнутій колбі нашої планети, цей код математично гарантує 100-відсоткову самоліквідацію виду. «Гра А» оперує у суворій логіці ракової пухлини: вона щиро вірить у нескінченне лінійне зростання, методично пожирає носія й урочисто здихає разом із ним.'
+},
+'gameover.s2.p7': {
+  ru: 'Чтобы перехватить штурвал самолета, летящего в бетонную стену, нужно препарировать механику управления. Речь не о рептилоидах и тайных ложах (хотя им тоже привет!), а о циничной волновой физике, нейробиологии и искусстве управления массами.',
+  en: 'To seize the controls of an airplane flying into a concrete wall, you need to dissect the mechanics of control. This isn\'t about reptilians and secret lodges (though hello to them too!), but about cynical wave physics, neurobiology, and the art of mass manipulation.',
+  ua: 'Щоб перехопити штурвал літака, що летить у бетонну стіну, треба препарувати механіку управління. Мова не про рептилоїдів і таємні ложі (хоча їм теж привіт!), а про цинічну хвильову фізику, нейробіологію та мистецтво управління масами.'
+},
+
+// Section 3 — Физика рабства
+'gameover.s3.title': {
+  ru: 'Физика рабства: Гашение волн и уплощение реальности',
+  en: 'The Physics of Slavery: Wave Cancellation and the Flattening of Reality',
+  ua: 'Фізика рабства: Гасіння хвиль та сплощення реальності'
+},
+'gameover.s3.p1': {
+  ru: 'Фундаментальный принцип удержания масс — римское divide et impera (разделяй и властвуй) — это не заезженный политический лозунг. Это безжалостный закон волновой интерференции.',
+  en: 'The fundamental principle of holding the masses — the Roman divide et impera (divide and conquer) — is not a hackneyed political slogan. It\'s a merciless law of wave interference.',
+  ua: 'Фундаментальний принцип утримання мас — римське divide et impera (поділяй і владарюй) — це не заїжджений політичний гасло. Це нещадний закон хвильової інтерференції.'
+},
+'gameover.s3.p2': {
+  ru: 'В физике, если фаза и частота волн совпадают, они вступают в резонанс, и их суммарная энергия возводится в квадрат. Экспоненциальный прорыв (когда система обретает несокрушимую созидательную мощь) начинается при коэффициенте когерентности, равном единице. Именно поэтому матрица «Игры А» спроектирована так, чтобы искусственно удерживать этот показатель ниже единицы. Иначе система рухнет за сутки.',
+  en: 'In physics, when the phase and frequency of waves align, they enter resonance and their combined energy is squared. Exponential breakthrough (when a system acquires indestructible creative power) begins at a coherence coefficient of one. This is precisely why the "Game A" matrix is engineered to artificially keep this indicator below one. Otherwise the system would collapse within a day.',
+  ua: 'У фізиці, якщо фаза і частота хвиль збігаються, вони вступають у резонанс, і їхня сумарна енергія зводиться у квадрат. Експоненційний прорив (коли система набуває нездоланної творчої потужності) починається при коефіцієнті когерентності, рівному одиниці. Саме тому матриця «Гри А» спроєктована так, щоб штучно утримувати цей показник нижче одиниці. Інакше система впаде за добу.'
+},
+'gameover.s3.p3': {
+  ru: 'Поэтому Архитекторы обязаны генерировать перманентное трение. Нас искусственно расщепили на фрагменты, вбрасывая веру в дуализм: дух против материи, мужчины против женщин, левые против правых. Иерархия питается энергией этого социального противофазного гашения — дуализма. Элитам больше не нужно строить физические концлагеря; достаточно сделать так, чтобы мы бесконечно резали друг другу глотки в каютах идущего ко дну «Титаника».',
+  en: 'That\'s why the Architects must generate permanent friction. We\'ve been artificially split into fragments through the injection of belief in dualism: spirit vs. matter, men vs. women, left vs. right. Hierarchy feeds on the energy of this social anti-phase cancellation — dualism. Elites no longer need to build physical concentration camps; it\'s enough to ensure we endlessly slit each other\'s throats in the cabins of a sinking Titanic.',
+  ua: 'Тому Архітектори зобов\'язані генерувати перманентне тертя. Нас штучно розщепили на фрагменти, вкидаючи віру у дуалізм: дух проти матерії, чоловіки проти жінок, ліві проти правих. Ієрархія живиться енергією цього соціального протифазного гасіння — дуалізму. Елітам більше не потрібно будувати фізичні концтабори; достатньо зробити так, щоб ми нескінченно різали один одному горлянки у каютах «Титаніка», що йде на дно.'
+},
+'gameover.s3.p4': {
+  ru: 'Чем контрастнее дуализм, тем больше трения, тем меньше у вас сил жить и развиваться на выходе. А что может быть контрастнее концепции вечного ада и рая? Правда эмпирически проверить их существование в рамках жизни невозможно, придется принять на веру.',
+  en: 'The sharper the dualism, the more friction, the less energy you have to live and grow. And what could be more polarizing than the concept of eternal hell and heaven? Though empirically verifying their existence within one\'s lifetime is impossible — you\'ll just have to take it on faith.',
+  ua: 'Чим контрастніший дуалізм, тим більше тертя, тим менше у вас сил жити та розвиватися на виході. А що може бути контрастнішим за концепцію вічного пекла і раю? Щоправда, емпірично перевірити їхнє існування в рамках життя неможливо — доведеться прийняти на віру.'
+},
+'gameover.s3.p5': {
+  ru: 'Сегодня этот механизм доведен до абсолюта Кремниевой долиной. 90% глобальных медиа контролируются шестью холдингами. Алгоритмы соцсетей не ищут истину — они оптимизированы под engagement (вовлеченность) через гнев и поляризацию. Окно человеческого внимания сузилось до 8 секунд. Тот, кто мыслит 15-секундными тиктоками, физиологически утрачивает навык sensemaking (смыслообразования). Он никогда не проследит причинно-следственную связь между своей ипотекой и вырубкой Амазонии. Расщепленное, воюющее само с собой общество безопасно.',
+  en: 'Today this mechanism has been brought to its absolute by Silicon Valley. 90% of global media is controlled by six conglomerates. Social media algorithms don\'t seek truth — they\'re optimized for engagement through anger and polarization. The human attention window has narrowed to 8 seconds. Anyone who thinks in 15-second TikToks physiologically loses the skill of sensemaking. They\'ll never trace the causal connection between their mortgage and the deforestation of the Amazon. A fragmented society at war with itself is safe.',
+  ua: 'Сьогодні цей механізм доведено до абсолюту Кремнієвою долиною. 90% глобальних медіа контролюються шістьма холдингами. Алгоритми соцмереж не шукають істину — вони оптимізовані під engagement (залученість) через гнів і поляризацію. Вікно людської уваги звузилося до 8 секунд. Той, хто мислить 15-секундними тіктоками, фізіологічно втрачає навичку sensemaking (смислотворення). Він ніколи не простежить причинно-наслідковий зв\'язок між своєю іпотекою та вирубкою Амазонії. Розщеплене суспільство, що воює само із собою, — безпечне.'
+},
+
+// Section 4 — Духовный Империализм
+'gameover.s4.title': {
+  ru: 'Духовный Империализм: Технология Автоматизации Контроля',
+  en: 'Spiritual Imperialism: The Technology of Control Automation',
+  ua: 'Духовний Імперіалізм: Технологія Автоматизації Контролю'
+},
+'gameover.s4.p1': {
+  ru: 'Чтобы понять природу «Игры А», необходимо вернуться к моменту её институциональной кристаллизации. Традиционная историография учит нас, что Римская империя пала в 476 году н.э. Однако системный анализ институтов и правовых структур указывает на иное: Рим не пал, он трансформировался за счет самой главной технологии эры — Христианства.',
+  en: 'To understand the nature of "Game A," we must return to the moment of its institutional crystallization. Traditional historiography teaches us that the Roman Empire fell in 476 AD. However, a systems analysis of institutions and legal structures points to something else: Rome didn\'t fall — it transformed through the era\'s most important technology: Christianity.',
+  ua: 'Щоб зрозуміти природу «Гри А», необхідно повернутися до моменту її інституційної кристалізації. Традиційна історіографія вчить нас, що Римська імперія впала у 476 році н.е. Однак системний аналіз інститутів і правових структур вказує на інше: Рим не впав — він трансформувався завдяки найголовнішій технології ери — Християнству.'
+},
+'gameover.s4.p2': {
+  ru: 'Переход от античного Рима к христианскому Риму был стратегическим маневром выживания элит и управленческих структур. Церковь создается для удержания власти и капитала и унаследует функцию, структуру и принципы Имперской власти.',
+  en: 'The transition from pagan Rome to Christian Rome was a strategic survival maneuver by elites and administrative structures. The Church was created to retain power and capital, inheriting the function, structure, and principles of Imperial authority.',
+  ua: 'Перехід від античного Риму до християнського Риму був стратегічним маневром виживання еліт та управлінських структур. Церква створюється для утримання влади й капіталу та успадковує функцію, структуру і принципи Імперської влади.'
+},
+'gameover.s4.p3': {
+  ru: 'Император Константин, легализовав христианство Эдиктом Милана (313 г.) и созвав Никейский собор (325 г.), фактически национализировал веру, превратив её в инструмент имперской унификации. Отказ принимать христианство приравнивался к государственной измене и карался публичной казнью. К слову, на Киевской Руси любимый многими Ярослав Мудрый, насильственно обрекший свой народ на духовную каторгу и вечное рабство, не далеко ушел.',
+  en: 'Emperor Constantine, having legalized Christianity with the Edict of Milan (313 AD) and convened the Council of Nicaea (325 AD), effectively nationalized faith, turning it into an instrument of imperial unification. Refusal to accept Christianity was equated with treason and punished by public execution. Incidentally, in Kyivan Rus, the beloved Yaroslav the Wise, who forcibly condemned his people to spiritual servitude and eternal slavery, didn\'t go much further.',
+  ua: 'Імператор Костянтин, легалізувавши християнство Едиктом Мілана (313 р.) та скликавши Нікейський собор (325 р.), фактично націоналізував віру, перетворивши її на інструмент імперської уніфікації. Відмова приймати християнство прирівнювалася до державної зради і каралася публічною стратою. До слова, на Київській Русі улюблений багатьма Ярослав Мудрий, що насильно прирік свій народ на духовну каторгу і вічне рабство, недалеко пішов.'
+},
+'gameover.s4.p4': {
+  ru: 'Главной инновацией Рима стала доктрина «Первородного греха». Юридически это был первый в истории человечества социальный кредит с пожизненным отрицательным балансом. Вы виноваты по факту рождения. Так был запущен движок вечного дефицита собственной ценности. Система произвела перекрут реальности: «Не живи сейчас. Жизнь — это черновик. Смиряйся, терпи, плати десятину (сегодня — налоги и 70% дохода на кредиты), а дивиденды получишь в раю».',
+  en: 'Rome\'s greatest innovation was the doctrine of "Original Sin." Legally, it was the first social credit in human history with a lifelong negative balance. You are guilty by the fact of birth. This launched the engine of perpetual self-worth deficit. The system performed a reality inversion: "Don\'t live now. Life is a rough draft. Submit, endure, pay your tithe (today — taxes and 70% of your income on loans), and you\'ll receive your dividends in paradise."',
+  ua: 'Головною інновацією Риму стала доктрина «Первородного гріха». Юридично це був перший в історії людства соціальний кредит із довічним негативним балансом. Ви винні за фактом народження. Так було запущено двигун вічного дефіциту власної цінності. Система здійснила перекрут реальності: «Не живи зараз. Життя — це чернетка. Смиряйся, терпи, плати десятину (сьогодні — податки і 70% доходу на кредити), а дивіденди отримаєш у раю».'
+},
+'gameover.s4.p5': {
+  ru: 'Теологическая революция позволила перенести дорогостоящую систему внешнего контроля в плоскость сознания человека. Смена кайданов и надзирателей на чувство вины, выученную неполноценность и страх вечных мучений была настолько эффективной, что стала прототипом для всех общественных структур — от банков до больниц и детских садов. Внедрив тягу к страданиям и отказ от суверенности в духовно-нравственный код человека, он обрел регенеративные свойства — и стал равноценной частью ДНК.',
+  en: 'The theological revolution allowed the costly system of external control to be transplanted into the plane of human consciousness. Swapping shackles and overseers for guilt, learned inferiority, and fear of eternal torment was so effective that it became the prototype for all social structures — from banks to hospitals to kindergartens. Having embedded the craving for suffering and the rejection of sovereignty into humanity\'s spiritual-moral code, it acquired regenerative properties — and became an equal part of our DNA.',
+  ua: 'Теологічна революція дозволила перенести дороговартісну систему зовнішнього контролю у площину свідомості людини. Заміна кайданів і наглядачів на почуття провини, вивчену неповноцінність та страх вічних мук була настільки ефективною, що стала прототипом для всіх суспільних структур — від банків до лікарень і дитячих садків. Впровадивши потяг до страждань і відмову від суверенності у духовно-моральний код людини, він набув регенеративних властивостей — і став рівноцінною частиною ДНК.'
+},
+'gameover.s4.p6': {
+  ru: 'Массовый террор Инквизиции (до 650 000 сожженных заживо на заре капитализма) не имел отношения к религиозному фанатизму. Это была хладнокровная рыночная зачистка конкурентов. Уничтожая повитух, травниц и женщин-целительниц, система вырубала под корень альтернативу для формирующейся профессиональной, платной патриархальной медицины. Женское тело было объявлено «вратами дьявола», национализировано и превращено в бесплатный станок для бесперебойного производства рабочей силы.',
+  en: 'The mass terror of the Inquisition (up to 650,000 burned alive at the dawn of capitalism) had nothing to do with religious fanaticism. It was cold-blooded market elimination of competitors. By destroying midwives, herbalists, and women healers, the system was uprooting the alternative to the emerging professional, paid patriarchal medicine. The female body was declared "the gateway of the devil," nationalized, and turned into a free machine for the uninterrupted production of labor force.',
+  ua: 'Масовий терор Інквізиції (до 650 000 спалених живцем на зорі капіталізму) не мав стосунку до релігійного фанатизму. Це була холоднокровна ринкова зачистка конкурентів. Знищуючи повитух, травниць і жінок-цілительок, система вирубувала під корінь альтернативу для професійної, платної патріархальної медицини, що формувалася. Жіноче тіло було оголошено «брамою диявола», націоналізовано й перетворено на безкоштовний верстат для безперебійного виробництва робочої сили.'
+},
+'gameover.s4.p7': {
+  ru: 'В XXI веке этот механизм доведен до алгоритмического абсолюта. Ватикан сменился Кремниевой долиной. ИИ-ленты мета-корпораций не запрограммированы на поиск истины — они оптимизированы под engagement (вовлеченность). Алгоритмы ежедневно скармливают миллиардам людей микродозы возмущения, сталкивая их лбами. Итог? Окно внимания сузилось до 8 секунд — это клиническая когнитивная дистрофия. Расщепленное, воюющее само с собой общество физиологически утратило навык «смыслообразования» (sensemaking). Тот, кто мыслит 15-секундными тиктоками, никогда не проследит причинно-следственную связь между своим кредитом и уничтожением Амазонии. Он больше не субъект политики, он — дата-сет для генерации прибыли.',
+  en: 'In the 21st century, this mechanism has been taken to its algorithmic absolute. The Vatican has been replaced by Silicon Valley. AI feeds of meta-corporations aren\'t programmed to seek truth — they\'re optimized for engagement. Algorithms daily feed billions of people microdoses of outrage, slamming them head-to-head. The result? The attention window has narrowed to 8 seconds — this is clinical cognitive dystrophy. A fragmented society at war with itself has physiologically lost the skill of sensemaking. Anyone who thinks in 15-second TikToks will never trace the causal connection between their loan and the destruction of the Amazon. They\'re no longer a political subject — they\'re a dataset for profit generation.',
+  ua: 'У XXI столітті цей механізм доведено до алгоритмічного абсолюту. Ватикан змінила Кремнієва долина. ШІ-стрічки мета-корпорацій не запрограмовані на пошук істини — вони оптимізовані під engagement (залученість). Алгоритми щодня згодовують мільярдам людей мікродози обурення, зіштовхуючи їх лобами. Підсумок? Вікно уваги звузилося до 8 секунд — це клінічна когнітивна дистрофія. Розщеплене суспільство, що воює само із собою, фізіологічно втратило навичку «смислотворення» (sensemaking). Той, хто мислить 15-секундними тіктоками, ніколи не простежить причинно-наслідковий зв\'язок між своїм кредитом і знищенням Амазонії. Він більше не суб\'єкт політики — він дата-сет для генерації прибутку.'
+},
+
+// Section 5 — Рассинхрон
+'gameover.s5.title': {
+  ru: 'Рассинхрон: Инверсия жизни и угон времени',
+  en: 'Desynchronization: The Inversion of Life and the Hijacking of Time',
+  ua: 'Розсинхрон: Інверсія життя та викрадення часу'
+},
+'gameover.s5.p1': {
+  ru: 'Чтобы заставить людей добровольно обслуживать этот конвейер, потребовался величайший темпоральный хак — сдвиг фаз восприятия времени и перекрут реальности.',
+  en: 'To make people voluntarily service this conveyor belt required the greatest temporal hack — a phase shift in the perception of time and a reality inversion.',
+  ua: 'Щоб змусити людей добровільно обслуговувати цей конвеєр, знадобився найвеличніший темпоральний хак — зсув фаз сприйняття часу та перекрут реальності.'
+},
+'gameover.s5.p2': {
+  ru: 'Доктрина «Первородного греха» стала первым в истории социальным кредитом с пожизненным отрицательным балансом: вы виноваты по факту рождения. Ты — и твои потомки — обязаны выплачивать долг за страдания Христа (не имеющего к этому дьявольскому картелю в рясах никакого отношения).',
+  en: 'The doctrine of "Original Sin" became the first social credit in history with a lifelong negative balance: you are guilty by the fact of birth. You — and your descendants — are obliged to pay off the debt for Christ\'s suffering (who had nothing to do with this devilish cartel in cassocks).',
+  ua: 'Доктрина «Первородного гріха» стала першим в історії соціальним кредитом із довічним негативним балансом: ви винні за фактом народження. Ти — і твої нащадки — зобов\'язані сплачувати борг за страждання Христа (який не мав жодного стосунку до цього диявольського картелю у рясах).'
+},
+'gameover.s5.p3': {
+  ru: 'Система произвела тотальную инверсию добра и зла, провозгласив: «Не живи сейчас. Жизнь — это грязный черновик. Страдай, терпи, плати налоги, а дивиденды получишь в раю после смерти». Экстатическое удовольствие, телесность и жажду познания объявили источником скверни. Смирение и животный страх инакомыслия вбивались в нас каленым железом.',
+  en: 'The system performed a total inversion of good and evil, proclaiming: "Don\'t live now. Life is a filthy rough draft. Suffer, endure, pay taxes, and you\'ll receive your dividends in paradise after death." Ecstatic pleasure, embodiment, and the thirst for knowledge were declared the source of corruption. Humility and the animal fear of dissent were hammered into us with a branding iron.',
+  ua: 'Система здійснила тотальну інверсію добра і зла, проголосивши: «Не живи зараз. Життя — це брудна чернетка. Страждай, терпи, плати податки, а дивіденди отримаєш у раю після смерті». Екстатичне задоволення, тілесність і спрагу пізнання оголосили джерелом скверни. Смирення і тваринний страх інакодумства вбивали в нас розпеченим залізом.'
+},
+'gameover.s5.p4': {
+  ru: 'Параллельно нас оторвали от природных резонансных циклов. Вся биосфера функционирует в резонансном спиральном ритме 13 лун по 28 дней. В 1582 году Ватикан пересадил мир на механистичную аритмию 12:60 григорианского календаря. Природную спираль разогнули в плоскую линию дедлайнов. Этот жестокий рассинхрон сломал нашу биологию. Время перестало проживаться — оно начало тратиться.',
+  en: 'Simultaneously, we were torn away from natural resonance cycles. The entire biosphere operates in a resonant spiral rhythm of 13 moons of 28 days each. In 1582, the Vatican transplanted the world onto the mechanistic arrhythmia of the 12:60 Gregorian calendar. The natural spiral was straightened into a flat line of deadlines. This brutal desynchronization broke our biology. Time stopped being lived — it started being spent.',
+  ua: 'Паралельно нас відірвали від природних резонансних циклів. Вся біосфера функціонує у резонансному спіральному ритмі 13 місяців по 28 днів. У 1582 році Ватикан пересадив світ на механістичну аритмію 12:60 григоріанського календаря. Природну спіраль розігнули у плоску лінію дедлайнів. Цей жорстокий розсинхрон зламав нашу біологію. Час перестав проживатися — він почав витрачатися.'
+},
+
+// Section 6 — Эпистемоцид
+'gameover.s6.title': {
+  ru: 'Эпистемоцид: Костры амнезии и кража технологий',
+  en: 'Epistemicide: Bonfires of Amnesia and the Theft of Technologies',
+  ua: 'Епістемоцид: Вогнища амнезії та крадіжка технологій'
+},
+'gameover.s6.p1': {
+  ru: 'Удерживать миллиарды в амнезии невозможно без тотальной кастрации прошлого. Ватиканские Апостольские архивы — это 85 километров строго засекреченных стеллажей. Уничтожение 90% дохристианских текстов Европы, пепел Александрийской библиотеки, сожжение кодексов майя — это системное стирание конкурентных онтологий. Это эпистемоцид — убийство знаний.',
+  en: 'Keeping billions in amnesia is impossible without total castration of the past. The Vatican Apostolic Archives are 85 kilometers of strictly classified shelves. The destruction of 90% of pre-Christian European texts, the ashes of the Library of Alexandria, the burning of Mayan codices — this is systematic erasure of competing ontologies. This is epistemicide — the murder of knowledge.',
+  ua: 'Утримувати мільярди в амнезії неможливо без тотальної кастрації минулого. Ватиканські Апостольські архіви — це 85 кілометрів суворо засекречених стелажів. Знищення 90% дохристиянських текстів Європи, попіл Олександрійської бібліотеки, спалення кодексів майя — це системне стирання конкурентних онтологій. Це епістемоцид — вбивство знань.'
+},
+'gameover.s6.p2': {
+  ru: 'Нам навязали гордыню линейного прогресса: от неандертальца с дубиной прямо к Илону Маску. Но как в эту убогую прямую вписываются египетские гранитные керны эпохи додинастического периода? Спиральные риски на них указывают на скорость подачи сверла в 0.100 дюйма за оборот — это в 500 раз превышает возможности наших лучших алмазных буров с ЧПУ, что математически требует применения высокочастотного ультразвука. А мегалитический гипогей на Мальте возрастом более 5000 лет или Ньюгрейндж в Ирландии, архитектурно выверенные под акустический резонанс строго в 110–111 Гц? Современные ЭЭГ доказывают: эта частота аппаратно отключает речевой центр левого полушария (внутреннего цензора) и переводит мозг в трансовые состояния расширенного сознания.',
+  en: 'We\'ve been force-fed the hubris of linear progress: from the Neanderthal with a club straight to Elon Musk. But how do Egyptian granite cores from the pre-dynastic period fit into this pathetic straight line? Spiral grooves on them indicate a drill feed rate of 0.100 inches per revolution — 500 times the capability of our best CNC diamond drills, which mathematically requires high-frequency ultrasound. And the megalithic Hypogeum on Malta, over 5,000 years old, or Newgrange in Ireland, architecturally calibrated for acoustic resonance precisely at 110–111 Hz? Modern EEG studies prove: this frequency hardware-disables the speech center of the left hemisphere (the inner censor) and shifts the brain into trance states of expanded consciousness.',
+  ua: 'Нам нав\'язали гординю лінійного прогресу: від неандертальця з палицею прямо до Ілона Маска. Але як у цю вбогу пряму вписуються єгипетські гранітні керни додинастичного періоду? Спіральні риски на них вказують на швидкість подачі свердла у 0.100 дюйма за оберт — це у 500 разів перевищує можливості наших найкращих алмазних бурів з ЧПК, що математично вимагає застосування високочастотного ультразвуку. А мегалітичний гіпогей на Мальті віком понад 5000 років чи Ньюґрейндж в Ірландії, архітектурно вивірені під акустичний резонанс суворо у 110–111 Гц? Сучасні ЕЕГ доводять: ця частота апаратно вимикає мовний центр лівої півкулі (внутрішнього цензора) й переводить мозок у трансові стани розширеної свідомості.'
+},
+'gameover.s6.p3': {
+  ru: 'Цивилизации до нас владели технологиями волнового симбиоза. А Церковь тем временем сжигала ученых за мысль о круглой Земле (сферичность — это объем и цикличность, а управлять рабами можно лишь на плоскости линейного страха).',
+  en: 'Civilizations before us possessed wave symbiosis technologies. Meanwhile, the Church burned scientists for the thought of a round Earth (sphericity means volume and cyclicality, and slaves can only be managed on the flat plane of linear fear).',
+  ua: 'Цивілізації до нас володіли технологіями хвильового симбіозу. А Церква тим часом спалювала вчених за думку про круглу Землю (сферичність — це об\'єм і циклічність, а керувати рабами можна лише на площині лінійного страху).'
+},
+'gameover.s6.p4': {
+  ru: 'В XX веке корпорации продолжили традицию костров. Когда Никола Тесла подошел к извлечению бесплатной беспроводной энергии из ионосферы, банкир Дж. П. Морган обрубил проект одной фразой: «Куда я здесь поставлю счетчик?». Доступ к изобилию фатален для экономики дефицита. Архивы Теслы изъяло ФБР. Когда Вильгельм Райх в 1950-х успешно лечил онкологию биоэнергетическим путем (оргонные аккумуляторы), американская FDA сгноила его в тюрьме, а тонны его научных трудов официально сожгли в мусоросжигателях Нью-Йорка. Нам не не хватает технологий спасения — у нас просто нет к ним допуска.',
+  en: 'In the 20th century, corporations continued the tradition of bonfires. When Nikola Tesla approached extracting free wireless energy from the ionosphere, banker J.P. Morgan killed the project with one phrase: "Where do I put the meter?" Access to abundance is fatal for an economy of scarcity. Tesla\'s archives were seized by the FBI. When Wilhelm Reich in the 1950s successfully treated cancer through bioenergetic means (orgone accumulators), the American FDA rotted him in prison, and tons of his scientific works were officially burned in New York incinerators. We don\'t lack the technologies to save ourselves — we simply don\'t have access to them.',
+  ua: 'У XX столітті корпорації продовжили традицію вогнищ. Коли Нікола Тесла наблизився до видобування безкоштовної бездротової енергії з іоносфери, банкір Дж. П. Морган обрубав проєкт однією фразою: «Куди я тут поставлю лічильник?». Доступ до достатку фатальний для економіки дефіциту. Архіви Тесли вилучило ФБР. Коли Вільгельм Райх у 1950-х успішно лікував онкологію біоенергетичним шляхом (оргонні акумулятори), американська FDA згноїла його у в\'язниці, а тонни його наукових праць офіційно спалили у сміттєспалювачах Нью-Йорка. Нам не бракує технологій порятунку — у нас просто немає до них доступу.'
+},
+'gameover.s6.p5': {
+  ru: 'Роял Райф успешно лечил рак направленным частотным резонансом. Его микроскопы разгромила медицинская ассоциация (АМА), а врачей лишили лицензий.',
+  en: 'Royal Rife successfully treated cancer with directed frequency resonance. His microscopes were destroyed by the American Medical Association (AMA), and the doctors involved had their licenses revoked.',
+  ua: 'Роял Райф успішно лікував рак спрямованим частотним резонансом. Його мікроскопи розгромила медична асоціація (АМА), а лікарів позбавили ліцензій.'
+},
+
+// Section 7 — Инженерия покорности
+'gameover.s7.title': {
+  ru: 'Инженерия покорности: Когнитивная дистрофия',
+  en: 'The Engineering of Submission: Cognitive Dystrophy',
+  ua: 'Інженерія покірності: Когнітивна дистрофія'
+},
+'gameover.s7.p1': {
+  ru: 'Чтобы конвейер эксплуатации работал, заключенные не должны осознавать собственного рабства. Свобода действий начинается со свободы мысли. Соответственно, необходимо установить контроль не только над доступом к информации (стертая и перевернутая история), но и над мировоззрением, мыслительным процессом, исключив латеральное, критическое, абстрактное и метарациональное мышление. Тем самым отрезав людей от возможности замечать сложные взаимосвязи, задавать неудобные вопросы, выражать себя не общепринятым путем.',
+  en: 'For the exploitation conveyor to work, the inmates must not be aware of their own slavery. Freedom of action begins with freedom of thought. Accordingly, control must be established not only over access to information (erased and inverted history), but over worldview and thought processes themselves, eliminating lateral, critical, abstract, and meta-rational thinking. Thereby cutting people off from the ability to notice complex interconnections, ask uncomfortable questions, and express themselves in unconventional ways.',
+  ua: 'Щоб конвеєр експлуатації працював, ув\'язнені не повинні усвідомлювати власного рабства. Свобода дій починається зі свободи думки. Відповідно, необхідно встановити контроль не лише над доступом до інформації (стерта й перевернута історія), а й над світоглядом, мисленнєвим процесом, виключивши латеральне, критичне, абстрактне та метараціональне мислення. Тим самим відрізавши людей від можливості помічати складні взаємозв\'язки, ставити незручні питання, виражати себе незагальноприйнятим шляхом.'
+},
+'gameover.s7.p2': {
+  ru: 'Система воспитания и образования заточены под функцию мыслительной кастрации и подавления воли.',
+  en: 'The systems of upbringing and education are sharpened for the function of cognitive castration and the suppression of will.',
+  ua: 'Системи виховання та освіти заточені під функцію мисленнєвої кастрації та придушення волі.'
+},
+'gameover.s7.p3': {
+  ru: 'Прусская модель образования, импортированная всем миром в XIX веке, создавалась для подготовки лояльных солдат и клерков. Звонки, убивающие концентрацию, дробление картины мира на не связанные предметы, страх ошибки и зависимость от внешней оценки формируют удобных исполнителей с атрофированной волей. Выпускник — это оптимизатор деталей, не способный осознать, что в целом он строит лагерь (по тестам NASA, школа снижает врожденную креативность на 91%). Попытка вырваться — например, перевести ребенка на анскулинг — во многих странах сегодня криминализирована и грозит медицинским киднеппингом. Система прямо заявляет: ваши дети — это залог обеспечения государственного долга.',
+  en: 'The Prussian model of education, imported by the entire world in the 19th century, was designed to produce loyal soldiers and clerks. Bells that kill concentration, the fragmentation of worldview into unrelated subjects, fear of error, and dependence on external evaluation shape compliant executors with atrophied will. The graduate is a detail optimizer incapable of realizing that overall they\'re building a camp (according to NASA tests, school reduces innate creativity by 91%). Attempting to break free — for instance, switching a child to unschooling — is criminalized in many countries today and threatens medical kidnapping. The system states outright: your children are collateral for the national debt.',
+  ua: 'Пруська модель освіти, імпортована усім світом у XIX столітті, створювалася для підготовки лояльних солдатів і клерків. Дзвінки, що вбивають концентрацію, дроблення картини світу на не пов\'язані предмети, страх помилки та залежність від зовнішньої оцінки формують зручних виконавців з атрофованою волею. Випускник — це оптимізатор деталей, не здатний усвідомити, що загалом він будує табір (за тестами NASA, школа знижує вроджену креативність на 91%). Спроба вирватися — наприклад, перевести дитину на анскулінг — у багатьох країнах сьогодні криміналізована і загрожує медичним кіднепінгом. Система прямо заявляє: ваші діти — це застава забезпечення державного боргу.'
+},
+'gameover.s7.p4': {
+  ru: 'В цифровую эпоху контроль перешел на нейробиологический уровень. Биохимия бьет по когнитивным функциям: от нейротоксинов и микропластика, снижающих популяционный IQ, до массового фторирования воды, ведущего к доказанной кальцификации эпифиза (шишковидной железы — биологического приемника интуиции и регулятора циркадных ритмов).',
+  en: 'In the digital era, control has shifted to the neurobiological level. Biochemistry strikes at cognitive functions: from neurotoxins and microplastics that lower population IQ, to mass water fluoridation leading to proven calcification of the pineal gland (the biological receiver of intuition and regulator of circadian rhythms).',
+  ua: 'У цифрову епоху контроль перейшов на нейробіологічний рівень. Біохімія б\'є по когнітивних функціях: від нейротоксинів і мікропластику, що знижують популяційний IQ, до масового фторування води, що веде до доведеної кальцифікації епіфіза (шишкоподібної залози — біологічного приймача інтуїції та регулятора циркадних ритмів).'
+},
+'gameover.s7.p5': {
+  ru: 'Для блокировки любой попытки выхода за пределы матрицы система наложила жесточайшее табу на Эрос и измененные состояния сознания. Сексуальная энергия, мощнейший творческий ресурс биологии (понимаемый в древних традициях как инструмент духовной трансформации), была стигматизирована. Фрустрация сублимировалась в агрессию и гиперпотребление — идеальное топливо экономики. Энтеогены (псилоцибин, ДМТ), способные растворять эго-конструкции и депрограммировать навязанные социальные установки, криминализированы. При этом алкоголь и сахар, убивающие миллионы людей, легальны — они анестезируют стресс и возвращают покорного раба на фабрику.',
+  en: 'To block any attempt to exit the matrix, the system imposed the harshest taboo on Eros and altered states of consciousness. Sexual energy, biology\'s most powerful creative resource (understood in ancient traditions as an instrument of spiritual transformation), was stigmatized. Frustration was sublimated into aggression and hyperconsumption — the ideal fuel for the economy. Entheogens (psilocybin, DMT), capable of dissolving ego constructs and deprogramming imposed social conditioning, are criminalized. Meanwhile, alcohol and sugar, which kill millions of people, are legal — they anesthetize stress and return the obedient slave to the factory.',
+  ua: 'Для блокування будь-якої спроби виходу за межі матриці система наклала найжорстокіше табу на Ерос та змінені стани свідомості. Сексуальна енергія, найпотужніший творчий ресурс біології (що розумівся у давніх традиціях як інструмент духовної трансформації), була стигматизована. Фрустрація сублімувалася в агресію та гіперспоживання — ідеальне паливо економіки. Ентеогени (псилоцибін, ДМТ), здатні розчиняти его-конструкції й депрограмувати нав\'язані соціальні установки, криміналізовані. При цьому алкоголь і цукор, що вбивають мільйони людей, легальні — вони анестезують стрес і повертають покірного раба на фабрику.'
+},
+
+// Section 8 — Иллюзия истины
+'gameover.s8.title': {
+  ru: 'Иллюзия истины и доверия: Пищевая цепь матрицы',
+  en: 'The Illusion of Truth and Trust: The Matrix Food Chain',
+  ua: 'Ілюзія істини та довіри: Харчовий ланцюг матриці'
+},
+'gameover.s8.p1': {
+  ru: 'Наука, задуманная как метод радикального сомнения, выродилась в картель грантового консенсуса. 75% исследований спонсируют корпорации. Истина сегодня определяется бюджетом заказчика, а 95% «негативных» результатов навсегда ложатся в стол.',
+  en: 'Science, conceived as a method of radical doubt, has degenerated into a cartel of grant consensus. 75% of research is funded by corporations. Truth today is determined by the client\'s budget, and 95% of "negative" results are permanently shelved.',
+  ua: 'Наука, задумана як метод радикального сумніву, виродилася у картель грантового консенсусу. 75% досліджень спонсорують корпорації. Істина сьогодні визначається бюджетом замовника, а 95% «негативних» результатів назавжди лягають у шухляду.'
+},
+'gameover.s8.chain': {
+  ru: 'Токсичная еда → Хроническая болезнь → Фармацевтическая подписка → Гиперпотребление',
+  en: 'Toxic food → Chronic disease → Pharmaceutical subscription → Hyperconsumption',
+  ua: 'Токсична їжа → Хронічна хвороба → Фармацевтична підписка → Гіперспоживання'
+},
+'gameover.s8.p2': {
+  ru: 'Сначала транснациональный агропром кормит население субсидированным сахаром, микропластиком и фторидом (доказано кальцифицирующим шишковидную железу — биологический орган интуиции). Когда тело закономерно ломается, вас встречает Фарма — монстр с оборотом в $1,6 трлн. С 1950-х годов медицина не вылечила окончательно ни одной хронической болезни. Зачем резать курицу, несущую золотые яйца? Инсулин, себестоимость которого $3, продается за $300 (наценка 10 000%). Здоровый пациент — это упущенная выгода. Идеальный юнит — хронически больной клиент с пожизненной подпиской на препараты. Маркетологи, считайте LTV с учетом, что каждый 4 житель развитых стран пожизненно пьет хотя бы 1 фарм-препарат. А для трезвого взгляда на ваш набор wellness-БАДОВ проверьте коэффициент усвоения (до 10%) и умножьте на стоимость банки. Вам ведь не дадут доступ к капельницам, единственному эффективному способу заявленные витамины и минералы впитать?',
+  en: 'First, transnational agribusiness feeds the population subsidized sugar, microplastics, and fluoride (proven to calcify the pineal gland — the biological organ of intuition). When the body predictably breaks down, Pharma greets you — a monster with $1.6 trillion in revenue. Since the 1950s, medicine has not definitively cured a single chronic disease. Why slaughter the goose that lays golden eggs? Insulin, costing $3 to produce, sells for $300 (a 10,000% markup). A healthy patient is lost revenue. The ideal unit is a chronically ill client with a lifetime drug subscription. Marketers, calculate your LTV given that every 4th resident of developed countries is on at least one pharma drug for life. And for a sober look at your wellness supplement collection, check the absorption coefficient (up to 10%) and multiply by the price of the jar. After all, they won\'t give you access to IV drips — the only effective way to actually absorb those advertised vitamins and minerals, will they?',
+  ua: 'Спочатку транснаціональний агропром годує населення субсидованим цукром, мікропластиком та фторидом (доведено, що він кальцифікує шишкоподібну залозу — біологічний орган інтуїції). Коли тіло закономірно ламається, вас зустрічає Фарма — монстр з оборотом у $1,6 трлн. З 1950-х років медицина не вилікувала остаточно жодної хронічної хвороби. Навіщо різати курку, що несе золоті яйця? Інсулін, собівартість якого $3, продається за $300 (націнка 10 000%). Здоровий пацієнт — це втрачена вигода. Ідеальний юніт — хронічно хворий клієнт із довічною підпискою на препарати. Маркетологи, рахуйте LTV з урахуванням того, що кожен 4-й мешканець розвинених країн довічно п\'є хоча б 1 фарм-препарат. А для тверезого погляду на ваш набір wellness-БАДів перевірте коефіцієнт засвоєння (до 10%) і помножте на вартість банки. Вам же не дадуть доступ до крапельниць — єдиного ефективного способу заявлені вітаміни та мінерали всотати?'
+},
+'gameover.s8.p3': {
+  ru: 'Даже индустрия психологии (на $4,2 трлн) приватизирована для адаптации к рабству. Ваш праведный гнев на тошную бессмысленность работы по 60 часов в неделю немедленно медикализируется. Вместо бунта коучи продают вам mindfulness, чтобы вы могли продуктивнее дышать перед тем, как снова сесть за весла на корпоративной галере.',
+  en: 'Even the psychology industry ($4.2 trillion) has been privatized to facilitate adaptation to slavery. Your righteous anger at the nauseating meaninglessness of working 60 hours a week is immediately medicalized. Instead of rebellion, coaches sell you mindfulness so you can breathe more productively before sitting back down at the oars on the corporate galley.',
+  ua: 'Навіть індустрія психології (на $4,2 трлн) приватизована для адаптації до рабства. Ваш праведний гнів на нудотну безглуздість роботи по 60 годин на тиждень негайно медикалізується. Замість бунту коучі продають вам mindfulness, щоб ви могли продуктивніше дихати перед тим, як знову сісти за весла на корпоративній галері.'
+},
+'gameover.s8.p4': {
+  ru: 'А чтобы отмыть триллионы и репутацию, элиты создали институт современной «благотворительности». Экология стала элитной прачечной: корпорации выкачивают из государств $7 трлн субсидий в год на ископаемое топливо, убивая пресную воду, а их владельцы переводят активы в безналоговые трасты и помпезно жертвуют 0,1% на спасение редких лягушек. «Зеленый капитализм» — это издевательский оксюморон, предлагающий тушить пожар бензином, заставляя нас покупать те же товары, но с наценкой «эко».',
+  en: 'And to launder trillions and their reputation, elites created the institution of modern "philanthropy." Ecology became an elite laundromat: corporations extract $7 trillion in annual fossil fuel subsidies from governments, killing freshwater, while their owners transfer assets into tax-free trusts and pompously donate 0.1% to save rare frogs. "Green capitalism" is a mocking oxymoron proposing to extinguish a fire with gasoline, forcing us to buy the same products but with an "eco" markup.',
+  ua: 'А щоб відмити трильйони та репутацію, еліти створили інститут сучасної «благодійності». Екологія стала елітною пральнею: корпорації викачують з держав $7 трлн субсидій на рік на викопне паливо, вбиваючи прісну воду, а їхні власники переводять активи у безподаткові трасти й помпезно жертвують 0,1% на порятунок рідкісних жаб. «Зелений капіталізм» — це знущальний оксиморон, що пропонує гасити пожежу бензином, змушуючи нас купувати ті самі товари, але з націнкою «еко».'
+},
+
+// Section 9 — Кража Эроса
+'gameover.s9.title': {
+  ru: 'Кража Эроса и зачистка смыслов: Иммунный ответ Системы',
+  en: 'The Theft of Eros and the Purging of Meaning: The System\'s Immune Response',
+  ua: 'Крадіжка Еросу та зачистка смислів: Імунна відповідь Системи'
+},
+'gameover.s9.p1': {
+  ru: 'Для полного контроля система наложила жесточайшее табу на нашу жизненную силу. Сексуальная энергия (Эрос) тотально демонизирована. Не из-за пуританской морали. Эрос — это мощнейшая созидательная энергия биологии. Человеком, соединенным со своей дикой, экстатической телесностью, физически невозможно управлять.',
+  en: 'For total control, the system imposed the harshest taboo on our life force. Sexual energy (Eros) has been totally demonized. Not because of puritanical morality. Eros is biology\'s most powerful creative energy. A person connected to their wild, ecstatic embodiment is physically impossible to control.',
+  ua: 'Для повного контролю система наклала найжорстокіше табу на нашу життєву силу. Сексуальна енергія (Ерос) тотально демонізована. Не через пуританську мораль. Ерос — це найпотужніша творча енергія біології. Людиною, з\'єднаною зі своєю дикою, екстатичною тілесністю, фізично неможливо керувати.'
+},
+'gameover.s9.p2': {
+  ru: 'Система блокирует этот поток, и подавленная сексуальная энергия (фрустрация) перенаправляется в нужные русла: в разжигание агрессии, в племенные войны, в неконтролируемое обжирание и бесконечный шопоголизм. Война — это сублимированная сексуальная фрустрация масс, мастерски конвертируемая в прибыль ВПК.',
+  en: 'The system blocks this flow, and suppressed sexual energy (frustration) is redirected into useful channels: into stoking aggression, tribal wars, uncontrolled binge eating, and endless shopaholism. War is the sublimated sexual frustration of the masses, masterfully converted into profits for the military-industrial complex.',
+  ua: 'Система блокує цей потік, і придушена сексуальна енергія (фрустрація) перенаправляється у потрібні русла: у розпалювання агресії, у племінні війни, у неконтрольоване обжирання та нескінченний шопоголізм. Війна — це сублімована сексуальна фрустрація мас, майстерно конвертована у прибуток ВПК.'
+},
+'gameover.s9.p3': {
+  ru: 'По той же причине система ведет беспощадную войну с измененными состояниями сознания. Алкоголь и сахар, убивающие миллионы, легальны — они анестезируют раба и возвращают его к станку. Энтеогены (псилоцибин, ДМТ) строго криминализированы, потому что они аппаратно растворяют эго и деинсталлируют матрицу навязанного социального программирования. Война с психоделиками — это панический страх системы потерять монополию на реальность.',
+  en: 'For the same reason, the system wages a merciless war on altered states of consciousness. Alcohol and sugar, which kill millions, are legal — they anesthetize the slave and return him to the machine. Entheogens (psilocybin, DMT) are strictly criminalized because they hardware-dissolve the ego and uninstall the matrix of imposed social programming. The war on psychedelics is the system\'s panic fear of losing its monopoly on reality.',
+  ua: 'З тієї ж причини система веде нещадну війну зі зміненими станами свідомості. Алкоголь і цукор, що вбивають мільйони, легальні — вони анестезують раба й повертають його до верстата. Ентеогени (псилоцибін, ДМТ) суворо криміналізовані, тому що вони апаратно розчиняють его й деінсталюють матрицю нав\'язаного соціального програмування. Війна з психоделіками — це панічний страх системи втратити монополію на реальність.'
+},
+'gameover.s9.p4': {
+  ru: 'Любые лидеры, обладавшие достаточным влиянием, чтобы транслировать в массы альтернативные частоты свободы и когерентности, сталкивались с жесточайшим иммунным ответом матрицы — от дискредитации до физической ликвидации. Джон Леннон был застрелен «фанатиком» (слышавшим «голоса в голове») в самый разгар антивоенного LSD-движения, срывавшего американскую мясорубку во Вьетнаме. Джим Моррисон, взламывавший социальные табу, закончил жизнь в парижской ванне при невыясненных обстоятельствах. Майкл Джексон — артист, обладавший беспрецедентным мировым влиянием, бросивший вызов музыкальному картелю (выкупив каталог ATV) и открыто говоривший о манипуляциях медиа, — был методично растоптан прессой, загнан в угол и уничтожен связкой продажной фармакологии и корпоративных интересов.',
+  en: 'Any leaders who possessed sufficient influence to broadcast alternative frequencies of freedom and coherence to the masses faced the harshest immune response of the matrix — from discreditation to physical liquidation. John Lennon was shot by a "fanatic" (who heard "voices in his head") at the very height of the anti-war LSD movement that was disrupting the American meat grinder in Vietnam. Jim Morrison, who hacked social taboos, ended his life in a Paris bathtub under unexplained circumstances. Michael Jackson — an artist who wielded unprecedented global influence, challenged the music cartel (by acquiring the ATV catalog), and openly spoke about media manipulation — was methodically trampled by the press, cornered, and destroyed by a nexus of corrupt pharmacology and corporate interests.',
+  ua: 'Будь-які лідери, що володіли достатнім впливом, щоб транслювати в маси альтернативні частоти свободи й когерентності, стикалися з найжорстокішою імунною відповіддю матриці — від дискредитації до фізичної ліквідації. Джон Леннон був застрелений «фанатиком» (що чув «голоси у голові») у самий розпал антивоєнного LSD-руху, що зривав американську м\'ясорубку у В\'єтнамі. Джим Моррісон, що зламував соціальні табу, закінчив життя у паризькій ванні за нез\'ясованих обставин. Майкл Джексон — артист, що володів безпрецедентним світовим впливом, кинув виклик музичному картелю (викупивши каталог ATV) і відкрито говорив про маніпуляції медіа, — був методично розтоптаний пресою, загнаний у кут і знищений зв\'язкою продажної фармакології та корпоративних інтересів.'
+},
+'gameover.s9.p5': {
+  ru: 'Система не прощает тех, кто пытается переписать ее алгоритм и увести паству за пределы загона.',
+  en: 'The system does not forgive those who attempt to rewrite its algorithm and lead the flock beyond the enclosure.',
+  ua: 'Система не прощає тих, хто намагається переписати її алгоритм і вивести паству за межі загону.'
+},
+
+// Section 10 — Протокол Выхода
+'gameover.s10.title': {
+  ru: 'Протокол Выхода',
+  en: 'The Exit Protocol',
+  ua: 'Протокол Виходу'
+},
+'gameover.s10.p1': {
+  ru: 'Снимем розовые очки: шансы человечества выжить в логике «Игры А» строго равны нулю. Нельзя выиграть у казино, играя по его алгоритмам. Механизм, настроенный на бесконечное извлечение выгоды из конечного субстрата, остановится только тогда, когда сожрет последнюю живую клетку на планете.',
+  en: 'Let\'s take off the rose-colored glasses: humanity\'s chances of surviving within the logic of "Game A" are strictly zero. You can\'t beat the casino playing by its algorithms. A mechanism tuned for infinite extraction of profit from a finite substrate will only stop when it devours the last living cell on the planet.',
+  ua: 'Знімімо рожеві окуляри: шанси людства вижити у логіці «Гри А» суворо дорівнюють нулю. Не можна виграти у казино, граючи за його алгоритмами. Механізм, налаштований на нескінченне витягування вигоди з кінцевого субстрату, зупиниться лише тоді, коли пожере останню живу клітину на планеті.'
+},
+'gameover.s10.p2': {
+  ru: 'Ошибка всех революций — попытка победить Рим методами Рима: через борьбу, митинги и кровь. Борьба (трение) — это родное топливо системы. Любой протест лишь питает эгрегор Матрицы. Единственный способ обрушить систему — перестать ее питать. Сделать ее нерелевантной, совершив фазовый переход из парадигмы доминирования в «Игру Б» (регенеративную архитектуру симбиоза omni-win-win).',
+  en: 'The mistake of all revolutions is the attempt to defeat Rome with Rome\'s methods: through struggle, rallies, and blood. Struggle (friction) is the system\'s native fuel. Any protest only feeds the Matrix\'s egregore. The only way to collapse the system is to stop feeding it. To make it irrelevant by performing a phase transition from the dominance paradigm into "Game B" (the regenerative architecture of omni-win-win symbiosis).',
+  ua: 'Помилка всіх революцій — спроба перемогти Рим методами Риму: через боротьбу, мітинги та кров. Боротьба (тертя) — це рідне паливо системи. Будь-який протест лише живить егрегор Матриці. Єдиний спосіб обвалити систему — перестати її живити. Зробити її нерелевантною, здійснивши фазовий перехід з парадигми домінування у «Гру Б» (регенеративну архітектуру симбіозу omni-win-win).'
+},
+'gameover.s10.q': {
+  ru: 'Как активировать этот протокол лично?',
+  en: 'How do you activate this protocol personally?',
+  ua: 'Як активувати цей протокол особисто?'
+},
+'gameover.s10.pt1.title': {
+  ru: 'Когнитивный суверенитет',
+  en: 'Cognitive Sovereignty',
+  ua: 'Когнітивний суверенітет'
+},
+'gameover.s10.pt1.desc': {
+  ru: 'Прекратите быть бесплатной батарейкой. Заберите свое внимание у машин поляризации. Информационная анорексия и отказ питать Игру А потреблением контентного, пищевого и химического мусора — это ваш первый политический акт саботажа. Откройте свой инстаграм. Удалите всех, к кому вы не испытываете искренней любви или же кто не питает ваше вдохновение и творчество. Все, от чего вы чувствуете себя «недо-» выкачивает из вас жизнь.',
+  en: 'Stop being a free battery. Reclaim your attention from the polarization machines. Informational anorexia and refusing to feed Game A through consumption of content, food, and chemical garbage — this is your first political act of sabotage. Open your Instagram. Delete everyone toward whom you don\'t feel genuine love or who doesn\'t nourish your inspiration and creativity. Everything that makes you feel "not enough" is draining the life out of you.',
+  ua: 'Перестаньте бути безкоштовною батарейкою. Заберіть свою увагу у машин поляризації. Інформаційна анорексія та відмова живити Гру А споживанням контентного, харчового та хімічного сміття — це ваш перший політичний акт саботажу. Відкрийте свій інстаграм. Видаліть усіх, до кого ви не відчуваєте щирої любові або хто не живить ваше натхнення і творчість. Усе, від чого ви почуваєтеся «недо-» — викачує з вас життя.'
+},
+'gameover.s10.pt2.title': {
+  ru: 'Возврат Эроса',
+  en: 'The Return of Eros',
+  ua: 'Повернення Еросу'
+},
+'gameover.s10.pt2.desc': {
+  ru: 'Сексуальная энергия (Либидо) — это не индустрия порнографии, это базовая, самая мощная созидательная сила биологии. Древние традиции использовали ее для трансформации сознания. Церковь демонизировала Эрос, потому что человеком, соединенным со своей дикой, экстатической жизненной силой, физически невозможно управлять. Его фрустрацию больше нельзя сублимировать в шопоголизм и депрессию. Разблокировка сакральной телесности — это возврат к источнику энергии, не облагаемому налогами.',
+  en: 'Sexual energy (Libido) is not the pornography industry — it\'s the fundamental, most powerful creative force of biology. Ancient traditions used it for the transformation of consciousness. The Church demonized Eros because a person connected to their wild, ecstatic life force is physically impossible to control. Their frustration can no longer be sublimated into shopaholism and depression. Unlocking sacred embodiment is a return to an energy source that cannot be taxed.',
+  ua: 'Сексуальна енергія (Лібідо) — це не індустрія порнографії, це базова, найпотужніша творча сила біології. Давні традиції використовували її для трансформації свідомості. Церква демонізувала Ерос, тому що людиною, з\'єднаною зі своєю дикою, екстатичною життєвою силою, фізично неможливо керувати. Її фрустрацію більше не можна сублімувати у шопоголізм і депресію. Розблокування сакральної тілесності — це повернення до джерела енергії, що не оподатковується.'
+},
+'gameover.s10.pt3.title': {
+  ru: 'Расширение сознания и депрограммирование',
+  en: 'Consciousness Expansion and Deprogramming',
+  ua: 'Розширення свідомості та депрограмування'
+},
+'gameover.s10.pt3.desc': {
+  ru: 'Система легализовала алкоголь и сахар, убивающие миллионы, потому что они анестезируют раба и возвращают его к станку. Но она объявила беспощадную войну энтеогенам (псилоцибину, аяуаске, ДМТ). Почему? Потому что психоделики аппаратно растворяют эго и смывают навязанное социальное кондиционирование. Они обнажают голограмму матрицы. Война с измененными состояниями сознания — это не забота о здоровье, это панический страх системы потерять монополию на реальность.',
+  en: 'The system legalized alcohol and sugar, which kill millions, because they anesthetize the slave and return him to the machine. But it has declared merciless war on entheogens (psilocybin, ayahuasca, DMT). Why? Because psychedelics hardware-dissolve the ego and wash away imposed social conditioning. They expose the matrix\'s hologram. The war on altered states of consciousness is not about health concerns — it\'s the system\'s panic fear of losing its monopoly on reality.',
+  ua: 'Система легалізувала алкоголь і цукор, що вбивають мільйони, тому що вони анестезують раба й повертають його до верстата. Але вона оголосила нещадну війну ентеогенам (псилоцибіну, аяуасці, ДМТ). Чому? Тому що психоделіки апаратно розчиняють его й змивають нав\'язане соціальне кондиціонування. Вони оголюють голограму матриці. Війна зі зміненими станами свідомості — це не турбота про здоров\'я, це панічний страх системи втратити монополію на реальність.'
+},
+'gameover.s10.pt4.title': {
+  ru: 'Деконструкция Эго',
+  en: 'Ego Deconstruction',
+  ua: 'Деконструкція Его'
+},
+'gameover.s10.pt4.desc': {
+  ru: 'Запомните: быть нормальным и хорошо адаптированным в глубоко больном обществе — значит быть смертельно больным. Иллюзия отделенности (эго) — это вирус «Игры А». Откажитесь от конкуренции. Опирайтесь на число Данбара (до 150 человек). Формируйте малые группы, основанные на глубоком резонансе и доверии. Десяток синхронизированных людей обладает мощностью лазера, прожигающего ткань реальности. Миллион разделенных потребителей генерирует лишь белый шум и углекислый газ.',
+  en: 'Remember: to be normal and well-adjusted in a profoundly sick society is to be terminally ill. The illusion of separateness (ego) is the virus of "Game A." Reject competition. Lean on Dunbar\'s number (up to 150 people). Form small groups based on deep resonance and trust. A dozen synchronized people possess the power of a laser burning through the fabric of reality. A million divided consumers generate nothing but white noise and carbon dioxide.',
+  ua: 'Запам\'ятайте: бути нормальним і добре адаптованим у глибоко хворому суспільстві — означає бути смертельно хворим. Ілюзія відокремленості (его) — це вірус «Гри А». Відмовтеся від конкуренції. Спирайтеся на число Данбара (до 150 осіб). Формуйте малі групи, засновані на глибокому резонансі та довірі. Десяток синхронізованих людей володіє потужністю лазера, що пропалює тканину реальності. Мільйон розділених споживачів генерує лише білий шум та вуглекислий газ.'
+},
+'gameover.s10.pt5.title': {
+  ru: 'Резонанс вместо подавления',
+  en: 'Resonance Instead of Suppression',
+  ua: 'Резонанс замість придушення'
+},
+'gameover.s10.pt5.desc': {
+  ru: 'Вся патриархальная система оперирует базовой физикой трения. Брак, корпорация, государство в рамках старой модели — это всегда вертикаль, где есть субъект (кто подавляет) и объект (кого подавляют). Иерархия расходует колоссальные объемы энергии просто на то, чтобы удерживать нижние слои в подчинении и гасить их волю. Выход из «Игры А» требует полной, безжалостной перепрошивки сознания. Это означает отказ от любимого вопроса человечества: «Кто здесь главный?». На смену механике подавления должна прийти физика резонанса.',
+  en: 'The entire patriarchal system operates on the basic physics of friction. Marriage, corporation, state within the old model — it\'s always a vertical hierarchy with a subject (who suppresses) and an object (who is suppressed). Hierarchy expends colossal volumes of energy simply to keep the lower layers in submission and extinguish their will. Exiting "Game A" requires a total, ruthless reprogramming of consciousness. This means abandoning humanity\'s favorite question: "Who\'s in charge here?" The mechanics of suppression must be replaced by the physics of resonance.',
+  ua: 'Вся патріархальна система оперує базовою фізикою тертя. Шлюб, корпорація, держава в рамках старої моделі — це завжди вертикаль, де є суб\'єкт (хто придушує) і об\'єкт (кого придушують). Ієрархія витрачає колосальні обсяги енергії просто на те, щоб утримувати нижні шари у підпорядкуванні та гасити їхню волю. Вихід з «Гри А» вимагає повної, нещадної перепрошивки свідомості. Це означає відмову від улюбленого питання людства: «Хто тут головний?». На зміну механіці придушення має прийти фізика резонансу.'
+},
+'gameover.s10.pt5.p2': {
+  ru: 'Резонанс в семье и обществе — это состояние, при котором системы не тратят энергию на борьбу за контроль. Если вы находитесь в резонансе, ваши частоты совпадают, и амплитуда ваших возможностей возводится в квадрат. В резонансной модели семьи партнеры отказываются от контракта на взаимное обслуживание быта и неврозов. Власть децентрализуется. Вы больше не меряетесь эго, вы создаете симбиотическую среду, где успех одного автоматически усиливает другого (omni-win-win). Это требует чудовищной по меркам старого мира смелости: отказаться от доспехов, снять внутренние защиты и позволить себе быть уязвимым, потому что только открытая система способна резонировать.',
+  en: 'Resonance in family and society is a state where systems don\'t expend energy fighting for control. If you\'re in resonance, your frequencies align, and the amplitude of your possibilities is squared. In the resonance model of family, partners abandon the contract of mutual servicing of domestic life and neuroses. Power is decentralized. You no longer measure egos — you create a symbiotic environment where one person\'s success automatically amplifies the other (omni-win-win). This requires a courage monstrous by old-world standards: to shed the armor, lower your inner defenses, and allow yourself to be vulnerable, because only an open system is capable of resonance.',
+  ua: 'Резонанс у сім\'ї та суспільстві — це стан, за якого системи не витрачають енергію на боротьбу за контроль. Якщо ви перебуваєте у резонансі, ваші частоти збігаються, і амплітуда ваших можливостей зводиться у квадрат. У резонансній моделі сім\'ї партнери відмовляються від контракту на взаємне обслуговування побуту та неврозів. Влада децентралізується. Ви більше не міряєтесь его — ви створюєте симбіотичне середовище, де успіх одного автоматично підсилює іншого (omni-win-win). Це вимагає жахливої за мірками старого світу сміливості: відкинути обладунки, зняти внутрішні захисти й дозволити собі бути вразливим, бо лише відкрита система здатна резонувати.'
+},
+
+// Section 11 — Матриархат
+'gameover.s11.title': {
+  ru: 'Матриархат',
+  en: 'Matriarchy',
+  ua: 'Матріархат'
+},
+'gameover.s11.p1': {
+  ru: 'Да, именно так. Давайте будем циничны: 10 000 лет абсолютного мужского менеджмента, построенного на экспансии, захвате и доминировании, привели цивилизацию к экзистенциальному тупику. Мужская модель блестяще справилась с постройкой небоскребов и баллистических ракет, но провалила главный биологический KPI любого вида — накопление, подавление и доминирование. Количество ценой жизни.',
+  en: 'Yes, exactly. Let\'s be cynical: 10,000 years of absolute male management built on expansion, conquest, and domination have led civilization to an existential dead end. The male model brilliantly handled building skyscrapers and ballistic missiles, but it failed the primary biological KPI of any species — accumulation, suppression, and domination. Quantity at the cost of life.',
+  ua: 'Так, саме так. Давайте будемо цинічними: 10 000 років абсолютного чоловічого менеджменту, побудованого на експансії, захопленні та домінуванні, привели цивілізацію до екзистенційного тупика. Чоловіча модель блискуче впоралася з будівництвом хмарочосів і балістичних ракет, але провалила головний біологічний KPI будь-якого виду — накопичення, придушення та домінування. Кількість ціною життя.'
+},
+'gameover.s11.p2': {
+  ru: 'Природа женской власти кардинально иная. Ее эволюционная задача — не узурпация, не захват соседнего водопоя и не выстраивание вертикали, а культивация.',
+  en: 'The nature of female power is fundamentally different. Its evolutionary purpose is not usurpation, not the seizure of a neighboring waterhole, not the construction of a vertical hierarchy, but cultivation.',
+  ua: 'Природа жіночої влади кардинально інша. Її еволюційне завдання — не узурпація, не захоплення сусіднього водопою і не вибудовування вертикалі, а культивація.'
+},
+'gameover.s11.p3': {
+  ru: 'Если посмотреть на наших ближайших генетических родственников — бонобо — мы увидим абсолютно матриархальное общество. У них физически отсутствует концепция межгрупповых войн, убийств сородичей и смертельной борьбы за статус. Они гасят конфликты через эмпатию, социальные связи и сексуальную игру.',
+  en: 'If we look at our closest genetic relatives — bonobos — we see an entirely matriarchal society. They physically lack the concept of intergroup wars, killing of kin, and lethal competition for status. They resolve conflicts through empathy, social bonds, and sexual play.',
+  ua: 'Якщо подивитися на наших найближчих генетичних родичів — бонобо — ми побачимо абсолютно матріархальне суспільство. У них фізично відсутня концепція міжгрупових війн, вбивств родичів та смертельної боротьби за статус. Вони гасять конфлікти через емпатію, соціальні зв\'язки та сексуальну гру.'
+},
+'gameover.s11.p4': {
+  ru: 'Переход к матриархальной модели в «Игре Б» — это не про то, чтобы просто посадить женщин в кресла CEO, заставив их играть по мужским правилам корпоративного каннибализма. Это полный демонтаж самих кресел. Это смена парадигмы с «покорения природы» на интеграцию в нее. Расширение сознания начинается там, где заканчивается животная потребность доминировать, и начинается взрослая способность созидать.',
+  en: 'The transition to a matriarchal model in "Game B" is not about simply placing women in CEO chairs and forcing them to play by the male rules of corporate cannibalism. It\'s the complete dismantling of the chairs themselves. It\'s a paradigm shift from "conquering nature" to integrating into it. The expansion of consciousness begins where the animal need to dominate ends, and the mature capacity to create begins.',
+  ua: 'Перехід до матріархальної моделі у «Грі Б» — це не про те, щоб просто посадити жінок у крісла CEO, змусивши їх грати за чоловічими правилами корпоративного канібалізму. Це повний демонтаж самих крісел. Це зміна парадигми з «підкорення природи» на інтеграцію в неї. Розширення свідомості починається там, де закінчується тваринна потреба домінувати, і починається доросла здатність творити.'
+},
+
+// Section 12 — ИТОГ
+'gameover.s12.title': {
+  ru: 'ИТОГ',
+  en: 'THE BOTTOM LINE',
+  ua: 'ПІДСУМОК'
+},
+'gameover.s12.p1': {
+  ru: 'Машина старого мира догорает, тушить пожар или бороться с ним бессмысленно. Времени у нас немного, играть в приличие или забвение не выгодно никому.',
+  en: 'The old world\'s machine is burning out; extinguishing the fire or fighting it is pointless. We don\'t have much time, and playing at decorum or oblivion benefits no one.',
+  ua: 'Машина старого світу догоряє, гасити пожежу чи боротися з нею безглуздо. Часу у нас небагато, грати у пристойність чи забуття не вигідно нікому.'
+},
+'gameover.s12.p2': {
+  ru: 'Играть по правилам «нормальных» и вписываться в правила Игры А лично мы с Владом пробовали, — нам не понравилось, no thanks. Поэтому последние два года мы отреклись от репутации социально понятных и занялись исследованиями, экспериментами и испытаниями на прочность модели Б. Симбиоз. Резонанс. Игра. Творчество. Святость Сексуальности.',
+  en: 'Playing by the rules of the "normal" and fitting into Game A\'s framework — Vlad and I personally tried that. We didn\'t like it, no thanks. So for the past two years, we\'ve renounced the reputation of being socially comprehensible and devoted ourselves to research, experiments, and stress-testing Model B. Symbiosis. Resonance. Play. Creativity. The Sanctity of Sexuality.',
+  ua: 'Грати за правилами «нормальних» і вписуватися у правила Гри А особисто ми з Владом пробували — нам не сподобалось, no thanks. Тому останні два роки ми зреклися репутації соціально зрозумілих і зайнялися дослідженнями, експериментами та випробуваннями на міцність моделі Б. Симбіоз. Резонанс. Гра. Творчість. Святість Сексуальності.'
+},
+'gameover.s12.p3': {
+  ru: 'У нас получилось. Теперь мы строим инфраструктуру под новый мир — изобилия, творчества, кайфа. Мир Богов. В котором не пресно-по-прилично-духовному-благостно. А в котором весело и о+уенно.',
+  en: 'We did it. Now we\'re building the infrastructure for a new world — of abundance, creativity, and bliss. A World of Gods. One that\'s not blandly-politely-spiritually-serene. But one where it\'s fun and f+cking amazing.',
+  ua: 'У нас вийшло. Тепер ми будуємо інфраструктуру під новий світ — достатку, творчості, кайфу. Світ Богів. У якому не прісно-по-пристойному-духовно-благісно. А в якому весело і о+уєнно.'
+},
+'gameover.s12.p4': {
+  ru: 'Открываем 49 мест для первой ноды резонансной сети.',
+  en: 'We\'re opening 49 spots for the first node of the resonance network.',
+  ua: 'Відкриваємо 49 місць для першої ноди резонансної мережі.'
+},
+'gameover.s12.p5': {
+  ru: 'МЫ. БОГИ.',
+  en: 'WE. GODS.',
+  ua: 'МИ. БОГИ.'
 },
 
 // ─── TECHNOLOGIES PAGE ───
