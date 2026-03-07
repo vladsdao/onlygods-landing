@@ -117,11 +117,48 @@ body, html {
 .section-divider { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
 .section-divider::after { content: ''; display: block; width: 100%; height: 1px; background: #e5e5e7; }
 
-.placeholder-block {
-    padding: 80px 48px; background: #fbfbfd; border-radius: 3px;
-    text-align: center; color: #aeaeb2; font-size: 14px;
-    letter-spacing: 1px; text-transform: uppercase;
+/* Research cards grid for Proofs */
+.research-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;
+    margin-top: 48px;
 }
+
+.research-card {
+    padding: 48px; background: #fbfbfd; border-radius: 3px;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    min-height: 200px; display: flex; flex-direction: column; justify-content: flex-end;
+}
+
+.research-card:hover { transform: translateY(-6px); }
+
+.research-card .card-label {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #aeaeb2; margin-bottom: 12px; font-weight: 500;
+}
+
+.research-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 30px); font-weight: 400;
+    letter-spacing: -0.3px; line-height: 1.2; margin-bottom: 12px;
+}
+
+.research-card .card-desc {
+    font-size: 15px; color: #86868b; line-height: 1.6;
+}
+
+.research-card .card-status {
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #aeaeb2; margin-top: 16px;
+}
+
+.section-note {
+    text-align: center; color: #aeaeb2; font-size: 14px;
+    letter-spacing: 1px; margin-top: 48px; font-style: italic;
+}
+
+.stagger-1 { transition-delay: 0.05s; }
+.stagger-2 { transition-delay: 0.12s; }
+.stagger-3 { transition-delay: 0.19s; }
 
 .body-text { font-size: 17px; color: #48484a; line-height: 1.75; max-width: 860px; }
 
@@ -141,6 +178,7 @@ body, html {
     .nav-links { display: none; }
     .nav-burger { display: flex; }
     .site-nav { padding: 0 20px; }
+    .research-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -153,7 +191,7 @@ body, html {
         <a href="manifest.html">Manifest</a>
         <a href="technologies.html" class="active">Holy Tech</a>
         <a href="community.html">Creators</a>
-        <a href="research.html">Publications</a>
+        <a href="publications.html">Publications</a>
         <a href="quantumlab.html">Quantum Lab</a>
         <a href="playground.html">Playground</a>
         <a href="dao.html">DAO</a>
@@ -174,7 +212,7 @@ body, html {
     <a href="manifest.html">Manifest</a>
     <a href="technologies.html" class="active">Holy Tech</a>
     <a href="community.html">Creators</a>
-    <a href="research.html">Publications</a>
+    <a href="publications.html">Publications</a>
     <a href="quantumlab.html">Quantum Lab</a>
     <a href="playground.html">Playground</a>
     <a href="dao.html">DAO</a>
@@ -216,6 +254,70 @@ body, html {
         <p class="body-text" data-i18n="technologies.tools.p1">Цифровая инфраструктура для визуализации эгрегора: трекинг резонанса, AI-интеграция, блокчейн-governance и инструменты энергетического менеджмента.</p>
         <p class="body-text" style="margin-top: 20px;" data-i18n="technologies.tools.p2">Платформа объединяет данные о синхронизации участников, управление ресурсами сообщества и автономную экономику DAO в единый интерфейс.</p>
     </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- Digital 5D Framework -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="technologies.block1.label">01</div>
+        <h2 class="section-title" data-i18n="technologies.block1.title">Digital 5D Framework</h2>
+        <p class="body-text" data-i18n="technologies.block1.desc">Высокотехнологичные решения для преодоления ограничений человеческого существа. Цифровые инструменты расширения Сознания, интеграция AI и квантовых практик.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- Reality Backend Stack -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="technologies.block2.label">02</div>
+        <h2 class="section-title" data-i18n="technologies.block2.title">Reality Backend Stack</h2>
+        <p class="body-text" data-i18n="technologies.block2.desc">Метафизика и алхимия резонансной сети. Невидимая архитектура реальности — как работает поле, эгрегор и коллективное Сознание на уровне кода.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- Mindset Fine-Tuning -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="technologies.block3.label">03</div>
+        <h2 class="section-title" data-i18n="technologies.block3.title">Mindset Fine-Tuning</h2>
+        <p class="body-text" data-i18n="technologies.block3.desc">Фреймворк апгрейда Сознания до 5D. Практики перенастройки восприятия, работа с убеждениями и квантовыми состояниями для нового уровня операционной системы.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- Proofs -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="technologies.proofs.label">Доказательства</div>
+        <h2 class="section-title" data-i18n="technologies.proofs.title">Proofs</h2>
+    </div>
+    <div class="research-grid">
+        <div class="research-card fade-in-up stagger-1">
+            <div class="card-label" data-i18n="technologies.proof1.label">01</div>
+            <h3 data-i18n="technologies.proof1.title">Coherence Metrics</h3>
+            <p class="card-desc" data-i18n="technologies.proof1.desc">Результаты измерения когерентности поля. Данные синхронизации участников в реальном времени.</p>
+            <span class="card-status" data-i18n="technologies.proof1.status">Скоро →</span>
+        </div>
+        <div class="research-card fade-in-up stagger-2">
+            <div class="card-label" data-i18n="technologies.proof2.label">02</div>
+            <h3 data-i18n="technologies.proof2.title">Synergy Index</h3>
+            <p class="card-desc" data-i18n="technologies.proof2.desc">Данные об усилении коллективного разума. Индекс синергии группового взаимодействия.</p>
+            <span class="card-status" data-i18n="technologies.proof2.status">Скоро →</span>
+        </div>
+        <div class="research-card fade-in-up stagger-3">
+            <div class="card-label" data-i18n="technologies.proof3.label">03</div>
+            <h3 data-i18n="technologies.proof3.title">Resonance Reports</h3>
+            <p class="card-desc" data-i18n="technologies.proof3.desc">Отчёты о синхронизации участников. Визуализация резонансных паттернов.</p>
+            <span class="card-status" data-i18n="technologies.proof3.status">Скоро →</span>
+        </div>
+    </div>
+    <p class="section-note fade-in-up">Proofs will be published as research is completed</p>
 </div>
 
 <footer class="site-footer">OnlyGods</footer>

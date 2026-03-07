@@ -897,6 +897,54 @@ var T = {
   ua: 'Статті будуть оновлюватися'
 },
 
+// ─── GAMEOVER ARTICLE PAGE ───
+'gameover.title': { ru: 'OnlyGods — 2026: GAME OVER', en: 'OnlyGods — 2026: GAME OVER', ua: 'OnlyGods — 2026: GAME OVER' },
+'gameover.back': { ru: '← Публикации', en: '← Publications', ua: '← Публікації' },
+'gameover.hero.subtitle': { ru: '2026', en: '2026', ua: '2026' },
+'gameover.hero.title': { ru: '2026 = GAME OVER', en: '2026 = GAME OVER', ua: '2026 = GAME OVER' },
+'gameover.hero.tagline': {
+  ru: 'Математика конца света, точка разворота и протокол выхода из легального рабства',
+  en: 'End-of-the-world mathematics, the turning point, and the protocol for exiting legal slavery',
+  ua: 'Математика кінця світу, точка розвороту та протокол виходу з легального рабства'
+},
+'gameover.meta.date': { ru: '2026', en: '2026', ua: '2026' },
+'gameover.meta.readtime': { ru: '15 мин', en: '15 min', ua: '15 хв' },
+'gameover.section1.title': {
+  ru: 'Мета-кризис',
+  en: 'Meta-Crisis',
+  ua: 'Мета-криза'
+},
+'gameover.section1.p1': {
+  ru: 'Мир вступил в фазу мета-кризиса — одновременного схлопывания финансовых, экологических, политических и когнитивных систем. Это не случайность и не заговор. Это математика.',
+  en: 'The world has entered a meta-crisis phase — the simultaneous collapse of financial, ecological, political, and cognitive systems. This is not an accident or a conspiracy. This is mathematics.',
+  ua: 'Світ вступив у фазу мета-кризи — одночасного схлопування фінансових, екологічних, політичних та когнітивних систем. Це не випадковість і не змова. Це математика.'
+},
+'gameover.section2.title': {
+  ru: 'Игра А vs Игра Б',
+  en: 'Game A vs Game B',
+  ua: 'Гра А vs Гра Б'
+},
+'gameover.section2.p1': {
+  ru: 'Игра А — текущая операционная система цивилизации. Конкуренция, экстракция, экспоненциальный рост на конечной планете. Математически неизбежный коллапс.',
+  en: 'Game A — the current operating system of civilization. Competition, extraction, exponential growth on a finite planet. Mathematically inevitable collapse.',
+  ua: 'Гра А — поточна операційна система цивілізації. Конкуренція, екстракція, експоненційне зростання на кінцевій планеті. Математично неминучий колапс.'
+},
+'gameover.section2.p2': {
+  ru: 'Игра Б — квантовый переход. Новая координация, основанная на резонансе, а не конкуренции. Коллективное Сознание как инфраструктура.',
+  en: 'Game B — quantum transition. New coordination based on resonance, not competition. Collective Consciousness as infrastructure.',
+  ua: 'Гра Б — квантовий перехід. Нова координація, заснована на резонансі, а не конкуренції. Колективна Свідомість як інфраструктура.'
+},
+'gameover.section3.title': {
+  ru: 'Протокол перехода',
+  en: 'Transition Protocol',
+  ua: 'Протокол переходу'
+},
+'gameover.section3.p1': {
+  ru: 'OnlyGods — это прототип Игры Б. Микро-экономика сознания, резонансная сеть, коллективный разум. Мы не ждём разрешения. Мы строим.',
+  en: 'OnlyGods is a Game B prototype. Consciousness micro-economy, resonance network, collective intelligence. We don\'t wait for permission. We build.',
+  ua: 'OnlyGods — це прототип Гри Б. Мікро-економіка свідомості, резонансна мережа, колективний розум. Ми не чекаємо дозволу. Ми будуємо.'
+},
+
 // ─── TECHNOLOGIES PAGE ───
 'technologies.hero.subtitle': {
   ru: 'Квантовое сознание',
@@ -958,6 +1006,53 @@ var T = {
   en: 'The platform unifies participant synchronization data, community resource management and the autonomous DAO economy into a single interface.',
   ua: 'Платформа об\'єднує дані про синхронізацію учасників, управління ресурсами спільноти та автономну економіку DAO в єдиний інтерфейс.'
 },
+'technologies.block1.label': { ru: '01', en: '01', ua: '01' },
+'technologies.block1.title': { ru: 'Digital 5D Framework', en: 'Digital 5D Framework', ua: 'Digital 5D Framework' },
+'technologies.block1.desc': {
+  ru: 'Высокотехнологичные решения для преодоления ограничений человеческого существа. Цифровые инструменты расширения Сознания, интеграция AI и квантовых практик.',
+  en: 'High-tech solutions for overcoming limitations of human being. Digital tools for Consciousness expansion, AI integration and quantum practices.',
+  ua: 'Високотехнологічні рішення для подолання обмежень людського існування. Цифрові інструменти розширення Свідомості, інтеграція AI та квантових практик.'
+},
+'technologies.block2.label': { ru: '02', en: '02', ua: '02' },
+'technologies.block2.title': { ru: 'Reality Backend Stack', en: 'Reality Backend Stack', ua: 'Reality Backend Stack' },
+'technologies.block2.desc': {
+  ru: 'Метафизика и алхимия резонансной сети. Невидимая архитектура реальности — как работает поле, эгрегор и коллективное Сознание на уровне кода.',
+  en: 'Metaphysics and alchemy of resonance network. The invisible architecture of reality — how the field, egregore, and collective Consciousness operate at the code level.',
+  ua: 'Метафізика та алхімія резонансної мережі. Невидима архітектура реальності — як працює поле, егрегор та колективна Свідомість на рівні коду.'
+},
+'technologies.block3.label': { ru: '03', en: '03', ua: '03' },
+'technologies.block3.title': { ru: 'Mindset Fine-Tuning', en: 'Mindset Fine-Tuning', ua: 'Mindset Fine-Tuning' },
+'technologies.block3.desc': {
+  ru: 'Фреймворк апгрейда Сознания до 5D. Практики перенастройки восприятия, работа с убеждениями и квантовыми состояниями для нового уровня операционной системы.',
+  en: '5D Consciousness framework upgrade. Practices for perception recalibration, belief work and quantum states for a new level of operating system.',
+  ua: 'Фреймворк апгрейду Свідомості до 5D. Практики переналаштування сприйняття, робота з переконаннями та квантовими станами для нового рівня операційної системи.'
+},
+'technologies.proofs.label': { ru: 'Доказательства', en: 'Proofs', ua: 'Докази' },
+'technologies.proofs.title': { ru: 'Proofs', en: 'Proofs', ua: 'Proofs' },
+'technologies.proof1.label': { ru: '01', en: '01', ua: '01' },
+'technologies.proof1.title': { ru: 'Coherence Metrics', en: 'Coherence Metrics', ua: 'Coherence Metrics' },
+'technologies.proof1.desc': {
+  ru: 'Результаты измерения когерентности поля. Данные синхронизации участников в реальном времени.',
+  en: 'Field coherence measurement results. Real-time participant synchronization data.',
+  ua: 'Результати вимірювання когерентності поля. Дані синхронізації учасників у реальному часі.'
+},
+'technologies.proof1.status': { ru: 'Скоро →', en: 'Soon →', ua: 'Скоро →' },
+'technologies.proof2.label': { ru: '02', en: '02', ua: '02' },
+'technologies.proof2.title': { ru: 'Synergy Index', en: 'Synergy Index', ua: 'Synergy Index' },
+'technologies.proof2.desc': {
+  ru: 'Данные об усилении коллективного разума. Индекс синергии группового взаимодействия.',
+  en: 'Collective intelligence amplification data. Group interaction synergy index.',
+  ua: 'Дані про посилення колективного розуму. Індекс синергії групової взаємодії.'
+},
+'technologies.proof2.status': { ru: 'Скоро →', en: 'Soon →', ua: 'Скоро →' },
+'technologies.proof3.label': { ru: '03', en: '03', ua: '03' },
+'technologies.proof3.title': { ru: 'Resonance Reports', en: 'Resonance Reports', ua: 'Resonance Reports' },
+'technologies.proof3.desc': {
+  ru: 'Отчёты о синхронизации участников. Визуализация резонансных паттернов.',
+  en: 'Participant synchronization reports. Resonance pattern visualization.',
+  ua: 'Звіти про синхронізацію учасників. Візуалізація резонансних патернів.'
+},
+'technologies.proof3.status': { ru: 'Скоро →', en: 'Soon →', ua: 'Скоро →' },
 
 // ─── EVENTS PAGE ───
 'events.hero.subtitle': {
@@ -1581,46 +1676,46 @@ var T = {
 'qlab.hero.subtitle': { ru: 'Исследования', en: 'Research', ua: 'Дослідження' },
 'qlab.hero.title': { ru: 'Quantum Lab', en: 'Quantum Lab', ua: 'Quantum Lab' },
 'qlab.hero.tagline': {
-  ru: 'Программы и публикации на стыке сознания, физики и измеримого опыта',
-  en: 'Programs and publications at the intersection of consciousness, physics, and measurable experience',
-  ua: 'Програми та публікації на стику свідомості, фізики та вимірюваного досвіду'
+  ru: 'Исследование технологий 5D Сознания',
+  en: 'Exploring 5D Consciousness Technologies',
+  ua: 'Дослідження технологій 5D Свідомості'
 },
-'qlab.featured.label': { ru: 'Программа', en: 'Program', ua: 'Програма' },
-'qlab.featured.title': { ru: 'ir4 — Resonance Measurement', en: 'ir4 — Resonance Measurement', ua: 'ir4 — Resonance Measurement' },
+'qlab.featured.label': { ru: 'Исследование', en: 'Research', ua: 'Дослідження' },
+'qlab.featured.title': { ru: 'United Consciousness', en: 'United Consciousness', ua: 'United Consciousness' },
 'qlab.featured.desc': {
-  ru: 'Методология измерения резонанса в реальном времени. Трекинг когерентности поля, динамики участников и качества коллективной уваги.',
-  en: 'Real-time resonance measurement methodology. Tracking field coherence, participant dynamics, and collective attention quality.',
-  ua: 'Методологія вимірювання резонансу в реальному часі. Трекінг когерентності поля, динаміки учасників та якості колективної уваги.'
+  ru: 'Mindset upgrade для предпринимателей. Тестовая нода из 9 человек для исследования коллективного разума и синергии. Ежедневные 5-минутные вортекс-медитации + еженедельная часовая сессия. Цель — интуитивное взаимодействие в поле эгрегора для расширенных возможностей Сознания.',
+  en: 'Mindset upgrade for entrepreneurs. A test node of 9 people to explore collective intelligence and synergy. Daily 5-minute vortex meditations + weekly 1-hour session. Goal — intuitive interaction within the egregore field for expanded Consciousness capabilities.',
+  ua: 'Mindset upgrade для підприємців. Тестова нода з 9 людей для дослідження колективного розуму та синергії. Щоденні 5-хвилинні вортекс-медитації + щотижнева годинна сесія. Мета — інтуїтивна взаємодія в полі егрегора для розширених можливостей Свідомості.'
 },
-'qlab.featured.status': { ru: 'В разработке →', en: 'In development →', ua: 'В розробці →' },
+'qlab.featured.status': { ru: 'Старт 1 мая 2026 →', en: 'Launch May 1, 2026 →', ua: 'Старт 1 травня 2026 →' },
 'qlab.areas.label': { ru: 'Направления исследований', en: 'Research Areas', ua: 'Напрямки досліджень' },
 'qlab.area1.label': { ru: '01', en: '01', ua: '01' },
-'qlab.area1.title': { ru: 'Измерение резонанса', en: 'Resonance Measurement', ua: 'Вимірювання резонансу' },
+'qlab.area1.title': { ru: 'Измерение Резонанса', en: 'Resonance Measurement', ua: 'Вимірювання Резонансу' },
 'qlab.area1.desc': {
-  ru: 'ir4 протокол. Квантификация когерентности. Метрики синхронизации группового поля.',
-  en: 'ir4 protocol. Coherence quantification. Group field synchronization metrics.',
-  ua: 'ir4 протокол. Квантифікація когерентності. Метрики синхронізації групового поля.'
+  ru: 'Синхронизация и раскрытие потенциала участников в поле объединённого Сознания и визуализация метрик.',
+  en: 'Synchronization and unlocking participant potential within the unified Consciousness field with metrics visualization.',
+  ua: 'Синхронізація та розкриття потенціалу учасників у полі об\'єднаної Свідомості та візуалізація метрик.'
 },
 'qlab.area2.label': { ru: '02', en: '02', ua: '02' },
-'qlab.area2.title': { ru: 'Протоколы когерентности', en: 'Coherence Protocols', ua: 'Протоколи когерентності' },
+'qlab.area2.title': { ru: 'Коллективное намерение', en: 'Collective Intention', ua: 'Колективний намір' },
 'qlab.area2.desc': {
-  ru: 'Практики синхронизации нервной системы, сердечного ритма и внимания. Тета-гамма мосты.',
-  en: 'Nervous system, heart rhythm, and attention synchronization practices. Theta-gamma bridges.',
-  ua: 'Практики синхронізації нервової системи, серцевого ритму та уваги. Тета-гамма мости.'
+  ru: 'Групповые трансформации и сфокусированное влияние на внешнюю реальность.',
+  en: 'Group transformations and focused influence on external reality.',
+  ua: 'Групові трансформації та сфокусований вплив на зовнішню реальність.'
 },
 'qlab.area3.label': { ru: '03', en: '03', ua: '03' },
-'qlab.area3.title': { ru: 'Коллективное сознание', en: 'Collective Consciousness', ua: 'Колективна свідомість' },
+'qlab.area3.title': { ru: 'Изменённые состояния Сознания', en: 'Altered States of Consciousness', ua: 'Змінені стани Свідомості' },
 'qlab.area3.desc': {
-  ru: 'Данные об эгрегорных эффектах. GCP-модель. √1% порог критической массы.',
-  en: 'Egregore effect data. GCP model. √1% critical mass threshold.',
-  ua: 'Дані про егрегорні ефекти. GCP-модель. √1% поріг критичної маси.'
+  ru: 'Ketamine Assisted Therapy и Delta волны для управления ветками реальности.',
+  en: 'Ketamine Assisted Therapy and Delta waves for navigating reality branches.',
+  ua: 'Ketamine Assisted Therapy та Delta хвилі для управління гілками реальності.'
 },
 'qlab.area4.label': { ru: '04', en: '04', ua: '04' },
-'qlab.area4.title': { ru: 'Биофотонные исследования', en: 'Biophoton Studies', ua: 'Біофотонні дослідження' },
+'qlab.area4.title': { ru: 'Квантовое Сознание в Бизнесе', en: 'Quantum Consciousness in Business', ua: 'Квантова Свідомість у Бізнесі' },
 'qlab.area4.desc': {
-  ru: 'Когерентность света живых систем. ДНК как антенна. Попп, микротрубочки, ZPF-связь.',
-  en: 'Coherence of light in living systems. DNA as antenna. Popp, microtubules, ZPF coupling.',
-  ua: 'Когерентність світла живих систем. ДНК як антена. Попп, мікротрубочки, ZPF-зв\'язок.'
+  ru: 'Применение техник работы с квантовым полем, коллективным сознанием эгрегора и настройка резонансной сети в команде как способ достижения преимущества.',
+  en: 'Applying quantum field techniques, egregore collective consciousness, and resonant team network tuning as a competitive advantage.',
+  ua: 'Застосування технік роботи з квантовим полем, колективною свідомістю егрегора та налаштування резонансної мережі в команді як спосіб досягнення переваги.'
 },
 'qlab.pubs.label': { ru: 'Публикации', en: 'Publications', ua: 'Публікації' },
 'qlab.pub1.title': { ru: '9 столпов Поля Объединённого Сознания', en: '9 Pillars of the Unified Consciousness Field', ua: '9 стовпів Поля Об\'єднаної Свідомості' },
