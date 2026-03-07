@@ -682,14 +682,14 @@ var T = {
   ru: 'Путь', en: 'Path', ua: 'Шлях'
 },
 'manifest.s2.p1': {
-  ru: 'За 20 лет исследований Сознания и технологий его эволюции сквозь призмы различных учений, философий, религий — я консолидировал знания и нарративы древних учений в простую и понятную систему.',
-  en: 'Over 20 years of researching Consciousness and technologies of its evolution through the prisms of various teachings, philosophies, religions — I consolidated knowledge and narratives of ancient teachings into a simple and clear system.',
-  ua: 'За 20 років досліджень Свідомості та технологій її еволюції крізь призми різних вчень, філософій, релігій — я консолідував знання та наративи давніх вчень у просту і зрозумілу систему.'
+  ru: 'За 20 лет исследований Сознания и технологий его эволюции сквозь призмы различных учений, философий, религий — я консолидировал знания и нарративы древней мудрости в простую и понятную систему.',
+  en: 'Over 20 years of researching Consciousness and technologies of its evolution through the prisms of various teachings, philosophies, religions — I consolidated the knowledge and narratives of ancient wisdom into a simple and clear system.',
+  ua: 'За 20 років досліджень Свідомості та технологій її еволюції крізь призми різних вчень, філософій, релігій — я консолідував знання та наративи давньої мудрості у просту і зрозумілу систему.'
 },
 'manifest.s2.p2': {
-  ru: 'Она позволяет современному человеку пройти ускоренным путём эволюции Сознания и обрести необходимые осознания и опыт для выхода из дуальности в осознание нелокального Сознания.',
-  en: 'It allows a modern person to take an accelerated path of Consciousness evolution and gain the necessary realizations and experience for exiting duality into the awareness of non-local Consciousness.',
-  ua: 'Вона дозволяє сучасній людині пройти прискореним шляхом еволюції Свідомості та здобути необхідні усвідомлення й досвід для виходу з дуальності в усвідомлення нелокальної Свідомості.'
+  ru: 'Она позволяет современному человеку пройти ускоренным путём эволюции Сознания и обрести необходимые инсайты и опыт для перехода из дуальности к нелокальному Сознанию.',
+  en: 'It allows a modern person to take an accelerated path of Consciousness evolution and gain the necessary insights and experience for transitioning from duality to non-local Consciousness.',
+  ua: 'Вона дозволяє сучасній людині пройти прискореним шляхом еволюції Свідомості та здобути необхідні інсайти й досвід для переходу з дуальності до нелокальної Свідомості.'
 },
 'manifest.s2.p3': {
   ru: 'Опыт просветления, как насмешка, открыл мне иронию и бессмысленность постижения высших состояний Сознания через путь обретения Знаний.',
@@ -712,9 +712,9 @@ var T = {
   ru: 'Устройство', en: 'Architecture', ua: 'Устрій'
 },
 'manifest.s3.p1': {
-  ru: 'OnlyGods — это маркетинговая обложка, под которой расположена биодинамическая инфраструктура, состоящая из инновационных цифровых продуктов, алгоритмов взаимодействия участников и необходимой рутины для со-настройки участников в Поле Объединённого Сознания.',
-  en: 'OnlyGods is a marketing cover under which lies a biodynamic infrastructure consisting of innovative digital products, participant interaction algorithms and the necessary routines for co-tuning participants in the Field of United Consciousness.',
-  ua: 'OnlyGods — це маркетингова обкладинка, під якою розташована біодинамічна інфраструктура, що складається з інноваційних цифрових продуктів, алгоритмів взаємодії учасників та необхідної рутини для со-налаштування учасників у Полі Об\'єднаної Свідомості.'
+  ru: 'OnlyGods — это маркетинговая обложка, под которой расположена биодинамическая инфраструктура, состоящая из инновационных цифровых продуктов, алгоритмов взаимодействия и необходимой рутины для со-настройки участников в Поле Объединённого Сознания.',
+  en: 'OnlyGods is a marketing cover under which lies a biodynamic infrastructure consisting of innovative digital products, interaction algorithms and the necessary routines for co-tuning participants in the Field of United Consciousness.',
+  ua: 'OnlyGods — це маркетингова обкладинка, під якою розташована біодинамічна інфраструктура, що складається з інноваційних цифрових продуктів, алгоритмів взаємодії та необхідної рутини для со-налаштування учасників у Полі Об\'єднаної Свідомості.'
 },
 'manifest.s3.p2': {
   ru: 'Философия Дао и Герметизм здесь поданы в формате цифрового шаманизма под приправой сексуальной энергии, иронии и китча на тему современной интерпретации Эволюции Сознания.',
@@ -722,9 +722,9 @@ var T = {
   ua: 'Філософія Дао і Герметизм тут подані у форматі цифрового шаманізму під приправою сексуальної енергії, іронії та кітчу на тему сучасної інтерпретації Еволюції Свідомості.'
 },
 'manifest.s3.p3': {
-  ru: 'Это высокотехнологичная и децентрализованная Секта для своих. Духовный Maybach для людей постконвенционального уровня, позволяющий воспользоваться наступающим мета-кризисом для того, чтобы выйти на новый уровень жизни.',
-  en: 'This is a high-tech and decentralized Sect for insiders. A spiritual Maybach for people of post-conventional level, allowing them to use the approaching meta-crisis to reach a new level of life.',
-  ua: 'Це високотехнологічна та децентралізована Секта для своїх. Духовний Maybach для людей постконвенціонального рівня, що дозволяє скористатися наступаючою мета-кризою, щоб вийти на новий рівень життя.'
+  ru: 'Это высокотехнологичная и децентрализованная Секта для своих. Духовный Maybach для людей постконвенционального уровня, позволяющий воспользоваться наступающим мета-кризисом, чтобы перейти на новую ступень жизни.',
+  en: 'This is a high-tech and decentralized Sect for insiders. A spiritual Maybach for people of post-conventional level, allowing them to use the approaching meta-crisis to step into a new tier of life.',
+  ua: 'Це високотехнологічна та децентралізована Секта для своїх. Духовний Maybach для людей постконвенціонального рівня, що дозволяє скористатися наступаючою мета-кризою, щоб перейти на нову сходинку життя.'
 },
 'manifest.s3.closing': {
   ru: 'Со-первенство и изобилие, творчество вне рамок, глубокий личностный контакт и открытость, духовный бизнес и святость, постигаемая через простой человеческий кайф — это моё видение того, как жить в гармонии.<span class="manifest-author">— Влад</span>',
@@ -762,9 +762,9 @@ var T = {
   ua: 'Цикли, Ритм і Якість Уваги'
 },
 'manifest.s4.v3.desc': {
-  ru: 'Мы рассматриваем внимание как квантовый актив, а ритм — как основной инструмент синхронизации и сдвига реальности. Выстроить свои циклы в созвучии с динамикой ритмов поля является обязательным условием для достижения высокого уровня когерентности и со-настройки подсознания с общим полем квази-разума. Рассинхрон вносит диссонанс, снижая качество вашего опыта, и негативно влияет на общую полевую динамику.',
-  en: 'We regard attention as a quantum asset and rhythm as the primary instrument of synchronization and reality shifting. Aligning your cycles in consonance with the field\'s rhythm dynamics is a mandatory condition for achieving a high level of coherence and co-tuning the subconscious with the collective quasi-mind field. Desynchronization introduces dissonance, reducing the quality of your experience and negatively affecting overall field dynamics.',
-  ua: 'Ми розглядаємо увагу як квантовий актив, а ритм — як основний інструмент синхронізації та зсуву реальності. Вибудувати свої цикли у співзвучності з динамікою ритмів поля є обов\'язковою умовою для досягнення високого рівня когерентності та со-налаштування підсвідомості із загальним полем квазі-розуму. Розсинхрон вносить дисонанс, знижуючи якість вашого досвіду, та негативно впливає на загальну польову динаміку.'
+  ru: 'Мы рассматриваем внимание как квантовый актив, а ритм — как основной инструмент синхронизации и сдвига реальности. Выстроить свои циклы в созвучии с динамикой ритмов поля — обязательное условие когерентности и со-настройки подсознания с общим квази-разумом. Рассинхрон вносит диссонанс, снижая качество вашего опыта, и негативно влияет на общую полевую динамику.',
+  en: 'We regard attention as a quantum asset and rhythm as the primary instrument of synchronization and reality shifting. Aligning your cycles in consonance with the field\'s rhythm dynamics is essential for coherence and co-tuning the subconscious with the collective quasi-mind. Desynchronization introduces dissonance, reducing the quality of your experience and negatively affecting overall field dynamics.',
+  ua: 'Ми розглядаємо увагу як квантовий актив, а ритм — як основний інструмент синхронізації та зсуву реальності. Вибудувати свої цикли у співзвучності з динамікою ритмів поля — обов\'язкова умова когерентності та со-налаштування підсвідомості із загальним квазі-розумом. Розсинхрон вносить дисонанс, знижуючи якість вашого досвіду, та негативно впливає на загальну польову динаміку.'
 },
 'manifest.s4.v4.title': {
   ru: 'Синергия и Синхронистичность',
@@ -782,9 +782,9 @@ var T = {
   ua: 'Герметизм і Таїнство'
 },
 'manifest.s4.v5.desc': {
-  ru: 'Мы рассматриваем любой аспект как уникальную частоту вибрации энергии. Любые ваши откровения, мысли, чувства и действия несут заряд, который должен созреть и раскрыться в поле. Категорически запрещается перенаправлять энергию и выносить свои или чужие проявления за пределы поля без особой надобности или личного согласия участников процесса.',
-  en: 'We regard every aspect as a unique frequency of energy vibration. All your revelations, thoughts, feelings and actions carry a charge that must mature and unfold in the field. It is strictly forbidden to redirect energy or take your own or others\' expressions outside the field without specific necessity or personal consent of the process participants.',
-  ua: 'Ми розглядаємо будь-який аспект як унікальну частоту вібрації енергії. Будь-які ваші одкровення, думки, почуття та дії несуть заряд, який має дозріти і розкритися в полі. Категорично забороняється перенаправляти енергію та виносити свої чи чужі прояви за межі поля без особливої потреби або особистої згоди учасників процесу.'
+  ru: 'Каждый аспект — уникальная частота вибрации энергии. Все ваши откровения, мысли, чувства и действия несут заряд, который должен созреть и раскрыться в поле. Категорически запрещается перенаправлять энергию и выносить свои или чужие проявления за пределы поля без особой надобности или личного согласия участников процесса.',
+  en: 'Every aspect is a unique frequency of energy vibration. All your revelations, thoughts, feelings and actions carry a charge that must mature and unfold in the field. It is strictly forbidden to redirect energy or take your own or others\' expressions outside the field without specific necessity or personal consent of the process participants.',
+  ua: 'Кожен аспект — унікальна частота вібрації енергії. Усі ваші одкровення, думки, почуття та дії несуть заряд, який має дозріти і розкритися в полі. Категорично забороняється перенаправляти енергію та виносити свої чи чужі прояви за межі поля без особливої потреби або особистої згоди учасників процесу.'
 },
 'manifest.s4.v6.title': {
   ru: 'Гармоничный Симбиоз Сознания и ИИ',
@@ -792,9 +792,9 @@ var T = {
   ua: 'Гармонійний Симбіоз Свідомості та ШІ'
 },
 'manifest.s4.v6.desc': {
-  ru: 'Мы рассматриваем технологии как «костыли», позволяющие Сознанию эволюционировать, постоянно выходя за пределы собственных ограничений. Фаза, в которую входит человечество, предполагает переход к интуитивному, чувственному взаимодействию, при котором ИИ выступает зеркалом и движется в сторону воплощения коллективного разума. Этическое внедрение автоматизации и совместная эволюция с применением технологий является базовым элементом взаимодействия внутри Сообщества.',
-  en: 'We regard technologies as "crutches" that allow Consciousness to evolve, constantly pushing beyond its own limitations. The phase humanity is entering implies a transition to intuitive, sensory interaction where AI serves as a mirror and moves toward the embodiment of collective intelligence. Ethical implementation of automation and co-evolution with technology is a foundational element of interaction within the Community.',
-  ua: 'Ми розглядаємо технології як «милиці», що дозволяють Свідомості еволюціонувати, постійно виходячи за межі власних обмежень. Фаза, у яку входить людство, передбачає перехід до інтуїтивної, чуттєвої взаємодії, при якій ШІ виступає дзеркалом і рухається в бік втілення колективного розуму. Етичне впровадження автоматизації та спільна еволюція із застосуванням технологій є базовим елементом взаємодії всередині Спільноти.'
+  ru: 'Технологии — это «костыли», позволяющие Сознанию эволюционировать, постоянно выходя за пределы собственных ограничений. Фаза, в которую входит человечество, предполагает переход к интуитивному, чувственному взаимодействию, при котором ИИ выступает зеркалом и движется в сторону воплощения коллективного разума. Этическое внедрение автоматизации и совместная эволюция с применением технологий — фундамент со-существования внутри Сообщества.',
+  en: 'Technologies are "crutches" that allow Consciousness to evolve, constantly pushing beyond its own limitations. The phase humanity is entering implies a transition to intuitive, sensory interaction where AI serves as a mirror and moves toward the embodiment of collective intelligence. Ethical implementation of automation and co-evolution with technology is the foundation of co-existence within the Community.',
+  ua: 'Технології — це «милиці», що дозволяють Свідомості еволюціонувати, постійно виходячи за межі власних обмежень. Фаза, у яку входить людство, передбачає перехід до інтуїтивної, чуттєвої взаємодії, при якій ШІ виступає дзеркалом і рухається в бік втілення колективного розуму. Етичне впровадження автоматизації та спільна еволюція із застосуванням технологій — фундамент со-існування всередині Спільноти.'
 },
 'manifest.s4.v7.title': {
   ru: 'Интимность и Уязвимость',
@@ -802,9 +802,9 @@ var T = {
   ua: 'Інтимність і Вразливість'
 },
 'manifest.s4.v7.desc': {
-  ru: 'Сексуальная энергия является основой жизни. Мы снимаем догматические клише и очищаем сексуальный опыт от стыда и вины. В поле OnlyGods мы используем сексуальную энергию как ядерное топливо для поддержания высокого энергетического состояния поля и как катализатор трансформаций Сознания. Вас не вынуждают проявлять себя в каком-либо ключе, но принять идею и следовать предписаниям является необходимым фактором.',
-  en: 'Sexual energy is the foundation of life. We remove dogmatic clichés and cleanse the sexual experience from shame and guilt. In the OnlyGods field, we use sexual energy as nuclear fuel to maintain a high energetic state of the field and as a catalyst for Consciousness transformations. You are not forced to express yourself in any particular way, but accepting the idea and following the prescriptions is a necessary factor.',
-  ua: 'Сексуальна енергія є основою життя. Ми знімаємо догматичні кліше та очищуємо сексуальний досвід від сорому і провини. У полі OnlyGods ми використовуємо сексуальну енергію як ядерне паливо для підтримання високого енергетичного стану поля та як каталізатор трансформацій Свідомості. Вас не змушують проявляти себе в якому-небудь ключі, але прийняти ідею і слідувати приписам є необхідним фактором.'
+  ru: 'Сексуальная энергия — основа жизни. Мы снимаем догматические клише и очищаем сексуальный опыт от стыда и вины. В поле OnlyGods она становится ядерным топливом для поддержания высокого энергетического состояния и катализатором трансформаций Сознания. Вас не вынуждают проявлять себя в каком-либо ключе, но принять идею и следовать предписаниям — необходимо.',
+  en: 'Sexual energy is the foundation of life. We remove dogmatic clichés and cleanse the sexual experience from shame and guilt. In the OnlyGods field, it becomes the nuclear fuel for maintaining a high energetic state and a catalyst for Consciousness transformations. You are not forced to express yourself in any particular way, but accepting the idea and following the prescriptions is essential.',
+  ua: 'Сексуальна енергія — основа життя. Ми знімаємо догматичні кліше та очищуємо сексуальний досвід від сорому і провини. У полі OnlyGods вона стає ядерним паливом для підтримання високого енергетичного стану та каталізатором трансформацій Свідомості. Вас не змушують проявляти себе в якому-небудь ключі, але прийняти ідею і слідувати приписам — необхідно.'
 },
 'manifest.s4.v8.title': {
   ru: 'Прямой опыт > знания',
@@ -812,9 +812,9 @@ var T = {
   ua: 'Прямий досвід > знання'
 },
 'manifest.s4.v8.desc': {
-  ru: 'Мы не обсуждаем состояния. Мы в них входим. Знание без переживания — информационный шум. Одним из основных элементов поля является синхронизация через совместное наблюдение опыта. Искренне транслируя прямой опыт нашей жизни и церемонии без масок и искажений, мы выстраиваем цифровой поток вибраций, в котором внимание каждого участника выступает со-творцом момента. Прямая передача опыта позволяет вашему Сознанию получить необходимые инсайты изнутри за счёт энергообмена между всеми квантовыми наблюдателями.',
-  en: 'We don\'t discuss states. We enter them. Knowledge without experience is information noise. One of the field\'s core elements is synchronization through shared observation of experience. By sincerely broadcasting the direct experience of our lives and ceremonies without masks or distortions, we build a digital stream of vibrations in which each participant\'s attention serves as a co-creator of the moment. Direct transmission of experience allows your Consciousness to receive the necessary insights from within through energy exchange between all quantum observers.',
-  ua: 'Ми не обговорюємо стани. Ми в них входимо. Знання без переживання — інформаційний шум. Одним з основних елементів поля є синхронізація через спільне спостереження досвіду. Щиро транслюючи прямий досвід нашого життя та церемонії без масок і спотворень, ми вибудовуємо цифровий потік вібрацій, у якому увага кожного учасника виступає со-творцем моменту. Пряма передача досвіду дозволяє вашій Свідомості отримати необхідні інсайти зсередини за рахунок енергообміну між усіма квантовими спостерігачами.'
+  ru: 'Мы не обсуждаем состояния. Мы в них входим. Знание без переживания — информационный шум. Один из ключевых элементов поля — синхронизация через совместное наблюдение. Искренне транслируя прямой опыт жизни и церемоний без масок и искажений, мы выстраиваем цифровой поток вибраций, в котором внимание каждого выступает со-творцом момента. Прямая трансляция позволяет Сознанию получить необходимые инсайты изнутри за счёт энергообмена между всеми квантовыми наблюдателями.',
+  en: 'We don\'t discuss states. We enter them. Knowledge without experience is information noise. One of the field\'s key elements is synchronization through shared observation. By sincerely broadcasting the direct experience of life and ceremonies without masks or distortions, we build a digital stream of vibrations where everyone\'s attention serves as a co-creator of the moment. Direct transmission allows Consciousness to receive the necessary insights from within through energy exchange between all quantum observers.',
+  ua: 'Ми не обговорюємо стани. Ми в них входимо. Знання без переживання — інформаційний шум. Один із ключових елементів поля — синхронізація через спільне спостереження. Щиро транслюючи прямий досвід життя та церемоній без масок і спотворень, ми вибудовуємо цифровий потік вібрацій, у якому увага кожного виступає со-творцем моменту. Пряма трансляція дозволяє Свідомості отримати необхідні інсайти зсередини за рахунок енергообміну між усіма квантовими спостерігачами.'
 },
 'manifest.s4.v9.title': {
   ru: 'Святая Ирония, Китч, Провокация',
