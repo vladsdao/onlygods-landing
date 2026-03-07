@@ -1401,19 +1401,14 @@ var T = {
   ua: 'Метафізика'
 },
 'technologies.methodology.title': {
-  ru: 'Метафизика и Квантовые Процессы',
-  en: 'Metaphysics & Quantum Processes',
-  ua: 'Метафізика та Квантові Процеси'
+  ru: 'Reality Backend Stack',
+  en: 'Reality Backend Stack',
+  ua: 'Reality Backend Stack'
 },
 'technologies.methodology.p1': {
-  ru: 'Герметические принципы, вортекс математика, сакральная геометрия и квантовая физика — фундамент, на котором построена архитектура OnlyGods. Мы не верим — мы измеряем, моделируем и воспроизводим.',
-  en: 'Hermetic principles, vortex mathematics, sacred geometry and quantum physics — the foundation on which the architecture of OnlyGods is built. We don\'t believe — we measure, model and reproduce.',
-  ua: 'Герметичні принципи, вортекс математика, сакральна геометрія та квантова фізика — фундамент, на якому побудована архітектура OnlyGods. Ми не віримо — ми вимірюємо, моделюємо та відтворюємо.'
-},
-'technologies.methodology.p2': {
-  ru: 'ir4 — методология резонансного измерения, которая позволяет отслеживать динамику поля, когерентность участников и качество коллективного внимания в реальном времени.',
-  en: 'ir4 — a resonance measurement methodology that allows tracking field dynamics, participant coherence and the quality of collective attention in real time.',
-  ua: 'ir4 — методологія резонансного вимірювання, яка дозволяє відстежувати динаміку поля, когерентність учасників та якість колективної уваги в реальному часі.'
+  ru: 'Метафизика и алхимия резонансной сети. Невидимая архитектура реальности — как работает поле, эгрегор и коллективное Сознание на уровне кода. Герметические принципы, вортекс математика, сакральная геометрия и квантовая физика — фундамент, на котором построена архитектура OnlyGods. Мы не верим — мы измеряем, моделируем и воспроизводим.',
+  en: 'Metaphysics and alchemy of the resonance network. The invisible architecture of reality — how the field, egregore, and collective Consciousness operate at the code level. Hermetic principles, vortex mathematics, sacred geometry and quantum physics — the foundation on which the architecture of OnlyGods is built. We don\'t believe — we measure, model and reproduce.',
+  ua: 'Метафізика та алхімія резонансної мережі. Невидима архітектура реальності — як працює поле, егрегор та колективна Свідомість на рівні коду. Герметичні принципи, вортекс математика, сакральна геометрія та квантова фізика — фундамент, на якому побудована архітектура OnlyGods. Ми не віримо — ми вимірюємо, моделюємо та відтворюємо.'
 },
 'technologies.methodology.link': {
   ru: 'Читать: 9 столпов →',
@@ -1426,40 +1421,14 @@ var T = {
   ua: 'Технології'
 },
 'technologies.tools.title': {
-  ru: 'Цифровые Решения Высоких Технологий',
-  en: 'High-tech Digital Solutions',
-  ua: 'Цифрові Рішення Високих Технологій'
+  ru: 'Digital 5D Framework',
+  en: 'Digital 5D Framework',
+  ua: 'Digital 5D Framework'
 },
 'technologies.tools.p1': {
-  ru: 'Цифровая инфраструктура для визуализации эгрегора: трекинг резонанса, AI-интеграция, блокчейн-governance и инструменты энергетического менеджмента.',
-  en: 'Digital infrastructure for egregore visualization: resonance tracking, AI integration, blockchain governance and energy management tools.',
-  ua: 'Цифрова інфраструктура для візуалізації егрегора: трекінг резонансу, AI-інтеграція, блокчейн-governance та інструменти енергетичного менеджменту.'
-},
-'technologies.tools.p2': {
-  ru: 'Платформа объединяет данные о синхронизации участников, управление ресурсами сообщества и автономную экономику DAO в единый интерфейс.',
-  en: 'The platform unifies participant synchronization data, community resource management and the autonomous DAO economy into a single interface.',
-  ua: 'Платформа об\'єднує дані про синхронізацію учасників, управління ресурсами спільноти та автономну економіку DAO в єдиний інтерфейс.'
-},
-'technologies.block1.label': { ru: '01', en: '01', ua: '01' },
-'technologies.block1.title': { ru: 'Digital 5D Framework', en: 'Digital 5D Framework', ua: 'Digital 5D Framework' },
-'technologies.block1.desc': {
-  ru: 'Высокотехнологичные решения для преодоления ограничений человеческого существа. Цифровые инструменты расширения Сознания, интеграция AI и квантовых практик.',
-  en: 'High-tech solutions for overcoming limitations of human being. Digital tools for Consciousness expansion, AI integration and quantum practices.',
-  ua: 'Високотехнологічні рішення для подолання обмежень людського існування. Цифрові інструменти розширення Свідомості, інтеграція AI та квантових практик.'
-},
-'technologies.block2.label': { ru: '02', en: '02', ua: '02' },
-'technologies.block2.title': { ru: 'Reality Backend Stack', en: 'Reality Backend Stack', ua: 'Reality Backend Stack' },
-'technologies.block2.desc': {
-  ru: 'Метафизика и алхимия резонансной сети. Невидимая архитектура реальности — как работает поле, эгрегор и коллективное Сознание на уровне кода.',
-  en: 'Metaphysics and alchemy of resonance network. The invisible architecture of reality — how the field, egregore, and collective Consciousness operate at the code level.',
-  ua: 'Метафізика та алхімія резонансної мережі. Невидима архітектура реальності — як працює поле, егрегор та колективна Свідомість на рівні коду.'
-},
-'technologies.block3.label': { ru: '03', en: '03', ua: '03' },
-'technologies.block3.title': { ru: 'Mindset Fine-Tuning', en: 'Mindset Fine-Tuning', ua: 'Mindset Fine-Tuning' },
-'technologies.block3.desc': {
-  ru: 'Фреймворк апгрейда Сознания до 5D. Практики перенастройки восприятия, работа с убеждениями и квантовыми состояниями для нового уровня операционной системы.',
-  en: '5D Consciousness framework upgrade. Practices for perception recalibration, belief work and quantum states for a new level of operating system.',
-  ua: 'Фреймворк апгрейду Свідомості до 5D. Практики переналаштування сприйняття, робота з переконаннями та квантовими станами для нового рівня операційної системи.'
+  ru: 'Высокотехнологичные решения для преодоления ограничений человеческого существа. Цифровые инструменты расширения Сознания. Цифровая инфраструктура для визуализации эгрегора: трекинг резонанса, AI-интеграция, блокчейн-governance и инструменты энергетического менеджмента.',
+  en: 'High-tech solutions for overcoming limitations of human being. Digital tools for Consciousness expansion. Digital infrastructure for egregore visualization: resonance tracking, AI integration, blockchain governance and energy management tools.',
+  ua: 'Високотехнологічні рішення для подолання обмежень людського існування. Цифрові інструменти розширення Свідомості. Цифрова інфраструктура для візуалізації егрегора: трекінг резонансу, AI-інтеграція, блокчейн-governance та інструменти енергетичного менеджменту.'
 },
 'technologies.proofs.label': { ru: 'Доказательства', en: 'Proofs', ua: 'Докази' },
 'technologies.proofs.title': { ru: 'Proofs', en: 'Proofs', ua: 'Proofs' },
