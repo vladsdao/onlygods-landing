@@ -1464,9 +1464,9 @@ var T = {
   ua: 'Прямий досвід'
 },
 'events.hero.title': {
-  ru: 'Direct Experience',
-  en: 'Direct Experience',
-  ua: 'Direct Experience'
+  ru: 'Online Streaming',
+  en: 'Online Streaming',
+  ua: 'Online Streaming'
 },
 'events.hero.tagline': {
   ru: 'Живые трансляции и события объединённого сознания',
