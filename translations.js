@@ -38,10 +38,10 @@ var T = {
   en: 'OnlyGods — Community',
   ua: 'OnlyGods — Community'
 },
-'research.title': {
-  ru: 'OnlyGods — Publications',
-  en: 'OnlyGods — Publications',
-  ua: 'OnlyGods — Publications'
+'alignment.title': {
+  ru: 'OnlyGods — Alignment',
+  en: 'OnlyGods — Alignment',
+  ua: 'OnlyGods — Alignment'
 },
 'technologies.title': {
   ru: 'OnlyGods — Technologies',
@@ -865,66 +865,155 @@ var T = {
   ua: 'Профілі учасників будуть оновлюватися'
 },
 
-// ─── RESEARCH PAGE ───
-'research.hero.subtitle': {
-  ru: 'Исследования и публикации',
-  en: 'Research & Publications',
-  ua: 'Дослідження та публікації'
+// ─── ALIGNMENT PAGE ───
+'alignment.hero.subtitle': {
+  ru: 'Контент и Активности',
+  en: 'Content & Activities',
+  ua: 'Контент та Активності'
 },
-'research.hero.title': {
-  ru: 'Publications',
+'alignment.hero.title': {
+  ru: 'Alignment',
+  en: 'Alignment',
+  ua: 'Alignment'
+},
+'alignment.hero.tagline': {
+  ru: 'Публикации, трансляции, события и курсы резонансной сети',
+  en: 'Publications, streams, events and courses of the resonance network',
+  ua: 'Публікації, трансляції, події та курси резонансної мережі'
+},
+// Quantum Kitchen
+'alignment.ec.kitchen.label': {
+  ru: 'Ближайшее событие',
+  en: 'Next event',
+  ua: 'Найближча подія'
+},
+'alignment.ec.kitchen.title': {
+  ru: 'Quantum Kitchen',
+  en: 'Quantum Kitchen',
+  ua: 'Quantum Kitchen'
+},
+'alignment.ec.kitchen.desc': {
+  ru: 'Consciousness meets Business. Шампанское, икра, рояль и дискуссии.<br>Holy Creator: предпринимательство как духовный путь',
+  en: 'Consciousness meets Business. Champagne, caviar, piano and discussions.<br>Holy Creator: entrepreneurship as a spiritual path',
+  ua: 'Consciousness meets Business. Шампанське, ікра, рояль та дискусії.<br>Holy Creator: підприємництво як духовний шлях'
+},
+'alignment.ec.kitchen.meta': {
+  ru: '24 марта 2026 · Sintra, Portugal',
+  en: 'March 24, 2026 · Sintra, Portugal',
+  ua: '24 березня 2026 · Sintra, Portugal'
+},
+// Publications carousel
+'alignment.publications.label': {
+  ru: 'Публикации',
   en: 'Publications',
-  ua: 'Publications'
+  ua: 'Публікації'
 },
-'research.featured.date': {
-  ru: '2026',
-  en: '2026',
-  ua: '2026'
+'alignment.publications.title': {
+  ru: 'Тексты',
+  en: 'Texts',
+  ua: 'Тексти'
 },
-'research.featured.title': {
-  ru: '2026 = GAME OVER',
-  en: '2026 = GAME OVER',
-  ua: '2026 = GAME OVER'
+'alignment.pub1.date': { ru: '2026', en: '2026', ua: '2026' },
+'alignment.pub1.title': { ru: '2026 = GAME OVER', en: '2026 = GAME OVER', ua: '2026 = GAME OVER' },
+'alignment.pub1.desc': {
+  ru: 'Математика конца света и протокол выхода из легального рабства',
+  en: 'The mathematics of the end times and the protocol for escaping legal slavery',
+  ua: 'Математика кінця світу та протокол виходу з легального рабства'
 },
-'research.featured.desc': {
-  ru: 'Математика конца света, точка разворота и протокол выхода из легального рабства. Мета-кризис, Игра А, волновая физика рабства и протокол перехода в Игру Б.',
-  en: 'The mathematics of the end of the world, the turning point, and the protocol for escaping legal slavery. Meta-crisis, Game A, wave physics of slavery, and the protocol for transitioning to Game B.',
-  ua: 'Математика кінця світу, точка розвороту та протокол виходу з легального рабства. Мета-криза, Гра А, хвильова фізика рабства та протокол переходу в Гру Б.'
+'alignment.pub1.read': { ru: 'Читать →', en: 'Read →', ua: 'Читати →' },
+'alignment.soon': { ru: 'Скоро', en: 'Coming soon', ua: 'Скоро' },
+'alignment.pub2.title': { ru: 'Статья 2', en: 'Article 2', ua: 'Стаття 2' },
+'alignment.pub2.desc': { ru: 'Новый текст в подготовке', en: 'New text in preparation', ua: 'Новий текст в підготовці' },
+'alignment.pub3.title': { ru: 'Статья 3', en: 'Article 3', ua: 'Стаття 3' },
+'alignment.pub3.desc': { ru: 'Новый текст в подготовке', en: 'New text in preparation', ua: 'Новий текст в підготовці' },
+'alignment.pub4.title': { ru: 'Статья 4', en: 'Article 4', ua: 'Стаття 4' },
+'alignment.pub4.desc': { ru: 'Новый текст в подготовке', en: 'New text in preparation', ua: 'Новий текст в підготовці' },
+// Video carousel
+'alignment.video.label': { ru: 'Видео', en: 'Video', ua: 'Відео' },
+'alignment.video.title': { ru: 'Трансляции и записи', en: 'Streams & Recordings', ua: 'Трансляції та записи' },
+'alignment.video.placeholder': { ru: 'Видео скоро', en: 'Video coming soon', ua: 'Відео скоро' },
+'alignment.vid1.title': { ru: 'Видео 1', en: 'Video 1', ua: 'Відео 1' },
+'alignment.vid1.desc': { ru: 'Запись трансляции', en: 'Stream recording', ua: 'Запис трансляції' },
+'alignment.vid2.title': { ru: 'Видео 2', en: 'Video 2', ua: 'Відео 2' },
+'alignment.vid2.desc': { ru: 'Запись трансляции', en: 'Stream recording', ua: 'Запис трансляції' },
+'alignment.vid3.title': { ru: 'Видео 3', en: 'Video 3', ua: 'Відео 3' },
+'alignment.vid3.desc': { ru: 'Запись трансляции', en: 'Stream recording', ua: 'Запис трансляції' },
+// Events & Courses
+'alignment.ec.label': { ru: 'События и Курсы', en: 'Events & Courses', ua: 'Події та Курси' },
+'alignment.ec.title': { ru: 'Активности', en: 'Activities', ua: 'Активності' },
+'alignment.ec.streaming.label': { ru: 'Стриминг', en: 'Streaming', ua: 'Стрімінг' },
+'alignment.ec.streaming.title': { ru: 'Online Streaming', en: 'Online Streaming', ua: 'Online Streaming' },
+'alignment.ec.streaming.desc': {
+  ru: 'Живые трансляции, сессии и практики в поле объединённого сознания',
+  en: 'Live streams, sessions and practices in the field of united consciousness',
+  ua: 'Живі трансляції, сесії та практики в полі об\'єднаної свідомості'
 },
-'research.featured.read': {
-  ru: 'Читать →',
-  en: 'Read →',
-  ua: 'Читати →'
+'alignment.ec.streaming.meta': { ru: 'Смотреть →', en: 'Watch →', ua: 'Дивитися →' },
+'alignment.ec.course.label': { ru: 'Курс', en: 'Course', ua: 'Курс' },
+'alignment.ec.course.title': { ru: 'Мы.Боги', en: 'We.Gods', ua: 'Ми.Боги' },
+'alignment.ec.course.desc': {
+  ru: 'Модель резонансных отношений. 2 месяца трансформации сознания',
+  en: 'Resonance relationship model. 2 months of consciousness transformation',
+  ua: 'Модель резонансних відносин. 2 місяці трансформації свідомості'
 },
-'research.article.date': {
-  ru: 'Скоро',
-  en: 'Coming soon',
-  ua: 'Скоро'
+'alignment.ec.course.meta': { ru: '2 000€ / 2 мес', en: '2,000€ / 2 months', ua: '2 000€ / 2 міс' },
+'alignment.ec.retreat.label': { ru: 'Ретрит', en: 'Retreat', ua: 'Ретріт' },
+'alignment.ec.retreat.title': { ru: 'System Reboot', en: 'System Reboot', ua: 'System Reboot' },
+'alignment.ec.retreat.desc': {
+  ru: 'Personal & Couple перезагрузка. Распаковка Креативности и восстановление персонального Дао. 5 дней жизни с нами',
+  en: 'Personal & Couple reboot. Unpacking Creativity and restoring personal Tao. 5 days living with us',
+  ua: 'Personal & Couple перезавантаження. Розпаковка Креативності та відновлення персонального Дао. 5 днів життя з нами'
 },
-'research.article1.title': {
-  ru: 'Статья 1',
-  en: 'Article 1',
-  ua: 'Стаття 1'
+'alignment.ec.retreat.meta': { ru: 'По запросу', en: 'On request', ua: 'За запитом' },
+
+// ─── MYBOGI PAGE ───
+'mybogi.title': { ru: 'OnlyGods — Мы.Боги', en: 'OnlyGods — We.Gods', ua: 'OnlyGods — Ми.Боги' },
+'mybogi.back': { ru: '← Alignment', en: '← Alignment', ua: '← Alignment' },
+'mybogi.hero.subtitle': { ru: 'Курс', en: 'Course', ua: 'Курс' },
+'mybogi.hero.title': { ru: 'МЫ. БОГИ.', en: 'WE. GODS.', ua: 'МИ. БОГИ.' },
+'mybogi.hero.authors': {
+  ru: 'Лиза Сигорская и Влад Салов',
+  en: 'Liza Sigorskaya and Vlad Salov',
+  ua: 'Ліза Сігорська та Влад Салов'
 },
-'research.article2.title': {
-  ru: 'Статья 2',
-  en: 'Article 2',
-  ua: 'Стаття 2'
+'mybogi.conditions.price': { ru: '2 000 EUR', en: '2,000 EUR', ua: '2 000 EUR' },
+'mybogi.conditions.cta': { ru: 'Войти в Игру', en: 'Enter the Game', ua: 'Увійти в Гру' },
+
+// ─── RETREAT PAGE ───
+'retreat.title': { ru: 'OnlyGods — System Reboot', en: 'OnlyGods — System Reboot', ua: 'OnlyGods — System Reboot' },
+'retreat.back': { ru: '← Alignment', en: '← Alignment', ua: '← Alignment' },
+'retreat.hero.subtitle': {
+  ru: 'Ретрит',
+  en: 'Retreat',
+  ua: 'Ретріт'
 },
-'research.article3.title': {
-  ru: 'Статья 3',
-  en: 'Article 3',
-  ua: 'Стаття 3'
+'retreat.hero.title': { ru: 'System Reboot', en: 'System Reboot', ua: 'System Reboot' },
+'retreat.hero.tagline': {
+  ru: 'Personal & Couple перезагрузка',
+  en: 'Personal & Couple reboot',
+  ua: 'Personal & Couple перезавантаження'
 },
-'research.note': {
-  ru: 'Статьи будут обновляться',
-  en: 'Articles will be updated',
-  ua: 'Статті будуть оновлюватися'
+'retreat.content.title': {
+  ru: 'Распаковка Креативности',
+  en: 'Unpacking Creativity',
+  ua: 'Розпаковка Креативності'
 },
+'retreat.content.desc': {
+  ru: 'Распаковка Креативности и восстановление персонального Дао. 5 дней жизни с нами',
+  en: 'Unpacking Creativity and restoring personal Tao. 5 days living with us',
+  ua: 'Розпаковка Креативності та відновлення персонального Дао. 5 днів життя з нами'
+},
+'retreat.content.placeholder': {
+  ru: 'Программа ретрита формируется. Следите за обновлениями.',
+  en: 'Retreat program is being developed. Stay tuned.',
+  ua: 'Програма ретріту формується. Слідкуйте за оновленнями.'
+},
+'retreat.content.price': { ru: 'По запросу', en: 'On request', ua: 'За запитом' },
+'retreat.content.cta': { ru: 'Связаться', en: 'Contact us', ua: 'Зв\'язатися' },
 
 // ─── GAMEOVER ARTICLE ───
 'gameover.title': { ru: 'OnlyGods — 2026: GAME OVER', en: 'OnlyGods — 2026: GAME OVER', ua: 'OnlyGods — 2026: GAME OVER' },
-'gameover.back': { ru: '← Публикации', en: '← Publications', ua: '← Публікації' },
+'gameover.back': { ru: '← Alignment', en: '← Alignment', ua: '← Alignment' },
 'gameover.hero.title': { ru: '2026 = GAME OVER', en: '2026 = GAME OVER', ua: '2026 = GAME OVER' },
 'gameover.hero.tagline': {
   ru: 'Математика конца света, точка разворота и протокол выхода из легального рабства',

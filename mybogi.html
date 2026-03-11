@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="mybogi.title">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnlyGods — МЫ.БОГИ</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff; color: #1d1d1f;
+    overflow-x: hidden; scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(29, 29, 31, 0.08); }
+
+/* NAV */
+.site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+.nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; color: #1d1d1f;
+    text-decoration: none; letter-spacing: -0.5px;
+}
+
+.nav-links { display: flex; align-items: center; gap: 32px; }
+
+.nav-links a {
+    font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; position: relative;
+}
+.nav-links a:hover { color: #1d1d1f; }
+.nav-links a.active { color: #1d1d1f; }
+.nav-links a.active::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: #1d1d1f;
+}
+
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-burger span { display: block; width: 20px; height: 1.5px; background: #1d1d1f; transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-join {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 16px; border: 1px solid #1d1d1f; border-radius: 20px;
+    color: #1d1d1f; text-decoration: none; font-weight: 500;
+    margin-left: 16px; margin-right: auto; transition: all 0.3s ease;
+}
+.nav-join:hover { background: #1d1d1f; color: #ffffff; }
+
+.nav-mobile {
+    display: none; position: fixed; top: 60px; left: 0; right: 0;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 20px 40px 32px; flex-direction: column; gap: 20px; z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500; transition: color 0.3s ease;
+}
+.nav-mobile a:hover, .nav-mobile a.active { color: #1d1d1f; }
+
+/* BACK LINK */
+.back-link {
+    display: inline-block; padding: 80px 40px 0;
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; margin-top: 60px;
+}
+.back-link:hover { color: #1d1d1f; }
+
+/* ARTICLE HERO */
+.article-hero {
+    max-width: 860px; margin: 0 auto; padding: 60px 40px 40px;
+    text-align: center;
+}
+
+.article-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 96px); font-weight: 400;
+    letter-spacing: 6px; line-height: 1; text-transform: uppercase;
+}
+
+.article-hero .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 24px); color: #86868b;
+    line-height: 1.5; font-weight: 400;
+    font-style: italic; margin-top: 20px;
+}
+
+.article-hero .hero-author {
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #aeaeb2; margin-top: 16px;
+}
+
+/* HERO IMAGE */
+.article-cover {
+    max-width: 860px; margin: 0 auto; padding: 0 40px;
+}
+.article-cover img {
+    width: 100%; border-radius: 3px; display: block;
+}
+
+/* SECTION DIVIDER */
+.section-divider { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+.section-divider::after { content: ''; display: block; width: 100%; height: 1px; background: #e5e5e7; }
+
+/* ARTICLE BODY */
+.article-body { max-width: 860px; margin: 0 auto; padding: 60px 40px; }
+
+.article-body h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px); font-weight: 400;
+    letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 24px;
+    margin-top: 60px; color: #1d1d1f;
+}
+.article-body h2:first-child { margin-top: 0; }
+
+.article-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 32px); font-weight: 400;
+    margin-top: 48px; margin-bottom: 20px;
+    letter-spacing: -0.3px; line-height: 1.25; color: #1d1d1f;
+}
+
+.article-body p {
+    font-size: 17px; color: #48484a; line-height: 1.75;
+    margin-bottom: 20px;
+}
+
+.article-body .intro-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 3.5vw, 36px); font-weight: 400;
+    font-style: italic; line-height: 1.3;
+    color: #1d1d1f; margin-bottom: 32px;
+    letter-spacing: -0.3px;
+}
+
+.article-body .article-img {
+    width: 100%; margin: 40px 0; border-radius: 3px; display: block;
+}
+
+/* BLOCKQUOTE */
+.article-body blockquote {
+    border-left: 3px solid #1d1d1f;
+    padding: 24px 0 24px 32px;
+    margin: 48px 0;
+}
+
+.article-body blockquote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(19px, 2.5vw, 23px);
+    font-style: italic; color: #1d1d1f;
+    line-height: 1.6; margin-bottom: 0;
+}
+
+/* SCENARIO BLOCKS */
+.scenario { margin-bottom: 28px; }
+.scenario .scenario-title {
+    font-size: 17px; font-weight: 500; color: #1d1d1f;
+    margin-bottom: 8px;
+}
+.scenario p { margin-bottom: 0; }
+
+/* PROGRAM BLOCKS */
+.program-block {
+    margin-top: 48px; padding: 40px;
+    background: #fbfbfd; border-radius: 3px;
+}
+
+.program-block-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 30px); font-weight: 400;
+    color: #1d1d1f; margin-bottom: 8px;
+    letter-spacing: -0.3px;
+}
+
+.program-block-subtitle {
+    font-size: 15px; color: #86868b;
+    font-style: italic; margin-bottom: 24px;
+}
+
+.program-block .article-img { margin: 0 0 28px 0; }
+
+.program-list { list-style: none; padding: 0; }
+.program-list li {
+    font-size: 17px; color: #48484a; line-height: 1.75;
+    padding: 8px 0; border-bottom: 1px solid #e5e5e7;
+}
+.program-list li:last-child { border-bottom: none; }
+.program-list li strong { color: #1d1d1f; }
+
+/* FORMAT BLOCKS */
+.format-grid {
+    display: grid; grid-template-columns: 1fr; gap: 20px;
+    margin-top: 28px;
+}
+
+.format-card {
+    padding: 32px; background: #fbfbfd; border-radius: 3px;
+}
+
+.format-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500;
+    color: #1d1d1f; margin-bottom: 12px;
+    letter-spacing: -0.3px;
+}
+
+.format-card p {
+    font-size: 15px; color: #48484a; line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* PRICE BLOCK */
+.price-block {
+    text-align: center; margin-top: 40px;
+    padding: 48px 0;
+}
+
+.price-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 7vw, 72px); font-weight: 400;
+    color: #1d1d1f; letter-spacing: -1px;
+    line-height: 1;
+}
+
+/* CTA BUTTON */
+.cta-btn {
+    display: inline-block; padding: 18px 48px;
+    background: #1d1d1f; color: #ffffff;
+    font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;
+    text-decoration: none; font-weight: 500;
+    border-radius: 3px; transition: all 0.3s ease;
+    margin: 24px 0;
+}
+.cta-btn:hover { background: #48484a; transform: translateY(-2px); }
+
+.support-link {
+    display: block; text-align: center; margin-top: 12px;
+    font-size: 14px; color: #86868b;
+}
+.support-link a {
+    color: #86868b; text-decoration: underline;
+    text-underline-offset: 3px; transition: color 0.3s ease;
+}
+.support-link a:hover { color: #1d1d1f; }
+
+.couples-note {
+    font-size: 15px; color: #86868b; font-style: italic;
+    text-align: center; margin-top: 16px;
+}
+
+/* Q&A */
+.qa-section { margin-top: 60px; }
+
+.qa-section details {
+    border-bottom: 1px solid #e5e5e7;
+}
+
+.qa-section summary {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 22px); font-weight: 400;
+    color: #1d1d1f; cursor: pointer;
+    padding: 24px 0; line-height: 1.3;
+    list-style: none; display: flex;
+    justify-content: space-between; align-items: center;
+    letter-spacing: -0.2px;
+}
+
+.qa-section summary::-webkit-details-marker { display: none; }
+.qa-section summary::marker { display: none; content: ''; }
+
+.qa-section summary::after {
+    content: '+'; font-family: 'DM Sans', sans-serif;
+    font-size: 20px; color: #86868b; flex-shrink: 0;
+    margin-left: 16px; transition: transform 0.3s ease;
+}
+
+.qa-section details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.qa-section .qa-answer {
+    padding: 0 0 24px;
+    font-size: 16px; color: #48484a; line-height: 1.75;
+}
+
+.qa-section .qa-answer p { margin-bottom: 12px; }
+.qa-section .qa-answer p:last-child { margin-bottom: 0; }
+
+/* FINAL CTA */
+.final-cta {
+    text-align: center; padding: 60px 0 20px;
+}
+
+.final-sign {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 3vw, 32px); font-weight: 400;
+    color: #1d1d1f; margin-top: 40px;
+    letter-spacing: -0.3px;
+}
+
+/* FOOTER */
+.site-footer {
+    text-align: center; padding: 60px 20px 40px;
+    color: #aeaeb2; font-size: 13px; letter-spacing: 0.5px;
+}
+
+/* ANIMATIONS */
+.fade-in-up {
+    opacity: 0; transform: translateY(36px);
+    transition: opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1), transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .article-hero { padding: 40px 20px 32px; }
+    .article-hero h1 { letter-spacing: 3px; }
+    .article-body { padding: 40px 20px; }
+    .article-cover { padding: 0 20px; }
+    .back-link { padding: 80px 20px 0; }
+    .section-divider { padding: 0 20px; }
+    .program-block { padding: 24px; }
+    .format-card { padding: 24px; }
+    .article-body blockquote { padding-left: 20px; }
+    .cta-btn { padding: 16px 36px; font-size: 12px; }
+    .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .site-nav { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <a href="index.html" class="nav-wordmark">OnlyGods</a>
+    <a href="index.html#join" class="nav-join" data-i18n="nav.join">Join</a>
+    <div class="nav-links">
+        <a href="manifest.html">Manifest</a>
+        <a href="technologies.html">Holy Tech</a>
+        <a href="community.html">Creators</a>
+        <a href="publications.html" class="active">Alignment</a>
+        <a href="quantumlab.html">Quantum Lab</a>
+        <a href="playground.html">Playground</a>
+        <a href="dao.html">DAO</a>
+        <span class="nav-divider"></span>
+        <div class="lang-switcher">
+            <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+        </div>
+    </div>
+    <div class="nav-burger" id="nav-burger" onclick="this.classList.toggle('open'); document.getElementById('nav-mobile').classList.toggle('open');">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+    <a href="manifest.html">Manifest</a>
+    <a href="technologies.html">Holy Tech</a>
+    <a href="community.html">Creators</a>
+    <a href="publications.html" class="active">Alignment</a>
+    <a href="quantumlab.html">Quantum Lab</a>
+    <a href="playground.html">Playground</a>
+    <a href="dao.html">DAO</a>
+    <div class="lang-switcher">
+        <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+    </div>
+</div>
+
+<a href="publications.html" class="back-link" data-i18n="mybogi.back">&larr; Alignment</a>
+
+<!-- HERO -->
+<section class="article-hero">
+    <div class="fade-in-up">
+        <h1 data-i18n="mybogi.hero.title">МЫ. БОГИ.</h1>
+        <div class="hero-subtitle" data-i18n="mybogi.hero.subtitle">Модель резонансных отношений</div>
+        <div class="hero-author" data-i18n="mybogi.hero.author">авторский проект Лизы Сигорской и Влада Салова</div>
+    </div>
+</section>
+
+<div class="article-cover fade-in-up">
+    <img src="mybogi-hero.jpeg" alt="МЫ.БОГИ">
+</div>
+
+<div class="section-divider" style="margin-top: 48px;"></div>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+
+    <!-- INTRO -->
+    <div class="fade-in-up">
+        <div class="intro-heading" data-i18n="mybogi.intro.heading">Точка входа в резонансное поле. Экспонента любви.</div>
+
+        <p data-i18n="mybogi.intro.p1">Мы прошли путь от самых страстных любовников до раздражения, бытовых ссор и грани развода, — и вернулись к страстным любовникам. Но уже в роли не беззаботных голубков, а кайфовых родителей, духовных учителей друг другу, лучших друзей, партнерах в делах, безграничному творчеству и к постоянной игре. Мы играем как БОГИ. Мы и есть БОГИ (по крайней мере, мы так решили).</p>
+
+        <p data-i18n="mybogi.intro.p2">Мы пробовали строить семью как все. Нам не понравилось. Прочитайте этот текст, вам тоже так не понравится, 100%</p>
+
+        <p data-i18n="mybogi.intro.p3">У нас было 4 свадьбы (и будет пятая). Последние полгода мы проводим по 6 часов в практиках и церемониях, создавая модель резонансной семьи. Мы проверили на себе, как это работает. Готовы передать не просто модель, но и опыт, вам.</p>
+    </div>
+
+    <!-- КОНТЕКСТ -->
+    <div class="fade-in-up">
+        <h2 data-i18n="mybogi.context.title">Контекст</h2>
+
+        <p data-i18n="mybogi.context.intro">Есть всего три сценария, по которым развивается пара в общепринятой системе координат. Они вам не понравятся, но вы точно их проживали.</p>
+
+        <div class="scenario">
+            <div class="scenario-title" data-i18n="mybogi.context.s1.title">1. Он доминирует.</div>
+            <p data-i18n="mybogi.context.s1.text">Классика жанра. Мужчина зарабатывает, принимает решения, задает вектор. Женщина — «за мужем». Даже если она тоже зарабатывает, эмоциональный и стратегический контроль — за ним. Ее роль — обслуживать, поддерживать, терпеть. Если она начинает «слишком много хотеть» — это воспринимается как бунт. Дети в этой системе — инструмент привязки и выполнения социального контракта. Секс — его потребность, её обязанность. Творчество — его, если останется время после работы. Её — только если он разрешит. Итог: выгорание. Два одиноких человека в одной квартире. Один — с короной. Другая — со стиснутыми зубами.</p>
+        </div>
+
+        <div class="scenario">
+            <div class="scenario-title" data-i18n="mybogi.context.s2.title">2. Она доминирует.</div>
+            <p data-i18n="mybogi.context.s2.text">Всё чаще, особенно в «продвинутых» кругах. Она — генератор идей, энергии, решений. Он постепенно оседает. Становится удобным, комфортным, бесконфликтным... и бесполезным. Она тянет всё. Организует, планирует, вдохновляет — и медленно ненавидит его за это. Он чувствует её недовольство, но вместо реакции — уходит в телефон, в тупой юмор, в алкоголь. Секс умирает. Уважение — ещё быстрее. Она начинает компенсировать нехватку через «духовные практики», камни и ретриты, не замечая, что это — бегство от живой боли. Итог: она тянет на себе семью, работу и его, пока не рухнет. Он — просто растворяется. Не от злости. От безразличия.</p>
+        </div>
+
+        <div class="scenario">
+            <div class="scenario-title" data-i18n="mybogi.context.s3.title">3. Они «партнеры».</div>
+            <p data-i18n="mybogi.context.s3.text">Так называемый «цивилизованный» вариант. Все по-честному: обязанности поделены, бюджет общий (или раздельный — для безопасности), конфликты решаются «через разговор». Никто никому не давит. На поверхности — идеальная картинка. Внутри — нейтралитет. Без полярности нет химии. Без химии нет энергии. Без энергии нет секса, дерзости, масштаба. Два человека играют в «нормальную семью», которая скучна настолько, что дети с 10 лет живут в телефоне, потому что дома нечего ловить. Итог: правильно, стерильно, мертво. Развод или тихая агония на 20 лет.</p>
+        </div>
+
+        <p data-i18n="mybogi.context.closing1">Как бы вам не хотелось возразить, глобально — не получится. Потому что так построено наше общество — основанное на старой патриархальной системе. Там, где нет гармонии, синергия невозможна.</p>
+
+        <p data-i18n="mybogi.context.closing2">Последние полгода мы исследуем эти механизмы. Мы нашли, на чем они держаться и почему в рамках контрактной модели их невозможно обойти...</p>
+
+        <p data-i18n="mybogi.context.closing3">А теперь представьте, что таки может получиться по-другому.</p>
+
+        <img class="article-img" src="mybogi-couple1.jpg" alt="Vlad & Liza">
+    </div>
+
+    <!-- BLOCKQUOTE -->
+    <div class="fade-in-up">
+        <blockquote>
+            <p data-i18n="mybogi.blockquote">Это не «курс про отношения». И мы точно не будем учить вас «искать компромиссы» или «работать над собой». Мы здесь, чтобы сменить саму архитектуру: выйти из уставшего сценария, где вы тратите силы на обслуживание семьи (или одиночества), в реальность, где близость становится вашим ядерным реактором. Где 1+1 создает поле, заряжающее всё остальное — от масштаба проектов до физического здоровья. Приглашаем вас не «послушать лекции», а прожить это.</p>
+        </blockquote>
+    </div>
+
+    <!-- ЛИЧНАЯ ИСТОРИЯ -->
+    <div class="fade-in-up">
+        <h2 data-i18n="mybogi.story.title">Личная история</h2>
+
+        <h3 data-i18n="mybogi.story.liza.title">Лиза. Про честность и детей.</h3>
+
+        <p data-i18n="mybogi.story.liza.p1">Когда я узнала что беременна нашим первым ребенком, я была в ужасе. Полное осознание того, что я совершенно не готова быть мамой. Абсолютное нежелание быть мамой. Страх перед тем, как изменится мое тело. Бесконтрольные рыдания от мысли, что моя свобода закончилась.</p>
+
+        <p data-i18n="mybogi.story.liza.p2">У меня были страшные, тяжелые роды. Я была на грани смерти, роды длились больше суток, меня разрезали, ребенка тащили вантузом. Ребенок не брал грудь, заражение, температура, три больницы за неделю.</p>
+
+        <p data-i18n="mybogi.story.liza.p3">Это был самый тяжелый период моей жизни. Но он же стал переломным. Начало войны. Полное крушение прежней реальности. Роды, материнство, потеря идентичности, бессонница, потеря дома и привычного мира — всё это было не «кризисом», а точкой полной пересборки.</p>
+
+        <p data-i18n="mybogi.story.liza.p4">Сегодня наша дочь Арина — ей 3 года — ни разу серьезно не болела. Ни разу не устроила истерику. Она растет в поле, где нет борьбы за внимание, нет подавления, нет «положено так». Не потому что мы идеальные родители, а потому что мы выстроили другую архитектуру.</p>
+
+        <img class="article-img" src="mybogi-liza.jpeg" alt="Лиза">
+    </div>
+
+    <div class="fade-in-up">
+        <h3 data-i18n="mybogi.story.vlad.title">Глазами Влада</h3>
+
+        <p data-i18n="mybogi.story.vlad.p1">Когда мы с Лизой встретились, это была безусловная страсть. Мы горели. Физически, ментально, химически — идеальный резонанс. Казалось, что так будет всегда. Было очевидно, что мы нашли то самое. Навсегда.</p>
+
+        <p data-i18n="mybogi.story.vlad.p2">А потом приходит быт. Беременность. Война. Переезд. Бессонные ночи. Деньги. Ответственность. И ты понимаешь, что вся эта «любовь» была лишь первым топливным ускорителем, который выгорел за два года, оставив двух уставших взрослых людей с ребенком, раздражением и вопросом: «и что теперь?».</p>
+
+        <p data-i18n="mybogi.story.vlad.p3">Мы были на грани развода. Не потому что не любили. А потому что не знали, как любить дальше. Модели «терпеть ради детей» или «найти компромисс» вызывали тошноту. Мы не могли себе позволить посредственные отношения.</p>
+
+        <p data-i18n="mybogi.story.vlad.p4">И мы начали копать. Не в психологии, не в попсовых коучингах. А в физике. В нейробиологии. В древних традициях, которые были уничтожены именно потому, что работали. Мы построили модель, проверили на себе и получили результат, который невозможно объяснить в рамках «нормальных отношений».</p>
+
+        <p data-i18n="mybogi.story.vlad.p5">Сейчас мы живем в Лаборатории Квантового Сознания. Мы проводим по 6 часов в день в практиках и церемониях. Мы исследуем границы того, что возможно между двумя людьми. И мы точно знаем: то, что у нас сейчас — это не «хорошие отношения». Это ядерный реактор.</p>
+
+        <img class="article-img" src="mybogi-couple2.jpeg" alt="Vlad & Liza">
+        <img class="article-img" src="mybogi-vlad.jpeg" alt="Влад">
+    </div>
+
+    <!-- ПРОГРАММА -->
+    <div class="fade-in-up">
+        <h2 data-i18n="mybogi.program.title">Программа. Direct Experience</h2>
+
+        <p data-i18n="mybogi.program.intro1">Мы не читаем лекции. Мы передаем состояние. Это закрытый, без цензуры формат, где мы говорим и показываем то, что невозможно выложить в открытый доступ.</p>
+
+        <p data-i18n="mybogi.program.intro2">Прежде чем строить «МЫ», необходимо выстроить здоровое «Я». Невозможно резонировать, если ты сам — расщеплен. Поэтому программа начинается с фундамента.</p>
+    </div>
+
+    <!-- BLOCK 1: Я -->
+    <div class="fade-in-up">
+        <div class="program-block">
+            <div class="program-block-title" data-i18n="mybogi.program.block1.title">Блок 1: «Я»</div>
+            <div class="program-block-subtitle" data-i18n="mybogi.program.block1.subtitle">Фундамент Личности. Энергетическая структура Нового Мира.</div>
+
+            <img class="article-img" src="mybogi-diagram.png" alt="Diagram">
+
+            <ol class="program-list">
+                <li data-i18n="mybogi.program.block1.i1"><strong>Новая Иерархия</strong> — пересборка внутренней системы координат. Выход из вертикали подавления в спиральную модель.</li>
+                <li data-i18n="mybogi.program.block1.i2"><strong>Архитектура Пола</strong> — деконструкция навязанных гендерных программ. Возврат к природной полярности.</li>
+                <li data-i18n="mybogi.program.block1.i3"><strong>Синхронизация Триады</strong> — тело, ум, дух. Три центра, которые система намеренно расщепила.</li>
+                <li data-i18n="mybogi.program.block1.i4"><strong>Гармонизация Проявления</strong> — как перестать «казаться» и начать «быть». Аутентичность как энергетический источник.</li>
+                <li data-i18n="mybogi.program.block1.i5"><strong>Точка Пробуждения Души</strong> — момент, когда вы перестаете жить по сценарию и начинаете жить из источника.</li>
+                <li data-i18n="mybogi.program.block1.i6"><strong>Поток Творчества</strong> — активация канала, через который реальность создается, а не обслуживается.</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- BLOCK 2: МЫ -->
+    <div class="fade-in-up">
+        <div class="program-block">
+            <div class="program-block-title" data-i18n="mybogi.program.block2.title">Блок 2: «Мы»</div>
+            <div class="program-block-subtitle" data-i18n="mybogi.program.block2.subtitle">Архитектура Квантового Союза.</div>
+
+            <img class="article-img" src="mybogi-block2.jpg" alt="Block 2">
+
+            <ol class="program-list">
+                <li data-i18n="mybogi.program.block2.i1"><strong>Квантовое Сознание Пары</strong> — что происходит, когда два человека перестают бороться и начинают резонировать.</li>
+                <li data-i18n="mybogi.program.block2.i2"><strong>От «Я» к «МЫ»</strong> — переход от двух автономных систем к единому полю. Без потери себя.</li>
+                <li data-i18n="mybogi.program.block2.i3"><strong>От Контрактов к Культивированию</strong> — демонтаж модели «ты мне — я тебе». Создание среды, где оба растут экспоненциально.</li>
+                <li data-i18n="mybogi.program.block2.i4"><strong>Энергетика Семьи</strong> — семья как энергетическая система. Как перестать «тратить силы на семью» и начать получать из неё энергию.</li>
+                <li data-i18n="mybogi.program.block2.i5"><strong>Сексуальность и Алхимия</strong> — возврат Эроса. Сексуальная энергия как топливо трансформации, а не потребления.</li>
+                <li data-i18n="mybogi.program.block2.i6"><strong>Изобилие</strong> — почему пары в резонансе зарабатывают больше. Экономика поля.</li>
+                <li data-i18n="mybogi.program.block2.i7"><strong>Счастливые Дети</strong> — дети, которые растут в поле, а не в системе контроля. Без истерик, без подавления, без борьбы за внимание.</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- ФОРМАТ -->
+    <div class="fade-in-up">
+        <h2 data-i18n="mybogi.format.title">Формат</h2>
+
+        <div class="format-grid">
+            <div class="format-card">
+                <div class="format-card-title" data-i18n="mybogi.format.f1.title">8 Лекционных Встреч (Архитектура Сознания)</div>
+                <p data-i18n="mybogi.format.f1.desc">Глубокие сессии, где мы разбираем модель по слоям. Физика, нейробиология, древние традиции — переведенные на живой язык. Не академические лекции, а передача карты территории, которую мы прошли.</p>
+            </div>
+            <div class="format-card">
+                <div class="format-card-title" data-i18n="mybogi.format.f2.title">8 Закрытых Церемоний (Direct Experience)</div>
+                <p data-i18n="mybogi.format.f2.desc">Практики, медитации, телесные сессии и церемонии, которые невозможно описать текстом. Закрытый формат без цензуры. То, что мы делаем каждый день в нашей лаборатории — адаптировано и передано вам. Это не про «подышать». Это про прожить.</p>
+            </div>
+            <div class="format-card">
+                <div class="format-card-title" data-i18n="mybogi.format.f3.title">Дополнительные точки синхронизации</div>
+                <p data-i18n="mybogi.format.f3.desc">Закрытый чат участников. Поддержка между встречами. Индивидуальные рекомендации от нас. Доступ к записям. Поле не заканчивается после звонка — оно продолжает работать.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- УСЛОВИЯ -->
+    <div class="fade-in-up">
+        <h2 data-i18n="mybogi.conditions.title">Условия</h2>
+
+        <p data-i18n="mybogi.conditions.p1">Мы открываем лабораторию на короткое время. Это не массовый продукт. Нам важен резонанс, а не количество.</p>
+
+        <div class="price-block">
+            <div class="price-amount" data-i18n="mybogi.conditions.price">2 000 &euro;</div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="https://secure.wayforpay.com/button/bbe2b21f2739c" class="cta-btn" data-i18n="mybogi.cta">ВОЙТИ В ПОЛЕ</a>
+        </div>
+
+        <div class="support-link" data-i18n="mybogi.conditions.support"><a href="https://t.me/viki_assistant">связаться с поддержкой</a></div>
+
+        <p class="couples-note" data-i18n="mybogi.conditions.couples">Идеально — парой. Но если партнер пока не готов, вы можете начать трансформацию один/одна. Поле работает.</p>
+    </div>
+
+    <!-- Q&A -->
+    <div class="fade-in-up">
+        <h2 data-i18n="mybogi.qa.title">Q&A</h2>
+
+        <div class="qa-section">
+
+            <details>
+                <summary data-i18n="mybogi.qa.q1">А если я сейчас одна? Мне есть смысл идти?</summary>
+                <div class="qa-answer">
+                    <p data-i18n="mybogi.qa.a1">Да. Блок «Я» — это фундамент. Без здорового «Я» невозможно построить «МЫ». Если вы сейчас одна/один — это идеальный момент, чтобы выстроить себя до того, как притянуть партнера. Из целостности вы притягиваете резонанс. Из дефицита — контракт.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary data-i18n="mybogi.qa.q2">Мой партнер — скептик. Он/она не хочет идти.</summary>
+                <div class="qa-answer">
+                    <p data-i18n="mybogi.qa.a2">Начните с себя. Когда один элемент системы меняет частоту, второй неизбежно реагирует. Вы не можете заставить партнера трансформироваться. Но вы можете стать настолько другим/другой, что старая модель станет невозможной. Это честнее, чем ультиматумы.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary data-i18n="mybogi.qa.q3">Это — техники из какой-то конкретной системы?</summary>
+                <div class="qa-answer">
+                    <p data-i18n="mybogi.qa.a3">Нет. Это синтез. Физика волновых процессов, нейробиология, древние традиции (тантрические, шаманские, алхимические), психология развития — и наш личный, проверенный на себе опыт. Мы не принадлежим ни одной школе. Мы берем то, что работает, проверяем и передаем.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary data-i18n="mybogi.qa.q4">Зачем закрытый формат «без цензуры»? Это что, порно?</summary>
+                <div class="qa-answer">
+                    <p data-i18n="mybogi.qa.a4">Нет. Но мы говорим о сексуальности, теле, энергии, измененных состояниях сознания и вещах, которые невозможно обсуждать в публичном поле без искажения. Закрытый формат — это безопасность для честности. Мы не фильтруем. Мы не адаптируем под «приличное общество». Мы передаем как есть.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary data-i18n="mybogi.qa.q5">Будет сложно?</summary>
+                <div class="qa-answer">
+                    <p data-i18n="mybogi.qa.a5">Да. Любая реальная трансформация — это не «приятный вебинар». Это демонтаж старого и строительство нового. Будут моменты, когда захочется уйти, закрыться, вернуться в знакомый дискомфорт. Но именно там, на грани — начинается прорыв. Мы будем рядом.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary data-i18n="mybogi.qa.q6">У нас всё плохо. Мы на грани развода. Нам поможет?</summary>
+                <div class="qa-answer">
+                    <p data-i18n="mybogi.qa.a6">Возможно. Но только если оба готовы к честности. Мы не спасаем отношения. Мы даем инструменты для создания новых — с тем же человеком или без него. Если ваш союз способен к трансформации — вы получите карту. Если нет — вы получите ясность. И то, и другое ценно.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary data-i18n="mybogi.qa.q7">У нас всё «нормально». Без скандалов, но и без огня. Нам это нужно?</summary>
+                <div class="qa-answer">
+                    <p data-i18n="mybogi.qa.a7">«Нормально» — это третий сценарий. Самый опасный, потому что он маскирует медленное умирание под стабильность. Если вы чувствуете, что живете в нейтралитете, — это красный флаг. Вы не в безопасности. Вы в анестезии. Этот курс вернет полярность и огонь — если вы готовы.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary data-i18n="mybogi.qa.q8">Я мужчина. Мне кажется, это всё «женские штучки» про потоки и энергии.</summary>
+                <div class="qa-answer">
+                    <p data-i18n="mybogi.qa.a8">Это физика. Волновая механика, нейробиология, теория систем. Если вам ближе язык инженерии — мы говорим на нем. Резонанс — это не эзотерика. Это измеримый феномен, который используется в акустике, электронике и квантовой механике. Мы просто применяем его к отношениям. Влад — технарь, предприниматель и скептик. Если его убедило — вас тоже убедит.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary data-i18n="mybogi.qa.q9">Сколько времени это займет?</summary>
+                <div class="qa-answer">
+                    <p data-i18n="mybogi.qa.a9">Основная программа — 2 месяца. 16 встреч (8 лекционных + 8 церемоний). Плюс работа между встречами. Это не фоновый курс «послушал и забыл». Это интенсив, который требует вашего присутствия и честности. Рассчитывайте на 4-6 часов в неделю.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary data-i18n="mybogi.qa.q10">Почему так дорого/дешево?</summary>
+                <div class="qa-answer">
+                    <p data-i18n="mybogi.qa.a10">2 000 евро — это стоимость одной сессии у хорошего семейного терапевта, умноженная на 10. Мы даем 16 встреч, закрытое поле, практики и личный доступ. Это не дорого. Это порог входа, который фильтрует туристов от тех, кто действительно готов к трансформации. Если вы думаете «дорого» — спросите себя, сколько вы уже потратили на терапию, коучей и курсы, которые не сработали.</p>
+                </div>
+            </details>
+
+        </div>
+    </div>
+
+    <!-- FINAL CTA -->
+    <div class="fade-in-up">
+        <div class="final-cta">
+            <a href="https://secure.wayforpay.com/button/bbe2b21f2739c" class="cta-btn" data-i18n="mybogi.cta">ВОЙТИ В ПОЛЕ</a>
+            <div class="support-link" data-i18n="mybogi.conditions.support"><a href="https://t.me/viki_assistant">связаться с поддержкой</a></div>
+        </div>
+
+        <img class="article-img" src="mybogi-final.jpeg" alt="До встречи">
+
+        <div class="final-sign" data-i18n="mybogi.final.sign">ДО ВСТРЕЧИ В ИГРЕ!<br>Влад & Лиза</div>
+    </div>
+
+</article>
+
+<footer class="site-footer">OnlyGods</footer>
+
+<script src="translations.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>

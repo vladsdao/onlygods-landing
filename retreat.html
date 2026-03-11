@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru" data-i18n-title="events.title">
+<html lang="ru" data-i18n-title="retreat.title">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OnlyGods — Events</title>
+<title>OnlyGods — System Reboot</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,55 +77,80 @@ body, html {
 }
 .nav-mobile a:hover, .nav-mobile a.active { color: #1d1d1f; }
 
-.page-hero {
-    min-height: 50vh; display: flex; flex-direction: column;
-    justify-content: center; align-items: center; text-align: center;
-    padding: 120px 20px 60px;
+.back-link {
+    display: inline-block; padding: 80px 40px 0;
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; margin-top: 60px;
+}
+.back-link:hover { color: #1d1d1f; }
+
+.article-hero {
+    max-width: 860px; margin: 0 auto; padding: 60px 40px 80px;
+    text-align: left;
 }
 
-.page-hero .hero-subtitle {
+.article-hero .hero-subtitle {
     font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;
     color: #86868b; margin-bottom: 20px; font-weight: 500;
 }
 
-.page-hero h1 {
+.article-hero h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(48px, 8vw, 100px); font-weight: 400;
+    font-size: clamp(40px, 7vw, 80px); font-weight: 400;
     letter-spacing: -2px; line-height: 1;
 }
 
-.page-hero .hero-tagline {
+.article-hero .hero-tagline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(18px, 2.2vw, 22px); color: #86868b;
-    max-width: 500px; line-height: 1.5; font-weight: 400;
-    font-style: italic; margin-top: 20px;
+    font-size: clamp(17px, 2vw, 21px); color: #86868b;
+    max-width: 600px; line-height: 1.55; font-weight: 400;
+    font-style: italic; margin-top: 24px;
 }
 
-.content-section { max-width: 1080px; margin: 0 auto; padding: 100px 40px; }
-
-.section-label {
-    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
-    color: #86868b; margin-bottom: 20px; font-weight: 500;
-}
-
-.section-divider { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+.section-divider { max-width: 860px; margin: 0 auto; padding: 0 40px; }
 .section-divider::after { content: ''; display: block; width: 100%; height: 1px; background: #e5e5e7; }
 
-.video-section { max-width: 1080px; margin: 0 auto; padding: 40px 40px 0; }
+.article-body { max-width: 860px; margin: 0 auto; padding: 60px 40px; }
 
-.video-container {
-    width: 100%; aspect-ratio: 16 / 9;
-    background: #000000; border-radius: 3px;
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden; position: relative;
+.article-body h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px); font-weight: 400;
+    letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 24px;
+    margin-top: 60px;
+}
+.article-body h2:first-child { margin-top: 0; }
+
+.article-body p {
+    font-size: 17px; color: #48484a; line-height: 1.75;
+    margin-bottom: 20px;
 }
 
-.video-container .video-placeholder {
-    color: #48484a; font-size: 14px;
-    letter-spacing: 1.5px; text-transform: uppercase;
+.article-body .placeholder-note {
+    font-size: 15px; color: #86868b; line-height: 1.75;
+    padding: 40px 0; text-align: center;
+    border-top: 1px solid #e5e5e7; border-bottom: 1px solid #e5e5e7;
+    margin: 40px 0;
+    letter-spacing: 0.3px;
 }
 
-.body-text { font-size: 17px; color: #48484a; line-height: 1.75; max-width: 860px; }
+.article-body .price-line {
+    font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+    color: #86868b; text-align: center; margin-top: 40px; font-weight: 500;
+}
+
+.cta-block {
+    text-align: center; margin-top: 32px;
+}
+
+.cta-button {
+    display: inline-block;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 14px 40px; background: #1d1d1f; color: #ffffff;
+    text-decoration: none; font-weight: 500; border-radius: 2px;
+    transition: opacity 0.3s ease;
+}
+.cta-button:hover { opacity: 0.85; }
 
 .site-footer {
     text-align: center; padding: 60px 20px 40px;
@@ -139,8 +164,9 @@ body, html {
 .fade-in-up.visible { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 768px) {
-    .content-section { padding: 60px 20px; }
-    .video-section { padding: 20px 20px 0; }
+    .article-hero { padding: 40px 20px 60px; }
+    .article-body { padding: 40px 20px; }
+    .back-link { padding: 80px 20px 0; }
     .nav-links { display: none; }
     .nav-burger { display: flex; }
     .site-nav { padding: 0 20px; }
@@ -156,7 +182,7 @@ body, html {
         <a href="manifest.html">Manifest</a>
         <a href="technologies.html">Holy Tech</a>
         <a href="community.html">Creators</a>
-        <a href="publications.html">Alignment</a>
+        <a href="publications.html" class="active">Alignment</a>
         <a href="quantumlab.html">Quantum Lab</a>
         <a href="playground.html">Playground</a>
         <a href="dao.html">DAO</a>
@@ -177,7 +203,7 @@ body, html {
     <a href="manifest.html">Manifest</a>
     <a href="technologies.html">Holy Tech</a>
     <a href="community.html">Creators</a>
-    <a href="publications.html">Alignment</a>
+    <a href="publications.html" class="active">Alignment</a>
     <a href="quantumlab.html">Quantum Lab</a>
     <a href="playground.html">Playground</a>
     <a href="dao.html">DAO</a>
@@ -190,30 +216,37 @@ body, html {
     </div>
 </div>
 
-<section class="page-hero">
+<a href="publications.html" class="back-link" data-i18n="retreat.back">&larr; Alignment</a>
+
+<section class="article-hero">
     <div class="fade-in-up">
-        <div class="hero-subtitle" data-i18n="events.hero.subtitle">Прямой опыт</div>
-        <h1 data-i18n="events.hero.title">Online Streaming</h1>
-        <p class="hero-tagline" data-i18n="events.hero.tagline">Живые трансляции и события объединённого сознания</p>
+        <div class="hero-subtitle" data-i18n="retreat.hero.subtitle">РЕТРИТ</div>
+        <h1 data-i18n="retreat.hero.title">System Reboot</h1>
+        <p class="hero-tagline" data-i18n="retreat.hero.tagline">Personal & Couple перезагрузка</p>
     </div>
 </section>
 
-<div class="video-section fade-in-up">
-    <div id="yololiv-widget-1772998000250-1409594090294611968"></div>
-    <script type="text/javascript" charset="utf-8">(function(d,s,c,o) {var js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];js.src='https://view.yololiv.com/entry.js';js.type="module";js.onload=function(){window.renderYoloLiv('#yololiv-widget-1772998000250-'+c, o);};js.charset='utf-8';fjs.parentNode.insertBefore(js,fjs);})(document, 'script', '1409594090294611968', {"eventId":"1409594090294611968","isEmbedPage":1,"mediaType":"events","filter":"event","isCountdown":1,"isDonation":1,"isThumbnail":1,"isPreEvent":1,"isDesc":1,"isDoc":1,"isVideoIndex":1,"isHightLights":1,"isPlayList":1,"isChat":1,"isBrand":1,"brandType":"default","isTwoColumn":1,"isAutoPlay":0,"isInlinePlay":0,"isDisableDVR":0,"sizeType":"responsive","isCoverText":1,"coverText":"","isPlayLogo":1});</script>
-</div>
+<div class="section-divider"></div>
 
-<div class="section-divider" style="margin-top: 60px;"></div>
+<article class="article-body">
 
-<div class="content-section">
     <div class="fade-in-up">
-        <div class="section-label" data-i18n="events.about.label">О трансляциях</div>
-        <p class="body-text" data-i18n="events.about.text">
-            Пространство прямого переживания. Здесь происходят живые сессии, групповые практики
-            и трансляции, где участники входят в поле объединённого сознания в реальном времени.
-        </p>
+        <h2 data-i18n="retreat.content.title">Распаковка Креативности и восстановление персонального Дао</h2>
+        <p data-i18n="retreat.content.desc">5 дней жизни с нами. Глубокое погружение в работу с полем, телом и сознанием.</p>
     </div>
-</div>
+
+    <div class="fade-in-up">
+        <div class="placeholder-note" data-i18n="retreat.content.placeholder">Подробная программа в разработке. Следите за обновлениями.</div>
+    </div>
+
+    <div class="fade-in-up">
+        <p class="price-line" data-i18n="retreat.content.price">По запросу</p>
+        <div class="cta-block">
+            <a href="https://t.me/viki_assistant" class="cta-button" target="_blank" data-i18n="retreat.content.cta">Связаться</a>
+        </div>
+    </div>
+
+</article>
 
 <footer class="site-footer">OnlyGods</footer>
 
