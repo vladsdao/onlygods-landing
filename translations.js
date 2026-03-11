@@ -893,9 +893,9 @@ var T = {
   ua: 'Quantum Kitchen'
 },
 'alignment.ec.kitchen.desc': {
-  ru: 'Закрытый ивент лаборатории сознания. Китч, ирония, стендап, практики, закуски.<br>Дома у Влада и Лизы в Синтре',
-  en: 'Private consciousness lab event. Kitsch, irony, stand-up, practices, snacks.<br>At Vlad & Liza\'s home in Sintra',
-  ua: 'Закритий івент лабораторії свідомості. Кітч, іронія, стендап, практики, закуски.<br>Вдома у Влада і Лізи в Сінтрі'
+  ru: 'Закрытый ивент лаборатории сознания. Исследование, ирония, практики, закуски.<br>Дома у Влада и Лизы в Синтре',
+  en: 'Private consciousness lab event. Research, irony, practices, snacks.<br>At Vlad & Liza\'s home in Sintra',
+  ua: 'Закритий івент лабораторії свідомості. Дослідження, іронія, практики, закуски.<br>Вдома у Влада і Лізи в Сінтрі'
 },
 'alignment.ec.kitchen.meta': {
   ru: '24 марта 2026 · Sintra, Portugal',
@@ -970,7 +970,7 @@ var T = {
 'qk.title': { ru: 'OnlyGods — Quantum Kitchen', en: 'OnlyGods — Quantum Kitchen', ua: 'OnlyGods — Quantum Kitchen' },
 'qk.hero.label': { ru: 'Закрытый ивент лаборатории', en: 'Private lab event', ua: 'Закритий івент лабораторії' },
 'qk.hero.title': { ru: 'Quantum Kitchen', en: 'Quantum Kitchen', ua: 'Quantum Kitchen' },
-'qk.hero.tagline': { ru: 'Китч. Ирония. Практики. Закуски.', en: 'Kitsch. Irony. Practices. Snacks.', ua: 'Кітч. Іронія. Практики. Закуски.' },
+'qk.hero.tagline': { ru: 'Исследование. Ирония. Практика. Закуски.', en: 'Research. Irony. Practice. Snacks.', ua: 'Дослідження. Іронія. Практика. Закуски.' },
 'qk.hero.date': { ru: '24 марта 2026', en: 'March 24, 2026', ua: '24 березня 2026' },
 'qk.hero.location': { ru: 'Sintra, Portugal', en: 'Sintra, Portugal', ua: 'Sintra, Portugal' },
 'qk.hero.format': { ru: 'Закрытый ивент', en: 'Private event', ua: 'Закритий івент' },
@@ -982,19 +982,19 @@ var T = {
   ua: 'Лабораторія свідомості у форматі кухні'
 },
 'qk.concept.text1': {
-  ru: 'Quantum Kitchen — закрытый ивент лаборатории сознания OnlyGods. Не конференция, не семинар, не ретрит. Кухня — потому что здесь всё смешивается: стендап и медитация, ирония и практика, канапе и расширение восприятия.',
-  en: 'Quantum Kitchen is a private event by the OnlyGods consciousness lab. Not a conference, not a seminar, not a retreat. A kitchen — because everything mixes here: stand-up and meditation, irony and practice, canapés and perception expansion.',
-  ua: 'Quantum Kitchen — закритий івент лабораторії свідомості OnlyGods. Не конференція, не семінар, не ретріт. Кухня — бо тут все змішується: стендап і медитація, іронія і практика, канапе та розширення сприйняття.'
+  ru: 'Quantum Kitchen — закрытый ивент лаборатории сознания OnlyGods. Не конференция, не семинар, не ретрит. Кухня — потому что самые важные разговоры в жизни происходят не в залах и не на сцене. Они происходят дома. На кухне. Среди своих.',
+  en: 'Quantum Kitchen is a private event by the OnlyGods consciousness lab. Not a conference, not a seminar, not a retreat. A kitchen — because the most important conversations in life don\'t happen in halls or on stages. They happen at home. In the kitchen. Among your own.',
+  ua: 'Quantum Kitchen — закритий івент лабораторії свідомості OnlyGods. Не конференція, не семінар, не ретріт. Кухня — бо найважливіші розмови в житті відбуваються не в залах і не на сцені. Вони відбуваються вдома. На кухні. Серед своїх.'
 },
 'qk.concept.quote': {
-  ru: 'Мы серьёзно относимся к сознанию. Но не настолько серьёзно, чтобы не смеяться над собой.',
-  en: 'We take consciousness seriously. But not so seriously that we can\'t laugh at ourselves.',
-  ua: 'Ми серйозно ставимося до свідомості. Але не настільки серйозно, щоб не сміятися над собою.'
+  ru: 'Самые глубокие трансформации происходят в разговорах с друзьями на кухне.',
+  en: 'The deepest transformations happen in conversations with friends in the kitchen.',
+  ua: 'Найглибші трансформації відбуваються в розмовах з друзями на кухні.'
 },
 'qk.concept.text2': {
-  ru: 'Формат: стендап про духовность, живые практики, дискуссии за закусками и абсолютное отсутствие пафоса. Китч как эстетика. Ирония как метод. Сознание как предмет, к которому можно прикасаться руками.',
-  en: 'Format: stand-up about spirituality, live practices, discussions over snacks and absolute absence of pretentiousness. Kitsch as aesthetic. Irony as method. Consciousness as something you can touch with your hands.',
-  ua: 'Формат: стендап про духовність, живі практики, дискусії за закусками та абсолютна відсутність пафосу. Кітч як естетика. Іронія як метод. Свідомість як предмет, якого можна торкатися руками.'
+  ru: 'Лекция об объединённом сознании и творчестве вне рамок — для предпринимателей, которым тесно. Живые разборы кейсов и трансформации. Мишленовские закуски, шампанское и абсолютное отсутствие пафоса. Китч как эстетика. Ирония как метод. Инструменты нелокального сознания — на практике.',
+  en: 'A lecture on unified consciousness and creativity beyond frameworks — for entrepreneurs who\'ve outgrown theirs. Live case breakdowns and transformations. Michelin snacks, champagne, and absolute absence of pretentiousness. Kitsch as aesthetic. Irony as method. Non-local consciousness tools — in practice.',
+  ua: 'Лекція про об\'єднану свідомість і творчість поза рамками — для підприємців, яким тісно. Живі розбори кейсів і трансформації. Мішленівські закуски, шампанське та абсолютна відсутність пафосу. Кітч як естетика. Іронія як метод. Інструменти нелокальної свідомості — на практиці.'
 },
 'qk.concept.img': { ru: 'Фото · скоро', en: 'Photo · coming soon', ua: 'Фото · скоро' },
 // Topics
@@ -1004,11 +1004,11 @@ var T = {
   en: 'Five courses of Quantum Kitchen',
   ua: 'П\'ять страв Quantum Kitchen'
 },
-'qk.topic1.title': { ru: 'Стендап: Holy Stand-Up', en: 'Stand-up: Holy Stand-Up', ua: 'Стендап: Holy Stand-Up' },
+'qk.topic1.title': { ru: 'Презентация: Резонансный Майндсет', en: 'Presentation: Resonant Mindset', ua: 'Презентація: Резонансний Майндсет' },
 'qk.topic1.desc': {
-  ru: 'Комедия про пробуждение, духовный путь и всё, о чём стыдно говорить на ретритах. Если ты не можешь смеяться над своей практикой — практика не работает',
-  en: 'Comedy about awakening, spiritual path, and everything you\'re embarrassed to say at retreats. If you can\'t laugh at your practice — the practice isn\'t working',
-  ua: 'Комедія про пробудження, духовний шлях і все, про що соромно говорити на ретрітах. Якщо ти не можеш сміятися зі своєї практики — практика не працює'
+  ru: 'Со-первенство и синергия в бизнесе 2026. Не мотивационный спич — презентация того, что мы нашли, измерили и проверили на себе в лаборатории OnlyGods. Как работает резонанс между людьми и почему он масштабирует быстрее любой стратегии',
+  en: 'Co-primacy and synergy in business 2026. Not a motivational speech — a presentation of what we found, measured, and tested on ourselves at the OnlyGods lab. How resonance between people works and why it scales faster than any strategy',
+  ua: 'Со-першість і синергія в бізнесі 2026. Не мотиваційний спіч — презентація того, що ми знайшли, виміряли і перевірили на собі в лабораторії OnlyGods. Як працює резонанс між людьми і чому він масштабує швидше за будь-яку стратегію'
 },
 'qk.topic2.title': {
   ru: 'Практика: Квантовый эксперимент',
@@ -1016,15 +1016,15 @@ var T = {
   ua: 'Практика: Квантовий експеримент'
 },
 'qk.topic2.desc': {
-  ru: 'Живая групповая практика на границе науки и шаманизма. Не лекция — опыт. Что происходит с полем, когда люди синхронизируются в одном пространстве',
-  en: 'Live group practice at the edge of science and shamanism. Not a lecture — an experience. What happens to the field when people synchronize in one space',
-  ua: 'Жива групова практика на межі науки і шаманізму. Не лекція — досвід. Що відбувається з полем, коли люди синхронізуються в одному просторі'
+  ru: 'Живая групповая практика на границе науки и шаманизма. Не лекция — опыт. Что происходит с полем, когда люди синхронизируются в одном пространстве. Вы это почувствуете. Или не почувствуете — и это тоже будет данные',
+  en: 'Live group practice at the edge of science and shamanism. Not a lecture — an experience. What happens to the field when people synchronize in one space. You\'ll feel it. Or you won\'t — and that will be data too',
+  ua: 'Жива групова практика на межі науки і шаманізму. Не лекція — досвід. Що відбувається з полем, коли люди синхронізуються в одному просторі. Ви це відчуєте. Або не відчуєте — і це теж буде дані'
 },
 'qk.topic3.title': { ru: 'Дискуссия: Holy Creator', en: 'Discussion: Holy Creator', ua: 'Дискусія: Holy Creator' },
 'qk.topic3.desc': {
-  ru: 'Предпринимательство как духовный путь. Не эзотерика для бизнесменов — а бизнес для тех, кто уже проснулся. Открытый разговор без слайдов',
-  en: 'Entrepreneurship as a spiritual path. Not esoterics for businessmen — but business for those already awake. An open conversation, no slides',
-  ua: 'Підприємництво як духовний шлях. Не езотерика для бізнесменів — а бізнес для тих, хто вже прокинувся. Відкрита розмова без слайдів'
+  ru: 'Предпринимательство как духовный путь. Не эзотерика для бизнесменов — бизнес для тех, кто уже проснулся. Открытый разговор. Без слайдов, без модератора, без правильных ответов',
+  en: 'Entrepreneurship as a spiritual path. Not esoterics for businessmen — business for those already awake. Open conversation. No slides, no moderator, no right answers',
+  ua: 'Підприємництво як духовний шлях. Не езотерика для бізнесменів — бізнес для тих, хто вже прокинувся. Відкрита розмова. Без слайдів, без модератора, без правильних відповідей'
 },
 'qk.topic4.title': {
   ru: 'Закуски: Consciousness Buffet',
@@ -1032,19 +1032,19 @@ var T = {
   ua: 'Закуски: Consciousness Buffet'
 },
 'qk.topic4.desc': {
-  ru: 'Еда как медиация. Вино как растворитель концепций. Нетворкинг, который случается сам, когда люди в одном поле',
-  en: 'Food as mediation. Wine as concept solvent. Networking that happens on its own when people share one field',
-  ua: 'Їжа як медіація. Вино як розчинник концепцій. Нетворкінг, який стається сам, коли люди в одному полі'
+  ru: 'Мишленовские закуски от Миши. Шампанское, икра, принятие себя и растворение концепций. Нетворкинг, который случается сам — когда люди в одном поле, им не нужны визитки',
+  en: 'Michelin snacks by Misha. Champagne, caviar, self-acceptance and dissolving concepts. Networking that happens on its own — when people share one field, they don\'t need business cards',
+  ua: 'Мішленівські закуски від Міші. Шампанське, ікра, прийняття себе та розчинення концепцій. Нетворкінг, який стається сам — коли люди в одному полі, їм не потрібні візитки'
 },
 'qk.topic5.title': {
-  ru: 'Финал: Общее поле',
-  en: 'Finale: Shared Field',
-  ua: 'Фінал: Спільне поле'
+  ru: 'Финал: Огонь и ритуалы',
+  en: 'Finale: Fire & Rituals',
+  ua: 'Фінал: Вогонь і ритуали'
 },
 'qk.topic5.desc': {
-  ru: 'Закрывающая практика. То, ради чего всё. Момент, когда комната перестаёт быть комнатой и становится чем-то другим',
-  en: 'Closing practice. What it was all for. The moment when the room stops being a room and becomes something else',
-  ua: 'Завершальна практика. Те, заради чого все. Мить, коли кімната перестає бути кімнатою і стає чимось іншим'
+  ru: 'Суть личных ритуалов и церемоний. Простые инструменты для глубокой работы с подсознанием — без гуру, без системы, без «духовных практик» в кавычках. Как играть в жизнь без излишней важности и творить как ребёнок. Разговоры у костра',
+  en: 'The essence of personal rituals and ceremonies. Simple tools for deep subconscious work — no guru, no system, no "spiritual practices" in quotes. How to play life without excessive importance and create like a child. Conversations by the fire',
+  ua: 'Суть особистих ритуалів і церемоній. Прості інструменти для глибокої роботи з підсвідомістю — без гуру, без системи, без «духовних практик» у лапках. Як грати в життя без зайвої важливості і творити як дитина. Розмови біля вогнища'
 },
 // Format
 'qk.format.label': { ru: 'Формат', en: 'Format', ua: 'Формат' },
@@ -1054,14 +1054,14 @@ var T = {
   ua: 'Інгредієнти'
 },
 'qk.format.f1.title': {
-  ru: 'Стендап',
-  en: 'Stand-up',
-  ua: 'Стендап'
+  ru: 'Исследование',
+  en: 'Research',
+  ua: 'Дослідження'
 },
 'qk.format.f1.desc': {
-  ru: 'Комедия как метод пробуждения. Смех разрушает защиты быстрее, чем любая медитация',
-  en: 'Comedy as a method of awakening. Laughter breaks defenses faster than any meditation',
-  ua: 'Комедія як метод пробудження. Сміх руйнує захисти швидше, ніж будь-яка медитація'
+  ru: 'Презентация и живые разборы. Данные лаборатории — на языке кухни',
+  en: 'Presentation and live breakdowns. Lab data — in kitchen language',
+  ua: 'Презентація і живі розбори. Дані лабораторії — мовою кухні'
 },
 'qk.format.f2.title': { ru: 'Практики', en: 'Practices', ua: 'Практики' },
 'qk.format.f2.desc': {
@@ -1071,9 +1071,9 @@ var T = {
 },
 'qk.format.f3.title': { ru: 'Закуски', en: 'Snacks', ua: 'Закуски' },
 'qk.format.f3.desc': {
-  ru: 'Шампанское, канапе, что-то вкусное. Потому что сознание лучше расширяется на сытый желудок',
-  en: 'Champagne, canapés, something tasty. Because consciousness expands better on a full stomach',
-  ua: 'Шампанське, канапе, щось смачне. Бо свідомість краще розширюється на ситий шлунок'
+  ru: 'Мишленовские канапе от Миши, шампанское, икра. Сознание лучше расширяется на сытый желудок',
+  en: 'Michelin canapés by Misha, champagne, caviar. Consciousness expands better on a full stomach',
+  ua: 'Мішленівські канапе від Міші, шампанське, ікра. Свідомість краще розширюється на ситий шлунок'
 },
 // Location
 'qk.location.label': { ru: 'Место', en: 'Location', ua: 'Місце' },
