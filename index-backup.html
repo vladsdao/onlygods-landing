@@ -26,21 +26,7 @@ body, html {
 }
 
 ::selection {
-    background: rgba(29, 29, 31, 0.12);
-}
-
-/* Film grain overlay — analog texture */
-body::after {
-    content: '';
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.025;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 256px 256px;
+    background: rgba(29, 29, 31, 0.08);
 }
 
 /* ====================================== */
@@ -53,29 +39,6 @@ body::after {
     letter-spacing: -3px;
     margin: 0;
     line-height: 1;
-}
-
-/* Title materializes from field — blur + spacing → focus */
-.hero-title-reveal {
-    animation: title-materialize 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    opacity: 0;
-}
-
-@keyframes title-materialize {
-    0% {
-        opacity: 0;
-        letter-spacing: 16px;
-        filter: blur(8px);
-    }
-    50% {
-        opacity: 0.6;
-        filter: blur(3px);
-    }
-    100% {
-        opacity: 1;
-        letter-spacing: -3px;
-        filter: blur(0);
-    }
 }
 
 .hero-subtitle {
@@ -130,85 +93,6 @@ body::after {
     line-height: 1.7;
 }
 
-/* Dark section — full-bleed background */
-.section-dark {
-    background: #1d1d1f;
-    margin: 0 -9999px;
-    padding: 0 9999px;
-}
-
-.section-dark .content-section { padding: 140px 40px; }
-.section-dark .section-label { color: #6e6e73; }
-.section-dark .section-title { color: #f5f5f7; }
-.section-dark .body-text { color: #a1a1a6; }
-.section-dark .bridge-text { color: #f5f5f7; }
-.section-dark .section-divider::after {
-    background:
-        radial-gradient(ellipse 200px 1px at 50% 50%, rgba(245,245,247,0.06) 0%, transparent 100%),
-        radial-gradient(ellipse 400px 1px at 50% 50%, rgba(245,245,247,0.03) 0%, transparent 100%);
-}
-
-/* Animated field — concentric ripples */
-.gif-slot-field {
-    max-width: 860px;
-    aspect-ratio: 16 / 7;
-    border-radius: 12px;
-    margin: 56px auto 0;
-    position: relative;
-    overflow: hidden;
-    background: #0a0a0a;
-}
-
-.gif-slot-field::before {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    width: 600px; height: 600px;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background:
-        radial-gradient(circle, transparent 28%, rgba(245,245,247,0.04) 30%, transparent 32%),
-        radial-gradient(circle, transparent 48%, rgba(245,245,247,0.03) 50%, transparent 52%),
-        radial-gradient(circle, transparent 68%, rgba(245,245,247,0.025) 70%, transparent 72%),
-        radial-gradient(circle, transparent 88%, rgba(245,245,247,0.02) 90%, transparent 92%);
-    animation: ripple-expand 8s ease-in-out infinite;
-}
-
-@keyframes ripple-expand {
-    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
-    20% { opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
-}
-
-/* Animated field — slow wave drift */
-.gif-slot-wave {
-    width: 100%;
-    aspect-ratio: 21 / 7;
-    background: #0a0a0a;
-    position: relative;
-    overflow: hidden;
-}
-
-.gif-slot-wave::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 300%; height: 100%;
-    background: repeating-linear-gradient(
-        90deg,
-        transparent 0px,
-        rgba(245,245,247,0.02) 1px,
-        transparent 2px,
-        transparent 40px
-    );
-    animation: wave-drift 20s linear infinite;
-}
-
-@keyframes wave-drift {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(33.33%); }
-}
-
 /* ====================================== */
 /* LAYOUT                                 */
 /* ====================================== */
@@ -220,21 +104,6 @@ body::after {
     align-items: center;
     text-align: center;
     padding: 120px 20px 40px;
-    position: relative;
-}
-
-/* Radial field emanating from title */
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    width: 140%; height: 140%;
-    transform: translate(-50%, -50%);
-    background:
-        radial-gradient(ellipse 600px 400px at 50% 45%, rgba(29,29,31,0.018) 0%, transparent 70%),
-        radial-gradient(ellipse 300px 300px at 50% 45%, rgba(29,29,31,0.025) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
 }
 
 .video-wrapper {
@@ -291,11 +160,8 @@ body::after {
     content: '';
     display: block;
     width: 100%;
-    height: 40px;
-    background:
-        radial-gradient(ellipse 200px 1px at 50% 50%, rgba(29,29,31,0.08) 0%, transparent 100%),
-        radial-gradient(ellipse 400px 1px at 50% 50%, rgba(29,29,31,0.04) 0%, transparent 100%),
-        radial-gradient(ellipse 600px 1px at 50% 50%, rgba(29,29,31,0.02) 0%, transparent 100%);
+    height: 1px;
+    background: #e5e5e7;
 }
 
 .grid-2 {
@@ -898,7 +764,7 @@ body::after {
 <section class="hero-section">
     <div class="fade-in-up">
         <div class="hero-subtitle" data-i18n="index.hero.subtitle">Резонансная Сеть Объединенного Сознания</div>
-        <h1 class="hero-title hero-title-reveal">OnlyGods</h1>
+        <h1 class="hero-title">OnlyGods</h1>
     </div>
     <div class="video-wrapper fade-in-up stagger-1">
         <div class="video-container">
@@ -919,9 +785,14 @@ body::after {
         <h2 class="section-title" data-i18n="index.entry.title">Через 6 лет вы не узнаете свою жизнь.</h2>
     </div>
 
-    <div class="fade-in-up" style="margin-top: 40px;">
-        <p class="body-text" style="max-width: 860px;" data-i18n="index.entry.p1">Это не метафора, а расчёт. AGI, квантовые вычисления, роботизация, психоделическая медицина, блокчейн-государства — каждый из этих трендов по отдельности перевернёт индустрию. Вместе — они перевернут человеческий вид.</p>
-        <p class="body-text" style="max-width: 860px; margin-top: 20px;" data-i18n="index.entry.p3">Где вы окажетесь, когда половина этого станет бытом? А она станет. К 2028 году.</p>
+    <div class="grid-2 fade-in-up" style="margin-top: 48px;">
+        <div class="body-text">
+            <p data-i18n="index.entry.p1">Это не метафора, а расчёт. AGI, квантовые вычисления, роботизация, психоделическая медицина, блокчейн-государства — каждый из этих трендов по отдельности перевернёт индустрию. Вместе — они перевернут человеческий вид.</p>
+        </div>
+        <div class="body-text">
+            <p data-i18n="index.entry.p2">Потребности изменятся. Рутина исчезнет. Ценности отформатируются. Образование, бизнес, отношения, вера — всё, на чём стоит наша картина мира, — пройдёт через переплавку.</p>
+            <p style="margin-top: 16px;" data-i18n="index.entry.p3">Где вы окажетесь, когда половина этого станет бытом? А она станет. К 2028 году.</p>
+        </div>
     </div>
 </div>
 
@@ -930,29 +801,114 @@ body::after {
 <!-- ====================================== -->
 <!-- ЧТО ТАКОЕ ONLYGODS                    -->
 <!-- ====================================== -->
-<div class="section-dark">
 <div class="content-section">
     <div class="fade-in-up">
         <div class="section-label" data-i18n="index.what.label">Что такое OnlyGods</div>
-        <h2 class="section-title">Игра в Бога</h2>
+        <h2 class="section-title" data-i18n="index.what.title">После 20 лет духовных практик, 13 лет преследования этой идеи, которая привела меня к просветлению, 3х лет глубоких исследований и практик в формате MVP, — Я до сих пор не могу описать это вкратце.</h2>
     </div>
 
     <div class="fade-in-up" style="margin-top: 48px;">
         <p class="body-text" style="max-width: 860px;" data-i18n="index.what.p1">Биологический блокчейн, новая модель общества, технологический IR4 эгрегор, резонансная сеть, инновационный инвестфонд, квантовое DAO, просвещенное сообщество, инструмент для раскрытия творческого потенциала, тайное общество, секта или лаборатория квантового сознания — это отдельные стороны проекта, но здесь важен сам Путь, не подлежащий описанию словами.</p>
     </div>
 
-    <!-- GIF SLOT -->
-    <div class="gif-slot-field fade-in-up"></div>
+    <div class="fade-in-up" style="margin-top: 32px;">
+        <p class="body-text" style="max-width: 860px;" data-i18n="index.what.p2">Квантовая физика, Герметизм, Вортекс математика, Сакральная геометрия, Метафизика, — здесь встречаются с высокими технологиями и иронией. На поле Игры.</p>
+    </div>
 
-    <div class="fade-in-up" style="margin-top: 56px;">
+    <div class="fade-in-up" style="margin-top: 32px;">
         <p class="body-text" style="max-width: 860px;" data-i18n="index.what.p3">Игра в Бога — это, по сути, и есть проект. Творчество вне рамок, высшие состояния Сознания, Духовность как прямой опыт — вместо книжных знаний, искренний интерес к жизни и Святость в Изобилии — это то что открывается нам при достаточном уровне психо-эмоциональной энергии и открытом уме.</p>
     </div>
 
-    <div class="fade-in-up" style="margin-top: 40px;">
-        <p class="body-text bridge-text" style="max-width: 860px; font-style: italic;" data-i18n="index.what.bridge">Попадая в наше поле, человек выходит за рамки собственных ограничений и раскрывает свой потенциал. Мост между вами и Полем — ваш майндсет и нервная система.</p>
+    <div class="grid-2-asymmetric fade-in-up" style="margin-top: 64px;">
+        <div>
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; margin-bottom: 20px; letter-spacing: -0.3px;" data-i18n="index.what.methods.heading">Как это достигается:</h3>
+            <ul class="styled-list">
+                <li data-i18n="index.what.methods.li1">Деконструкция ума и выход из иллюзий</li>
+                <li data-i18n="index.what.methods.li2">Радикальная честность и open mind</li>
+                <li data-i18n="index.what.methods.li3">Энергетический менеджмент и работа с вниманием</li>
+                <li data-i18n="index.what.methods.li4">Осознание нового фреймворка 5Д Сознания</li>
+                <li data-i18n="index.what.methods.li5">Резонансная модель взаимоотношений</li>
+                <li data-i18n="index.what.methods.li6">Синергия в поле объединенного Сознания</li>
+            </ul>
+        </div>
+        <div>
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; margin-bottom: 20px; letter-spacing: -0.3px;" data-i18n="index.what.practice.heading">На практике:</h3>
+            <ul class="styled-list">
+                <li data-i18n="index.what.practice.li1">Выявить и трансформировать подсознательные паттерны слива энергии и стереотипы</li>
+                <li data-i18n="index.what.practice.li2">Стереть ограничения и все, что успели чужого на себя надеть</li>
+                <li data-i18n="index.what.practice.li3">Получить необходимые знания и осознать по новому своего персонажа, его желания, тень, таланты, истинную природу</li>
+                <li data-i18n="index.what.practice.li4">Выстроить новый ритм опыта действий из желаний и интереса, окружить себя людьми и проектами которые резонируют</li>
+                <li data-i18n="index.what.practice.li5">Находится в поле людей со схожими ценностями, которые преследуют те же интересы</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fade-in-up" style="margin-top: 64px;">
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; margin-bottom: 20px; letter-spacing: -0.3px;" data-i18n="index.what.path.heading">Как этот путь проходит в OnlyGods:</h3>
+        <ul class="styled-list" style="max-width: 860px;">
+            <li data-i18n="index.what.path.li1">Вы попадаете в поле созвучных людей, прошедших глубокий путь деконструкции эго и обладающими необходимыми знаниями и опытом</li>
+            <li data-i18n="index.what.path.li2">Получаете доступ к знаниям, трансформациям, сообществу, менторству</li>
+            <li data-i18n="index.what.path.li3">Ежедневные практики общей синхронизации (5мин) и еженедельные онлайн трансляции церемоний выстраивают резонансную сеть в которой вы перенимаете прямой опыт из поля и получаете дополнительную энергию от резонанса</li>
+            <li data-i18n="index.what.path.li4">Поле усиливает вас, в то время как вы усиливаете поле</li>
+        </ul>
+    </div>
+
+    <div class="fade-in-up" style="margin-top: 48px;">
+        <p class="body-text" style="max-width: 860px; font-style: italic; color: #1d1d1f;" data-i18n="index.what.bridge">Попадая в наше поле, человек выходит за рамки собственных ограничений и раскрывает свой потенциал. Мост между вами и Полем — ваш майндсет и нервная система.</p>
     </div>
 </div>
-</div><!-- /section-dark -->
+
+<div class="section-divider"></div>
+
+<!-- ====================================== -->
+<!-- ПОЛЕ ОБЪЕДИНЁННОГО СОЗНАНИЯ            -->
+<!-- ====================================== -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="index.field.label">Поле</div>
+        <h2 class="section-title" data-i18n="index.field.title">Поле Объедененного Сознания</h2>
+    </div>
+
+    <div class="fade-in-up" style="margin-top: 40px;">
+        <p class="body-text" style="max-width: 860px;" data-i18n="index.field.p1">Поле — это живой поток данных состоящих из трансляции нашего прямого опыта без искажений, синхронизационных практик и образовательных материалов. Так же мы используем сексуальную энергию как инструмент усиления резонанса и проводимости. Мы транслируем Радикальную Истину нашего опыта: без цензуры, без социальных масок, в чистом резонансе, поддерживая не искаженное проявление Объединенного Сознания в потоке онлайн стримов и церемоний.</p>
+    </div>
+
+    <div class="fade-in-up" style="margin-top: 24px;">
+        <p class="body-text-muted" style="max-width: 860px;" data-i18n="index.field.p2">Проводимость поля зависит от проводимости его отдельных участников, качества внимания, системы управления энергией.</p>
+    </div>
+
+    <div class="fade-in-up" style="margin-top: 56px;">
+        <p class="body-text" style="max-width: 860px;" data-i18n="index.field.p3">Технологически — это система для частотной сонастройки участников в единую резонансную сеть. Она имеет несколько ключевых функций:</p>
+        <ul class="feature-list" style="max-width: 860px;">
+            <li><span class="feature-num">01</span> <span data-i18n="index.field.f1">Образование и трансформация Сознания</span></li>
+            <li><span class="feature-num">02</span> <span data-i18n="index.field.f2">Синхронизация и фокусировка коллективного внимания</span></li>
+            <li><span class="feature-num">03</span> <span data-i18n="index.field.f3">Система энергетического менеджмента</span></li>
+            <li><span class="feature-num">04</span> <span data-i18n="index.field.f4">Визуализация интерфейса эгрегора и трекинг динамики поля и личного прогресса</span></li>
+            <li><span class="feature-num">05</span> <span data-i18n="index.field.f5">Инструмент управления сообществом и ресурсами</span></li>
+        </ul>
+    </div>
+
+    <div class="fade-in-up" style="margin-top: 72px;">
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; margin-bottom: 32px; letter-spacing: -0.3px;" data-i18n="index.field.benefits.heading">Преимущества от участия в поле:</h3>
+        <ul class="styled-list benefits-grid">
+            <li data-i18n="index.field.b1">Высокий уровень психо-эмоционально энергии</li>
+            <li data-i18n="index.field.b2">Апдейт майндсета и Состояние Творца</li>
+            <li data-i18n="index.field.b3">Глубина проживания и интерпретаций жизненного опыта</li>
+            <li data-i18n="index.field.b4">Идеи опережающие время и творчество вне рамок</li>
+            <li data-i18n="index.field.b5">Синхронистичность внутренних и внешних ритмов, удача</li>
+            <li data-i18n="index.field.b6">Раскрытие интуиции и сверх-человеческих качеств 5Д Сознания</li>
+            <li data-i18n="index.field.b7">Более высокая проводимость идей, ресурса, состояний</li>
+            <li data-i18n="index.field.b8">Использование коллективного опыта и навыков на уровне подсознания</li>
+            <li data-i18n="index.field.b9">Более глубокие инсайты за счет коллективного разума</li>
+            <li data-i18n="index.field.b10">Возможность коллективно влиять на реальность и переключать ветки</li>
+            <li data-i18n="index.field.b11">Снимать информацию из поля и предвидеть будущее</li>
+            <li data-i18n="index.field.b12">Повышенная осознанность и стрессоустойчивость</li>
+            <li data-i18n="index.field.b13">Внутренний баланс, восстановление здоровья</li>
+            <li data-i18n="index.field.b14">Ускоренная эволюция Сознания и более глубокие трансформации</li>
+            <li data-i18n="index.field.b15">Общая гармонизация всех сфер жизни и повышение уровня счастья</li>
+        </ul>
+    </div>
+</div>
 
 <div class="section-divider"></div>
 
@@ -988,9 +944,6 @@ body::after {
         </div>
     </div>
 </div>
-
-<!-- GIF SLOT — full width -->
-<div class="gif-slot-wave fade-in-up" style="margin: 80px 0;"></div>
 
 <div class="section-divider"></div>
 
@@ -1029,8 +982,7 @@ body::after {
             <p class="tier-body" style="margin-top: 16px;" data-i18n="index.path.t2.p2">Мы — это 2-месячная программа по инженерии сознания. Глубоко, бережно, последовательно и понятно для ума, мы адаптируем архитектуру вашего сознания и совершаем переход от линейной парадигмы на квантовую — нелинейный интерфейс восприятия мира. Как обновление OS, только на уровне сознания.</p>
             <p class="tier-body" style="margin-top: 16px;" data-i18n="index.path.t2.p3">Это точка входа в новую реальность, называемую в мировом стратегическом дискурсе "Игра Б" — мат-модель синергии.</p>
             <p class="tier-body" style="margin-top: 16px;" data-i18n="index.path.t2.p4">Главная цель этого этапа — достичь целостности внутри себя — и целостности в наименьшей ноде — вашей семье.</p>
-            <p class="tier-body" style="margin-top: 24px; font-weight: 500; color: #1d1d1f;" data-i18n="index.path.t2.price">2 000€</p>
-            <a href="mybogi.html" class="tier-link" data-i18n="index.path.t2.link">Подать заявку →</a>
+            <a href="https://dobrik.notion.site/M-304218cd094c80d8b57aca3a40f9ca4f" target="_blank" rel="noopener" class="tier-link" data-i18n="index.path.t2.link">Подать заявку →</a>
         </div>
 
         <div class="tier-block fade-in-up">
@@ -1038,7 +990,7 @@ body::after {
                 <div class="tier-number">3.</div>
                 <div>
                     <div class="tier-title" data-i18n="index.path.t3.title">БОГИ</div>
-                    <div class="tier-subtitle" data-i18n="index.path.t3.subtitle">936€/мес · Коллективная энергостанция</div>
+                    <div class="tier-subtitle" data-i18n="index.path.t3.subtitle">Коллективная энергостанция. Духовный Майбах</div>
                 </div>
             </div>
             <p class="tier-body" data-i18n="index.path.t3.p1">Индивидуальное сознание имеет потолок. Коллективное — нет.</p>
