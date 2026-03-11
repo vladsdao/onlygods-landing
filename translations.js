@@ -1101,7 +1101,7 @@ var T = {
 // ─── MYBOGI PAGE ───
 'mybogi.title': { ru: 'OnlyGods — Мы.Боги', en: 'OnlyGods — We.Gods', ua: 'OnlyGods — Ми.Боги' },
 'mybogi.back': { ru: '← Alignment', en: '← Alignment', ua: '← Alignment' },
-'mybogi.hero.subtitle': { ru: 'Курс', en: 'Course', ua: 'Курс' },
+'mybogi.hero.subtitle': { ru: 'Модель резонансных отношений', en: 'A model of resonant relationships', ua: 'Модель резонансних стосунків' },
 'mybogi.hero.title': { ru: 'МЫ. БОГИ.', en: 'WE. GODS.', ua: 'МИ. БОГИ.' },
 'mybogi.hero.authors': {
   ru: 'Лиза Сигорская и Влад Салов',
@@ -1110,6 +1110,364 @@ var T = {
 },
 'mybogi.conditions.price': { ru: '2 000 EUR', en: '2,000 EUR', ua: '2 000 EUR' },
 'mybogi.conditions.cta': { ru: 'Войти в Игру', en: 'Enter the Game', ua: 'Увійти в Гру' },
+// Intro
+'mybogi.intro.heading': {
+  ru: 'Точка входа в резонансное поле. Экспонента любви.',
+  en: 'Entry point to the resonance field. The exponential of love.',
+  ua: 'Точка входу в резонансне поле. Експонента любові.'
+},
+'mybogi.intro.p1': {
+  ru: 'Мы прошли путь от самых страстных любовников до раздражения, бытовых ссор и грани развода, — и вернулись к страстным любовникам. Но уже в роли не беззаботных голубков, а кайфовых родителей, духовных учителей друг другу, лучших друзей, партнерах в делах, безграничному творчеству и к постоянной игре. Мы играем как БОГИ. Мы и есть БОГИ (по крайней мере, мы так решили).',
+  en: 'We went from the most passionate lovers to irritation, domestic fights, and the edge of divorce — and came back as passionate lovers. But no longer as carefree lovebirds — as joyful parents, spiritual teachers to each other, best friends, business partners, boundless creators, and constant players. We play like GODS. We are GODS (at least, we decided so).',
+  ua: 'Ми пройшли шлях від найпалкіших коханців до роздратування, побутових сварок і межі розлучення — і повернулися до пристрасних коханців. Але вже не як безтурботні голубки, а як кайфові батьки, духовні вчителі одне одному, найкращі друзі, партнери у справах, безмежній творчості і постійній грі. Ми граємо як БОГИ. Ми і є БОГИ (принаймні, ми так вирішили).'
+},
+'mybogi.intro.p2': {
+  ru: 'Мы пробовали строить семью как все. Нам не понравилось. Прочитайте этот текст, вам тоже так не понравится, 100%',
+  en: 'We tried building a family the way everyone does. We didn\'t like it. Read this text — you won\'t like it either, 100%',
+  ua: 'Ми пробували будувати сім\'ю як усі. Нам не сподобалось. Прочитайте цей текст, вам теж так не сподобається, 100%'
+},
+'mybogi.intro.p3': {
+  ru: 'У нас было 4 свадьбы (и будет пятая). Последние полгода мы проводим по 6 часов в практиках и церемониях, создавая модель резонансной семьи. Мы проверили на себе, как это работает. Готовы передать не просто модель, но и опыт, вам.',
+  en: 'We\'ve had 4 weddings (and there will be a fifth). For the past six months we\'ve been spending 6 hours a day in practices and ceremonies, creating a model of the resonant family. We tested it on ourselves. We\'re ready to pass on not just the model, but the experience.',
+  ua: 'У нас було 4 весілля (і буде п\'яте). Останні пів року ми проводимо по 6 годин у практиках і церемоніях, створюючи модель резонансної сім\'ї. Ми перевірили на собі, як це працює. Готові передати не просто модель, але й досвід, вам.'
+},
+// Context
+'mybogi.context.title': { ru: 'Контекст', en: 'Context', ua: 'Контекст' },
+'mybogi.context.intro': {
+  ru: 'Есть всего три сценария, по которым развивается пара в общепринятой системе координат. Они вам не понравятся, но вы точно их проживали.',
+  en: 'There are only three scenarios for how a couple evolves in the conventional framework. You won\'t like them, but you\'ve definitely lived through them.',
+  ua: 'Є лише три сценарії, за якими розвивається пара у загальноприйнятій системі координат. Вони вам не сподобаються, але ви точно їх проживали.'
+},
+'mybogi.context.s1.title': { ru: '1. Он доминирует.', en: '1. He dominates.', ua: '1. Він домінує.' },
+'mybogi.context.s1.text': {
+  ru: 'Классика жанра. Мужчина зарабатывает, принимает решения, задает вектор. Женщина — «за мужем». Даже если она тоже зарабатывает, эмоциональный и стратегический контроль — за ним. Ее роль — обслуживать, поддерживать, терпеть. Если она начинает «слишком много хотеть» — это воспринимается как бунт. Дети в этой системе — инструмент привязки и выполнения социального контракта. Секс — его потребность, её обязанность. Творчество — его, если останется время после работы. Её — только если он разрешит. Итог: выгорание. Два одиноких человека в одной квартире. Один — с короной. Другая — со стиснутыми зубами.',
+  en: 'A classic. The man earns, makes decisions, sets the direction. The woman is "behind her husband." Even if she also earns, emotional and strategic control is his. Her role: serve, support, endure. If she starts "wanting too much" — it\'s perceived as rebellion. Children are tools of attachment and social contract fulfillment. Sex — his need, her duty. Creativity — his, if there\'s time after work. Hers — only if he allows it. Result: burnout. Two lonely people in one apartment. One with a crown. The other with clenched teeth.',
+  ua: 'Класика жанру. Чоловік заробляє, приймає рішення, задає вектор. Жінка — «за чоловіком». Навіть якщо вона теж заробляє, емоційний і стратегічний контроль — за ним. Її роль — обслуговувати, підтримувати, терпіти. Якщо вона починає «занадто багато хотіти» — це сприймається як бунт. Діти — інструмент прив\'язки. Секс — його потреба, її обов\'язок. Творчість — його, якщо залишиться час після роботи. Її — тільки якщо він дозволить. Підсумок: вигорання. Двоє самотніх людей в одній квартирі. Один — з короною. Інша — зі стиснутими зубами.'
+},
+'mybogi.context.s2.title': { ru: '2. Она доминирует.', en: '2. She dominates.', ua: '2. Вона домінує.' },
+'mybogi.context.s2.text': {
+  ru: 'Всё чаще, особенно в «продвинутых» кругах. Она — генератор идей, энергии, решений. Он постепенно оседает. Становится удобным, комфортным, бесконфликтным... и бесполезным. Она тянет всё. Организует, планирует, вдохновляет — и медленно ненавидит его за это. Он чувствует её недовольство, но вместо реакции — уходит в телефон, в тупой юмор, в алкоголь. Секс умирает. Уважение — ещё быстрее. Она начинает компенсировать нехватку через «духовные практики», камни и ретриты, не замечая, что это — бегство от живой боли. Итог: она тянет на себе семью, работу и его, пока не рухнет. Он — просто растворяется. Не от злости. От безразличия.',
+  en: 'Increasingly common, especially in "progressive" circles. She\'s the generator of ideas, energy, decisions. He gradually settles. Becomes convenient, comfortable, conflict-free... and useless. She carries everything. Organizes, plans, inspires — and slowly hates him for it. He senses her dissatisfaction but instead of reacting, retreats into his phone, dumb humor, alcohol. Sex dies. Respect — even faster. She compensates through "spiritual practices," crystals, and retreats, not realizing it\'s an escape from real pain. Result: she carries the family, work, and him until she collapses. He simply dissolves. Not from anger. From indifference.',
+  ua: 'Все частіше, особливо у «просунутих» колах. Вона — генератор ідей, енергії, рішень. Він поступово осідає. Стає зручним, комфортним, безконфліктним... і непотрібним. Вона тягне все. Організовує, планує, надихає — і повільно ненавидить його за це. Він відчуває її невдоволення, але замість реакції — йде в телефон, у тупий гумор, в алкоголь. Секс вмирає. Повага — ще швидше. Вона компенсує нестачу через «духовні практики», камені й ретріти, не помічаючи, що це — втеча від живого болю. Підсумок: вона тягне на собі сім\'ю, роботу і його, поки не впаде. Він — просто розчиняється. Не від злості. Від байдужості.'
+},
+'mybogi.context.s3.title': { ru: '3. Они «партнеры».', en: '3. They\'re "partners."', ua: '3. Вони «партнери».' },
+'mybogi.context.s3.text': {
+  ru: 'Так называемый «цивилизованный» вариант. Все по-честному: обязанности поделены, бюджет общий (или раздельный — для безопасности), конфликты решаются «через разговор». Никто никому не давит. На поверхности — идеальная картинка. Внутри — нейтралитет. Без полярности нет химии. Без химии нет энергии. Без энергии нет секса, дерзости, масштаба. Два человека играют в «нормальную семью», которая скучна настолько, что дети с 10 лет живут в телефоне, потому что дома нечего ловить. Итог: правильно, стерильно, мертво. Развод или тихая агония на 20 лет.',
+  en: 'The so-called "civilized" option. Everything is fair: duties are split, budget is shared (or separate — for safety), conflicts are resolved "through conversation." No one pressures anyone. On the surface — a perfect picture. Inside — neutrality. No polarity, no chemistry. No chemistry, no energy. No energy, no sex, no audacity, no scale. Two people playing "normal family" that\'s so boring their kids live in phones from age 10 because there\'s nothing to catch at home. Result: correct, sterile, dead. Divorce or quiet agony for 20 years.',
+  ua: 'Так званий «цивілізований» варіант. Все чесно: обов\'язки розділені, бюджет спільний (або окремий — для безпеки), конфлікти розв\'язуються «через розмову». Ніхто нікого не тисне. На поверхні — ідеальна картинка. Всередині — нейтралітет. Без полярності немає хімії. Без хімії немає енергії. Без енергії немає сексу, дерзості, масштабу. Двоє людей грають у «нормальну сім\'ю», яка настільки нудна, що діти з 10 років живуть у телефоні, бо вдома нема чого ловити. Підсумок: правильно, стерильно, мертво. Розлучення або тиха агонія на 20 років.'
+},
+'mybogi.context.closing1': {
+  ru: 'Как бы вам не хотелось возразить, глобально — не получится. Потому что так построено наше общество — основанное на старой патриархальной системе. Там, где нет гармонии, синергия невозможна.',
+  en: 'No matter how much you want to object — globally, it won\'t work. Because that\'s how our society is built — on the old patriarchal system. Where there\'s no harmony, synergy is impossible.',
+  ua: 'Як би вам не хотілося заперечити, глобально — не вийде. Бо так побудовано наше суспільство — засноване на старій патріархальній системі. Там, де немає гармонії, синергія неможлива.'
+},
+'mybogi.context.closing2': {
+  ru: 'Последние полгода мы исследуем эти механизмы. Мы нашли, на чем они держаться и почему в рамках контрактной модели их невозможно обойти...',
+  en: 'For the past six months we\'ve been studying these mechanisms. We found what holds them together and why they can\'t be bypassed within the contractual model...',
+  ua: 'Останні пів року ми досліджуємо ці механізми. Ми знайшли, на чому вони тримаються і чому в рамках контрактної моделі їх неможливо обійти...'
+},
+'mybogi.context.closing3': {
+  ru: 'А теперь представьте, что таки может получиться по-другому.',
+  en: 'Now imagine it could actually work out differently.',
+  ua: 'А тепер уявіть, що таки може вийти по-іншому.'
+},
+// Blockquote
+'mybogi.blockquote': {
+  ru: 'Это не «курс про отношения». И мы точно не будем учить вас «искать компромиссы» или «работать над собой». Мы здесь, чтобы сменить саму архитектуру: выйти из уставшего сценария, где вы тратите силы на обслуживание семьи (или одиночества), в реальность, где близость становится вашим ядерным реактором. Где 1+1 создает поле, заряжающее всё остальное — от масштаба проектов до физического здоровья. Приглашаем вас не «послушать лекции», а прожить это.',
+  en: 'This is not a "relationship course." And we definitely won\'t teach you to "find compromises" or "work on yourself." We\'re here to change the architecture itself: to exit the exhausted script where you spend energy maintaining family (or loneliness), into a reality where intimacy becomes your nuclear reactor. Where 1+1 creates a field that charges everything else — from the scale of projects to physical health. We invite you not to "attend lectures," but to live it.',
+  ua: 'Це не «курс про стосунки». І ми точно не будемо вчити вас «шукати компроміси» чи «працювати над собою». Ми тут, щоб змінити саму архітектуру: вийти зі стомленого сценарію, де ви витрачаєте сили на обслуговування сім\'ї (чи самотності), у реальність, де близькість стає вашим ядерним реактором. Де 1+1 створює поле, що заряджає все інше — від масштабу проєктів до фізичного здоров\'я. Запрошуємо вас не «послухати лекції», а прожити це.'
+},
+// Personal story
+'mybogi.story.title': { ru: 'Личная история', en: 'Personal Story', ua: 'Особиста історія' },
+'mybogi.story.liza.title': { ru: 'Лиза. Про честность и детей.', en: 'Liza. On Honesty and Children.', ua: 'Ліза. Про чесність і дітей.' },
+'mybogi.story.liza.p1': {
+  ru: 'Когда я узнала что беременна нашим первым ребенком, я была в ужасе. Полное осознание того, что я совершенно не готова быть мамой. Абсолютное нежелание быть мамой. Страх перед тем, как изменится мое тело. Бесконтрольные рыдания от мысли, что моя свобода закончилась.',
+  en: 'When I found out I was pregnant with our first child, I was terrified. Full awareness that I was absolutely not ready to be a mother. Complete unwillingness to be a mother. Fear of how my body would change. Uncontrollable sobbing at the thought that my freedom was over.',
+  ua: 'Коли я дізналася, що вагітна нашою першою дитиною, я була в жаху. Повне усвідомлення того, що я абсолютно не готова бути мамою. Абсолютне небажання бути мамою. Страх перед тим, як зміниться моє тіло. Неконтрольовані ридання від думки, що моя свобода закінчилась.'
+},
+'mybogi.story.liza.p2': {
+  ru: 'У меня были страшные, тяжелые роды. Я была на грани смерти, роды длились больше суток, меня разрезали, ребенка тащили вантузом. Ребенок не брал грудь, заражение, температура, три больницы за неделю.',
+  en: 'I had terrifying, difficult labor. I was on the edge of death, labor lasted over 24 hours, they cut me open, pulled the baby with a vacuum. The baby wouldn\'t breastfeed, infection, fever, three hospitals in one week.',
+  ua: 'У мене були страшні, тяжкі пологи. Я була на межі смерті, пологи тривали понад добу, мене розрізали, дитину тягли вантузом. Дитина не брала груди, зараження, температура, три лікарні за тиждень.'
+},
+'mybogi.story.liza.p3': {
+  ru: 'Это был самый тяжелый период моей жизни. Но он же стал переломным. Начало войны. Полное крушение прежней реальности. Роды, материнство, потеря идентичности, бессонница, потеря дома и привычного мира — всё это было не «кризисом», а точкой полной пересборки.',
+  en: 'It was the hardest period of my life. But it also became a turning point. The start of war. Complete destruction of the previous reality. Birth, motherhood, loss of identity, insomnia, loss of home and familiar world — all of it was not a "crisis" but a point of total reassembly.',
+  ua: 'Це був найважчий період мого життя. Але він же став переломним. Початок війни. Повне руйнування попередньої реальності. Пологи, материнство, втрата ідентичності, безсоння, втрата дому і звичного світу — все це було не «кризою», а точкою повного перезбирання.'
+},
+'mybogi.story.liza.p4': {
+  ru: 'Сегодня наша дочь Арина — ей 3 года — ни разу серьезно не болела. Ни разу не устроила истерику. Она растет в поле, где нет борьбы за внимание, нет подавления, нет «положено так». Не потому что мы идеальные родители, а потому что мы выстроили другую архитектуру.',
+  en: 'Today our daughter Arina — she\'s 3 — has never been seriously ill. Never thrown a tantrum. She\'s growing up in a field where there\'s no fight for attention, no suppression, no "that\'s how it should be." Not because we\'re perfect parents, but because we built a different architecture.',
+  ua: 'Сьогодні наша дочка Аріна — їй 3 роки — жодного разу серйозно не хворіла. Жодного разу не влаштувала істерику. Вона росте в полі, де немає боротьби за увагу, немає придушення, немає «так належить». Не тому що ми ідеальні батьки, а тому що ми вибудували іншу архітектуру.'
+},
+'mybogi.story.vlad.title': { ru: 'Глазами Влада', en: 'Through Vlad\'s Eyes', ua: 'Очима Влада' },
+'mybogi.story.vlad.p1': {
+  ru: 'Когда мы с Лизой встретились, это была безусловная страсть. Мы горели. Физически, ментально, химически — идеальный резонанс. Казалось, что так будет всегда. Было очевидно, что мы нашли то самое. Навсегда.',
+  en: 'When Liza and I met, it was unconditional passion. We burned. Physically, mentally, chemically — perfect resonance. It seemed like it would last forever. It was obvious we\'d found the one. Forever.',
+  ua: 'Коли ми з Лізою зустрілися, це була безумовна пристрасть. Ми горіли. Фізично, ментально, хімічно — ідеальний резонанс. Здавалося, що так буде завжди. Було очевидно, що ми знайшли те саме. Назавжди.'
+},
+'mybogi.story.vlad.p2': {
+  ru: 'А потом приходит быт. Беременность. Война. Переезд. Бессонные ночи. Деньги. Ответственность. И ты понимаешь, что вся эта «любовь» была лишь первым топливным ускорителем, который выгорел за два года, оставив двух уставших взрослых людей с ребенком, раздражением и вопросом: «и что теперь?».',
+  en: 'Then comes everyday life. Pregnancy. War. Moving. Sleepless nights. Money. Responsibility. And you realize all that "love" was just the first fuel booster that burned out in two years, leaving two tired adults with a child, irritation, and the question: "now what?"',
+  ua: 'А потім приходить побут. Вагітність. Війна. Переїзд. Безсонні ночі. Гроші. Відповідальність. І ти розумієш, що вся ця «любов» була лише першим паливним прискорювачем, який вигорів за два роки, залишивши двох стомлених дорослих людей з дитиною, роздратуванням і питанням: «і що тепер?».'
+},
+'mybogi.story.vlad.p3': {
+  ru: 'Мы были на грани развода. Не потому что не любили. А потому что не знали, как любить дальше. Модели «терпеть ради детей» или «найти компромисс» вызывали тошноту. Мы не могли себе позволить посредственные отношения.',
+  en: 'We were on the edge of divorce. Not because we didn\'t love each other. But because we didn\'t know how to love further. Models like "endure for the kids" or "find a compromise" made us nauseous. We couldn\'t afford mediocre relationships.',
+  ua: 'Ми були на межі розлучення. Не тому що не любили. А тому що не знали, як любити далі. Моделі «терпіти заради дітей» чи «знайти компроміс» викликали нудоту. Ми не могли собі дозволити посередні стосунки.'
+},
+'mybogi.story.vlad.p4': {
+  ru: 'И мы начали копать. Не в психологии, не в попсовых коучингах. А в физике. В нейробиологии. В древних традициях, которые были уничтожены именно потому, что работали. Мы построили модель, проверили на себе и получили результат, который невозможно объяснить в рамках «нормальных отношений».',
+  en: 'And we started digging. Not in psychology, not in pop coaching. In physics. In neurobiology. In ancient traditions that were destroyed precisely because they worked. We built a model, tested it on ourselves, and got a result that can\'t be explained within "normal relationships."',
+  ua: 'І ми почали копати. Не в психології, не в попсових коучингах. А у фізиці. У нейробіології. У стародавніх традиціях, які були знищені саме тому, що працювали. Ми побудували модель, перевірили на собі й отримали результат, який неможливо пояснити в рамках «нормальних стосунків».'
+},
+'mybogi.story.vlad.p5': {
+  ru: 'Сейчас мы живем в Лаборатории Квантового Сознания. Мы проводим по 6 часов в день в практиках и церемониях. Мы исследуем границы того, что возможно между двумя людьми. И мы точно знаем: то, что у нас сейчас — это не «хорошие отношения». Это ядерный реактор.',
+  en: 'Now we live in the Quantum Consciousness Lab. We spend 6 hours a day in practices and ceremonies. We explore the limits of what\'s possible between two people. And we know for certain: what we have now is not "good relationships." It\'s a nuclear reactor.',
+  ua: 'Зараз ми живемо в Лабораторії Квантової Свідомості. Ми проводимо по 6 годин на день у практиках і церемоніях. Ми досліджуємо межі того, що можливо між двома людьми. І ми точно знаємо: те, що у нас зараз — це не «добрі стосунки». Це ядерний реактор.'
+},
+// Program
+'mybogi.program.title': { ru: 'Программа. Direct Experience', en: 'Program. Direct Experience', ua: 'Програма. Direct Experience' },
+'mybogi.program.intro1': {
+  ru: 'Мы не читаем лекции. Мы передаем состояние. Это закрытый, без цензуры формат, где мы говорим и показываем то, что невозможно выложить в открытый доступ.',
+  en: 'We don\'t give lectures. We transmit a state. This is a closed, uncensored format where we say and show what can\'t be published openly.',
+  ua: 'Ми не читаємо лекції. Ми передаємо стан. Це закритий, без цензури формат, де ми говоримо і показуємо те, що неможливо викласти у відкритий доступ.'
+},
+'mybogi.program.intro2': {
+  ru: 'Прежде чем строить «МЫ», необходимо выстроить здоровое «Я». Невозможно резонировать, если ты сам — расщеплен. Поэтому программа начинается с фундамента.',
+  en: 'Before building "WE," you need to build a healthy "I." You can\'t resonate if you\'re fragmented. That\'s why the program starts with the foundation.',
+  ua: 'Перш ніж будувати «МИ», необхідно вибудувати здорове «Я». Неможливо резонувати, якщо ти сам — розщеплений. Тому програма починається з фундаменту.'
+},
+'mybogi.program.block1.title': { ru: 'Блок 1: «Я»', en: 'Block 1: "I"', ua: 'Блок 1: «Я»' },
+'mybogi.program.block1.subtitle': {
+  ru: 'Фундамент Личности. Энергетическая структура Нового Мира.',
+  en: 'Foundation of Self. The Energy Structure of the New World.',
+  ua: 'Фундамент Особистості. Енергетична структура Нового Світу.'
+},
+'mybogi.program.block1.i1': {
+  ru: '<strong>Новая Иерархия</strong> — пересборка внутренней системы координат. Выход из вертикали подавления в спиральную модель.',
+  en: '<strong>New Hierarchy</strong> — reassembling the inner coordinate system. Exiting the vertical of suppression into a spiral model.',
+  ua: '<strong>Нова Ієрархія</strong> — перезбирання внутрішньої системи координат. Вихід з вертикалі придушення у спіральну модель.'
+},
+'mybogi.program.block1.i2': {
+  ru: '<strong>Архитектура Пола</strong> — деконструкция навязанных гендерных программ. Возврат к природной полярности.',
+  en: '<strong>Architecture of Gender</strong> — deconstruction of imposed gender programs. Return to natural polarity.',
+  ua: '<strong>Архітектура Статі</strong> — деконструкція нав\'язаних гендерних програм. Повернення до природної полярності.'
+},
+'mybogi.program.block1.i3': {
+  ru: '<strong>Синхронизация Триады</strong> — тело, ум, дух. Три центра, которые система намеренно расщепила.',
+  en: '<strong>Triad Synchronization</strong> — body, mind, spirit. Three centers the system deliberately fragmented.',
+  ua: '<strong>Синхронізація Тріади</strong> — тіло, розум, дух. Три центри, які система навмисно розщепила.'
+},
+'mybogi.program.block1.i4': {
+  ru: '<strong>Гармонизация Проявления</strong> — как перестать «казаться» и начать «быть». Аутентичность как энергетический источник.',
+  en: '<strong>Harmonizing Expression</strong> — how to stop "seeming" and start "being." Authenticity as an energy source.',
+  ua: '<strong>Гармонізація Прояву</strong> — як перестати «здаватися» і почати «бути». Автентичність як енергетичне джерело.'
+},
+'mybogi.program.block1.i5': {
+  ru: '<strong>Точка Пробуждения Души</strong> — момент, когда вы перестаете жить по сценарию и начинаете жить из источника.',
+  en: '<strong>Soul Awakening Point</strong> — the moment you stop living by script and start living from source.',
+  ua: '<strong>Точка Пробудження Душі</strong> — момент, коли ви перестаєте жити за сценарієм і починаєте жити з джерела.'
+},
+'mybogi.program.block1.i6': {
+  ru: '<strong>Поток Творчества</strong> — активация канала, через который реальность создается, а не обслуживается.',
+  en: '<strong>Creative Flow</strong> — activating the channel through which reality is created, not maintained.',
+  ua: '<strong>Потік Творчості</strong> — активація каналу, через який реальність створюється, а не обслуговується.'
+},
+'mybogi.program.block2.title': { ru: 'Блок 2: «Мы»', en: 'Block 2: "We"', ua: 'Блок 2: «Ми»' },
+'mybogi.program.block2.subtitle': {
+  ru: 'Архитектура Квантового Союза.',
+  en: 'Architecture of the Quantum Union.',
+  ua: 'Архітектура Квантового Союзу.'
+},
+'mybogi.program.block2.i1': {
+  ru: '<strong>Квантовое Сознание Пары</strong> — что происходит, когда два человека перестают бороться и начинают резонировать.',
+  en: '<strong>Quantum Couple Consciousness</strong> — what happens when two people stop fighting and start resonating.',
+  ua: '<strong>Квантова Свідомість Пари</strong> — що відбувається, коли двоє людей перестають боротися і починають резонувати.'
+},
+'mybogi.program.block2.i2': {
+  ru: '<strong>От «Я» к «МЫ»</strong> — переход от двух автономных систем к единому полю. Без потери себя.',
+  en: '<strong>From "I" to "WE"</strong> — transition from two autonomous systems to a unified field. Without losing yourself.',
+  ua: '<strong>Від «Я» до «МИ»</strong> — перехід від двох автономних систем до єдиного поля. Без втрати себе.'
+},
+'mybogi.program.block2.i3': {
+  ru: '<strong>От Контрактов к Культивированию</strong> — демонтаж модели «ты мне — я тебе». Создание среды, где оба растут экспоненциально.',
+  en: '<strong>From Contracts to Cultivation</strong> — dismantling the "you for me — I for you" model. Creating an environment where both grow exponentially.',
+  ua: '<strong>Від Контрактів до Культивування</strong> — демонтаж моделі «ти мені — я тобі». Створення середовища, де обоє зростають експоненціально.'
+},
+'mybogi.program.block2.i4': {
+  ru: '<strong>Энергетика Семьи</strong> — семья как энергетическая система. Как перестать «тратить силы на семью» и начать получать из неё энергию.',
+  en: '<strong>Family Energetics</strong> — family as an energy system. How to stop "spending energy on family" and start receiving energy from it.',
+  ua: '<strong>Енергетика Сім\'ї</strong> — сім\'я як енергетична система. Як перестати «витрачати сили на сім\'ю» і почати отримувати з неї енергію.'
+},
+'mybogi.program.block2.i5': {
+  ru: '<strong>Сексуальность и Алхимия</strong> — возврат Эроса. Сексуальная энергия как топливо трансформации, а не потребления.',
+  en: '<strong>Sexuality and Alchemy</strong> — the return of Eros. Sexual energy as fuel for transformation, not consumption.',
+  ua: '<strong>Сексуальність і Алхімія</strong> — повернення Еросу. Сексуальна енергія як паливо трансформації, а не споживання.'
+},
+'mybogi.program.block2.i6': {
+  ru: '<strong>Изобилие</strong> — почему пары в резонансе зарабатывают больше. Экономика поля.',
+  en: '<strong>Abundance</strong> — why couples in resonance earn more. The economics of the field.',
+  ua: '<strong>Достаток</strong> — чому пари в резонансі заробляють більше. Економіка поля.'
+},
+'mybogi.program.block2.i7': {
+  ru: '<strong>Счастливые Дети</strong> — дети, которые растут в поле, а не в системе контроля. Без истерик, без подавления, без борьбы за внимание.',
+  en: '<strong>Happy Children</strong> — children who grow up in a field, not a control system. No tantrums, no suppression, no fighting for attention.',
+  ua: '<strong>Щасливі Діти</strong> — діти, які ростуть у полі, а не в системі контролю. Без істерик, без придушення, без боротьби за увагу.'
+},
+// Format
+'mybogi.format.title': { ru: 'Формат', en: 'Format', ua: 'Формат' },
+'mybogi.format.f1.title': {
+  ru: '8 Лекционных Встреч (Архитектура Сознания)',
+  en: '8 Lecture Sessions (Architecture of Consciousness)',
+  ua: '8 Лекційних Зустрічей (Архітектура Свідомості)'
+},
+'mybogi.format.f1.desc': {
+  ru: 'Глубокие сессии, где мы разбираем модель по слоям. Физика, нейробиология, древние традиции — переведенные на живой язык. Не академические лекции, а передача карты территории, которую мы прошли.',
+  en: 'Deep sessions where we deconstruct the model layer by layer. Physics, neurobiology, ancient traditions — translated into living language. Not academic lectures, but a transfer of the map of the territory we\'ve walked.',
+  ua: 'Глибокі сесії, де ми розбираємо модель пошарово. Фізика, нейробіологія, стародавні традиції — перекладені живою мовою. Не академічні лекції, а передача карти території, яку ми пройшли.'
+},
+'mybogi.format.f2.title': {
+  ru: '8 Закрытых Церемоний (Direct Experience)',
+  en: '8 Closed Ceremonies (Direct Experience)',
+  ua: '8 Закритих Церемоній (Direct Experience)'
+},
+'mybogi.format.f2.desc': {
+  ru: 'Практики, медитации, телесные сессии и церемонии, которые невозможно описать текстом. Закрытый формат без цензуры. То, что мы делаем каждый день в нашей лаборатории — адаптировано и передано вам. Это не про «подышать». Это про прожить.',
+  en: 'Practices, meditations, body sessions, and ceremonies that can\'t be described in text. Closed uncensored format. What we do every day in our lab — adapted and transmitted to you. This is not about "doing breathwork." This is about living it.',
+  ua: 'Практики, медитації, тілесні сесії та церемонії, які неможливо описати текстом. Закритий формат без цензури. Те, що ми робимо щодня в нашій лабораторії — адаптовано і передано вам. Це не про «подихати». Це про прожити.'
+},
+'mybogi.format.f3.title': {
+  ru: 'Дополнительные точки синхронизации',
+  en: 'Additional Sync Points',
+  ua: 'Додаткові точки синхронізації'
+},
+'mybogi.format.f3.desc': {
+  ru: 'Закрытый чат участников. Поддержка между встречами. Индивидуальные рекомендации от нас. Доступ к записям. Поле не заканчивается после звонка — оно продолжает работать.',
+  en: 'Private participant chat. Support between sessions. Individual recommendations from us. Access to recordings. The field doesn\'t end after the call — it keeps working.',
+  ua: 'Закритий чат учасників. Підтримка між зустрічами. Індивідуальні рекомендації від нас. Доступ до записів. Поле не закінчується після дзвінка — воно продовжує працювати.'
+},
+// Conditions
+'mybogi.conditions.title': { ru: 'Условия', en: 'Terms', ua: 'Умови' },
+'mybogi.conditions.p1': {
+  ru: 'Мы открываем лабораторию на короткое время. Это не массовый продукт. Нам важен резонанс, а не количество.',
+  en: 'We\'re opening the lab for a limited time. This is not a mass product. We value resonance, not quantity.',
+  ua: 'Ми відкриваємо лабораторію на короткий час. Це не масовий продукт. Нам важливий резонанс, а не кількість.'
+},
+'mybogi.conditions.support': {
+  ru: '<a href="https://t.me/viki_assistant">связаться с поддержкой</a>',
+  en: '<a href="https://t.me/viki_assistant">contact support</a>',
+  ua: '<a href="https://t.me/viki_assistant">зв\'язатися з підтримкою</a>'
+},
+'mybogi.conditions.couples': {
+  ru: 'Идеально — парой. Но если партнер пока не готов, вы можете начать трансформацию один/одна. Поле работает.',
+  en: 'Ideally — as a couple. But if your partner isn\'t ready yet, you can start the transformation alone. The field works.',
+  ua: 'Ідеально — парою. Але якщо партнер поки не готовий, ви можете почати трансформацію один/одна. Поле працює.'
+},
+// Q&A
+'mybogi.qa.title': { ru: 'Q&A', en: 'Q&A', ua: 'Q&A' },
+'mybogi.qa.q1': {
+  ru: 'А если я сейчас одна? Мне есть смысл идти?',
+  en: 'What if I\'m single right now? Is there a point in joining?',
+  ua: 'А якщо я зараз одна? Мені є сенс іти?'
+},
+'mybogi.qa.a1': {
+  ru: 'Да. Блок «Я» — это фундамент. Без здорового «Я» невозможно построить «МЫ». Если вы сейчас одна/один — это идеальный момент, чтобы выстроить себя до того, как притянуть партнера. Из целостности вы притягиваете резонанс. Из дефицита — контракт.',
+  en: 'Yes. Block "I" is the foundation. Without a healthy "I" you can\'t build "WE." If you\'re single — this is the perfect moment to build yourself before attracting a partner. From wholeness you attract resonance. From deficit — a contract.',
+  ua: 'Так. Блок «Я» — це фундамент. Без здорового «Я» неможливо побудувати «МИ». Якщо ви зараз одна/один — це ідеальний момент, щоб вибудувати себе до того, як притягнути партнера. З цілісності ви притягуєте резонанс. З дефіциту — контракт.'
+},
+'mybogi.qa.q2': {
+  ru: 'Мой партнер — скептик. Он/она не хочет идти.',
+  en: 'My partner is a skeptic. They don\'t want to join.',
+  ua: 'Мій партнер — скептик. Він/вона не хоче йти.'
+},
+'mybogi.qa.a2': {
+  ru: 'Начните с себя. Когда один элемент системы меняет частоту, второй неизбежно реагирует. Вы не можете заставить партнера трансформироваться. Но вы можете стать настолько другим/другой, что старая модель станет невозможной. Это честнее, чем ультиматумы.',
+  en: 'Start with yourself. When one element of the system changes frequency, the other inevitably responds. You can\'t force your partner to transform. But you can become so different that the old model becomes impossible. That\'s more honest than ultimatums.',
+  ua: 'Почніть із себе. Коли один елемент системи змінює частоту, другий неминуче реагує. Ви не можете змусити партнера трансформуватися. Але ви можете стати настільки іншим/іншою, що стара модель стане неможливою. Це чесніше, ніж ультиматуми.'
+},
+'mybogi.qa.q3': {
+  ru: 'Это — техники из какой-то конкретной системы?',
+  en: 'Are these techniques from a specific system?',
+  ua: 'Це — техніки з якоїсь конкретної системи?'
+},
+'mybogi.qa.a3': {
+  ru: 'Нет. Это синтез. Физика волновых процессов, нейробиология, древние традиции (тантрические, шаманские, алхимические), психология развития — и наш личный, проверенный на себе опыт. Мы не принадлежим ни одной школе. Мы берем то, что работает, проверяем и передаем.',
+  en: 'No. It\'s a synthesis. Wave process physics, neurobiology, ancient traditions (tantric, shamanic, alchemical), developmental psychology — and our personal, self-tested experience. We don\'t belong to any school. We take what works, test it, and pass it on.',
+  ua: 'Ні. Це синтез. Фізика хвильових процесів, нейробіологія, стародавні традиції (тантричні, шаманські, алхімічні), психологія розвитку — і наш особистий, перевірений на собі досвід. Ми не належимо жодній школі. Ми беремо те, що працює, перевіряємо і передаємо.'
+},
+'mybogi.qa.q4': {
+  ru: 'Зачем закрытый формат «без цензуры»? Это что, порно?',
+  en: 'Why the closed "uncensored" format? Is it porn?',
+  ua: 'Навіщо закритий формат «без цензури»? Це що, порно?'
+},
+'mybogi.qa.a4': {
+  ru: 'Нет. Но мы говорим о сексуальности, теле, энергии, измененных состояниях сознания и вещах, которые невозможно обсуждать в публичном поле без искажения. Закрытый формат — это безопасность для честности. Мы не фильтруем. Мы не адаптируем под «приличное общество». Мы передаем как есть.',
+  en: 'No. But we discuss sexuality, body, energy, altered states of consciousness, and things that can\'t be discussed publicly without distortion. Closed format means safety for honesty. We don\'t filter. We don\'t adapt for "polite society." We transmit as is.',
+  ua: 'Ні. Але ми говоримо про сексуальність, тіло, енергію, змінені стани свідомості і речі, які неможливо обговорювати у публічному полі без спотворення. Закритий формат — це безпека для чесності. Ми не фільтруємо. Ми не адаптуємо під «пристойне суспільство». Ми передаємо як є.'
+},
+'mybogi.qa.q5': { ru: 'Будет сложно?', en: 'Will it be hard?', ua: 'Буде складно?' },
+'mybogi.qa.a5': {
+  ru: 'Да. Любая реальная трансформация — это не «приятный вебинар». Это демонтаж старого и строительство нового. Будут моменты, когда захочется уйти, закрыться, вернуться в знакомый дискомфорт. Но именно там, на грани — начинается прорыв. Мы будем рядом.',
+  en: 'Yes. Any real transformation is not a "pleasant webinar." It\'s dismantling the old and building the new. There will be moments when you\'ll want to leave, shut down, return to familiar discomfort. But right there, at the edge — the breakthrough begins. We\'ll be there.',
+  ua: 'Так. Будь-яка реальна трансформація — це не «приємний вебінар». Це демонтаж старого і будівництво нового. Будуть моменти, коли захочеться піти, закритися, повернутися у знайомий дискомфорт. Але саме там, на межі — починається прорив. Ми будемо поруч.'
+},
+'mybogi.qa.q6': {
+  ru: 'У нас всё плохо. Мы на грани развода. Нам поможет?',
+  en: 'Things are bad for us. We\'re on the edge of divorce. Will this help?',
+  ua: 'У нас все погано. Ми на межі розлучення. Нам допоможе?'
+},
+'mybogi.qa.a6': {
+  ru: 'Возможно. Но только если оба готовы к честности. Мы не спасаем отношения. Мы даем инструменты для создания новых — с тем же человеком или без него. Если ваш союз способен к трансформации — вы получите карту. Если нет — вы получите ясность. И то, и другое ценно.',
+  en: 'Possibly. But only if both are ready for honesty. We don\'t save relationships. We give tools for creating new ones — with the same person or without. If your union is capable of transformation — you\'ll get the map. If not — you\'ll get clarity. Both are valuable.',
+  ua: 'Можливо. Але тільки якщо обоє готові до чесності. Ми не рятуємо стосунки. Ми даємо інструменти для створення нових — з тією ж людиною або без неї. Якщо ваш союз здатний до трансформації — ви отримаєте карту. Якщо ні — ви отримаєте ясність. І те, й інше цінне.'
+},
+'mybogi.qa.q7': {
+  ru: 'У нас всё «нормально». Без скандалов, но и без огня. Нам это нужно?',
+  en: 'Things are "fine" for us. No fights, but no fire either. Do we need this?',
+  ua: 'У нас все «нормально». Без скандалів, але й без вогню. Нам це потрібно?'
+},
+'mybogi.qa.a7': {
+  ru: '«Нормально» — это третий сценарий. Самый опасный, потому что он маскирует медленное умирание под стабильность. Если вы чувствуете, что живете в нейтралитете, — это красный флаг. Вы не в безопасности. Вы в анестезии. Этот курс вернет полярность и огонь — если вы готовы.',
+  en: '"Fine" is the third scenario. The most dangerous, because it masks slow dying as stability. If you feel you\'re living in neutrality — that\'s a red flag. You\'re not safe. You\'re anesthetized. This course will bring back polarity and fire — if you\'re ready.',
+  ua: '«Нормально» — це третій сценарій. Найнебезпечніший, бо він маскує повільне вмирання під стабільність. Якщо ви відчуваєте, що живете у нейтралітеті, — це червоний прапор. Ви не в безпеці. Ви в анестезії. Цей курс поверне полярність і вогонь — якщо ви готові.'
+},
+'mybogi.qa.q8': {
+  ru: 'Я мужчина. Мне кажется, это всё «женские штучки» про потоки и энергии.',
+  en: 'I\'m a man. This all seems like "women\'s stuff" about flows and energies.',
+  ua: 'Я чоловік. Мені здається, це все «жіночі штучки» про потоки та енергії.'
+},
+'mybogi.qa.a8': {
+  ru: 'Это физика. Волновая механика, нейробиология, теория систем. Если вам ближе язык инженерии — мы говорим на нем. Резонанс — это не эзотерика. Это измеримый феномен, который используется в акустике, электронике и квантовой механике. Мы просто применяем его к отношениям. Влад — технарь, предприниматель и скептик. Если его убедило — вас тоже убедит.',
+  en: 'It\'s physics. Wave mechanics, neurobiology, systems theory. If you prefer the language of engineering — we speak it. Resonance is not esoterica. It\'s a measurable phenomenon used in acoustics, electronics, and quantum mechanics. We just apply it to relationships. Vlad is an engineer, entrepreneur, and skeptic. If it convinced him — it\'ll convince you too.',
+  ua: 'Це фізика. Хвильова механіка, нейробіологія, теорія систем. Якщо вам ближча мова інженерії — ми говоримо нею. Резонанс — це не езотерика. Це вимірюваний феномен, який використовується в акустиці, електроніці та квантовій механіці. Ми просто застосовуємо його до стосунків. Влад — технар, підприємець і скептик. Якщо його переконало — вас теж переконає.'
+},
+'mybogi.qa.q9': {
+  ru: 'Сколько времени это займет?',
+  en: 'How long will it take?',
+  ua: 'Скільки часу це займе?'
+},
+'mybogi.qa.a9': {
+  ru: 'Основная программа — 2 месяца. 16 встреч (8 лекционных + 8 церемоний). Плюс работа между встречами. Это не фоновый курс «послушал и забыл». Это интенсив, который требует вашего присутствия и честности. Рассчитывайте на 4-6 часов в неделю.',
+  en: 'The core program is 2 months. 16 sessions (8 lectures + 8 ceremonies). Plus work between sessions. This is not a background course you "listen and forget." It\'s an intensive that requires your presence and honesty. Plan for 4-6 hours per week.',
+  ua: 'Основна програма — 2 місяці. 16 зустрічей (8 лекційних + 8 церемоній). Плюс робота між зустрічами. Це не фоновий курс «послухав і забув». Це інтенсив, який вимагає вашої присутності та чесності. Розраховуйте на 4-6 годин на тиждень.'
+},
+'mybogi.qa.q10': {
+  ru: 'Почему так дорого/дешево?',
+  en: 'Why is it so expensive/cheap?',
+  ua: 'Чому так дорого/дешево?'
+},
+'mybogi.qa.a10': {
+  ru: '2 000 евро — это стоимость одной сессии у хорошего семейного терапевта, умноженная на 10. Мы даем 16 встреч, закрытое поле, практики и личный доступ. Это не дорого. Это порог входа, который фильтрует туристов от тех, кто действительно готов к трансформации. Если вы думаете «дорого» — спросите себя, сколько вы уже потратили на терапию, коучей и курсы, которые не сработали.',
+  en: '2,000 euros is the cost of one session with a good family therapist, multiplied by 10. We give 16 sessions, a closed field, practices, and personal access. It\'s not expensive. It\'s an entry threshold that filters tourists from those truly ready for transformation. If you think "expensive" — ask yourself how much you\'ve already spent on therapy, coaches, and courses that didn\'t work.',
+  ua: '2 000 євро — це вартість однієї сесії у хорошого сімейного терапевта, помножена на 10. Ми даємо 16 зустрічей, закрите поле, практики та особистий доступ. Це не дорого. Це поріг входу, який фільтрує туристів від тих, хто дійсно готовий до трансформації. Якщо ви думаєте «дорого» — запитайте себе, скільки ви вже витратили на терапію, коучів та курси, які не спрацювали.'
+},
+// Final
+'mybogi.final.sign': {
+  ru: 'ДО ВСТРЕЧИ В ИГРЕ!<br>Влад & Лиза',
+  en: 'SEE YOU IN THE GAME!<br>Vlad & Liza',
+  ua: 'ДО ЗУСТРІЧІ В ГРІ!<br>Влад & Ліза'
+},
 
 // ─── RETREAT PAGE ───
 'retreat.title': { ru: 'OnlyGods — System Reboot', en: 'OnlyGods — System Reboot', ua: 'OnlyGods — System Reboot' },
@@ -1142,6 +1500,14 @@ var T = {
 },
 'retreat.content.price': { ru: 'По запросу', en: 'On request', ua: 'За запитом' },
 'retreat.content.cta': { ru: 'Связаться', en: 'Contact us', ua: 'Зв\'язатися' },
+
+// ─── 404 PAGE ───
+'e404.pagetitle': { ru: 'OnlyGods — 404', en: 'OnlyGods — 404', ua: 'OnlyGods — 404' },
+'e404.text': {
+  ru: 'Страница находится в квантовой суперпозиции: одновременно существует и не существует. Вы нашли пустоту. Это уже прогресс.',
+  en: 'This page exists in quantum superposition: it simultaneously is and isn\'t. You found the void. That\'s already progress.',
+  ua: 'Сторінка перебуває у квантовій суперпозиції: одночасно існує і не існує. Ви знайшли порожнечу. Це вже прогрес.'
+},
 
 // ─── GAMEOVER ARTICLE ───
 'gameover.title': { ru: 'OnlyGods — 2026: GAME OVER', en: 'OnlyGods — 2026: GAME OVER', ua: 'OnlyGods — 2026: GAME OVER' },
