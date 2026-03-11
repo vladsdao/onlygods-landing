@@ -870,9 +870,9 @@ var T = {
 
 // ─── ALIGNMENT PAGE ───
 'alignment.hero.subtitle': {
-  ru: 'Контент и Активности',
-  en: 'Content & Activities',
-  ua: 'Контент та Активності'
+  ru: 'Со-настройка через контент и активности',
+  en: 'Co-tuning through content and activities',
+  ua: 'Со-налаштування через контент та активності'
 },
 'alignment.hero.title': {
   ru: 'Alignment',
@@ -1014,14 +1014,14 @@ var T = {
   ua: 'Со-першість і синергія в бізнесі 2026. Не мотиваційний спіч — презентація того, що ми знайшли, виміряли і перевірили на собі в лабораторії OnlyGods. Як працює резонанс між людьми і чому він масштабує швидше за будь-яку стратегію'
 },
 'qk.topic2.title': {
-  ru: 'Практика: Квантовый эксперимент',
-  en: 'Practice: Quantum Experiment',
-  ua: 'Практика: Квантовий експеримент'
+  ru: 'Практика: Разборы реальных кейсов',
+  en: 'Practice: Real case studies',
+  ua: 'Практика: Розбори реальних кейсів'
 },
 'qk.topic2.desc': {
-  ru: 'Живая групповая практика на границе науки и шаманизма. Не лекция — опыт. Что происходит с полем, когда люди синхронизируются в одном пространстве. Вы это почувствуете. Или не почувствуете — и это тоже будет данные',
-  en: 'Live group practice at the edge of science and shamanism. Not a lecture — an experience. What happens to the field when people synchronize in one space. You\'ll feel it. Or you won\'t — and that will be data too',
-  ua: 'Жива групова практика на межі науки і шаманізму. Не лекція — досвід. Що відбувається з полем, коли люди синхронізуються в одному просторі. Ви це відчуєте. Або не відчуєте — і це теж буде дані'
+  ru: 'Живая групповая демонстрация 5Д Сознания в работе с бизнесом. Синергия, работа с эгрегорами, снятие информации из поля',
+  en: 'Live group demonstration of 5D Consciousness in business. Synergy, working with egregores, extracting information from the field',
+  ua: 'Жива групова демонстрація 5Д Свідомості в роботі з бізнесом. Синергія, робота з егрегорами, зняття інформації з поля'
 },
 'qk.topic3.title': { ru: 'Дискуссия: Holy Creator', en: 'Discussion: Holy Creator', ua: 'Дискусія: Holy Creator' },
 'qk.topic3.desc': {
