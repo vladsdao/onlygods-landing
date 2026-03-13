@@ -2330,9 +2330,9 @@ var T = {
 
 // ─── TECHNOLOGIES PAGE ───
 'technologies.hero.subtitle': {
-  ru: 'Квантовое сознание',
-  en: 'Quantum Consciousness',
-  ua: 'Квантова свідомість'
+  ru: 'Технологии 5D сознания',
+  en: '5D Consciousness Technologies',
+  ua: 'Технології 5D свідомості'
 },
 'technologies.hero.title': {
   ru: 'Holy Tech',
@@ -2340,71 +2340,112 @@ var T = {
   ua: 'Holy Tech'
 },
 'technologies.hero.tagline': {
-  ru: 'Физика квантовой святости и цифровой интерфейс Егрегора',
-  en: 'Physics of quantum sanctity and the digital interface of the Egregore',
-  ua: 'Фізика квантової святості та цифровий інтерфейс Егрегора'
+  ru: 'Егрегор. Вайбономика. Цифровые инструменты трансформации.',
+  en: 'Egregore. Vibeonomics. Digital tools for transformation.',
+  ua: 'Егрегор. Вайбономіка. Цифрові інструменти трансформації.'
 },
-'technologies.methodology.label': {
-  ru: 'Метафизика',
-  en: 'Metaphysics',
-  ua: 'Метафізика'
+
+// Egregore
+'technologies.egregore.label': {
+  ru: 'Егрегор',
+  en: 'Egregore',
+  ua: 'Егрегор'
 },
-'technologies.methodology.title': {
-  ru: 'Reality Backend Stack',
-  en: 'Reality Backend Stack',
-  ua: 'Reality Backend Stack'
+'technologies.egregore.title': {
+  ru: 'Backend of Reality',
+  en: 'Backend of Reality',
+  ua: 'Backend of Reality'
 },
-'technologies.methodology.p1': {
-  ru: 'Метафизика и алхимия резонансной сети. Невидимая архитектура реальности — как работает поле, эгрегор и коллективное Сознание на уровне кода. Герметические принципы, вортекс математика, сакральная геометрия и квантовая физика — фундамент, на котором построена архитектура OnlyGods. Мы не верим — мы измеряем, моделируем и воспроизводим.',
-  en: 'Metaphysics and alchemy of the resonance network. The invisible architecture of reality — how the field, egregore, and collective Consciousness operate at the code level. Hermetic principles, vortex mathematics, sacred geometry and quantum physics — the foundation on which the architecture of OnlyGods is built. We don\'t believe — we measure, model and reproduce.',
-  ua: 'Метафізика та алхімія резонансної мережі. Невидима архітектура реальності — як працює поле, егрегор та колективна Свідомість на рівні коду. Герметичні принципи, вортекс математика, сакральна геометрія та квантова фізика — фундамент, на якому побудована архітектура OnlyGods. Ми не віримо — ми вимірюємо, моделюємо та відтворюємо.'
+'technologies.egregore.p1': {
+  ru: 'Единое Сознание на практике. Невидимая архитектура реальности — как работает поле, егрегор и коллективное Сознание на уровне кода. Герметические принципы, вортекс-математика, сакральная геометрия и квантовая физика — фундамент архитектуры OnlyGods. Мы не верим — мы измеряем, моделируем и воспроизводим.',
+  en: 'United Consciousness in practice. The invisible architecture of reality — how the field, egregore, and collective Consciousness operate at the code level. Hermetic principles, vortex mathematics, sacred geometry, and quantum physics — the foundation of OnlyGods architecture. We don\'t believe — we measure, model, and reproduce.',
+  ua: 'Єдина Свідомість на практиці. Невидима архітектура реальності — як працює поле, егрегор та колективна Свідомість на рівні коду. Герметичні принципи, вортекс-математика, сакральна геометрія та квантова фізика — фундамент архітектури OnlyGods. Ми не віримо — ми вимірюємо, моделюємо та відтворюємо.'
 },
-'technologies.methodology.link': {
+'technologies.egregore.link': {
   ru: 'Читать: 9 столпов →',
   en: 'Read: 9 Pillars →',
   ua: 'Читати: 9 стовпів →'
 },
-'technologies.tools.label': {
+
+// Vibeonomics
+'technologies.vibeonomics.label': {
+  ru: 'Вайбономика',
+  en: 'Vibeonomics',
+  ua: 'Вайбономіка'
+},
+'technologies.vibeonomics.title': {
+  ru: 'Creators Economy',
+  en: 'Creators Economy',
+  ua: 'Creators Economy'
+},
+'technologies.vibeonomics.p1': {
+  ru: 'Резонансная сеть экономики Творцов. Модель, где ценность создаётся через когерентность, а не конкуренцию. Внутренняя экономика сообщества, основанная на вкладе в поле, энергетическом обмене и коллективном резонансе.',
+  en: 'The resonance network of the Creators Economy. A model where value is created through coherence, not competition. A community economy built on field contribution, energy exchange, and collective resonance.',
+  ua: 'Резонансна мережа економіки Творців. Модель, де цінність створюється через когерентність, а не конкуренцію. Внутрішня економіка спільноти, заснована на внеску в поле, енергетичному обміні та колективному резонансі.'
+},
+
+// Technologies
+'technologies.tech.label': {
   ru: 'Технологии',
   en: 'Technologies',
   ua: 'Технології'
 },
-'technologies.tools.title': {
+'technologies.tech.title': {
   ru: 'Digital 5D Framework',
   en: 'Digital 5D Framework',
   ua: 'Digital 5D Framework'
 },
-'technologies.tools.p1': {
-  ru: 'Высокотехнологичные решения для преодоления ограничений человеческого существа. Цифровые инструменты расширения Сознания. Цифровая инфраструктура для визуализации эгрегора: трекинг резонанса, AI-интеграция, блокчейн-governance и инструменты энергетического менеджмента.',
-  en: 'High-tech solutions for overcoming limitations of human being. Digital tools for Consciousness expansion. Digital infrastructure for egregore visualization: resonance tracking, AI integration, blockchain governance and energy management tools.',
-  ua: 'Високотехнологічні рішення для подолання обмежень людського існування. Цифрові інструменти розширення Свідомості. Цифрова інфраструктура для візуалізації егрегора: трекінг резонансу, AI-інтеграція, блокчейн-governance та інструменти енергетичного менеджменту.'
+'technologies.tech.p1': {
+  ru: '5D Сознание встречает IR4. Цифровые инструменты расширения Сознания — трекинг резонанса, AI-интеграция, блокчейн-governance и инструменты энергетического менеджмента.',
+  en: '5D Consciousness meets IR4. Digital tools for Consciousness expansion — resonance tracking, AI integration, blockchain governance, and energy management tools.',
+  ua: '5D Свідомість зустрічає IR4. Цифрові інструменти розширення Свідомості — трекінг резонансу, AI-інтеграція, блокчейн-governance та інструменти енергетичного менеджменту.'
 },
-'technologies.proofs.label': { ru: 'Доказательства', en: 'Proofs', ua: 'Докази' },
-'technologies.proofs.title': { ru: 'Proofs', en: 'Proofs', ua: 'Proofs' },
-'technologies.proof1.label': { ru: '01', en: '01', ua: '01' },
-'technologies.proof1.title': { ru: 'Coherence Metrics', en: 'Coherence Metrics', ua: 'Coherence Metrics' },
-'technologies.proof1.desc': {
-  ru: 'Результаты измерения когерентности поля. Данные синхронизации участников в реальном времени.',
-  en: 'Field coherence measurement results. Real-time participant synchronization data.',
-  ua: 'Результати вимірювання когерентності поля. Дані синхронізації учасників у реальному часі.'
+// Interactive Tools (absorbed from Playground)
+'technologies.apps.label': { ru: 'Интерактивные инструменты', en: 'Interactive Tools', ua: 'Інтерактивні інструменти' },
+'technologies.apps.title': { ru: 'Playground', en: 'Playground', ua: 'Playground' },
+'technologies.apps.intro': {
+  ru: 'Каждый инструмент здесь — эксперимент на стыке кода и сознания. Мы строим их быстро, тестируем на поле и оставляем то, что работает. Не продукт — процесс.',
+  en: 'Every tool here is an experiment at the intersection of code and consciousness. We build fast, test on the field, and keep what works. Not a product — a process.',
+  ua: 'Кожен інструмент тут — експеримент на стику коду і свідомості. Ми будуємо швидко, тестуємо на полі і залишаємо те, що працює. Не продукт — процес.'
 },
-'technologies.proof1.status': { ru: 'Скоро →', en: 'Soon →', ua: 'Скоро →' },
-'technologies.proof2.label': { ru: '02', en: '02', ua: '02' },
-'technologies.proof2.title': { ru: 'Synergy Index', en: 'Synergy Index', ua: 'Synergy Index' },
-'technologies.proof2.desc': {
-  ru: 'Данные об усилении коллективного разума. Индекс синергии группового взаимодействия.',
-  en: 'Collective intelligence amplification data. Group interaction synergy index.',
-  ua: 'Дані про посилення колективного розуму. Індекс синергії групової взаємодії.'
+'technologies.app1.label': { ru: '01', en: '01', ua: '01' },
+'technologies.app1.title': { ru: 'Resonance Scanner', en: 'Resonance Scanner', ua: 'Resonance Scanner' },
+'technologies.app1.desc': {
+  ru: 'Визуализация состояния поля в реальном времени. Пульс когерентности группы.',
+  en: 'Real-time field state visualization. Group coherence pulse.',
+  ua: 'Візуалізація стану поля в реальному часі. Пульс когерентності групи.'
 },
-'technologies.proof2.status': { ru: 'Скоро →', en: 'Soon →', ua: 'Скоро →' },
-'technologies.proof3.label': { ru: '03', en: '03', ua: '03' },
-'technologies.proof3.title': { ru: 'Resonance Reports', en: 'Resonance Reports', ua: 'Resonance Reports' },
-'technologies.proof3.desc': {
-  ru: 'Отчёты о синхронизации участников. Визуализация резонансных паттернов.',
-  en: 'Participant synchronization reports. Resonance pattern visualization.',
-  ua: 'Звіти про синхронізацію учасників. Візуалізація резонансних патернів.'
+'technologies.app1.status': { ru: 'Скоро →', en: 'Coming soon →', ua: 'Скоро →' },
+'technologies.app2.label': { ru: '02', en: '02', ua: '02' },
+'technologies.app2.title': { ru: 'Shadow Decoder', en: 'Shadow Decoder', ua: 'Shadow Decoder' },
+'technologies.app2.desc': {
+  ru: 'AI-ассистент для деконструкции теневых паттернов. Вопросы, которые ты не задашь себе сам.',
+  en: 'AI assistant for shadow pattern deconstruction. Questions you won\'t ask yourself.',
+  ua: 'AI-асистент для деконструкції тіньових патернів. Питання, які ти не поставиш собі сам.'
 },
-'technologies.proof3.status': { ru: 'Скоро →', en: 'Soon →', ua: 'Скоро →' },
+'technologies.app2.status': { ru: 'Скоро →', en: 'Coming soon →', ua: 'Скоро →' },
+'technologies.app3.label': { ru: '03', en: '03', ua: '03' },
+'technologies.app3.title': { ru: 'Frequency Generator', en: 'Frequency Generator', ua: 'Frequency Generator' },
+'technologies.app3.desc': {
+  ru: 'Генератор аудио-частот для синхронизации. Тета, гамма, бинауральные мосты.',
+  en: 'Audio frequency generator for synchronization. Theta, gamma, binaural bridges.',
+  ua: 'Генератор аудіо-частот для синхронізації. Тета, гамма, бінауральні мости.'
+},
+'technologies.app3.status': { ru: 'Скоро →', en: 'Coming soon →', ua: 'Скоро →' },
+'technologies.app4.label': { ru: '04', en: '04', ua: '04' },
+'technologies.app4.title': { ru: 'Coherence Tracker', en: 'Coherence Tracker', ua: 'Coherence Tracker' },
+'technologies.app4.desc': {
+  ru: 'Персональный дневник когерентности. Отслеживай паттерны, находи свой ритм.',
+  en: 'Personal coherence journal. Track patterns, find your rhythm.',
+  ua: 'Персональний щоденник когерентності. Відстежуй патерни, знаходь свій ритм.'
+},
+'technologies.app4.status': { ru: 'Скоро →', en: 'Coming soon →', ua: 'Скоро →' },
+'technologies.apps.note': {
+  ru: 'Новые инструменты появляются по мере вибрации',
+  en: 'New tools appear as the vibration demands',
+  ua: 'Нові інструменти з\'являються в міру вібрації'
+},
+
 
 // ─── EVENTS PAGE ───
 'events.hero.subtitle': {
@@ -2900,58 +2941,208 @@ var T = {
 'meta.sources.label': { ru: 'Источники', en: 'Sources', ua: 'Джерела' },
 'meta.back': { ru: '← Holy Tech', en: '← Holy Tech', ua: '← Holy Tech' },
 
-// ─── PLAYGROUND PAGE (vibecode apps) ───
-'playground.title': { ru: 'OnlyGods — Playground', en: 'OnlyGods — Playground', ua: 'OnlyGods — Playground' },
-'playground.hero.subtitle': { ru: 'Vibecoding the Reality', en: 'Vibecoding the Reality', ua: 'Vibecoding the Reality' },
-'playground.hero.title': { ru: 'Playground', en: 'Playground', ua: 'Playground' },
-'playground.hero.tagline': {
-  ru: 'Interactive User Experience',
-  en: 'Interactive User Experience',
-  ua: 'Interactive User Experience'
+// ─── ACTIVITIES PAGE (events, calendar, courses) ───
+'activities.title': { ru: 'OnlyGods — Activities', en: 'OnlyGods — Activities', ua: 'OnlyGods — Activities' },
+'activities.hero.subtitle': { ru: 'Практики и обучение', en: 'Practices & Learning', ua: 'Практики та навчання' },
+'activities.hero.title': { ru: 'Activities', en: 'Activities', ua: 'Activities' },
+'activities.hero.tagline': {
+  ru: 'Офлайн-события, курсы и инструменты трансформации',
+  en: 'Offline events, courses and transformation tools',
+  ua: 'Офлайн-події, курси та інструменти трансформації'
 },
-'playground.intro': {
-  ru: 'Каждый инструмент здесь — эксперимент на стыке кода и сознания. Мы строим их быстро, тестируем на поле и оставляем то, что работает. Не продукт — процесс.',
-  en: 'Every tool here is an experiment at the intersection of code and consciousness. We build fast, test on the field, and keep what works. Not a product — a process.',
-  ua: 'Кожен інструмент тут — експеримент на стику коду і свідомості. Ми будуємо швидко, тестуємо на полі і залишаємо те, що працює. Не продукт — процес.'
+
+// Offline Events
+'activities.events.label': { ru: 'Офлайн-события', en: 'Offline Events', ua: 'Офлайн-події' },
+'activities.events.title': { ru: 'Retreats & Gatherings', en: 'Retreats & Gatherings', ua: 'Retreats & Gatherings' },
+
+'activities.event1.month': { ru: 'Мар', en: 'Mar', ua: 'Бер' },
+'activities.event1.day': { ru: '24', en: '24', ua: '24' },
+'activities.event1.title': { ru: 'Quantum Kitchen', en: 'Quantum Kitchen', ua: 'Quantum Kitchen' },
+'activities.event1.location': { ru: 'Sintra, Portugal', en: 'Sintra, Portugal', ua: 'Sintra, Portugal' },
+'activities.event1.desc': {
+  ru: 'Закрытый ивент лаборатории сознания. Исследование, ирония, практики, закуски. Дома у Влада и Лизы в Синтре.',
+  en: 'Closed consciousness lab event. Research, irony, practices, snacks. At Vlad and Liza\'s home in Sintra.',
+  ua: 'Закритий івент лабораторії свідомості. Дослідження, іронія, практики, закуски. Вдома у Влада та Лізи в Сінтрі.'
 },
-'playground.grid.label': { ru: 'Приложения', en: 'Apps', ua: 'Додатки' },
-'playground.app1.label': { ru: '01', en: '01', ua: '01' },
-'playground.app1.title': { ru: 'Resonance Scanner', en: 'Resonance Scanner', ua: 'Resonance Scanner' },
-'playground.app1.desc': {
-  ru: 'Визуализация состояния поля в реальном времени. Пульс когерентности группы.',
-  en: 'Real-time field state visualization. Group coherence pulse.',
-  ua: 'Візуалізація стану поля в реальному часі. Пульс когерентності групи.'
+'activities.event1.link': { ru: 'Подробнее →', en: 'Learn more →', ua: 'Детальніше →' },
+
+'activities.event2.title': { ru: 'System Reboot', en: 'System Reboot', ua: 'System Reboot' },
+'activities.event2.location': { ru: 'Sintra, Portugal', en: 'Sintra, Portugal', ua: 'Sintra, Portugal' },
+'activities.event2.desc': {
+  ru: 'Personal & Couple перезагрузка. Распаковка Креативности и восстановление персонального Дао. 5 дней жизни с нами.',
+  en: 'Personal & Couple reboot. Unpacking Creativity and restoring your personal Dao. 5 days of living with us.',
+  ua: 'Personal & Couple перезавантаження. Розпакування Креативності та відновлення персонального Дао. 5 днів життя з нами.'
 },
-'playground.app1.status': { ru: 'Скоро →', en: 'Coming soon →', ua: 'Скоро →' },
-'playground.app2.label': { ru: '02', en: '02', ua: '02' },
-'playground.app2.title': { ru: 'Shadow Decoder', en: 'Shadow Decoder', ua: 'Shadow Decoder' },
-'playground.app2.desc': {
-  ru: 'AI-ассистент для деконструкции теневых паттернов. Вопросы, которые ты не задашь себе сам.',
-  en: 'AI assistant for shadow pattern deconstruction. Questions you won\'t ask yourself.',
-  ua: 'AI-асистент для деконструкції тіньових патернів. Питання, які ти не поставиш собі сам.'
+'activities.event2.tag': { ru: 'По запросу', en: 'By request', ua: 'За запитом' },
+'activities.event2.link': { ru: 'Подробнее →', en: 'Learn more →', ua: 'Детальніше →' },
+
+// Calendar
+'activities.calendar.label': { ru: 'Календарь', en: 'Calendar', ua: 'Календар' },
+'activities.calendar.title': { ru: 'Schedule', en: 'Schedule', ua: 'Schedule' },
+'activities.calendar.weekdays': { ru: 'Пн,Вт,Ср,Чт,Пт,Сб,Вс', en: 'Mon,Tue,Wed,Thu,Fri,Sat,Sun', ua: 'Пн,Вт,Ср,Чт,Пт,Сб,Нд' },
+'activities.calendar.months': {
+  ru: 'Январь,Февраль,Март,Апрель,Май,Июнь,Июль,Август,Сентябрь,Октябрь,Ноябрь,Декабрь',
+  en: 'January,February,March,April,May,June,July,August,September,October,November,December',
+  ua: 'Січень,Лютий,Березень,Квітень,Травень,Червень,Липень,Серпень,Вересень,Жовтень,Листопад,Грудень'
 },
-'playground.app2.status': { ru: 'Скоро →', en: 'Coming soon →', ua: 'Скоро →' },
-'playground.app3.label': { ru: '03', en: '03', ua: '03' },
-'playground.app3.title': { ru: 'Frequency Generator', en: 'Frequency Generator', ua: 'Frequency Generator' },
-'playground.app3.desc': {
-  ru: 'Генератор аудио-частот для синхронизации. Тета, гамма, бинауральные мосты.',
-  en: 'Audio frequency generator for synchronization. Theta, gamma, binaural bridges.',
-  ua: 'Генератор аудіо-частот для синхронізації. Тета, гамма, бінауральні мости.'
+
+// Courses & Webinars
+'activities.courses.label': { ru: 'Курсы и вебинары', en: 'Courses & Webinars', ua: 'Курси та вебінари' },
+'activities.courses.title': { ru: 'Learning', en: 'Learning', ua: 'Learning' },
+
+'activities.course1.title': { ru: 'Мы.Боги', en: 'We.Gods', ua: 'Ми.Боги' },
+'activities.course1.desc': {
+  ru: 'Флагманский курс трансформации сознания. 8 недель практик, интеграции и групповой работы. Живые сессии с Владом и Лизой.',
+  en: 'Flagship consciousness transformation course. 8 weeks of practices, integration and group work. Live sessions with Vlad and Liza.',
+  ua: 'Флагманський курс трансформації свідомості. 8 тижнів практик, інтеграції та групової роботи. Живі сесії з Владом та Лізою.'
 },
-'playground.app3.status': { ru: 'Скоро →', en: 'Coming soon →', ua: 'Скоро →' },
-'playground.app4.label': { ru: '04', en: '04', ua: '04' },
-'playground.app4.title': { ru: 'Coherence Tracker', en: 'Coherence Tracker', ua: 'Coherence Tracker' },
-'playground.app4.desc': {
-  ru: 'Персональный дневник когерентности. Отслеживай паттерны, находи свой ритм.',
-  en: 'Personal coherence journal. Track patterns, find your rhythm.',
-  ua: 'Персональний щоденник когерентності. Відстежуй патерни, знаходь свій ритм.'
+'activities.course1.tag': { ru: '8 недель · Онлайн', en: '8 weeks · Online', ua: '8 тижнів · Онлайн' },
+'activities.course1.cta': { ru: 'Узнать больше →', en: 'Learn more →', ua: 'Дізнатись більше →' },
+
+// ─── COMMUNITY PAGE ───
+'community.title': { ru: 'OnlyGods — Community', en: 'OnlyGods — Community', ua: 'OnlyGods — Community' },
+'community.hero.subtitle': { ru: 'Сообщество', en: 'Community', ua: 'Спільнота' },
+'community.hero.title': { ru: 'Community', en: 'Community', ua: 'Community' },
+'community.hero.tagline': {
+  ru: 'Путь участника, отзывы, вход в поле',
+  en: 'Member journey, reviews, and how to join',
+  ua: 'Шлях учасника, відгуки, вхід у поле'
 },
-'playground.app4.status': { ru: 'Скоро →', en: 'Coming soon →', ua: 'Скоро →' },
-'playground.note': {
-  ru: 'Новые инструменты появляются по мере вибрации',
-  en: 'New tools appear as the vibration demands',
-  ua: 'Нові інструменти з\'являються в міру вібрації'
+
+// Journey
+'community.journey.label': { ru: 'Путь участника', en: 'Member Journey', ua: 'Шлях учасника' },
+'community.journey.title': { ru: 'How It Works', en: 'How It Works', ua: 'How It Works' },
+'community.journey.intro': {
+  ru: 'Вход в OnlyGods — это путь, а не покупка. Каждый этап — фильтр и точка трансформации.',
+  en: 'Joining OnlyGods is a path, not a purchase. Each stage is a filter and a transformation point.',
+  ua: 'Вхід в OnlyGods — це шлях, а не покупка. Кожен етап — фільтр і точка трансформації.'
 },
+
+'community.step1.label': { ru: '01', en: '01', ua: '01' },
+'community.step1.title': { ru: 'Мы.Боги — курс-фильтр', en: 'We.Gods — filter course', ua: 'Ми.Боги — курс-фільтр' },
+'community.step1.desc': {
+  ru: '8 недель практик, интеграции и групповой работы. Точка входа в экосистему.',
+  en: '8 weeks of practices, integration and group work. The entry point to the ecosystem.',
+  ua: '8 тижнів практик, інтеграції та групової роботи. Точка входу в екосистему.'
+},
+
+'community.step2.label': { ru: '02', en: '02', ua: '02' },
+'community.step2.title': { ru: 'OnlyGods — поле', en: 'OnlyGods — the field', ua: 'OnlyGods — поле' },
+'community.step2.desc': {
+  ru: 'Подписка на резонансную сеть. Ежедневные практики, контент, групповые ритуалы.',
+  en: 'Subscription to the resonance network. Daily practices, content, group rituals.',
+  ua: 'Підписка на резонансну мережу. Щоденні практики, контент, групові ритуали.'
+},
+
+'community.step3.label': { ru: '03', en: '03', ua: '03' },
+'community.step3.title': { ru: 'DaoDeDo — управление', en: 'DaoDeDo — governance', ua: 'DaoDeDo — управління' },
+'community.step3.desc': {
+  ru: 'DAO-уровень. Участие в решениях, внутренняя экономика, голосование.',
+  en: 'DAO level. Participation in decisions, internal economy, voting.',
+  ua: 'DAO-рівень. Участь у рішеннях, внутрішня економіка, голосування.'
+},
+
+// Reviews
+'community.reviews.label': { ru: 'Отзывы', en: 'Reviews', ua: 'Відгуки' },
+'community.reviews.title': { ru: 'Voices from the Field', en: 'Voices from the Field', ua: 'Voices from the Field' },
+
+'community.review1.text': {
+  ru: '«Это не курс. Это перепрошивка операционной системы. После Мы.Боги я перестала путать тревогу с интуицией.»',
+  en: '"This is not a course. It\'s an OS reboot. After We.Gods I stopped confusing anxiety with intuition."',
+  ua: '«Це не курс. Це перепрошивка операційної системи. Після Ми.Боги я перестала плутати тривогу з інтуїцією.»'
+},
+'community.review1.author': { ru: '— Участник потока #2', en: '— Cohort #2 member', ua: '— Учасник потоку #2' },
+
+'community.review2.text': {
+  ru: '«Я пришёл за инструментами — остался ради поля. Здесь не продают просветление, здесь его инженерят.»',
+  en: '"I came for the tools — stayed for the field. They don\'t sell enlightenment here, they engineer it."',
+  ua: '«Я прийшов за інструментами — залишився заради поля. Тут не продають просвітлення, тут його інженерять.»'
+},
+'community.review2.author': { ru: '— Участник потока #1', en: '— Cohort #1 member', ua: '— Учасник потоку #1' },
+
+'community.review3.text': {
+  ru: '«Самый странный и самый честный проект, в котором я участвовала. Нет гуру, есть протокол.»',
+  en: '"The weirdest and most honest project I\'ve been part of. No guru, just protocol."',
+  ua: '«Найдивніший і найчесніший проєкт, у якому я брала участь. Немає гуру, є протокол.»'
+},
+'community.review3.author': { ru: '— Участник потока #3', en: '— Cohort #3 member', ua: '— Учасник потоку #3' },
+
+// Apply
+'community.apply.label': { ru: 'Вступить', en: 'Apply', ua: 'Вступити' },
+'community.apply.title': { ru: 'Join the Field', en: 'Join the Field', ua: 'Join the Field' },
+'community.apply.desc': {
+  ru: 'Вход через курс Мы.Боги. Заполни заявку — мы свяжемся.',
+  en: 'Entry through the We.Gods course. Fill out the application — we\'ll get in touch.',
+  ua: 'Вхід через курс Ми.Боги. Заповни заявку — ми зв\'яжемося.'
+},
+'community.apply.cta': { ru: 'Подать заявку →', en: 'Apply now →', ua: 'Подати заявку →' },
+
+// ─── 5D BUSINESS PAGE ───
+'business.title': { ru: 'OnlyGods — 5D Business', en: 'OnlyGods — 5D Business', ua: 'OnlyGods — 5D Business' },
+'business.hero.subtitle': { ru: '5D Бизнес', en: '5D Business', ua: '5D Бізнес' },
+'business.hero.title': { ru: '5D Business', en: '5D Business', ua: '5D Business' },
+'business.hero.tagline': {
+  ru: 'Мета-система, сервисы и материалы',
+  en: 'Meta-system, services and resources',
+  ua: 'Мета-система, сервіси та матеріали'
+},
+
+// Meta-System
+'business.meta.label': { ru: 'Мета-система', en: 'Meta-System', ua: 'Мета-система' },
+'business.meta.title': { ru: 'The Core Idea', en: 'The Core Idea', ua: 'The Core Idea' },
+'business.meta.body': {
+  ru: 'OnlyGods — не бизнес в классическом смысле. Это мета-система, где сознание является инфраструктурой, а резонанс — валютой. Мы создаём экономику, в которой ценность рождается из когерентности, а не конкуренции. Каждый элемент экосистемы — от курса до DAO — работает как единое поле.',
+  en: 'OnlyGods is not a business in the classical sense. It\'s a meta-system where consciousness is infrastructure and resonance is currency. We build an economy where value is born from coherence, not competition. Every element of the ecosystem — from course to DAO — operates as a unified field.',
+  ua: 'OnlyGods — не бізнес у класичному сенсі. Це мета-система, де свідомість є інфраструктурою, а резонанс — валютою. Ми створюємо економіку, де цінність народжується з когерентності, а не конкуренції. Кожен елемент екосистеми — від курсу до DAO — працює як єдине поле.'
+},
+
+// Services
+'business.services.label': { ru: 'Сервисы', en: 'Services', ua: 'Сервіси' },
+'business.services.title': { ru: 'What We Offer', en: 'What We Offer', ua: 'What We Offer' },
+
+'business.service1.title': { ru: 'Мы.Боги — курс', en: 'We.Gods — course', ua: 'Ми.Боги — курс' },
+'business.service1.desc': {
+  ru: '8-недельный live-курс трансформации сознания. Фильтр входа в экосистему.',
+  en: '8-week live consciousness transformation course. Entry filter to the ecosystem.',
+  ua: '8-тижневий live-курс трансформації свідомості. Фільтр входу в екосистему.'
+},
+'business.service1.price': { ru: '1 500€ / 2 месяца', en: '1,500€ / 2 months', ua: '1 500€ / 2 місяці' },
+
+'business.service2.title': { ru: 'OnlyGods — подписка', en: 'OnlyGods — subscription', ua: 'OnlyGods — підписка' },
+'business.service2.desc': {
+  ru: 'Резонансная сеть сознания. Ежедневные практики, контент, групповые ритуалы.',
+  en: 'Consciousness resonance network. Daily practices, content, group rituals.',
+  ua: 'Резонансна мережа свідомості. Щоденні практики, контент, групові ритуали.'
+},
+'business.service2.price': { ru: '936€ / год', en: '936€ / year', ua: '936€ / рік' },
+
+'business.service3.title': { ru: 'System Reboot — ретрит', en: 'System Reboot — retreat', ua: 'System Reboot — ретрит' },
+'business.service3.desc': {
+  ru: 'Персональная перезагрузка. 5 дней жизни с нами в Синтре.',
+  en: 'Personal reboot. 5 days of living with us in Sintra.',
+  ua: 'Персональне перезавантаження. 5 днів життя з нами в Сінтрі.'
+},
+'business.service3.price': { ru: 'По запросу', en: 'By request', ua: 'За запитом' },
+
+'business.service4.title': { ru: 'Консалтинг', en: 'Consulting', ua: 'Консалтинг' },
+'business.service4.desc': {
+  ru: 'Индивидуальные и парные сессии с Владом и Лизой. Бизнес, сознание, креативность.',
+  en: 'Individual and couple sessions with Vlad and Liza. Business, consciousness, creativity.',
+  ua: 'Індивідуальні та парні сесії з Владом та Лізою. Бізнес, свідомість, креативність.'
+},
+'business.service4.price': { ru: 'По запросу', en: 'By request', ua: 'За запитом' },
+
+// Articles
+'business.articles.label': { ru: 'Материалы', en: 'Resources', ua: 'Матеріали' },
+'business.articles.title': { ru: 'Articles & Media', en: 'Articles & Media', ua: 'Articles & Media' },
+
+'business.article1.title': { ru: '9 столпов квантовой святости', en: '9 Pillars of Quantum Holiness', ua: '9 стовпів квантової святості' },
+'business.article1.desc': { ru: 'Физика сознания и цифровой шаманизм', en: 'Physics of consciousness and digital shamanism', ua: 'Фізика свідомості та цифровий шаманізм' },
+'business.article1.link': { ru: 'Читать →', en: 'Read →', ua: 'Читати →' },
+
+'business.article2.title': { ru: 'IR4 — методология резонанса', en: 'IR4 — Resonance Methodology', ua: 'IR4 — методологія резонансу' },
+'business.article2.desc': { ru: 'Как измерить то, что нельзя измерить', en: 'How to measure what can\'t be measured', ua: 'Як виміряти те, що неможливо виміряти' },
+'business.article2.link': { ru: 'Читать →', en: 'Read →', ua: 'Читати →' },
 
 // ─── ROADMAP PAGE (interactive scroll timeline) ───
 'roadmap.title': { ru: 'OnlyGods — Roadmap', en: 'OnlyGods — Roadmap', ua: 'OnlyGods — Roadmap' },
