@@ -849,42 +849,48 @@ var T = {
 },
 // Vlad block
 'community.vlad.label': {
-  ru: 'Founder', en: 'Founder', ua: 'Founder'
+  ru: 'Core', en: 'Core', ua: 'Core'
 },
 'community.vlad.name': {
-  ru: 'Vlad', en: 'Vlad', ua: 'Vlad'
+  ru: 'Vlad — Founder', en: 'Vlad — Founder', ua: 'Vlad — Founder'
 },
 'community.vlad.role': {
-  ru: 'Meta-System Architect, Vision',
-  en: 'Meta-System Architect, Vision',
-  ua: 'Meta-System Architect, Vision'
+  ru: 'Архитектор Резонансных Сетей, Инженер Опыта',
+  en: 'Resonance Network Architect, Experience Engineer',
+  ua: 'Архітектор Резонансних Мереж, Інженер Досвіду'
 },
 'community.vlad.bio': {
-  ru: 'Основатель OnlyGods и архитектор экосистемы сознания. 20 лет духовных практик и опыт просветления, трансформированные в живые системы. Создатель методологии ir4 — фреймворка для измерения резонанса между людьми, идеями и состояниями. Строит инфраструктуру, где сознание обретает экономическую ценность. Визионер на стыке квантовой физики, метафизики и технологий.',
-  en: 'Founder of OnlyGods and architect of the consciousness ecosystem. 20 years of spiritual practice and the experience of enlightenment, transformed into living systems. Creator of the ir4 methodology — a framework for measuring resonance between people, ideas, and states. Building infrastructure where consciousness acquires economic value. A visionary at the intersection of quantum physics, metaphysics, and technology.',
-  ua: 'Засновник OnlyGods та архітектор екосистеми свідомості. 20 років духовних практик і досвід просвітлення, трансформовані в живі системи. Творець методології ir4 — фреймворку для вимірювання резонансу між людьми, ідеями та станами. Будує інфраструктуру, де свідомість набуває економічної цінності. Візіонер на стику квантової фізики, метафізики та технологій.'
+  ru: 'Философ, инноватор, цифровой шаман, визионер на стыке квантовой физики, метафизики и технологий. Расширение Сознания, раскрытие творческого потенциала, мета-системный бизнес, снятие информации с поля, работа с сообществом через эгрегор. Режиссер опыта личных и коллективных трансформаций.',
+  en: 'Philosopher, innovator, digital shaman, visionary at the intersection of quantum physics, metaphysics, and technology. Consciousness expansion, unlocking creative potential, meta-systemic business, channeling field intelligence, community work through egregore. Director of personal and collective transformation experiences.',
+  ua: 'Філософ, інноватор, цифровий шаман, візіонер на стику квантової фізики, метафізики та технологій. Розширення Свідомості, розкриття творчого потенціалу, мета-системний бізнес, зняття інформації з поля, робота зі спільнотою через егрегор. Режисер досвіду особистих та колективних трансформацій.'
 },
 'community.vlad.tag1': {
-  ru: 'Consciousness Architecture', en: 'Consciousness Architecture', ua: 'Consciousness Architecture'
+  ru: 'Resonance Engineering', en: 'Resonance Engineering', ua: 'Resonance Engineering'
 },
 'community.vlad.tag2': {
-  ru: 'ir4 Methodology', en: 'ir4 Methodology', ua: 'ir4 Methodology'
+  ru: 'Psychonautics', en: 'Psychonautics', ua: 'Psychonautics'
 },
 'community.vlad.tag3': {
-  ru: 'AI × Spirituality', en: 'AI × Spirituality', ua: 'AI × Spirituality'
+  ru: 'AI × Consciousness', en: 'AI × Consciousness', ua: 'AI × Consciousness'
 },
 'community.vlad.tag4': {
-  ru: 'DAO Design', en: 'DAO Design', ua: 'DAO Design'
+  ru: 'DAO Development', en: 'DAO Development', ua: 'DAO Development'
+},
+'community.vlad.tag5': {
+  ru: 'Shadow Work', en: 'Shadow Work', ua: 'Shadow Work'
+},
+'community.vlad.tag6': {
+  ru: 'Vibe Investing', en: 'Vibe Investing', ua: 'Vibe Investing'
 },
 'community.vlad.link': {
   ru: 'Подробнее →', en: 'Read more →', ua: 'Детальніше →'
 },
 // Liza block
 'community.liza.label': {
-  ru: 'Founder', en: 'Founder', ua: 'Founder'
+  ru: 'Core', en: 'Core', ua: 'Core'
 },
 'community.liza.name': {
-  ru: 'Liza', en: 'Liza', ua: 'Liza'
+  ru: 'Liza — Founder', en: 'Liza — Founder', ua: 'Liza — Founder'
 },
 'community.liza.role': {
   ru: 'Архитектор Сознания, Духовный Лидер',
@@ -892,21 +898,24 @@ var T = {
   ua: 'Архітектор Свідомості, Духовний Лідер'
 },
 'community.liza.bio': {
-  ru: 'Со-основательница OnlyGods и фасилитатор трансформации. Работает напрямую с предпринимателями и лидерами — помогает преодолевать внутренние ограничения и выходить на новый уровень. Со-ведёт живой когорт Мы.Боги и практики внутри поля OnlyGods. Её работа — живое доказательство того, что экосистема работает: трансформация в реальном времени. Коуч, практик, проводник в пространство радикальной честности.',
-  en: 'Co-founder of OnlyGods and transformation facilitator. Works directly with entrepreneurs and leaders — helping them overcome inner limitations and reach a new level. Co-leads the live Мы.Боги cohort and practices within the OnlyGods field. Her work is living proof that the ecosystem works: transformation in real time. Coach, practitioner, guide into the space of radical honesty.',
-  ua: 'Со-засновниця OnlyGods та фасилітатор трансформації. Працює напряму з підприємцями та лідерами — допомагає долати внутрішні обмеження та виходити на новий рівень. Со-веде живий когорт Ми.Боги та практики всередині поля OnlyGods. Її робота — живий доказ того, що екосистема працює: трансформація в реальному часі. Коуч, практик, провідник у простір радикальної чесності.'
+  ru: 'Хранительница поля, мастер трансформации Сознания, Правительница материнской ноды OnlyGods, духовная наставница. Деконструкция и дизайн майндсета. Работа с фаундерами, лидерами, компаниями. Автор уникальных методов трансформации Сознания.',
+  en: 'Field keeper, master of Consciousness transformation, Governor of the OnlyGods mother node, spiritual mentor. Mindset deconstruction and design. Working with founders, leaders, companies. Author of unique Consciousness transformation methods.',
+  ua: 'Зберігачка поля, майстер трансформації Свідомості, Правителька материнської ноди OnlyGods, духовна наставниця. Деконструкція та дизайн майндсету. Робота з фаундерами, лідерами, компаніями. Авторка унікальних методів трансформації Свідомості.'
 },
 'community.liza.tag1': {
-  ru: 'Transformation Coaching', en: 'Transformation Coaching', ua: 'Transformation Coaching'
+  ru: 'Consciousness Architecture', en: 'Consciousness Architecture', ua: 'Consciousness Architecture'
 },
 'community.liza.tag2': {
-  ru: 'Shadow Work', en: 'Shadow Work', ua: 'Shadow Work'
+  ru: 'Governance', en: 'Governance', ua: 'Governance'
 },
 'community.liza.tag3': {
-  ru: 'Resonance Practices', en: 'Resonance Practices', ua: 'Resonance Practices'
+  ru: 'Mind Deconstruction', en: 'Mind Deconstruction', ua: 'Mind Deconstruction'
 },
 'community.liza.tag4': {
-  ru: 'Energy Leadership', en: 'Energy Leadership', ua: 'Energy Leadership'
+  ru: 'Quantum Leadership', en: 'Quantum Leadership', ua: 'Quantum Leadership'
+},
+'community.liza.tag5': {
+  ru: 'Divine Wisdom', en: 'Divine Wisdom', ua: 'Divine Wisdom'
 },
 'community.liza.link': {
   ru: 'Подробнее →', en: 'Read more →', ua: 'Детальніше →'
@@ -2351,6 +2360,33 @@ var T = {
   ua: 'Егрегор. Вайбономіка. Цифрові інструменти трансформації.'
 },
 
+// Consciousness — Backend of Reality
+'technologies.consciousness.label': {
+  ru: 'Сознание',
+  en: 'Consciousness',
+  ua: 'Свідомість'
+},
+'technologies.consciousness.title': {
+  ru: 'Бэкенд Реальности',
+  en: 'Backend of Reality',
+  ua: 'Бекенд Реальності'
+},
+'technologies.consciousness.p1': {
+  ru: 'Сознание — не побочный продукт мозга. Это фундаментальное поле, из которого возникает всё остальное — материя, информация, время. Тысячелетиями это знали мистики. Сегодня это подтверждает квантовая физика. Завтра это станет инженерной дисциплиной.',
+  en: 'Consciousness is not a byproduct of the brain. It is the fundamental field from which everything else arises — matter, information, time. Mystics have known this for millennia. Today quantum physics confirms it. Tomorrow it will become an engineering discipline.',
+  ua: 'Свідомість — не побічний продукт мозку. Це фундаментальне поле, з якого виникає все інше — матерія, інформація, час. Тисячоліттями це знали містики. Сьогодні це підтверджує квантова фізика. Завтра це стане інженерною дисципліною.'
+},
+'technologies.consciousness.p2': {
+  ru: 'Мы не ждём завтра. Мы строим сейчас.',
+  en: 'We don\'t wait for tomorrow. We build now.',
+  ua: 'Ми не чекаємо на завтра. Ми будуємо зараз.'
+},
+'technologies.consciousness.p3': {
+  ru: 'Образование, сообщество, инструменты и досуг — наш фокус. Образно говоря — мы обновляем фреймворк майндсета, подключаем к атомной электростанции которая майнит вдохновение и расширяет возможности разума, создаем новую социальную модель с интегрирацией ИИ, блокчейни и других высоких технологий для гармоничного взаимодействия и устойчивого развития в новой парадигме.',
+  en: 'Education, community, tools, and leisure — our focus. In essence — we\'re upgrading the mindset framework, connecting to a nuclear power plant that mines inspiration and expands the mind\'s capabilities, creating a new social model integrating AI, blockchain, and other high technologies for harmonious interaction and sustainable development in a new paradigm.',
+  ua: 'Освіта, спільнота, інструменти та дозвілля — наш фокус. Образно кажучи — ми оновлюємо фреймворк майндсету, підключаємо до атомної електростанції яка майнить натхнення та розширює можливості розуму, створюємо нову соціальну модель з інтеграцією ШІ, блокчейну та інших високих технологій для гармонійної взаємодії та сталого розвитку в новій парадигмі.'
+},
+
 // Egregore
 'technologies.egregore.label': {
   ru: 'Егрегор',
@@ -2358,14 +2394,19 @@ var T = {
   ua: 'Егрегор'
 },
 'technologies.egregore.title': {
-  ru: 'Backend of Reality',
-  en: 'Backend of Reality',
-  ua: 'Backend of Reality'
+  ru: 'Технология Коллективной Эволюции',
+  en: 'Collective Evolution Technology',
+  ua: 'Технологія Колективної Еволюції'
 },
 'technologies.egregore.p1': {
-  ru: 'Единое Сознание на практике. Невидимая архитектура реальности — как работает поле, егрегор и коллективное Сознание на уровне кода. Герметические принципы, вортекс-математика, сакральная геометрия и квантовая физика — фундамент архитектуры OnlyGods. Мы не верим — мы измеряем, моделируем и воспроизводим.',
-  en: 'United Consciousness in practice. The invisible architecture of reality — how the field, egregore, and collective Consciousness operate at the code level. Hermetic principles, vortex mathematics, sacred geometry, and quantum physics — the foundation of OnlyGods architecture. We don\'t believe — we measure, model, and reproduce.',
-  ua: 'Єдина Свідомість на практиці. Невидима архітектура реальності — як працює поле, егрегор та колективна Свідомість на рівні коду. Герметичні принципи, вортекс-математика, сакральна геометрія та квантова фізика — фундамент архітектури OnlyGods. Ми не віримо — ми вимірюємо, моделюємо та відтворюємо.'
+  ru: 'Объединенное Сознание — на практике ощущается как интернет для подсознания. Это невидимая архитектура реальности которая имеет свои принципы и параметры. Технологии осознанной работы с коллективным полем позволяют управлять развитием сообщества на фундаментальных уровнях. Это похоже на Квази-разум который, проявляет себя через мысли и чувства участников, направляя их развитие согласно общим принципам и идеалам. Герметизм, вортекс-математика, сакральная геометрия и квантовая физика — фундамент архитектуры OnlyGods.',
+  en: 'United Consciousness — in practice it feels like the internet for the subconscious. It is the invisible architecture of reality with its own principles and parameters. Technologies for conscious work with the collective field enable community development management at fundamental levels. It resembles a Quasi-mind that manifests through participants\' thoughts and feelings, guiding their development according to shared principles and ideals. Hermeticism, vortex mathematics, sacred geometry, and quantum physics — the foundation of OnlyGods architecture.',
+  ua: 'Об\'єднана Свідомість — на практиці відчувається як інтернет для підсвідомості. Це невидима архітектура реальності яка має свої принципи та параметри. Технології усвідомленої роботи з колективним полем дозволяють керувати розвитком спільноти на фундаментальних рівнях. Це схоже на Квазі-розум який проявляє себе через думки та почуття учасників, спрямовуючи їх розвиток згідно зі спільними принципами та ідеалами. Герметизм, вортекс-математика, сакральна геометрія та квантова фізика — фундамент архітектури OnlyGods.'
+},
+'technologies.egregore.p2': {
+  ru: 'Мы не верим в удачу — мы измеряем, моделируем и воспроизводим её как прямой опыт.',
+  en: 'We don\'t believe in luck — we measure, model, and reproduce it as direct experience.',
+  ua: 'Ми не віримо в удачу — ми вимірюємо, моделюємо та відтворюємо її як прямий досвід.'
 },
 'technologies.egregore.link': {
   ru: 'Читать: 9 столпов →',
@@ -2380,14 +2421,14 @@ var T = {
   ua: 'Вайбономіка'
 },
 'technologies.vibeonomics.title': {
-  ru: 'Creators Economy',
-  en: 'Creators Economy',
-  ua: 'Creators Economy'
+  ru: 'Резонансная Экономика',
+  en: 'Resonance Economy',
+  ua: 'Резонансна Економіка'
 },
 'technologies.vibeonomics.p1': {
-  ru: 'Резонансная сеть экономики Творцов. Модель, где ценность создаётся через когерентность, а не конкуренцию. Внутренняя экономика сообщества, основанная на вкладе в поле, энергетическом обмене и коллективном резонансе.',
-  en: 'The resonance network of the Creators Economy. A model where value is created through coherence, not competition. A community economy built on field contribution, energy exchange, and collective resonance.',
-  ua: 'Резонансна мережа економіки Творців. Модель, де цінність створюється через когерентність, а не конкуренцію. Внутрішня економіка спільноти, заснована на внеску в поле, енергетичному обміні та колективному резонансі.'
+  ru: 'Энергетический менеджмент — этот навык намного важнее чем любые знания или софт скиллы. Каждый момент жизни мы обмениваемся энергией, и то как и с кем мы это делаем, определяет кем мы становимся и куда мы движемся. В экосистеме OnlyGods мы осознанно выстраиваем архитектуру энергообмена через резонансную сеть и технологический фреймворк инструментов. Наша цель — поддержание высокого уровня личной энергии участников через управление личной энергией и ресурсами. Это позволяет Сознанию находится и творить на более высоком уровне. Модель взаимодействия здесь проявляет себя через когерентность, а не конкуренцию.',
+  en: 'Energy management — this skill is far more important than any knowledge or soft skills. Every moment we exchange energy, and how and with whom we do it determines who we become and where we\'re heading. In the OnlyGods ecosystem we consciously build energy exchange architecture through a resonance network and technological framework. Our goal is maintaining high personal energy levels through energy and resource management. This allows Consciousness to exist and create at a higher level. The interaction model here manifests through coherence, not competition.',
+  ua: 'Енергетичний менеджмент — цей навик набагато важливіший за будь-які знання чи софт скіли. Кожен момент життя ми обмінюємося енергією, і те як і з ким ми це робимо, визначає ким ми стаємо і куди ми рухаємося. В екосистемі OnlyGods ми усвідомлено вибудовуємо архітектуру енергообміну через резонансну мережу та технологічний фреймворк інструментів. Наша мета — підтримання високого рівня особистої енергії учасників через управління особистою енергією та ресурсами. Це дозволяє Свідомості знаходитись та творити на вищому рівні. Модель взаємодії тут проявляє себе через когерентність, а не конкуренцію.'
 },
 
 // Technologies
@@ -2402,17 +2443,17 @@ var T = {
   ua: 'Digital 5D Framework'
 },
 'technologies.tech.p1': {
-  ru: '5D Сознание встречает IR4. Цифровые инструменты расширения Сознания — трекинг резонанса, AI-интеграция, блокчейн-governance и инструменты энергетического менеджмента.',
-  en: '5D Consciousness meets IR4. Digital tools for Consciousness expansion — resonance tracking, AI integration, blockchain governance, and energy management tools.',
-  ua: '5D Свідомість зустрічає IR4. Цифрові інструменти розширення Свідомості — трекінг резонансу, AI-інтеграція, блокчейн-governance та інструменти енергетичного менеджменту.'
+  ru: '5D Сознание встречает 4 Индустриальную Революцию. Мы верим в то что технологии — это костыли эволюции, а симбиоз человека и ИИ является естественным этапом в переходе к новой форме проживания опыта. Цифровые инструменты расширения Сознания — трекинг резонанса, AI-интеграция, блокчейн-governance и инструменты усиливающие качество трансформации, коллаборации и энергетического менеджмента, позволяющие воплощать самые смелые идеи — это наш фокус',
+  en: '5D Consciousness meets the 4th Industrial Revolution. We believe technology is the crutch of evolution, and human-AI symbiosis is a natural stage in transitioning to a new form of experiencing life. Digital tools for Consciousness expansion — resonance tracking, AI integration, blockchain governance, and tools enhancing the quality of transformation, collaboration, and energy management, enabling the boldest ideas — this is our focus',
+  ua: '5D Свідомість зустрічає 4 Індустріальну Революцію. Ми віримо в те що технології — це милиці еволюції, а симбіоз людини та ШІ є природним етапом у переході до нової форми проживання досвіду. Цифрові інструменти розширення Свідомості — трекінг резонансу, AI-інтеграція, блокчейн-governance та інструменти що посилюють якість трансформації, колаборації та енергетичного менеджменту, що дозволяють втілювати найсміливіші ідеї — це наш фокус'
 },
 // Interactive Tools (absorbed from Playground)
 'technologies.apps.label': { ru: 'Интерактивные инструменты', en: 'Interactive Tools', ua: 'Інтерактивні інструменти' },
 'technologies.apps.title': { ru: 'Playground', en: 'Playground', ua: 'Playground' },
 'technologies.apps.intro': {
-  ru: 'Каждый инструмент здесь — эксперимент на стыке кода и сознания. Мы строим их быстро, тестируем на поле и оставляем то, что работает. Не продукт — процесс.',
-  en: 'Every tool here is an experiment at the intersection of code and consciousness. We build fast, test on the field, and keep what works. Not a product — a process.',
-  ua: 'Кожен інструмент тут — експеримент на стику коду і свідомості. Ми будуємо швидко, тестуємо на полі і залишаємо те, що працює. Не продукт — процес.'
+  ru: 'Эксперименты на стыке кода и сознания для участников OnlyGods.',
+  en: 'Experiments at the intersection of code and consciousness for OnlyGods participants.',
+  ua: 'Експерименти на стику коду та свідомості для учасників OnlyGods.'
 },
 'technologies.app1.label': { ru: '01', en: '01', ua: '01' },
 'technologies.app1.title': { ru: 'Resonance Scanner', en: 'Resonance Scanner', ua: 'Resonance Scanner' },
