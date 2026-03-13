@@ -849,13 +849,15 @@ var T = {
 },
 // Vlad block
 'community.vlad.label': {
-  ru: 'Основатель', en: 'Founder', ua: 'Засновник'
+  ru: 'Founder', en: 'Founder', ua: 'Founder'
 },
 'community.vlad.name': {
   ru: 'Vlad', en: 'Vlad', ua: 'Vlad'
 },
 'community.vlad.role': {
-  ru: 'Architect & Visionary', en: 'Architect & Visionary', ua: 'Architect & Visionary'
+  ru: 'Архитектор 5D Систем, Режиссер Опыта',
+  en: '5D Systems Architect, Experience Director',
+  ua: 'Архітектор 5D Систем, Режисер Досвіду'
 },
 'community.vlad.bio': {
   ru: 'Основатель OnlyGods и архитектор экосистемы сознания. 20 лет духовных практик и опыт просветления, трансформированные в живые системы. Создатель методологии ir4 — фреймворка для измерения резонанса между людьми, идеями и состояниями. Строит инфраструктуру, где сознание обретает экономическую ценность. Визионер на стыке квантовой физики, метафизики и технологий.',
@@ -879,13 +881,15 @@ var T = {
 },
 // Liza block
 'community.liza.label': {
-  ru: 'Со-основательница', en: 'Co-Founder', ua: 'Со-засновниця'
+  ru: 'Founder', en: 'Founder', ua: 'Founder'
 },
 'community.liza.name': {
   ru: 'Liza', en: 'Liza', ua: 'Liza'
 },
 'community.liza.role': {
-  ru: 'Transformation Facilitator', en: 'Transformation Facilitator', ua: 'Transformation Facilitator'
+  ru: 'Архитектор Сознания, Духовный Лидер',
+  en: 'Consciousness Architect, Spiritual Leader',
+  ua: 'Архітектор Свідомості, Духовний Лідер'
 },
 'community.liza.bio': {
   ru: 'Со-основательница OnlyGods и фасилитатор трансформации. Работает напрямую с предпринимателями и лидерами — помогает преодолевать внутренние ограничения и выходить на новый уровень. Со-ведёт живой когорт Мы.Боги и практики внутри поля OnlyGods. Её работа — живое доказательство того, что экосистема работает: трансформация в реальном времени. Коуч, практик, проводник в пространство радикальной честности.',
@@ -1023,15 +1027,15 @@ var T = {
   ru: '← About Us', en: '← About Us', ua: '← About Us'
 },
 'vlad.hero.label': {
-  ru: 'Основатель', en: 'Founder', ua: 'Засновник'
+  ru: 'Founder', en: 'Founder', ua: 'Founder'
 },
 'vlad.hero.name': {
   ru: 'Vlad', en: 'Vlad', ua: 'Vlad'
 },
 'vlad.hero.tagline': {
-  ru: 'Architect of Consciousness Infrastructure',
-  en: 'Architect of Consciousness Infrastructure',
-  ua: 'Architect of Consciousness Infrastructure'
+  ru: 'Архитектор 5D Систем, Режиссер Опыта',
+  en: '5D Systems Architect, Experience Director',
+  ua: 'Архітектор 5D Систем, Режисер Досвіду'
 },
 'vlad.media.alt': {
   ru: 'Vlad', en: 'Vlad', ua: 'Vlad'
@@ -1130,13 +1134,15 @@ var T = {
   ru: '← About Us', en: '← About Us', ua: '← About Us'
 },
 'liza.hero.label': {
-  ru: 'Со-основательница', en: 'Co-Founder', ua: 'Со-засновниця'
+  ru: 'Founder', en: 'Founder', ua: 'Founder'
 },
 'liza.hero.name': {
   ru: 'Liza', en: 'Liza', ua: 'Liza'
 },
 'liza.hero.tagline': {
-  ru: 'Transformation Facilitator', en: 'Transformation Facilitator', ua: 'Transformation Facilitator'
+  ru: 'Архитектор Сознания, Духовный Лидер',
+  en: 'Consciousness Architect, Spiritual Leader',
+  ua: 'Архітектор Свідомості, Духовний Лідер'
 },
 'liza.media.alt': {
   ru: 'Liza', en: 'Liza', ua: 'Liza'
