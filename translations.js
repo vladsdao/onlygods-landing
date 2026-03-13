@@ -855,9 +855,9 @@ var T = {
   ru: 'Vlad', en: 'Vlad', ua: 'Vlad'
 },
 'community.vlad.role': {
-  ru: 'Архитектор 5D Систем, Режиссер Опыта',
-  en: '5D Systems Architect, Experience Director',
-  ua: 'Архітектор 5D Систем, Режисер Досвіду'
+  ru: 'Meta-System Architect, Vision',
+  en: 'Meta-System Architect, Vision',
+  ua: 'Meta-System Architect, Vision'
 },
 'community.vlad.bio': {
   ru: 'Основатель OnlyGods и архитектор экосистемы сознания. 20 лет духовных практик и опыт просветления, трансформированные в живые системы. Создатель методологии ir4 — фреймворка для измерения резонанса между людьми, идеями и состояниями. Строит инфраструктуру, где сознание обретает экономическую ценность. Визионер на стыке квантовой физики, метафизики и технологий.',
@@ -1033,9 +1033,9 @@ var T = {
   ru: 'Vlad', en: 'Vlad', ua: 'Vlad'
 },
 'vlad.hero.tagline': {
-  ru: 'Архитектор 5D Систем, Режиссер Опыта',
-  en: '5D Systems Architect, Experience Director',
-  ua: 'Архітектор 5D Систем, Режисер Досвіду'
+  ru: 'Meta-System Architect, Vision',
+  en: 'Meta-System Architect, Vision',
+  ua: 'Meta-System Architect, Vision'
 },
 'vlad.media.alt': {
   ru: 'Vlad', en: 'Vlad', ua: 'Vlad'
