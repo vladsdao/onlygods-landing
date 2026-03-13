@@ -186,61 +186,6 @@ body::after {
 }
 .event-link:hover { color: #1d1d1f; }
 
-/* ─── Calendar ─── */
-.calendar-wrap {
-    margin-top: 48px; max-width: 600px;
-}
-
-.calendar-header {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 24px;
-}
-
-.calendar-month {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(24px, 3vw, 32px); font-weight: 400;
-    letter-spacing: -0.5px;
-}
-
-.calendar-nav {
-    background: none; border: 1px solid rgba(29,29,31,0.15);
-    width: 36px; height: 36px; border-radius: 50%;
-    cursor: pointer; display: flex; align-items: center; justify-content: center;
-    transition: all 0.3s ease; color: #86868b; font-size: 16px;
-}
-.calendar-nav:hover { border-color: #1d1d1f; color: #1d1d1f; }
-
-.calendar-grid {
-    display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px;
-}
-
-.calendar-weekday {
-    text-align: center; padding: 8px 0;
-    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
-    color: #aeaeb2; font-weight: 500;
-}
-
-.calendar-day {
-    text-align: center; padding: 12px 0;
-    font-size: 14px; color: #48484a;
-    position: relative; border-radius: 3px;
-    transition: background 0.2s ease;
-}
-
-.calendar-day--empty { }
-
-.calendar-day--today {
-    background: #fbfbfd; font-weight: 500; color: #1d1d1f;
-}
-
-.calendar-day--has-event { cursor: pointer; }
-.calendar-day--has-event:hover { background: #f0f0f2; }
-
-.calendar-dot {
-    display: block; width: 5px; height: 5px; border-radius: 50%;
-    background: #1d1d1f; margin: 4px auto 0;
-}
-
 /* ─── Course Cards ─── */
 .courses-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px;
@@ -313,8 +258,6 @@ body::after {
     .event-card { grid-template-columns: 60px 1fr; gap: 20px; padding: 28px 20px; }
     .event-date-day { font-size: 32px; }
     .courses-grid { grid-template-columns: 1fr; }
-    .calendar-wrap { max-width: 100%; }
-    .calendar-day { padding: 10px 0; font-size: 13px; }
 }
 </style>
 </head>
@@ -326,12 +269,9 @@ body::after {
     <div class="nav-links">
         <a href="manifest.html">Manifest</a>
         <a href="technologies.html">Holy Tech</a>
-        <a href="family.html">Creators</a>
         <a href="alignment.html">Alignment</a>
         <a href="quantumlab.html">Quantum Lab</a>
         <a href="activities.html" class="active">Activities</a>
-        <a href="community.html">Membership</a>
-        <a href="business.html">5D Business</a>
         <a href="dao.html">DAO</a>
         <span class="nav-divider"></span>
         <div class="lang-switcher">
@@ -349,12 +289,9 @@ body::after {
 <div class="nav-mobile" id="nav-mobile">
     <a href="manifest.html">Manifest</a>
     <a href="technologies.html">Holy Tech</a>
-    <a href="family.html">Creators</a>
     <a href="alignment.html">Alignment</a>
     <a href="quantumlab.html">Quantum Lab</a>
     <a href="activities.html" class="active">Activities</a>
-    <a href="community.html">Membership</a>
-    <a href="business.html">5D Business</a>
     <a href="dao.html">DAO</a>
     <div class="lang-switcher">
         <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
@@ -408,24 +345,6 @@ body::after {
 
 <div class="section-divider"></div>
 
-<!-- Calendar -->
-<div class="content-section">
-    <div class="fade-in-up">
-        <div class="section-label" data-i18n="activities.calendar.label">Календарь</div>
-        <h2 class="section-title" data-i18n="activities.calendar.title">Schedule</h2>
-    </div>
-    <div class="calendar-wrap fade-in-up">
-        <div class="calendar-header">
-            <button class="calendar-nav" id="cal-prev">&#8592;</button>
-            <div class="calendar-month" id="cal-month"></div>
-            <button class="calendar-nav" id="cal-next">&#8594;</button>
-        </div>
-        <div class="calendar-grid" id="cal-grid"></div>
-    </div>
-</div>
-
-<div class="section-divider"></div>
-
 <!-- Courses & Webinars -->
 <div class="content-section">
     <div class="fade-in-up">
@@ -453,87 +372,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 
-    // ─── Calendar ───
-    const events = [
-        { year: 2026, month: 2, day: 24 }   // Mar 24 — Quantum Kitchen (month 0-indexed: 2 = March)
-    ];
-
-    let calYear = new Date().getFullYear();
-    let calMonth = new Date().getMonth();
-
-    function getLang() {
-        return window.OGLang ? OGLang.getLang() : 'ru';
-    }
-
-    function getMonthNames() {
-        const lang = getLang();
-        if (typeof T !== 'undefined' && T['activities.calendar.months'] && T['activities.calendar.months'][lang]) {
-            return T['activities.calendar.months'][lang].split(',');
-        }
-        return 'Январь,Февраль,Март,Апрель,Май,Июнь,Июль,Август,Сентябрь,Октябрь,Ноябрь,Декабрь'.split(',');
-    }
-
-    function getWeekdayNames() {
-        const lang = getLang();
-        if (typeof T !== 'undefined' && T['activities.calendar.weekdays'] && T['activities.calendar.weekdays'][lang]) {
-            return T['activities.calendar.weekdays'][lang].split(',');
-        }
-        return 'Пн,Вт,Ср,Чт,Пт,Сб,Вс'.split(',');
-    }
-
-    function renderCalendar() {
-        const grid = document.getElementById('cal-grid');
-        const monthEl = document.getElementById('cal-month');
-        if (!grid || !monthEl) return;
-
-        const months = getMonthNames();
-        const weekdays = getWeekdayNames();
-        monthEl.textContent = months[calMonth] + ' ' + calYear;
-
-        let html = '';
-        weekdays.forEach(d => { html += '<div class="calendar-weekday">' + d + '</div>'; });
-
-        const firstDay = new Date(calYear, calMonth, 1).getDay();
-        const offset = firstDay === 0 ? 6 : firstDay - 1; // Monday start
-        const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-        const today = new Date();
-
-        for (let i = 0; i < offset; i++) {
-            html += '<div class="calendar-day calendar-day--empty"></div>';
-        }
-
-        for (let d = 1; d <= daysInMonth; d++) {
-            const isToday = d === today.getDate() && calMonth === today.getMonth() && calYear === today.getFullYear();
-            const hasEvent = events.some(e => e.year === calYear && e.month === calMonth && e.day === d);
-            let cls = 'calendar-day';
-            if (isToday) cls += ' calendar-day--today';
-            if (hasEvent) cls += ' calendar-day--has-event';
-            html += '<div class="' + cls + '">' + d;
-            if (hasEvent) html += '<span class="calendar-dot"></span>';
-            html += '</div>';
-        }
-
-        grid.innerHTML = html;
-    }
-
-    document.getElementById('cal-prev').addEventListener('click', () => {
-        calMonth--;
-        if (calMonth < 0) { calMonth = 11; calYear--; }
-        renderCalendar();
-    });
-
-    document.getElementById('cal-next').addEventListener('click', () => {
-        calMonth++;
-        if (calMonth > 11) { calMonth = 0; calYear++; }
-        renderCalendar();
-    });
-
-    renderCalendar();
-
-    // Re-render calendar on language change (observe <html lang> attribute)
-    new MutationObserver(() => renderCalendar()).observe(
-        document.documentElement, { attributes: true, attributeFilter: ['lang'] }
-    );
 });
 </script>
 </body>
