@@ -915,7 +915,7 @@ var T = {
   ru: 'Family', en: 'Family', ua: 'Family'
 },
 'community.member1.name': {
-  ru: 'Misha Gaydai', en: 'Misha Gaydai', ua: 'Misha Gaydai'
+  ru: 'Misha Gayday', en: 'Misha Gayday', ua: 'Misha Gayday'
 },
 'community.member1.role': {
   ru: 'Creative Producer', en: 'Creative Producer', ua: 'Creative Producer'
@@ -950,12 +950,12 @@ var T = {
 },
 
 // ─── MISHA PERSONAL PAGE ───
-'misha.title': { ru: 'OnlyGods — Misha Gaydai', en: 'OnlyGods — Misha Gaydai', ua: 'OnlyGods — Misha Gaydai' },
+'misha.title': { ru: 'OnlyGods — Misha Gayday', en: 'OnlyGods — Misha Gayday', ua: 'OnlyGods — Misha Gayday' },
 'misha.back': { ru: '← About Us', en: '← About Us', ua: '← About Us' },
 'misha.hero.label': {
   ru: 'Участник ядра', en: 'Core Member', ua: 'Учасник ядра'
 },
-'misha.hero.name': { ru: 'Misha Gaydai', en: 'Misha Gaydai', ua: 'Misha Gaydai' },
+'misha.hero.name': { ru: 'Misha Gayday', en: 'Misha Gayday', ua: 'Misha Gayday' },
 'misha.hero.tagline': {
   ru: 'Creative Producer & Family Genius',
   en: 'Creative Producer & Family Genius',
@@ -2999,83 +2999,91 @@ var T = {
 'activities.course1.tag': { ru: '8 недель · Онлайн', en: '8 weeks · Online', ua: '8 тижнів · Онлайн' },
 'activities.course1.cta': { ru: 'Узнать больше →', en: 'Learn more →', ua: 'Дізнатись більше →' },
 
-// ─── COMMUNITY PAGE ───
-'community.title': { ru: 'OnlyGods — Community', en: 'OnlyGods — Community', ua: 'OnlyGods — Community' },
-'community.hero.subtitle': { ru: 'Сообщество', en: 'Community', ua: 'Спільнота' },
-'community.hero.title': { ru: 'Community', en: 'Community', ua: 'Community' },
-'community.hero.tagline': {
+// ─── MEMBERSHIP PAGE ───
+'membership.title': { ru: 'OnlyGods — Membership', en: 'OnlyGods — Membership', ua: 'OnlyGods — Membership' },
+'membership.hero.subtitle': { ru: 'Членство', en: 'Membership', ua: 'Членство' },
+'membership.hero.title': { ru: 'Membership', en: 'Membership', ua: 'Membership' },
+'membership.hero.tagline': {
   ru: 'Путь участника, отзывы, вход в поле',
   en: 'Member journey, reviews, and how to join',
   ua: 'Шлях учасника, відгуки, вхід у поле'
 },
 
 // Journey
-'community.journey.label': { ru: 'Путь участника', en: 'Member Journey', ua: 'Шлях учасника' },
-'community.journey.title': { ru: 'How It Works', en: 'How It Works', ua: 'How It Works' },
-'community.journey.intro': {
+'membership.journey.label': { ru: 'Путь участника', en: 'Member Journey', ua: 'Шлях учасника' },
+'membership.journey.title': { ru: 'How It Works', en: 'How It Works', ua: 'How It Works' },
+'membership.journey.intro': {
   ru: 'Вход в OnlyGods — это путь, а не покупка. Каждый этап — фильтр и точка трансформации.',
   en: 'Joining OnlyGods is a path, not a purchase. Each stage is a filter and a transformation point.',
   ua: 'Вхід в OnlyGods — це шлях, а не покупка. Кожен етап — фільтр і точка трансформації.'
 },
 
-'community.step1.label': { ru: '01', en: '01', ua: '01' },
-'community.step1.title': { ru: 'Мы.Боги — курс-фильтр', en: 'We.Gods — filter course', ua: 'Ми.Боги — курс-фільтр' },
-'community.step1.desc': {
-  ru: '8 недель практик, интеграции и групповой работы. Точка входа в экосистему.',
-  en: '8 weeks of practices, integration and group work. The entry point to the ecosystem.',
-  ua: '8 тижнів практик, інтеграції та групової роботи. Точка входу в екосистему.'
+'membership.step0.label': { ru: '00', en: '00', ua: '00' },
+'membership.step0.title': { ru: 'OnlyFans — фильтр', en: 'OnlyFans — filter', ua: 'OnlyFans — фільтр' },
+'membership.step0.desc': {
+  ru: 'Первая точка контакта. Контент, энергия, вайб. Фильтр на резонанс.',
+  en: 'First point of contact. Content, energy, vibe. Resonance filter.',
+  ua: 'Перша точка контакту. Контент, енергія, вайб. Фільтр на резонанс.'
 },
 
-'community.step2.label': { ru: '02', en: '02', ua: '02' },
-'community.step2.title': { ru: 'OnlyGods — поле', en: 'OnlyGods — the field', ua: 'OnlyGods — поле' },
-'community.step2.desc': {
+'membership.step1.label': { ru: '01', en: '01', ua: '01' },
+'membership.step1.title': { ru: 'Мы.Боги — курс-сонастройка', en: 'We.Gods — attunement course', ua: 'Ми.Боги — курс-соналаштування' },
+'membership.step1.desc': {
+  ru: '8 недель практик, интеграции и групповой работы. Сонастройка с полем.',
+  en: '8 weeks of practices, integration and group work. Attunement to the field.',
+  ua: '8 тижнів практик, інтеграції та групової роботи. Соналаштування з полем.'
+},
+
+'membership.step2.label': { ru: '02', en: '02', ua: '02' },
+'membership.step2.title': { ru: 'OnlyGods — поле', en: 'OnlyGods — the field', ua: 'OnlyGods — поле' },
+'membership.step2.desc': {
   ru: 'Подписка на резонансную сеть. Ежедневные практики, контент, групповые ритуалы.',
   en: 'Subscription to the resonance network. Daily practices, content, group rituals.',
   ua: 'Підписка на резонансну мережу. Щоденні практики, контент, групові ритуали.'
 },
 
-'community.step3.label': { ru: '03', en: '03', ua: '03' },
-'community.step3.title': { ru: 'DaoDeDo — управление', en: 'DaoDeDo — governance', ua: 'DaoDeDo — управління' },
-'community.step3.desc': {
+'membership.step3.label': { ru: '03', en: '03', ua: '03' },
+'membership.step3.title': { ru: 'DaoDeDo — управление', en: 'DaoDeDo — governance', ua: 'DaoDeDo — управління' },
+'membership.step3.desc': {
   ru: 'DAO-уровень. Участие в решениях, внутренняя экономика, голосование.',
   en: 'DAO level. Participation in decisions, internal economy, voting.',
   ua: 'DAO-рівень. Участь у рішеннях, внутрішня економіка, голосування.'
 },
 
 // Reviews
-'community.reviews.label': { ru: 'Отзывы', en: 'Reviews', ua: 'Відгуки' },
-'community.reviews.title': { ru: 'Voices from the Field', en: 'Voices from the Field', ua: 'Voices from the Field' },
+'membership.reviews.label': { ru: 'Отзывы', en: 'Reviews', ua: 'Відгуки' },
+'membership.reviews.title': { ru: 'Voices from the Field', en: 'Voices from the Field', ua: 'Voices from the Field' },
 
-'community.review1.text': {
+'membership.review1.text': {
   ru: '«Это не курс. Это перепрошивка операционной системы. После Мы.Боги я перестала путать тревогу с интуицией.»',
   en: '"This is not a course. It\'s an OS reboot. After We.Gods I stopped confusing anxiety with intuition."',
   ua: '«Це не курс. Це перепрошивка операційної системи. Після Ми.Боги я перестала плутати тривогу з інтуїцією.»'
 },
-'community.review1.author': { ru: '— Участник потока #2', en: '— Cohort #2 member', ua: '— Учасник потоку #2' },
+'membership.review1.author': { ru: '— Участник потока #2', en: '— Cohort #2 member', ua: '— Учасник потоку #2' },
 
-'community.review2.text': {
+'membership.review2.text': {
   ru: '«Я пришёл за инструментами — остался ради поля. Здесь не продают просветление, здесь его инженерят.»',
   en: '"I came for the tools — stayed for the field. They don\'t sell enlightenment here, they engineer it."',
   ua: '«Я прийшов за інструментами — залишився заради поля. Тут не продають просвітлення, тут його інженерять.»'
 },
-'community.review2.author': { ru: '— Участник потока #1', en: '— Cohort #1 member', ua: '— Учасник потоку #1' },
+'membership.review2.author': { ru: '— Участник потока #1', en: '— Cohort #1 member', ua: '— Учасник потоку #1' },
 
-'community.review3.text': {
+'membership.review3.text': {
   ru: '«Самый странный и самый честный проект, в котором я участвовала. Нет гуру, есть протокол.»',
   en: '"The weirdest and most honest project I\'ve been part of. No guru, just protocol."',
   ua: '«Найдивніший і найчесніший проєкт, у якому я брала участь. Немає гуру, є протокол.»'
 },
-'community.review3.author': { ru: '— Участник потока #3', en: '— Cohort #3 member', ua: '— Учасник потоку #3' },
+'membership.review3.author': { ru: '— Участник потока #3', en: '— Cohort #3 member', ua: '— Учасник потоку #3' },
 
 // Apply
-'community.apply.label': { ru: 'Вступить', en: 'Apply', ua: 'Вступити' },
-'community.apply.title': { ru: 'Join the Field', en: 'Join the Field', ua: 'Join the Field' },
-'community.apply.desc': {
+'membership.apply.label': { ru: 'Вступить', en: 'Apply', ua: 'Вступити' },
+'membership.apply.title': { ru: 'Join the Field', en: 'Join the Field', ua: 'Join the Field' },
+'membership.apply.desc': {
   ru: 'Вход через курс Мы.Боги. Заполни заявку — мы свяжемся.',
   en: 'Entry through the We.Gods course. Fill out the application — we\'ll get in touch.',
   ua: 'Вхід через курс Ми.Боги. Заповни заявку — ми зв\'яжемося.'
 },
-'community.apply.cta': { ru: 'Подать заявку →', en: 'Apply now →', ua: 'Подати заявку →' },
+'membership.apply.cta': { ru: 'Подать заявку →', en: 'Apply now →', ua: 'Подати заявку →' },
 
 // ─── 5D BUSINESS PAGE ───
 'business.title': { ru: 'OnlyGods — 5D Business', en: 'OnlyGods — 5D Business', ua: 'OnlyGods — 5D Business' },
