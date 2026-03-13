@@ -34,9 +34,9 @@ var T = {
   ua: 'OnlyGods — Маніфест'
 },
 'community.title': {
-  ru: 'OnlyGods — Community',
-  en: 'OnlyGods — Community',
-  ua: 'OnlyGods — Community'
+  ru: 'OnlyGods — Family',
+  en: 'OnlyGods — Family',
+  ua: 'OnlyGods — Family'
 },
 'alignment.title': {
   ru: 'OnlyGods — Alignment',
@@ -842,30 +842,389 @@ var T = {
 
 // ─── COMMUNITY PAGE ───
 'community.hero.subtitle': {
-  ru: 'Архитекторы',
-  en: 'The Architects',
-  ua: 'Архітектори'
+  ru: 'Архитекторы', en: 'The Architects', ua: 'Архітектори'
 },
 'community.hero.title': {
-  ru: 'Creators',
-  en: 'Creators',
-  ua: 'Creators'
+  ru: 'About Us', en: 'About Us', ua: 'About Us'
 },
-'community.architects.label': {
-  ru: 'Основатели', en: 'Founders', ua: 'Засновники'
+// Vlad block
+'community.vlad.label': {
+  ru: 'Основатель', en: 'Founder', ua: 'Засновник'
 },
-'community.architects.names': {
-  ru: 'Vlad & Liza', en: 'Vlad & Liza', ua: 'Vlad & Liza'
+'community.vlad.name': {
+  ru: 'Vlad', en: 'Vlad', ua: 'Vlad'
 },
-'community.architects.desc': {
-  ru: 'Создатели OnlyGods. 20 лет духовных практик, опыт просветления, исследования на стыке квантовой физики и метафизики — преобразованные в живую систему передачи прямого опыта.',
-  en: 'Creators of OnlyGods. 20 years of spiritual practice, the experience of enlightenment, research at the intersection of quantum physics and metaphysics — transformed into a living system of direct experience transmission.',
-  ua: 'Творці OnlyGods. 20 років духовних практик, досвід просвітлення, дослідження на стику квантової фізики та метафізики — перетворені на живу систему передачі прямого досвіду.'
+'community.vlad.role': {
+  ru: 'Architect & Visionary', en: 'Architect & Visionary', ua: 'Architect & Visionary'
 },
+'community.vlad.bio': {
+  ru: 'Основатель OnlyGods и архитектор экосистемы сознания. 20 лет духовных практик и опыт просветления, трансформированные в живые системы. Создатель методологии ir4 — фреймворка для измерения резонанса между людьми, идеями и состояниями. Строит инфраструктуру, где сознание обретает экономическую ценность. Визионер на стыке квантовой физики, метафизики и технологий.',
+  en: 'Founder of OnlyGods and architect of the consciousness ecosystem. 20 years of spiritual practice and the experience of enlightenment, transformed into living systems. Creator of the ir4 methodology — a framework for measuring resonance between people, ideas, and states. Building infrastructure where consciousness acquires economic value. A visionary at the intersection of quantum physics, metaphysics, and technology.',
+  ua: 'Засновник OnlyGods та архітектор екосистеми свідомості. 20 років духовних практик і досвід просвітлення, трансформовані в живі системи. Творець методології ir4 — фреймворку для вимірювання резонансу між людьми, ідеями та станами. Будує інфраструктуру, де свідомість набуває економічної цінності. Візіонер на стику квантової фізики, метафізики та технологій.'
+},
+'community.vlad.tag1': {
+  ru: 'Consciousness Architecture', en: 'Consciousness Architecture', ua: 'Consciousness Architecture'
+},
+'community.vlad.tag2': {
+  ru: 'ir4 Methodology', en: 'ir4 Methodology', ua: 'ir4 Methodology'
+},
+'community.vlad.tag3': {
+  ru: 'AI × Spirituality', en: 'AI × Spirituality', ua: 'AI × Spirituality'
+},
+'community.vlad.tag4': {
+  ru: 'DAO Design', en: 'DAO Design', ua: 'DAO Design'
+},
+'community.vlad.link': {
+  ru: 'Подробнее →', en: 'Read more →', ua: 'Детальніше →'
+},
+// Liza block
+'community.liza.label': {
+  ru: 'Со-основательница', en: 'Co-Founder', ua: 'Со-засновниця'
+},
+'community.liza.name': {
+  ru: 'Liza', en: 'Liza', ua: 'Liza'
+},
+'community.liza.role': {
+  ru: 'Transformation Facilitator', en: 'Transformation Facilitator', ua: 'Transformation Facilitator'
+},
+'community.liza.bio': {
+  ru: 'Со-основательница OnlyGods и фасилитатор трансформации. Работает напрямую с предпринимателями и лидерами — помогает преодолевать внутренние ограничения и выходить на новый уровень. Со-ведёт живой когорт Мы.Боги и практики внутри поля OnlyGods. Её работа — живое доказательство того, что экосистема работает: трансформация в реальном времени. Коуч, практик, проводник в пространство радикальной честности.',
+  en: 'Co-founder of OnlyGods and transformation facilitator. Works directly with entrepreneurs and leaders — helping them overcome inner limitations and reach a new level. Co-leads the live Мы.Боги cohort and practices within the OnlyGods field. Her work is living proof that the ecosystem works: transformation in real time. Coach, practitioner, guide into the space of radical honesty.',
+  ua: 'Со-засновниця OnlyGods та фасилітатор трансформації. Працює напряму з підприємцями та лідерами — допомагає долати внутрішні обмеження та виходити на новий рівень. Со-веде живий когорт Ми.Боги та практики всередині поля OnlyGods. Її робота — живий доказ того, що екосистема працює: трансформація в реальному часі. Коуч, практик, провідник у простір радикальної чесності.'
+},
+'community.liza.tag1': {
+  ru: 'Transformation Coaching', en: 'Transformation Coaching', ua: 'Transformation Coaching'
+},
+'community.liza.tag2': {
+  ru: 'Shadow Work', en: 'Shadow Work', ua: 'Shadow Work'
+},
+'community.liza.tag3': {
+  ru: 'Resonance Practices', en: 'Resonance Practices', ua: 'Resonance Practices'
+},
+'community.liza.tag4': {
+  ru: 'Energy Leadership', en: 'Energy Leadership', ua: 'Energy Leadership'
+},
+'community.liza.link': {
+  ru: 'Подробнее →', en: 'Read more →', ua: 'Детальніше →'
+},
+// Members section
+'community.members.label': {
+  ru: 'Резонансная Семья', en: 'Aligned People', ua: 'Резонансна Сім\'я'
+},
+'community.members.title': {
+  ru: 'Family', en: 'Family', ua: 'Family'
+},
+'community.member1.name': {
+  ru: 'Misha Gaydai', en: 'Misha Gaydai', ua: 'Misha Gaydai'
+},
+'community.member1.role': {
+  ru: 'Creative Producer', en: 'Creative Producer', ua: 'Creative Producer'
+},
+'community.member1.bio': {
+  ru: 'Наш семейный участник, гений. Креативный продюсер на стыке искусства, технологий и сознания.',
+  en: 'Our family member, genius. Creative producer at the intersection of art, technology, and consciousness.',
+  ua: 'Наш сімейний учасник, геній. Креативний продюсер на стику мистецтва, технологій та свідомості.'
+},
+'community.member1.tag1': { ru: 'Creative', en: 'Creative', ua: 'Creative' },
+'community.member1.tag2': { ru: 'Production', en: 'Production', ua: 'Production' },
+'community.member1.tag3': { ru: 'Art', en: 'Art', ua: 'Art' },
+'community.member1.link': { ru: 'Подробнее →', en: 'Read More →', ua: 'Детальніше →' },
+'community.member2.name': {
+  ru: 'Daria K.', en: 'Daria K.', ua: 'Daria K.'
+},
+'community.member2.role': {
+  ru: 'Resonance Artist', en: 'Resonance Artist', ua: 'Resonance Artist'
+},
+'community.member2.bio': {
+  ru: 'Создаёт арт-объекты на стыке сакральной геометрии и цифрового искусства. Исследует визуальный язык резонанса.',
+  en: 'Creates art objects at the intersection of sacred geometry and digital art. Explores the visual language of resonance.',
+  ua: 'Створює арт-об\'єкти на стику сакральної геометрії та цифрового мистецтва. Досліджує візуальну мову резонансу.'
+},
+'community.member2.tag1': { ru: 'Art', en: 'Art', ua: 'Art' },
+'community.member2.tag2': { ru: 'Sacred Geometry', en: 'Sacred Geometry', ua: 'Sacred Geometry' },
+'community.member2.tag3': { ru: 'Digital', en: 'Digital', ua: 'Digital' },
 'community.note': {
   ru: 'Профили участников будут обновляться',
   en: 'Member profiles will be updated',
   ua: 'Профілі учасників будуть оновлюватися'
+},
+
+// ─── MISHA PERSONAL PAGE ───
+'misha.title': { ru: 'OnlyGods — Misha Gaydai', en: 'OnlyGods — Misha Gaydai', ua: 'OnlyGods — Misha Gaydai' },
+'misha.back': { ru: '← About Us', en: '← About Us', ua: '← About Us' },
+'misha.hero.label': {
+  ru: 'Участник ядра', en: 'Core Member', ua: 'Учасник ядра'
+},
+'misha.hero.name': { ru: 'Misha Gaydai', en: 'Misha Gaydai', ua: 'Misha Gaydai' },
+'misha.hero.tagline': {
+  ru: 'Creative Producer & Family Genius',
+  en: 'Creative Producer & Family Genius',
+  ua: 'Creative Producer & Family Genius'
+},
+'misha.bio.heading': {
+  ru: 'Превращаю хаос в произведение искусства. Каждый проект — это вселенная.',
+  en: 'Turning chaos into art. Every project is a universe.',
+  ua: 'Перетворюю хаос на твір мистецтва. Кожен проєкт — це всесвіт.'
+},
+'misha.bio.p1': {
+  ru: 'Креативный продюсер на стыке искусства, технологий и сознания. Наш семейный участник и гений, который видит красоту в структуре и находит структуру в красоте. Работает с визуальными нарративами, звуком и пространством.',
+  en: 'Creative producer at the intersection of art, technology, and consciousness. Our family member and genius who sees beauty in structure and finds structure in beauty. Works with visual narratives, sound, and space.',
+  ua: 'Креативний продюсер на стику мистецтва, технологій та свідомості. Наш сімейний учасник і геній, який бачить красу в структурі та знаходить структуру в красі. Працює з візуальними наративами, звуком і простором.'
+},
+'misha.bio.p2': {
+  ru: 'В экосистеме OnlyGods отвечает за креативное продюсирование — от концепции до реализации. Создаёт визуальный язык, через который идеи обретают форму и резонируют с аудиторией.',
+  en: 'Within the OnlyGods ecosystem, responsible for creative production — from concept to execution. Creates the visual language through which ideas take form and resonate with the audience.',
+  ua: 'В екосистемі OnlyGods відповідає за креативне продюсування — від концепції до реалізації. Створює візуальну мову, через яку ідеї набувають форми та резонують з аудиторією.'
+},
+'misha.bio.p3': {
+  ru: 'Мыслит образами, чувствует ритм, строит миры. Там, где другие видят контент — Миша видит искусство. Там, где другие видят проект — Миша видит живую историю.',
+  en: 'Thinks in images, feels rhythm, builds worlds. Where others see content — Misha sees art. Where others see a project — Misha sees a living story.',
+  ua: 'Мислить образами, відчуває ритм, будує світи. Там, де інші бачать контент — Міша бачить мистецтво. Там, де інші бачать проєкт — Міша бачить живу історію.'
+},
+'misha.services.title': { ru: 'Услуги', en: 'Services', ua: 'Послуги' },
+'misha.services.s1.title': { ru: 'Creative Production', en: 'Creative Production', ua: 'Creative Production' },
+'misha.services.s1.desc': {
+  ru: 'Полный цикл креативного продюсирования: от идеи и концепции до финального продукта. Видео, фото, визуальные нарративы.',
+  en: 'Full-cycle creative production: from idea and concept to final product. Video, photo, visual narratives.',
+  ua: 'Повний цикл креативного продюсування: від ідеї та концепції до фінального продукту. Відео, фото, візуальні наративи.'
+},
+'misha.services.s1.meta': { ru: 'По запросу', en: 'By request', ua: 'За запитом' },
+'misha.services.s2.title': { ru: 'Visual Identity & Art Direction', en: 'Visual Identity & Art Direction', ua: 'Visual Identity & Art Direction' },
+'misha.services.s2.desc': {
+  ru: 'Создание визуальной идентичности проектов. Арт-дирекшн, который превращает бренд в произведение искусства.',
+  en: 'Creating visual identity for projects. Art direction that turns a brand into a work of art.',
+  ua: 'Створення візуальної ідентичності проєктів. Арт-дирекшн, який перетворює бренд на твір мистецтва.'
+},
+'misha.services.s2.meta': { ru: 'Проектная основа', en: 'Project basis', ua: 'Проєктна основа' },
+'misha.services.s3.title': { ru: 'Content Architecture', en: 'Content Architecture', ua: 'Content Architecture' },
+'misha.services.s3.desc': {
+  ru: 'Стратегия и архитектура контента для проектов на стыке культуры, технологий и сознания.',
+  en: 'Content strategy and architecture for projects at the intersection of culture, technology, and consciousness.',
+  ua: 'Стратегія та архітектура контенту для проєктів на стику культури, технологій та свідомості.'
+},
+'misha.services.s3.meta': { ru: 'По запросу', en: 'By request', ua: 'За запитом' },
+'misha.media.title': { ru: 'Медиа', en: 'Media', ua: 'Медіа' },
+'misha.media.placeholder': { ru: 'Видео скоро', en: 'Video coming soon', ua: 'Відео незабаром' },
+'misha.media.m1.type': { ru: 'Проект', en: 'Project', ua: 'Проєкт' },
+'misha.media.m1.title': { ru: 'OnlyGods Visual Identity', en: 'OnlyGods Visual Identity', ua: 'OnlyGods Visual Identity' },
+'misha.booking.title': { ru: 'Коллаборация', en: 'Collaborate', ua: 'Колаборація' },
+'misha.booking.desc': {
+  ru: 'Открыт к креативным коллаборациям и продюсированию проектов.',
+  en: 'Open to creative collaborations and project production.',
+  ua: 'Відкритий до креативних колаборацій та продюсування проєктів.'
+},
+'misha.booking.cta': { ru: 'Написать', en: 'Get in Touch', ua: 'Написати' },
+
+// ─── VLAD PERSONAL PAGE ───
+'vlad.title': {
+  ru: 'OnlyGods — Vlad', en: 'OnlyGods — Vlad', ua: 'OnlyGods — Vlad'
+},
+'vlad.back': {
+  ru: '← About Us', en: '← About Us', ua: '← About Us'
+},
+'vlad.hero.label': {
+  ru: 'Основатель', en: 'Founder', ua: 'Засновник'
+},
+'vlad.hero.name': {
+  ru: 'Vlad', en: 'Vlad', ua: 'Vlad'
+},
+'vlad.hero.tagline': {
+  ru: 'Architect of Consciousness Infrastructure',
+  en: 'Architect of Consciousness Infrastructure',
+  ua: 'Architect of Consciousness Infrastructure'
+},
+'vlad.media.alt': {
+  ru: 'Vlad', en: 'Vlad', ua: 'Vlad'
+},
+'vlad.bio.heading': {
+  ru: 'Строю инфраструктуру, в которой сознание становится экономической силой.',
+  en: 'Building infrastructure where consciousness becomes an economic force.',
+  ua: 'Будую інфраструктуру, в якій свідомість стає економічною силою.'
+},
+'vlad.bio.p1': {
+  ru: '20 лет духовных практик, опыт просветления и исследования на стыке квантовой физики и метафизики привели к созданию OnlyGods — экосистемы, где сознание обретает измеримую ценность. Не теоретик и не гуру. Архитектор систем, которые работают.',
+  en: '20 years of spiritual practice, the experience of enlightenment and research at the intersection of quantum physics and metaphysics led to the creation of OnlyGods — an ecosystem where consciousness acquires measurable value. Not a theorist, not a guru. An architect of systems that work.',
+  ua: '20 років духовних практик, досвід просвітлення та дослідження на стику квантової фізики і метафізики привели до створення OnlyGods — екосистеми, де свідомість набуває вимірюваної цінності. Не теоретик і не гуру. Архітектор систем, які працюють.'
+},
+'vlad.bio.p2': {
+  ru: 'Автор методологии ir4 (In Resonance) — фреймворка для измерения и фасилитации резонанса между людьми, идеями и состояниями. Интеллектуальный хребет экосистемы. То, что отличает «чувствую» от «измеряю».',
+  en: 'Creator of the ir4 (In Resonance) methodology — a framework for measuring and facilitating resonance between people, ideas, and states. The intellectual backbone of the ecosystem. What distinguishes "I feel" from "I measure."',
+  ua: 'Автор методології ir4 (In Resonance) — фреймворку для вимірювання та фасилітації резонансу між людьми, ідеями та станами. Інтелектуальний хребет екосистеми. Те, що відрізняє «відчуваю» від «вимірюю».'
+},
+'vlad.bio.p3': {
+  ru: 'Визионер, ENTP, хаотик-креатив. Мыслю нелинейно, строю системы цивилизационного масштаба. Направляю AI-агентов на строительство того, что вижу. Вместе с Лизой создаём поле, где трансформация — не обещание, а повседневная реальность.',
+  en: 'Visionary, ENTP, chaotic-creative. I think nonlinearly, building civilization-scale systems. I direct AI agents to construct what I see. Together with Liza, we create a field where transformation is not a promise, but everyday reality.',
+  ua: 'Візіонер, ENTP, хаотик-креатив. Мислю нелінійно, будую системи цивілізаційного масштабу. Направляю AI-агентів на будівництво того, що бачу. Разом з Лізою створюємо поле, де трансформація — не обіцянка, а повсякденна реальність.'
+},
+'vlad.services.title': {
+  ru: 'Услуги', en: 'Services', ua: 'Послуги'
+},
+'vlad.services.s1.title': {
+  ru: 'Consciousness Architecture Consulting', en: 'Consciousness Architecture Consulting', ua: 'Consciousness Architecture Consulting'
+},
+'vlad.services.s1.desc': {
+  ru: 'Проектирование экосистем сознания: от архитектуры сообщества до экономических моделей, где внимание и резонанс создают реальную ценность.',
+  en: 'Designing consciousness ecosystems: from community architecture to economic models where attention and resonance create real value.',
+  ua: 'Проектування екосистем свідомості: від архітектури спільноти до економічних моделей, де увага та резонанс створюють реальну цінність.'
+},
+'vlad.services.s1.meta': {
+  ru: 'По запросу', en: 'By application', ua: 'За запитом'
+},
+'vlad.services.s2.title': {
+  ru: '1:1 Strategic Sessions', en: '1:1 Strategic Sessions', ua: '1:1 Strategic Sessions'
+},
+'vlad.services.s2.desc': {
+  ru: 'Стратегические сессии для основателей и лидеров, работающих на стыке технологий и сознания. Первые принципы, не конвенции.',
+  en: 'Strategic sessions for founders and leaders working at the intersection of technology and consciousness. First principles, not conventions.',
+  ua: 'Стратегічні сесії для засновників та лідерів, що працюють на стику технологій і свідомості. Перші принципи, не конвенції.'
+},
+'vlad.services.s2.meta': {
+  ru: '500€ / сессия', en: '500€ / session', ua: '500€ / сесія'
+},
+'vlad.services.s3.title': {
+  ru: 'Vibe Code Architecture', en: 'Vibe Code Architecture', ua: 'Vibe Code Architecture'
+},
+'vlad.services.s3.desc': {
+  ru: 'Проектирование и строительство digital-продуктов через AI-агентов. Видение → архитектура → работающий продукт. Без написания кода.',
+  en: 'Designing and building digital products through AI agents. Vision → architecture → working product. Without writing code.',
+  ua: 'Проектування та будівництво digital-продуктів через AI-агентів. Бачення → архітектура → працюючий продукт. Без написання коду.'
+},
+'vlad.services.s3.meta': {
+  ru: 'Проектная основа', en: 'Project-based', ua: 'Проектна основа'
+},
+'vlad.media.title': {
+  ru: 'Медиа', en: 'Media', ua: 'Медіа'
+},
+'vlad.media.placeholder': {
+  ru: 'Видео скоро', en: 'Video coming soon', ua: 'Відео скоро'
+},
+'vlad.media.m1.type': {
+  ru: 'Статья', en: 'Article', ua: 'Стаття'
+},
+'vlad.media.m1.title': {
+  ru: 'Физика квантово-волновой святости', en: 'Physics of Quantum-Wave Holiness', ua: 'Фізика квантово-хвильової святості'
+},
+'vlad.media.m2.type': {
+  ru: 'Исследование', en: 'Research', ua: 'Дослідження'
+},
+'vlad.media.m2.title': {
+  ru: 'ir4: Measuring Resonance', en: 'ir4: Measuring Resonance', ua: 'ir4: Measuring Resonance'
+},
+'vlad.booking.title': {
+  ru: 'Записаться на сессию', en: 'Book a Session', ua: 'Записатися на сесію'
+},
+'vlad.booking.desc': {
+  ru: 'Стратегическая сессия для тех, кто строит на стыке технологий и сознания.',
+  en: 'A strategic session for those building at the intersection of technology and consciousness.',
+  ua: 'Стратегічна сесія для тих, хто будує на стику технологій і свідомості.'
+},
+'vlad.booking.cta': {
+  ru: 'Написать', en: 'Get in Touch', ua: 'Написати'
+},
+
+// ─── LIZA PERSONAL PAGE ───
+'liza.title': {
+  ru: 'OnlyGods — Liza', en: 'OnlyGods — Liza', ua: 'OnlyGods — Liza'
+},
+'liza.back': {
+  ru: '← About Us', en: '← About Us', ua: '← About Us'
+},
+'liza.hero.label': {
+  ru: 'Со-основательница', en: 'Co-Founder', ua: 'Со-засновниця'
+},
+'liza.hero.name': {
+  ru: 'Liza', en: 'Liza', ua: 'Liza'
+},
+'liza.hero.tagline': {
+  ru: 'Transformation Facilitator', en: 'Transformation Facilitator', ua: 'Transformation Facilitator'
+},
+'liza.media.alt': {
+  ru: 'Liza', en: 'Liza', ua: 'Liza'
+},
+'liza.bio.heading': {
+  ru: 'Трансформация — не обещание. Это то, что происходит прямо сейчас.',
+  en: 'Transformation is not a promise. It\'s what\'s happening right now.',
+  ua: 'Трансформація — не обіцянка. Це те, що відбувається просто зараз.'
+},
+'liza.bio.p1': {
+  ru: 'Со-основательница OnlyGods и фасилитатор трансформации. Работает напрямую с предпринимателями и лидерами, помогая им преодолевать внутренние ограничения и выходить на принципиально новый уровень функционирования. Не мотивационный коуч — проводник через реальные изменения.',
+  en: 'Co-founder of OnlyGods and transformation facilitator. Works directly with entrepreneurs and leaders, helping them overcome inner limitations and reach a fundamentally new level of functioning. Not a motivational coach — a guide through real change.',
+  ua: 'Со-засновниця OnlyGods та фасилітатор трансформації. Працює напряму з підприємцями та лідерами, допомагаючи їм долати внутрішні обмеження та виходити на принципово новий рівень функціонування. Не мотиваційний коуч — провідник через реальні зміни.'
+},
+'liza.bio.p2': {
+  ru: 'Со-ведёт живой когорт Мы.Боги вместе с Владом и ведёт практики внутри поля OnlyGods. Её присутствие — живое доказательство того, что экосистема работает: трансформация в реальном времени, не в теории.',
+  en: 'Co-leads the live Мы.Боги cohort with Vlad and leads practices within the OnlyGods field. Her presence is living proof that the ecosystem works: transformation in real time, not in theory.',
+  ua: 'Со-веде живий когорт Ми.Боги разом із Владом та веде практики всередині поля OnlyGods. Її присутність — живий доказ того, що екосистема працює: трансформація в реальному часі, не в теорії.'
+},
+'liza.bio.p3': {
+  ru: 'Коуч, практик, проводник в пространство радикальной честности. Работает с тенью, энергией, резонансом. Там, где Влад строит архитектуру, Лиза держит пространство трансформации.',
+  en: 'Coach, practitioner, guide into the space of radical honesty. Works with shadow, energy, resonance. Where Vlad builds architecture, Liza holds the space of transformation.',
+  ua: 'Коуч, практик, провідник у простір радикальної чесності. Працює з тінню, енергією, резонансом. Там, де Влад будує архітектуру, Ліза тримає простір трансформації.'
+},
+'liza.services.title': {
+  ru: 'Услуги', en: 'Services', ua: 'Послуги'
+},
+'liza.services.s1.title': {
+  ru: '1:1 Transformation Coaching', en: '1:1 Transformation Coaching', ua: '1:1 Transformation Coaching'
+},
+'liza.services.s1.desc': {
+  ru: 'Индивидуальная работа с предпринимателями и лидерами. Преодоление внутренних блоков, выход на новый уровень сознания и действия.',
+  en: 'Individual work with entrepreneurs and leaders. Overcoming inner blocks, reaching a new level of consciousness and action.',
+  ua: 'Індивідуальна робота з підприємцями та лідерами. Подолання внутрішніх блоків, вихід на новий рівень свідомості та дії.'
+},
+'liza.services.s1.meta': {
+  ru: 'По запросу', en: 'By application', ua: 'За запитом'
+},
+'liza.services.s2.title': {
+  ru: 'Shadow Work Sessions', en: 'Shadow Work Sessions', ua: 'Shadow Work Sessions'
+},
+'liza.services.s2.desc': {
+  ru: 'Глубинная работа с теневыми аспектами личности. Интеграция отвергнутых частей в целостную систему.',
+  en: 'Deep work with shadow aspects of personality. Integration of rejected parts into a whole system.',
+  ua: 'Глибинна робота з тіньовими аспектами особистості. Інтеграція відкинутих частин у цілісну систему.'
+},
+'liza.services.s2.meta': {
+  ru: 'По запросу', en: 'By application', ua: 'За запитом'
+},
+'liza.services.s3.title': {
+  ru: 'Resonance Practices', en: 'Resonance Practices', ua: 'Resonance Practices'
+},
+'liza.services.s3.desc': {
+  ru: 'Групповые и индивидуальные практики резонанса внутри поля OnlyGods. Доступно участникам экосистемы.',
+  en: 'Group and individual resonance practices within the OnlyGods field. Available to ecosystem members.',
+  ua: 'Групові та індивідуальні практики резонансу всередині поля OnlyGods. Доступно учасникам екосистеми.'
+},
+'liza.services.s3.meta': {
+  ru: 'Для участников OnlyGods', en: 'For OnlyGods members', ua: 'Для учасників OnlyGods'
+},
+'liza.media.title': {
+  ru: 'Медиа', en: 'Media', ua: 'Медіа'
+},
+'liza.media.placeholder': {
+  ru: 'Видео скоро', en: 'Video coming soon', ua: 'Відео скоро'
+},
+'liza.media.m1.type': {
+  ru: 'Практика', en: 'Practice', ua: 'Практика'
+},
+'liza.media.m1.title': {
+  ru: 'Практики резонанса в поле OnlyGods', en: 'Resonance Practices in the OnlyGods Field', ua: 'Практики резонансу в полі OnlyGods'
+},
+'liza.media.m2.type': {
+  ru: 'Статья', en: 'Article', ua: 'Стаття'
+},
+'liza.media.m2.title': {
+  ru: 'Трансформация через радикальную честность', en: 'Transformation Through Radical Honesty', ua: 'Трансформація через радикальну чесність'
+},
+'liza.booking.title': {
+  ru: 'Записаться на сессию', en: 'Book a Session', ua: 'Записатися на сесію'
+},
+'liza.booking.desc': {
+  ru: 'Индивидуальная сессия трансформации для тех, кто готов к радикальным изменениям.',
+  en: 'An individual transformation session for those ready for radical change.',
+  ua: 'Індивідуальна сесія трансформації для тих, хто готовий до радикальних змін.'
+},
+'liza.booking.cta': {
+  ru: 'Написать', en: 'Get in Touch', ua: 'Написати'
 },
 
 // ─── ALIGNMENT PAGE ───
