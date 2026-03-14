@@ -168,17 +168,14 @@ class OGAuth {
         const invite = this._pendingInvite;
         if (!invite) return false;
 
-        const links = {};
-        if (telegram) links.telegram = telegram;
-
         const { data: member, error } = await sb
             .from('members')
             .insert({
                 name,
                 email: email || null,
+                contact: telegram || null,
                 role: 'member',
-                membership_status: 'active',
-                links: Object.keys(links).length > 0 ? links : null,
+                status: 'active',
             })
             .select()
             .single();
@@ -199,7 +196,7 @@ class OGAuth {
             name: member.name,
             role: member.role,
             avatar_url: member.avatar_url,
-            membership_status: member.membership_status,
+            status: member.status,
         }));
 
         this._pendingInvite = null;
