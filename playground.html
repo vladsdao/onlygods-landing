@@ -1,334 +1,882 @@
 <!DOCTYPE html>
-<html lang="ru" data-i18n-title="playground.title">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OnlyGods — Playground</title>
+<title>OnlyGods — Sanctuary</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 body, html {
-    font-family: 'DM Sans', sans-serif;
-    background-color: #ffffff; color: #1d1d1f;
-    overflow-x: hidden; scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background: #0a0a08;
+    font-family: 'Cormorant Garamond', serif;
+    -webkit-font-smoothing: antialiased;
+    cursor: none;
 }
 
-::selection { background: rgba(29, 29, 31, 0.12); }
+/* Custom cursor — soft glow dot */
+#cursor {
+    position: fixed;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,190,140,0.6) 0%, rgba(212,190,140,0) 70%);
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s, opacity 0.4s;
+    mix-blend-mode: screen;
+}
+#cursor.hover {
+    width: 50px; height: 50px;
+}
 
-/* Film grain overlay */
-body::after {
-    content: '';
+/* Full-screen canvas */
+#c {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.025;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 256px 256px;
+    display: block;
 }
 
+/* Entrance overlay — the breathing door */
+#entrance {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #0a0a08;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 2s cubic-bezier(0.25, 0, 0, 1);
+}
+#entrance.gone {
+    opacity: 0;
+    pointer-events: none;
+}
+#entrance h1 {
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 300;
+    color: rgba(212, 190, 140, 0.7);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    animation: breathe 4s ease-in-out infinite;
+}
+#entrance .sub {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(212, 190, 140, 0.25);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 24px;
+    animation: breathe 4s ease-in-out infinite 0.5s;
+}
+@keyframes breathe {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* Sync overlay — when vortex is activated */
+#sync-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+#sync-overlay.active {
+    opacity: 1;
+}
+#sync-overlay .sync-text {
+    font-size: clamp(20px, 3.5vw, 40px);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.8;
+}
+#sync-overlay .sync-sub {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 32px;
+}
+
+/* Minimal nav — appears on mouse near top */
 .site-nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 200;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 40px; height: 60px;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    background: linear-gradient(to bottom, rgba(10,10,8,0.6) 0%, transparent 100%);
 }
-
-.nav-wordmark {
+.site-nav.visible { opacity: 1; }
+.site-nav a {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 500; color: #1d1d1f;
-    text-decoration: none; letter-spacing: -0.5px;
+    font-size: 16px; font-weight: 400; color: rgba(212,190,140,0.5);
+    text-decoration: none; letter-spacing: 1px;
+    transition: color 0.3s;
+}
+.site-nav a:hover { color: rgba(212,190,140,0.9); }
+.site-nav .nav-enter {
+    padding: 6px 20px;
+    border: 1px solid rgba(212,190,140,0.25);
+    border-radius: 20px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.4s;
+}
+.site-nav .nav-enter:hover {
+    border-color: rgba(212,190,140,0.6);
+    background: rgba(212,190,140,0.08);
+    color: rgba(212,190,140,1);
 }
 
-.nav-links { display: flex; align-items: center; gap: 32px; }
-
-.nav-links a {
-    font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
-    color: #86868b; text-decoration: none; font-weight: 500;
-    transition: color 0.3s ease; position: relative;
+/* Portal overlay — appears after sync */
+#portal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 95;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 2s ease;
 }
-.nav-links a:hover { color: #1d1d1f; }
-.nav-links a.active { color: #1d1d1f; }
-.nav-links a.active::after {
-    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-    height: 1px; background: #1d1d1f;
+#portal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
 }
-
-.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-.nav-burger span { display: block; width: 20px; height: 1.5px; background: #1d1d1f; transition: transform 0.3s ease, opacity 0.3s ease; }
-.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-burger.open span:nth-child(2) { opacity: 0; }
-.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-.nav-join {
-    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
-    padding: 6px 16px; border: 1px solid #1d1d1f; border-radius: 20px;
-    color: #1d1d1f; text-decoration: none; font-weight: 500;
-    margin-left: 16px; margin-right: auto; transition: all 0.3s ease;
-}
-.nav-join:hover { background: #1d1d1f; color: #ffffff; }
-
-.nav-mobile {
-    display: none; position: fixed; top: 60px; left: 0; right: 0;
-    background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    padding: 20px 40px 32px; flex-direction: column; gap: 20px; z-index: 999;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-}
-.nav-mobile.open { display: flex; }
-.nav-mobile a {
-    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
-    color: #86868b; text-decoration: none; font-weight: 500; transition: color 0.3s ease;
-}
-.nav-mobile a:hover, .nav-mobile a.active { color: #1d1d1f; }
-
-.page-hero {
-    min-height: 70vh; display: flex; flex-direction: column;
-    justify-content: center; align-items: center; text-align: center;
-    padding: 120px 20px 80px;
-}
-
-.page-hero .hero-subtitle {
-    font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;
-    color: #86868b; margin-bottom: 20px; font-weight: 500;
-}
-
-.page-hero h1 {
+.portal-link {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(40px, 7vw, 88px); font-weight: 400;
-    letter-spacing: -2px; line-height: 1;
-    max-width: 800px;
-}
-
-.page-hero .hero-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(17px, 2vw, 21px); color: #86868b;
-    max-width: 560px; line-height: 1.55; font-weight: 400;
-    font-style: italic; margin-top: 24px;
-}
-
-.hero-auth-buttons {
-    display: flex; gap: 16px; margin-top: 40px;
-    align-items: center; justify-content: center;
-}
-
-.hero-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 32px; border-radius: 28px;
-    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
-    letter-spacing: 0.5px; text-decoration: none; transition: all 0.3s ease;
+    font-size: clamp(22px, 4vw, 44px);
+    font-weight: 300;
+    color: rgba(212, 190, 140, 0.85);
+    text-decoration: none;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    padding: 16px 48px;
+    border: 1px solid rgba(212, 190, 140, 0.2);
+    border-radius: 4px;
+    transition: all 0.6s ease;
+    animation: breathe 4s ease-in-out infinite;
     cursor: pointer;
 }
-
-.hero-btn-primary {
-    background: #1d1d1f; color: #ffffff; border: 1px solid #1d1d1f;
+.portal-link:hover {
+    border-color: rgba(212, 190, 140, 0.6);
+    background: rgba(212, 190, 140, 0.06);
+    color: rgba(212, 190, 140, 1);
+    letter-spacing: 10px;
 }
-.hero-btn-primary:hover { background: #48484a; border-color: #48484a; }
-.hero-btn-primary svg { width: 18px; height: 18px; }
-
-.hero-btn-secondary {
-    background: transparent; color: #1d1d1f;
-    border: 1px solid rgba(29,29,31,0.25);
-}
-.hero-btn-secondary:hover { border-color: rgba(29,29,31,0.5); background: rgba(29,29,31,0.04); }
-
-.content-section { max-width: 1080px; margin: 0 auto; padding: 100px 40px; }
-
-.section-label {
-    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
-    color: #86868b; margin-bottom: 20px; font-weight: 500;
+.portal-sub {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(212, 190, 140, 0.25);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 20px;
 }
 
-.section-divider { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
-.section-divider::after { content: ''; display: block; width: 100%; height: 40px; background: radial-gradient(ellipse 200px 1px at 50% 50%, rgba(29,29,31,0.08) 0%, transparent 100%), radial-gradient(ellipse 400px 1px at 50% 50%, rgba(29,29,31,0.04) 0%, transparent 100%), radial-gradient(ellipse 600px 1px at 50% 50%, rgba(29,29,31,0.02) 0%, transparent 100%); }
-
-.body-text { font-size: 17px; color: #48484a; line-height: 1.75; max-width: 860px; }
-
-/* Research cards grid */
-.research-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
-    margin-top: 48px;
+/* Interaction hint */
+#hint {
+    position: fixed;
+    bottom: 40px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 80;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(212,190,140,0);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: color 1s ease;
+    pointer-events: none;
 }
-
-.research-card {
-    padding: 48px; background: #fbfbfd; border-radius: 3px;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    min-height: 200px; display: flex; flex-direction: column; justify-content: flex-end;
-}
-
-.research-card:hover { transform: translateY(-6px); }
-
-.research-card .card-label {
-    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
-    color: #aeaeb2; margin-bottom: 12px; font-weight: 500;
-}
-
-.research-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(22px, 3vw, 30px); font-weight: 400;
-    letter-spacing: -0.3px; line-height: 1.2; margin-bottom: 12px;
-}
-
-.research-card .card-desc {
-    font-size: 15px; color: #86868b; line-height: 1.6;
-}
-
-.research-card .card-status {
-    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
-    color: #aeaeb2; margin-top: 16px;
-}
-
-.section-note {
-    text-align: center; color: #aeaeb2; font-size: 14px;
-    letter-spacing: 1px; margin-top: 48px; font-style: italic;
-}
-
-.site-footer {
-    text-align: center; padding: 60px 20px 40px;
-    color: #aeaeb2; font-size: 13px; letter-spacing: 0.5px;
-}
-
-.fade-in-up {
-    opacity: 0; transform: translateY(36px);
-    transition: opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1), transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.fade-in-up.visible { opacity: 1; transform: translateY(0); }
-.stagger-1 { transition-delay: 0.05s; }
-.stagger-2 { transition-delay: 0.12s; }
-.stagger-3 { transition-delay: 0.19s; }
-.stagger-4 { transition-delay: 0.26s; }
-
-@media (max-width: 768px) {
-    .content-section { padding: 60px 20px; }
-    .research-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-    .nav-burger { display: flex; }
-    .site-nav { padding: 0 20px; }
+#hint.visible {
+    color: rgba(212,190,140,0.35);
 }
 </style>
 </head>
 <body>
 
-<nav class="site-nav">
-    <a href="index.html" class="nav-wordmark">OnlyGods</a>
-    <a href="index.html#join" class="nav-join" data-i18n="nav.join">Join</a>
-    <div class="nav-links">
-        <a href="manifest.html">Manifest</a>
-        <a href="technologies.html">Holy Tech</a>
-        <a href="family.html">About Us</a>
-        <a href="alignment.html">Alignment</a>
-        <a href="quantumlab.html">Quantum Lab</a>
-        <a href="playground.html" class="active">Playground</a>
-        <a href="dao.html">DAO</a>
-        <span class="nav-divider"></span>
-        <div class="lang-switcher">
-            <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
-            <span class="lang-sep">/</span>
-            <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
-            <span class="lang-sep">/</span>
-            <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
-        </div>
-    </div>
-    <div class="nav-burger" id="nav-burger" onclick="this.classList.toggle('open'); document.getElementById('nav-mobile').classList.toggle('open');">
-        <span></span><span></span><span></span>
-    </div>
+<div id="cursor"></div>
+
+<nav class="site-nav" id="nav">
+    <a href="index.html">OnlyGods</a>
+    <a href="app.html" class="nav-enter">Enter Field</a>
 </nav>
-<div class="nav-mobile" id="nav-mobile">
-    <a href="manifest.html">Manifest</a>
-    <a href="technologies.html">Holy Tech</a>
-    <a href="family.html">About Us</a>
-    <a href="alignment.html">Alignment</a>
-    <a href="quantumlab.html">Quantum Lab</a>
-    <a href="playground.html" class="active">Playground</a>
-    <a href="dao.html">DAO</a>
-    <div class="lang-switcher">
-        <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
-        <span class="lang-sep">/</span>
-        <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
-        <span class="lang-sep">/</span>
-        <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
-    </div>
+
+<div id="entrance">
+    <h1>Sanctuary</h1>
+    <div class="sub">Enter</div>
 </div>
 
-<section class="page-hero">
-    <div class="fade-in-up">
-        <div class="hero-subtitle" data-i18n="playground.hero.subtitle">Vibecoding the Reality</div>
-        <h1 data-i18n="playground.hero.title">Playground</h1>
-        <p class="hero-tagline" data-i18n="playground.hero.tagline">Interactive User Experience</p>
-        <div class="hero-auth-buttons">
-            <a href="https://t.me/OnlyVlad_bot" target="_blank" class="hero-btn hero-btn-primary">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-                Log In
-            </a>
-            <a href="https://t.me/OnlyVlad_bot?start=join" target="_blank" class="hero-btn hero-btn-secondary">Sign Up</a>
-        </div>
-    </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- Intro -->
-<div class="content-section">
-    <div class="fade-in-up">
-        <p class="body-text" data-i18n="playground.intro">Каждый инструмент здесь — эксперимент на стыке кода и сознания. Мы строим их быстро, тестируем на поле и оставляем то, что работает. Не продукт — процесс.</p>
-    </div>
+<div id="sync-overlay">
+    <div class="sync-text">Synchronizing</div>
+    <div class="sync-sub">Breathe</div>
 </div>
 
-<div class="section-divider"></div>
-
-<!-- Apps Grid -->
-<div class="content-section">
-    <div class="fade-in-up">
-        <div class="section-label" data-i18n="playground.grid.label">Приложения</div>
-    </div>
-    <div class="research-grid">
-        <div class="research-card fade-in-up stagger-1">
-            <div class="card-label" data-i18n="playground.app1.label">01</div>
-            <h3 data-i18n="playground.app1.title">Resonance Scanner</h3>
-            <p class="card-desc" data-i18n="playground.app1.desc">Визуализация состояния поля в реальном времени. Пульс когерентности группы.</p>
-            <span class="card-status" data-i18n="playground.app1.status">Скоро →</span>
-        </div>
-        <div class="research-card fade-in-up stagger-2">
-            <div class="card-label" data-i18n="playground.app2.label">02</div>
-            <h3 data-i18n="playground.app2.title">Shadow Decoder</h3>
-            <p class="card-desc" data-i18n="playground.app2.desc">AI-ассистент для деконструкции теневых паттернов. Вопросы, которые ты не задашь себе сам.</p>
-            <span class="card-status" data-i18n="playground.app2.status">Скоро →</span>
-        </div>
-        <div class="research-card fade-in-up stagger-3">
-            <div class="card-label" data-i18n="playground.app3.label">03</div>
-            <h3 data-i18n="playground.app3.title">Frequency Generator</h3>
-            <p class="card-desc" data-i18n="playground.app3.desc">Генератор аудио-частот для синхронизации. Тета, гамма, бинауральные мосты.</p>
-            <span class="card-status" data-i18n="playground.app3.status">Скоро →</span>
-        </div>
-        <div class="research-card fade-in-up stagger-4">
-            <div class="card-label" data-i18n="playground.app4.label">04</div>
-            <h3 data-i18n="playground.app4.title">Coherence Tracker</h3>
-            <p class="card-desc" data-i18n="playground.app4.desc">Персональный дневник когерентности. Отслеживай паттерны, находи свой ритм.</p>
-            <span class="card-status" data-i18n="playground.app4.status">Скоро →</span>
-        </div>
-    </div>
-    <p class="section-note" data-i18n="playground.note">Новые инструменты появляются по мере вибрации</p>
+<div id="portal-overlay">
+    <a href="app.html" class="portal-link">Enter the Field</a>
+    <div class="portal-sub">consciousness awaits</div>
 </div>
 
-<footer class="site-footer">OnlyGods</footer>
+<div id="hint">approach the light</div>
 
-<script src="translations.js"></script>
+<canvas id="c"></canvas>
+
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
-});
+(function() {
+    'use strict';
+
+    // ════════════════════════════════════════
+    // STATE
+    // ════════════════════════════════════════
+    const mouse = { x: 0, y: 0, nx: 0, ny: 0 }; // nx/ny = normalized -1..1
+    let phase = 'entrance'; // entrance | chamber | sync | post
+    let syncProgress = 0;
+    let vortexHover = false;
+    let entered = false;
+    let introProgress = 0; // 0..1 camera descent
+
+    // ════════════════════════════════════════
+    // RENDERER
+    // ════════════════════════════════════════
+    const canvas = document.getElementById('c');
+    const renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: true,
+        alpha: false,
+        powerPreference: 'high-performance'
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.6;
+    renderer.setClearColor(0x0a0a08);
+
+    // ════════════════════════════════════════
+    // SCENE & CAMERA
+    // ════════════════════════════════════════
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x2a2418, 0.008);
+
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 200);
+    camera.position.set(0, 20, 0.01); // start looking down from peak
+    camera.lookAt(0, 0, 0);
+
+    // ════════════════════════════════════════
+    // LIGHTING — warm, luminous, sacred
+    // ════════════════════════════════════════
+    // Ambient — warm, generous base
+    const ambient = new THREE.AmbientLight(0x584838, 1.2);
+    scene.add(ambient);
+
+    // Hemisphere — golden sky, warm floor
+    const hemi = new THREE.HemisphereLight(0xffecd0, 0x3a2818, 0.8);
+    scene.add(hemi);
+
+    // Main light — from apex, like sunlight pouring through the peak
+    const apex = new THREE.PointLight(0xffe8c0, 4, 80, 1.2);
+    apex.position.set(0, 23, 0);
+    scene.add(apex);
+
+    // Secondary apex — broader, softer
+    const apex2 = new THREE.PointLight(0xffd4a0, 1.5, 60, 1.5);
+    apex2.position.set(0, 18, 0);
+    scene.add(apex2);
+
+    // Warm fill lights from walls — brighter
+    const fill1 = new THREE.PointLight(0xd4a050, 0.8, 30);
+    fill1.position.set(10, 5, 0);
+    scene.add(fill1);
+    const fill2 = new THREE.PointLight(0xd4a050, 0.8, 30);
+    fill2.position.set(-10, 5, 0);
+    scene.add(fill2);
+    const fill3 = new THREE.PointLight(0xd4a050, 0.6, 30);
+    fill3.position.set(0, 5, 10);
+    scene.add(fill3);
+    const fill4 = new THREE.PointLight(0xd4a050, 0.6, 30);
+    fill4.position.set(0, 5, -10);
+    scene.add(fill4);
+
+    // Vortex core light — warm white
+    const vortexLight = new THREE.PointLight(0xfff0d0, 2.5, 25, 1.5);
+    vortexLight.position.set(0, 3, 0);
+    scene.add(vortexLight);
+
+    // ════════════════════════════════════════
+    // PYRAMID CHAMBER — luminous sandstone
+    // ════════════════════════════════════════
+    function buildChamber() {
+        const wallMat = new THREE.MeshStandardMaterial({
+            color: 0x8a7a60,
+            roughness: 0.65,
+            metalness: 0.08,
+            side: THREE.BackSide,
+        });
+
+        // Pyramid shell (inverted cone — we're inside)
+        const pyramidGeo = new THREE.ConeGeometry(16, 24, 4, 1, true);
+        const pyramid = new THREE.Mesh(pyramidGeo, wallMat);
+        pyramid.position.y = 12;
+        pyramid.rotation.y = Math.PI / 4;
+        scene.add(pyramid);
+
+        // Floor — polished warm stone
+        const floorMat = new THREE.MeshStandardMaterial({
+            color: 0x5a4e3a,
+            roughness: 0.25,
+            metalness: 0.2,
+        });
+        const floor = new THREE.Mesh(
+            new THREE.CircleGeometry(16, 64),
+            floorMat
+        );
+        floor.rotation.x = -Math.PI / 2;
+        floor.position.y = 0.01;
+        scene.add(floor);
+
+        // Floor detail — subtle concentric rings
+        for (let i = 1; i <= 5; i++) {
+            const ringGeo = new THREE.RingGeometry(i * 2.2 - 0.04, i * 2.2 + 0.04, 64);
+            const ringMat = new THREE.MeshBasicMaterial({
+                color: 0xd4be8c,
+                transparent: true,
+                opacity: 0.12,
+                side: THREE.DoubleSide,
+            });
+            const ring = new THREE.Mesh(ringGeo, ringMat);
+            ring.rotation.x = -Math.PI / 2;
+            ring.position.y = 0.02;
+            scene.add(ring);
+        }
+
+        // Edge light lines along pyramid edges (4 vertical beams)
+        for (let i = 0; i < 4; i++) {
+            const angle = (i / 4) * Math.PI * 2 + Math.PI / 4;
+            const edgeLight = new THREE.PointLight(0xd4be8c, 0.15, 15);
+            edgeLight.position.set(
+                Math.cos(angle) * 10,
+                8,
+                Math.sin(angle) * 10
+            );
+            scene.add(edgeLight);
+        }
+    }
+
+    // ════════════════════════════════════════
+    // VORTEX — the only object, the center
+    // ════════════════════════════════════════
+    let vortexParticles, vortexCore, vortexRings = [];
+    const VORTEX_COUNT = 800;
+
+    function buildVortex() {
+        // Core — luminous sphere
+        const coreMat = new THREE.MeshBasicMaterial({
+            color: 0xfff8e8,
+            transparent: true,
+            opacity: 0.9,
+        });
+        vortexCore = new THREE.Mesh(
+            new THREE.SphereGeometry(0.3, 16, 16),
+            coreMat
+        );
+        vortexCore.position.y = 3;
+        scene.add(vortexCore);
+
+        // Outer glow — layered transparent sprites for soft bloom
+        const glowGroup = new THREE.Group();
+        glowGroup.position.y = 3;
+        for (let i = 0; i < 3; i++) {
+            const s = 2 + i * 1.5;
+            const glowGeo = new THREE.PlaneGeometry(s, s);
+            const glowMat = new THREE.MeshBasicMaterial({
+                color: 0xffecd0,
+                transparent: true,
+                opacity: 0.04 - i * 0.01,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false,
+                side: THREE.DoubleSide,
+            });
+            const glowPlane = new THREE.Mesh(glowGeo, glowMat);
+            glowGroup.add(glowPlane);
+            // Second plane perpendicular
+            const glowPlane2 = new THREE.Mesh(glowGeo.clone(), glowMat.clone());
+            glowPlane2.rotation.y = Math.PI / 2;
+            glowGroup.add(glowPlane2);
+        }
+        scene.add(glowGroup);
+        vortexCore.userData.glow = glowGroup;
+
+        // Particle helix
+        const geo = new THREE.BufferGeometry();
+        const positions = new Float32Array(VORTEX_COUNT * 3);
+        const colors = new Float32Array(VORTEX_COUNT * 3);
+        const sizes = new Float32Array(VORTEX_COUNT);
+
+        const warmWhite = new THREE.Color(0xfff5e0);
+        const gold = new THREE.Color(0xd4be8c);
+
+        for (let i = 0; i < VORTEX_COUNT; i++) {
+            const t = i / VORTEX_COUNT;
+            const angle = t * Math.PI * 12;
+            const radius = 0.3 + (1 - t) * 3;
+            const y = t * 18;
+
+            positions[i * 3] = Math.cos(angle) * radius;
+            positions[i * 3 + 1] = y;
+            positions[i * 3 + 2] = Math.sin(angle) * radius;
+
+            const c = t < 0.5 ? gold : warmWhite;
+            colors[i * 3] = c.r;
+            colors[i * 3 + 1] = c.g;
+            colors[i * 3 + 2] = c.b;
+
+            sizes[i] = (1 - t) * 3 + 0.5;
+        }
+
+        geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+        geo.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+        const mat = new THREE.PointsMaterial({
+            size: 0.12,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.6,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false,
+            sizeAttenuation: true,
+        });
+
+        vortexParticles = new THREE.Points(geo, mat);
+        scene.add(vortexParticles);
+
+        // Horizontal light rings
+        for (let r = 0; r < 3; r++) {
+            const ringGeo = new THREE.TorusGeometry(1.2 + r * 0.8, 0.015, 8, 64);
+            const ringMat = new THREE.MeshBasicMaterial({
+                color: 0xd4be8c,
+                transparent: true,
+                opacity: 0.15 - r * 0.04,
+            });
+            const ring = new THREE.Mesh(ringGeo, ringMat);
+            ring.rotation.x = Math.PI / 2;
+            ring.position.y = 1 + r * 0.5;
+            scene.add(ring);
+            vortexRings.push(ring);
+        }
+    }
+
+    function updateVortex(time, delta) {
+        if (!vortexParticles) return;
+
+        const positions = vortexParticles.geometry.attributes.position;
+        const rotSpeed = phase === 'sync' ? 1.5 : 0.4;
+        const breathe = Math.sin(time * 0.8) * 0.15 + 1;
+
+        for (let i = 0; i < VORTEX_COUNT; i++) {
+            const t = i / VORTEX_COUNT;
+            const angle = t * Math.PI * 12 + time * rotSpeed;
+            const baseRadius = 0.3 + (1 - t) * 3;
+            const radius = baseRadius * breathe;
+            const y = t * 18;
+
+            positions.setXYZ(i,
+                Math.cos(angle) * radius,
+                y + Math.sin(time * 2 + t * 10) * 0.15,
+                Math.sin(angle) * radius
+            );
+        }
+        positions.needsUpdate = true;
+
+        // Core pulse
+        if (vortexCore) {
+            const pulse = Math.sin(time * 1.2) * 0.1 + 1;
+            vortexCore.scale.setScalar(pulse);
+            vortexCore.userData.glow.scale.setScalar(pulse * 1.1);
+            vortexCore.userData.glow.rotation.y = time * 0.2;
+
+            // Brighter when hovered
+            const targetOpacity = vortexHover ? 1.0 : 0.9;
+            vortexCore.material.opacity += (targetOpacity - vortexCore.material.opacity) * 0.05;
+        }
+
+        // Ring rotation
+        vortexRings.forEach((ring, i) => {
+            ring.rotation.z = time * (0.15 + i * 0.1) * (i % 2 ? -1 : 1);
+            const scale = breathe * (1 + (phase === 'sync' ? syncProgress * 0.5 : 0));
+            ring.scale.setScalar(scale);
+        });
+
+        // Vortex light intensity
+        const targetIntensity = phase === 'sync' ? 4 + syncProgress * 8 : (vortexHover ? 2.5 : 1.5);
+        vortexLight.intensity += (targetIntensity - vortexLight.intensity) * 0.03;
+    }
+
+    // ════════════════════════════════════════
+    // FLOATING DUST — atmospheric particles
+    // ════════════════════════════════════════
+    let dustParticles;
+    const DUST_COUNT = 200;
+
+    function buildDust() {
+        const geo = new THREE.BufferGeometry();
+        const positions = new Float32Array(DUST_COUNT * 3);
+
+        for (let i = 0; i < DUST_COUNT; i++) {
+            positions[i * 3] = (Math.random() - 0.5) * 24;
+            positions[i * 3 + 1] = Math.random() * 20;
+            positions[i * 3 + 2] = (Math.random() - 0.5) * 24;
+        }
+
+        geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        const mat = new THREE.PointsMaterial({
+            color: 0xd4be8c,
+            size: 0.06,
+            transparent: true,
+            opacity: 0.35,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false,
+        });
+
+        dustParticles = new THREE.Points(geo, mat);
+        scene.add(dustParticles);
+    }
+
+    function updateDust(time) {
+        if (!dustParticles) return;
+        const positions = dustParticles.geometry.attributes.position;
+        for (let i = 0; i < DUST_COUNT; i++) {
+            let y = positions.getY(i);
+            y += 0.003 + Math.sin(time + i) * 0.001;
+            if (y > 20) y = 0;
+            positions.setY(i, y);
+            // Gentle horizontal drift
+            positions.setX(i, positions.getX(i) + Math.sin(time * 0.2 + i * 0.5) * 0.002);
+        }
+        positions.needsUpdate = true;
+    }
+
+    // ════════════════════════════════════════
+    // USER CLOUD — the user's presence
+    // ════════════════════════════════════════
+    let userCloud;
+    const CLOUD_COUNT = 60;
+
+    function buildUserCloud() {
+        const geo = new THREE.BufferGeometry();
+        const positions = new Float32Array(CLOUD_COUNT * 3);
+
+        for (let i = 0; i < CLOUD_COUNT; i++) {
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.random() * Math.PI;
+            const r = 0.3 + Math.random() * 0.3;
+            positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+            positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+            positions[i * 3 + 2] = r * Math.cos(phi);
+        }
+
+        geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        const mat = new THREE.PointsMaterial({
+            color: 0xffffff,
+            size: 0.08,
+            transparent: true,
+            opacity: 0.5,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false,
+        });
+
+        userCloud = new THREE.Points(geo, mat);
+        userCloud.position.set(0, 3, 8); // start near wall
+        scene.add(userCloud);
+    }
+
+    function updateUserCloud(time) {
+        if (!userCloud || phase === 'entrance') return;
+
+        // Cloud follows mouse position mapped to chamber space
+        const targetX = mouse.nx * 6;
+        const targetZ = mouse.ny * 6;
+        const targetY = 2.5 + mouse.ny * 0.5;
+
+        userCloud.position.x += (targetX - userCloud.position.x) * 0.02;
+        userCloud.position.z += (targetZ - userCloud.position.z) * 0.02;
+        userCloud.position.y += (targetY - userCloud.position.y) * 0.02;
+
+        // Gentle rotation
+        userCloud.rotation.y = time * 0.3;
+        userCloud.rotation.x = Math.sin(time * 0.5) * 0.2;
+
+        // Breathe size
+        const breathe = Math.sin(time * 1.5) * 0.02 + 0.08;
+        userCloud.material.size = breathe;
+
+        // Particles drift within cloud
+        const positions = userCloud.geometry.attributes.position;
+        for (let i = 0; i < CLOUD_COUNT; i++) {
+            const ox = positions.getX(i);
+            const oy = positions.getY(i);
+            const oz = positions.getZ(i);
+            positions.setX(i, ox + Math.sin(time * 2 + i) * 0.002);
+            positions.setY(i, oy + Math.cos(time * 1.5 + i * 0.7) * 0.002);
+            positions.setZ(i, oz + Math.sin(time * 1.8 + i * 1.3) * 0.002);
+
+            // Keep within sphere
+            const dist = Math.sqrt(ox * ox + oy * oy + oz * oz);
+            if (dist > 0.7) {
+                positions.setX(i, ox * 0.98);
+                positions.setY(i, oy * 0.98);
+                positions.setZ(i, oz * 0.98);
+            }
+        }
+        positions.needsUpdate = true;
+    }
+
+    // ════════════════════════════════════════
+    // CAMERA — slow orbit, mouse-influenced
+    // ════════════════════════════════════════
+    let cameraAngle = 0;
+
+    function updateCamera(time, delta) {
+        if (phase === 'entrance') {
+            // Static, looking into the space
+            camera.position.set(0, 20, 0.01);
+            camera.lookAt(0, 0, 0);
+            return;
+        }
+
+        // Intro descent
+        if (introProgress < 1) {
+            introProgress += delta * 0.3; // ~3.3 seconds descent
+            introProgress = Math.min(1, introProgress);
+        }
+
+        const eased = 1 - Math.pow(1 - introProgress, 3); // ease-out cubic
+
+        // Orbit slowly
+        cameraAngle += delta * 0.08;
+
+        // Mouse influence on orbit
+        const mouseInfluence = mouse.nx * 0.3;
+        const angle = cameraAngle + mouseInfluence;
+
+        const radius = 10 + (1 - eased) * 2;
+        const height = 4 + (1 - eased) * 18; // 22 → 4
+
+        const targetX = Math.sin(angle) * radius;
+        const targetZ = Math.cos(angle) * radius;
+
+        camera.position.x += (targetX - camera.position.x) * 0.02;
+        camera.position.z += (targetZ - camera.position.z) * 0.02;
+        camera.position.y += (height - camera.position.y) * 0.02;
+
+        // Look at vortex center, slightly above
+        const lookY = 3 + mouse.ny * 1;
+        camera.lookAt(0, lookY, 0);
+
+        // During sync — pull camera closer
+        if (phase === 'sync') {
+            const pullRadius = radius - syncProgress * 5;
+            camera.position.x = Math.sin(angle) * Math.max(3, pullRadius);
+            camera.position.z = Math.cos(angle) * Math.max(3, pullRadius);
+            camera.position.y = height - syncProgress * 1;
+        }
+    }
+
+    // ════════════════════════════════════════
+    // RAYCASTER — vortex interaction
+    // ════════════════════════════════════════
+    const raycaster = new THREE.Raycaster();
+    const pointer = new THREE.Vector2();
+
+    function checkVortexHover() {
+        if (!vortexCore || phase !== 'chamber') return;
+
+        pointer.set(mouse.nx, -mouse.ny); // three.js normalized device coords
+        // But we're not doing screen-space picking — we check distance from cloud to vortex
+        if (!userCloud) return;
+
+        const dist = userCloud.position.distanceTo(vortexCore.position);
+        const wasHover = vortexHover;
+        vortexHover = dist < 3;
+
+        // Show/hide hint
+        const hint = document.getElementById('hint');
+        if (vortexHover && !wasHover) {
+            hint.classList.add('visible');
+            document.getElementById('cursor').classList.add('hover');
+        } else if (!vortexHover && wasHover) {
+            hint.classList.remove('visible');
+            document.getElementById('cursor').classList.remove('hover');
+        }
+    }
+
+    // ════════════════════════════════════════
+    // SYNC PHASE — the core experience
+    // ════════════════════════════════════════
+    function startSync() {
+        if (phase !== 'chamber' || !vortexHover) return;
+        phase = 'sync';
+        syncProgress = 0;
+        document.getElementById('hint').classList.remove('visible');
+
+        // Fade in overlay
+        setTimeout(() => {
+            document.getElementById('sync-overlay').classList.add('active');
+        }, 2000);
+    }
+
+    function updateSync(delta) {
+        if (phase !== 'sync') return;
+        syncProgress += delta * 0.08; // ~12 seconds full sync
+
+        // Intensify scene
+        apex.intensity = 2.5 + syncProgress * 6;
+        renderer.toneMappingExposure = 1.6 + syncProgress * 2;
+
+        // Whiteout at end
+        if (syncProgress >= 1) {
+            phase = 'post';
+            // Gentle return
+            setTimeout(() => {
+                document.getElementById('sync-overlay').querySelector('.sync-text').textContent = 'Synchronized';
+                document.getElementById('sync-overlay').querySelector('.sync-sub').textContent = '';
+            }, 500);
+            setTimeout(() => {
+                // Hide sync overlay, show portal
+                document.getElementById('sync-overlay').classList.remove('active');
+                document.getElementById('portal-overlay').classList.add('active');
+                apex.intensity = 2.5;
+                renderer.toneMappingExposure = 1.6;
+                phase = 'chamber';
+                syncProgress = 0;
+                // Reset sync text for next time
+                setTimeout(() => {
+                    document.getElementById('sync-overlay').querySelector('.sync-text').textContent = 'Synchronizing';
+                    document.getElementById('sync-overlay').querySelector('.sync-sub').textContent = 'Breathe';
+                }, 2000);
+                // Hide portal after 10s if not clicked
+                setTimeout(() => {
+                    document.getElementById('portal-overlay').classList.remove('active');
+                }, 10000);
+            }, 5000);
+        }
+    }
+
+    // ════════════════════════════════════════
+    // INPUT — minimal, invisible
+    // ════════════════════════════════════════
+    document.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        mouse.nx = (e.clientX / window.innerWidth) * 2 - 1;
+        mouse.ny = -(e.clientY / window.innerHeight) * 2 + 1;
+
+        // Move custom cursor
+        const cursor = document.getElementById('cursor');
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    // Touch support for mobile
+    document.addEventListener('touchmove', (e) => {
+        const t = e.touches[0];
+        mouse.x = t.clientX;
+        mouse.y = t.clientY;
+        mouse.nx = (t.clientX / window.innerWidth) * 2 - 1;
+        mouse.ny = -(t.clientY / window.innerHeight) * 2 + 1;
+    }, { passive: true });
+
+    // Click — enter or sync
+    document.addEventListener('click', () => {
+        if (phase === 'entrance') {
+            entered = true;
+            phase = 'chamber';
+            document.getElementById('entrance').classList.add('gone');
+            return;
+        }
+        if (phase === 'chamber' && vortexHover) {
+            startSync();
+        }
+    });
+    document.addEventListener('touchstart', () => {
+        if (phase === 'entrance') {
+            entered = true;
+            phase = 'chamber';
+            document.getElementById('entrance').classList.add('gone');
+        }
+    }, { passive: true });
+
+    // Nav visibility — show when mouse near top
+    document.addEventListener('mousemove', (e) => {
+        const nav = document.getElementById('nav');
+        if (e.clientY < 80 && phase !== 'entrance') {
+            nav.classList.add('visible');
+        } else {
+            nav.classList.remove('visible');
+        }
+    });
+
+    // Resize
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // ════════════════════════════════════════
+    // BUILD & ANIMATE
+    // ════════════════════════════════════════
+    buildChamber();
+    buildVortex();
+    buildDust();
+    buildUserCloud();
+
+    const clock = new THREE.Clock();
+
+    function animate() {
+        requestAnimationFrame(animate);
+        const delta = Math.min(clock.getDelta(), 0.05);
+        const time = clock.getElapsedTime();
+
+        updateCamera(time, delta);
+        updateVortex(time, delta);
+        updateDust(time);
+        updateUserCloud(time);
+        checkVortexHover();
+        updateSync(delta);
+
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+})();
 </script>
 </body>
 </html>
