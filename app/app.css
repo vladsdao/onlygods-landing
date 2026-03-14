@@ -478,7 +478,10 @@ a { color: var(--text); text-decoration: none; }
 .profile-header { text-align: center; padding: 20px 0 24px; }
 .profile-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; }
 .profile-avatar-placeholder { width: 80px; height: 80px; border-radius: 50%; background: var(--card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--text-secondary); margin: 0 auto; }
-.profile-avatar-wrap { display: flex; justify-content: center; margin-bottom: 12px; }
+.profile-avatar-wrap { display: flex; justify-content: center; margin-bottom: 12px; position: relative; cursor: pointer; width: fit-content; margin-left: auto; margin-right: auto; }
+.profile-avatar-overlay { position: absolute; bottom: 0; right: 0; width: 30px; height: 30px; background: rgba(255,255,255,0.95); border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); opacity: 0; transition: opacity 0.2s; pointer-events: none; }
+.profile-avatar-wrap:hover .profile-avatar-overlay { opacity: 1; }
+.profile-avatar-file-hidden { display: none; }
 .profile-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; margin-bottom: 4px; }
 .profile-role { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-secondary); }
 .profile-status-text { font-size: 13px; color: var(--text-secondary); font-style: italic; margin-top: 8px; }

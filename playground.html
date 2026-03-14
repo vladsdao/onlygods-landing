@@ -3,879 +3,586 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OnlyGods — Sanctuary</title>
+<title>OnlyGods — Playground</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-body, html {
-    width: 100%; height: 100%;
-    overflow: hidden;
-    background: #0a0a08;
-    font-family: 'Cormorant Garamond', serif;
+body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: #ffffff;
+    color: #1d1d1f;
     -webkit-font-smoothing: antialiased;
-    cursor: none;
+    min-height: 100vh;
 }
 
-/* Custom cursor — soft glow dot */
-#cursor {
-    position: fixed;
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(212,190,140,0.6) 0%, rgba(212,190,140,0) 70%);
-    pointer-events: none;
-    z-index: 10000;
-    transform: translate(-50%, -50%);
-    transition: width 0.4s, height 0.4s, opacity 0.4s;
-    mix-blend-mode: screen;
-}
-#cursor.hover {
-    width: 50px; height: 50px;
-}
+a { color: inherit; text-decoration: none; }
 
-/* Full-screen canvas */
-#c {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    display: block;
-}
-
-/* Entrance overlay — the breathing door */
-#entrance {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: #0a0a08;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: opacity 2s cubic-bezier(0.25, 0, 0, 1);
-}
-#entrance.gone {
-    opacity: 0;
-    pointer-events: none;
-}
-#entrance h1 {
-    font-size: clamp(28px, 5vw, 52px);
-    font-weight: 300;
-    color: rgba(212, 190, 140, 0.7);
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    animation: breathe 4s ease-in-out infinite;
-}
-#entrance .sub {
-    font-size: 14px;
-    font-weight: 300;
-    color: rgba(212, 190, 140, 0.25);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-top: 24px;
-    animation: breathe 4s ease-in-out infinite 0.5s;
-}
-@keyframes breathe {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
-}
-
-/* Sync overlay — when vortex is activated */
-#sync-overlay {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 90;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 2s ease;
-}
-#sync-overlay.active {
-    opacity: 1;
-}
-#sync-overlay .sync-text {
-    font-size: clamp(20px, 3.5vw, 40px);
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.9);
-    letter-spacing: 8px;
-    text-transform: uppercase;
-    text-align: center;
-    line-height: 1.8;
-}
-#sync-overlay .sync-sub {
-    font-size: 13px;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.3);
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-top: 32px;
-}
-
-/* Minimal nav — appears on mouse near top */
+/* ====================================== */
+/* NAVIGATION (same as all site pages)    */
+/* ====================================== */
 .site-nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 200;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 40px; height: 60px;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-    background: linear-gradient(to bottom, rgba(10,10,8,0.6) 0%, transparent 100%);
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center;
+    padding: 0 40px; height: 56px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
 }
-.site-nav.visible { opacity: 1; }
-.site-nav a {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16px; font-weight: 400; color: rgba(212,190,140,0.5);
-    text-decoration: none; letter-spacing: 1px;
+.nav-wordmark {
+    font-family: 'Cormorant Garamond', serif; font-size: 22px;
+    font-weight: 500; color: #1d1d1f; text-decoration: none;
+}
+.nav-join {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 16px; border: 1px solid #1d1d1f; border-radius: 20px;
+    color: #1d1d1f; text-decoration: none;
+    margin-left: 16px; margin-right: auto; transition: all 0.3s ease;
+}
+.nav-join:hover { background: #1d1d1f; color: #ffffff; }
+.nav-links {
+    display: flex; align-items: center; gap: 28px;
+}
+.nav-links a {
+    font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; position: relative;
     transition: color 0.3s;
 }
-.site-nav a:hover { color: rgba(212,190,140,0.9); }
-.site-nav .nav-enter {
-    padding: 6px 20px;
-    border: 1px solid rgba(212,190,140,0.25);
-    border-radius: 20px;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: all 0.4s;
+.nav-links a:hover { color: #1d1d1f; }
+.nav-links a.active { color: #1d1d1f; }
+.nav-links a.active::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: #1d1d1f;
 }
-.site-nav .nav-enter:hover {
-    border-color: rgba(212,190,140,0.6);
-    background: rgba(212,190,140,0.08);
-    color: rgba(212,190,140,1);
+.nav-divider { width: 1px; height: 16px; background: rgba(0,0,0,0.1); }
+.lang-switcher { display: flex; align-items: center; gap: 4px; }
+.lang-btn {
+    background: none; border: none; font-size: 11px; letter-spacing: 1px;
+    color: #86868b; cursor: pointer; padding: 2px 4px; transition: color 0.2s;
 }
+.lang-btn:hover, .lang-btn.lang-active { color: #1d1d1f; }
+.lang-sep { color: #d2d2d7; font-size: 10px; }
+.nav-burger {
+    display: none; flex-direction: column; gap: 4px; cursor: pointer;
+    padding: 8px; z-index: 101;
+}
+.nav-burger span {
+    display: block; width: 20px; height: 1.5px;
+    background: #1d1d1f; transition: all 0.3s;
+}
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-mobile {
+    display: none; position: fixed; top: 56px; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+    z-index: 99; flex-direction: column; align-items: center;
+    justify-content: center; gap: 32px;
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; transition: color 0.3s;
+}
+.nav-mobile a:hover, .nav-mobile a.active { color: #1d1d1f; }
 
-/* Portal overlay — appears after sync */
-#portal-overlay {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 95;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 2s ease;
+/* ====================================== */
+/* AUTH GATEWAY                           */
+/* ====================================== */
+.gateway {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; min-height: 100vh;
+    padding: 80px 24px 60px;
 }
-#portal-overlay.active {
-    opacity: 1;
-    pointer-events: auto;
+.gateway-card {
+    width: 100%; max-width: 400px; text-align: center;
 }
-.portal-link {
+.gateway-logo {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(22px, 4vw, 44px);
-    font-weight: 300;
-    color: rgba(212, 190, 140, 0.85);
-    text-decoration: none;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    padding: 16px 48px;
-    border: 1px solid rgba(212, 190, 140, 0.2);
-    border-radius: 4px;
-    transition: all 0.6s ease;
-    animation: breathe 4s ease-in-out infinite;
-    cursor: pointer;
+    font-size: 42px; font-weight: 400; margin-bottom: 6px;
 }
-.portal-link:hover {
-    border-color: rgba(212, 190, 140, 0.6);
-    background: rgba(212, 190, 140, 0.06);
-    color: rgba(212, 190, 140, 1);
-    letter-spacing: 10px;
+.gateway-subtitle {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: #86868b; margin-bottom: 48px;
 }
-.portal-sub {
-    font-size: 12px;
-    font-weight: 300;
-    color: rgba(212, 190, 140, 0.25);
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-top: 20px;
+.gateway-form { text-align: left; }
+.gateway-label {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #86868b; margin-bottom: 8px; display: block;
+}
+.gateway-input {
+    width: 100%; padding: 14px 16px; border: 1px solid #d2d2d7;
+    border-radius: 10px; font-size: 15px; font-family: 'DM Sans', sans-serif;
+    color: #1d1d1f; background: #fbfbfd;
+    transition: border-color 0.2s; outline: none; margin-bottom: 20px;
+}
+.gateway-input:focus { border-color: #1d1d1f; }
+.gateway-btn {
+    width: 100%; padding: 14px; border: none; border-radius: 10px;
+    font-size: 15px; font-family: 'DM Sans', sans-serif; font-weight: 500;
+    cursor: pointer; transition: all 0.2s; margin-bottom: 12px;
+}
+.gateway-btn-primary {
+    background: #1d1d1f; color: #ffffff;
+}
+.gateway-btn-primary:hover { background: #333; }
+.gateway-btn-primary:disabled { background: #86868b; cursor: not-allowed; }
+.gateway-btn-google {
+    background: #ffffff; color: #1d1d1f;
+    border: 1px solid #d2d2d7;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.gateway-btn-google:hover { background: #f5f5f7; }
+.gateway-btn-google svg { flex-shrink: 0; }
+.gateway-divider {
+    display: flex; align-items: center; gap: 16px;
+    margin: 24px 0; color: #86868b; font-size: 12px;
+}
+.gateway-divider::before, .gateway-divider::after {
+    content: ''; flex: 1; height: 1px; background: #d2d2d7;
+}
+.gateway-link {
+    display: block; text-align: center; margin-top: 24px;
+    font-size: 13px; color: #86868b; cursor: pointer;
+    transition: color 0.2s;
+}
+.gateway-link:hover { color: #1d1d1f; }
+.gateway-text {
+    font-size: 14px; color: #86868b; line-height: 1.6;
+    margin-bottom: 24px; text-align: center;
+}
+.gateway-error {
+    background: #fff0f0; color: #cc3333; padding: 12px 16px;
+    border-radius: 10px; font-size: 13px; margin-bottom: 16px;
+    text-align: center;
+}
+.gateway-success {
+    background: #f0fff4; color: #2d7a3a; padding: 16px;
+    border-radius: 10px; font-size: 14px; line-height: 1.5;
+    text-align: center;
+}
+.gateway-pending {
+    color: #86868b; font-size: 14px; line-height: 1.6;
+}
+.gateway-pending-icon {
+    font-size: 48px; margin-bottom: 16px; opacity: 0.6;
 }
 
-/* Interaction hint */
-#hint {
-    position: fixed;
-    bottom: 40px; left: 50%;
-    transform: translateX(-50%);
-    z-index: 80;
-    font-size: 12px;
-    font-weight: 300;
-    color: rgba(212,190,140,0);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    transition: color 1s ease;
-    pointer-events: none;
-}
-#hint.visible {
-    color: rgba(212,190,140,0.35);
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .site-nav { padding: 0 20px; }
+    .gateway { padding: 70px 20px 40px; }
+    .gateway-logo { font-size: 36px; }
 }
 </style>
 </head>
 <body>
 
-<div id="cursor"></div>
-
-<nav class="site-nav" id="nav">
-    <a href="index.html">OnlyGods</a>
-    <a href="app.html" class="nav-enter">Enter Field</a>
+<!-- ====================================== -->
+<!-- NAVIGATION                             -->
+<!-- ====================================== -->
+<nav class="site-nav" id="site-nav">
+    <a href="index.html" class="nav-wordmark">OnlyGods</a>
+    <a href="index.html#join" class="nav-join">Join</a>
+    <div class="nav-links">
+        <a href="manifest.html">Manifest</a>
+        <a href="technologies.html">Holy Tech</a>
+        <a href="alignment.html">Alignment</a>
+        <a href="quantumlab.html">Quantum Lab</a>
+        <a href="activities.html">Activities</a>
+        <a href="playground.html" class="active">Playground</a>
+        <a href="dao.html">DAO</a>
+        <span class="nav-divider"></span>
+        <div class="lang-switcher">
+            <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang && OGLang.setLang('ru')">RU</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="en" onclick="OGLang && OGLang.setLang('en')">EN</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="ua" onclick="OGLang && OGLang.setLang('ua')">UA</button>
+        </div>
+    </div>
+    <div class="nav-burger" id="nav-burger" onclick="this.classList.toggle('open'); document.getElementById('nav-mobile').classList.toggle('open');">
+        <span></span><span></span><span></span>
+    </div>
 </nav>
-
-<div id="entrance">
-    <h1>Sanctuary</h1>
-    <div class="sub">Enter</div>
+<div class="nav-mobile" id="nav-mobile">
+    <a href="manifest.html">Manifest</a>
+    <a href="technologies.html">Holy Tech</a>
+    <a href="alignment.html">Alignment</a>
+    <a href="quantumlab.html">Quantum Lab</a>
+    <a href="activities.html">Activities</a>
+    <a href="playground.html" class="active">Playground</a>
+    <a href="dao.html">DAO</a>
+    <div class="lang-switcher">
+        <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang && OGLang.setLang('ru')">RU</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" onclick="OGLang && OGLang.setLang('en')">EN</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="ua" onclick="OGLang && OGLang.setLang('ua')">UA</button>
+    </div>
 </div>
 
-<div id="sync-overlay">
-    <div class="sync-text">Synchronizing</div>
-    <div class="sync-sub">Breathe</div>
+<!-- ====================================== -->
+<!-- AUTH GATEWAY                           -->
+<!-- ====================================== -->
+<div class="gateway" id="gateway">
+    <div class="gateway-card" id="gateway-card">
+        <div class="gateway-logo">OnlyGods</div>
+        <div class="gateway-subtitle">Playground</div>
+        <div id="gateway-content">
+            <div class="gateway-text" style="color:#86868b">Loading...</div>
+        </div>
+    </div>
 </div>
 
-<div id="portal-overlay">
-    <a href="app.html" class="portal-link">Enter the Field</a>
-    <div class="portal-sub">consciousness awaits</div>
-</div>
+<!-- Supabase CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 
-<div id="hint">approach the light</div>
-
-<canvas id="c"></canvas>
-
-<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
 <script>
 (function() {
     'use strict';
 
-    // ════════════════════════════════════════
-    // STATE
-    // ════════════════════════════════════════
-    const mouse = { x: 0, y: 0, nx: 0, ny: 0 }; // nx/ny = normalized -1..1
-    let phase = 'entrance'; // entrance | chamber | sync | post
-    let syncProgress = 0;
-    let vortexHover = false;
-    let entered = false;
-    let introProgress = 0; // 0..1 camera descent
+    const SUPABASE_URL = 'https://bnfkicmzxljkhahqxfla.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJuZmtpY216eGxqa2hhaHF4ZmxhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4MzkyOTAsImV4cCI6MjA4ODQxNTI5MH0.Rjnh0AlhclThIvFp1OA1gANoqkeAkvaasqnXHAROaWY';
+    const AUTH_KEY = 'og-profile-auth';
 
-    // ════════════════════════════════════════
-    // RENDERER
-    // ════════════════════════════════════════
-    const canvas = document.getElementById('c');
-    const renderer = new THREE.WebGLRenderer({
-        canvas,
-        antialias: true,
-        alpha: false,
-        powerPreference: 'high-performance'
-    });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.6;
-    renderer.setClearColor(0x0a0a08);
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const content = document.getElementById('gateway-content');
 
-    // ════════════════════════════════════════
-    // SCENE & CAMERA
-    // ════════════════════════════════════════
-    const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x2a2418, 0.008);
+    // ── INIT ──────────────────────────────────────
+    async function init() {
+        const params = new URLSearchParams(location.search);
 
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 200);
-    camera.position.set(0, 20, 0.01); // start looking down from peak
-    camera.lookAt(0, 0, 0);
-
-    // ════════════════════════════════════════
-    // LIGHTING — warm, luminous, sacred
-    // ════════════════════════════════════════
-    // Ambient — warm, generous base
-    const ambient = new THREE.AmbientLight(0x584838, 1.2);
-    scene.add(ambient);
-
-    // Hemisphere — golden sky, warm floor
-    const hemi = new THREE.HemisphereLight(0xffecd0, 0x3a2818, 0.8);
-    scene.add(hemi);
-
-    // Main light — from apex, like sunlight pouring through the peak
-    const apex = new THREE.PointLight(0xffe8c0, 4, 80, 1.2);
-    apex.position.set(0, 23, 0);
-    scene.add(apex);
-
-    // Secondary apex — broader, softer
-    const apex2 = new THREE.PointLight(0xffd4a0, 1.5, 60, 1.5);
-    apex2.position.set(0, 18, 0);
-    scene.add(apex2);
-
-    // Warm fill lights from walls — brighter
-    const fill1 = new THREE.PointLight(0xd4a050, 0.8, 30);
-    fill1.position.set(10, 5, 0);
-    scene.add(fill1);
-    const fill2 = new THREE.PointLight(0xd4a050, 0.8, 30);
-    fill2.position.set(-10, 5, 0);
-    scene.add(fill2);
-    const fill3 = new THREE.PointLight(0xd4a050, 0.6, 30);
-    fill3.position.set(0, 5, 10);
-    scene.add(fill3);
-    const fill4 = new THREE.PointLight(0xd4a050, 0.6, 30);
-    fill4.position.set(0, 5, -10);
-    scene.add(fill4);
-
-    // Vortex core light — warm white
-    const vortexLight = new THREE.PointLight(0xfff0d0, 2.5, 25, 1.5);
-    vortexLight.position.set(0, 3, 0);
-    scene.add(vortexLight);
-
-    // ════════════════════════════════════════
-    // PYRAMID CHAMBER — luminous sandstone
-    // ════════════════════════════════════════
-    function buildChamber() {
-        const wallMat = new THREE.MeshStandardMaterial({
-            color: 0x8a7a60,
-            roughness: 0.65,
-            metalness: 0.08,
-            side: THREE.BackSide,
-        });
-
-        // Pyramid shell (inverted cone — we're inside)
-        const pyramidGeo = new THREE.ConeGeometry(16, 24, 4, 1, true);
-        const pyramid = new THREE.Mesh(pyramidGeo, wallMat);
-        pyramid.position.y = 12;
-        pyramid.rotation.y = Math.PI / 4;
-        scene.add(pyramid);
-
-        // Floor — polished warm stone
-        const floorMat = new THREE.MeshStandardMaterial({
-            color: 0x5a4e3a,
-            roughness: 0.25,
-            metalness: 0.2,
-        });
-        const floor = new THREE.Mesh(
-            new THREE.CircleGeometry(16, 64),
-            floorMat
-        );
-        floor.rotation.x = -Math.PI / 2;
-        floor.position.y = 0.01;
-        scene.add(floor);
-
-        // Floor detail — subtle concentric rings
-        for (let i = 1; i <= 5; i++) {
-            const ringGeo = new THREE.RingGeometry(i * 2.2 - 0.04, i * 2.2 + 0.04, 64);
-            const ringMat = new THREE.MeshBasicMaterial({
-                color: 0xd4be8c,
-                transparent: true,
-                opacity: 0.12,
-                side: THREE.DoubleSide,
-            });
-            const ring = new THREE.Mesh(ringGeo, ringMat);
-            ring.rotation.x = -Math.PI / 2;
-            ring.position.y = 0.02;
-            scene.add(ring);
+        // Legacy token link from Telegram bot
+        if (params.get('token')) {
+            history.replaceState(null, '', location.pathname);
+            await handleToken(params.get('token'));
+            return;
         }
 
-        // Edge light lines along pyramid edges (4 vertical beams)
-        for (let i = 0; i < 4; i++) {
-            const angle = (i / 4) * Math.PI * 2 + Math.PI / 4;
-            const edgeLight = new THREE.PointLight(0xd4be8c, 0.15, 15);
-            edgeLight.position.set(
-                Math.cos(angle) * 10,
-                8,
-                Math.sin(angle) * 10
-            );
-            scene.add(edgeLight);
-        }
-    }
-
-    // ════════════════════════════════════════
-    // VORTEX — the only object, the center
-    // ════════════════════════════════════════
-    let vortexParticles, vortexCore, vortexRings = [];
-    const VORTEX_COUNT = 800;
-
-    function buildVortex() {
-        // Core — luminous sphere
-        const coreMat = new THREE.MeshBasicMaterial({
-            color: 0xfff8e8,
-            transparent: true,
-            opacity: 0.9,
-        });
-        vortexCore = new THREE.Mesh(
-            new THREE.SphereGeometry(0.3, 16, 16),
-            coreMat
-        );
-        vortexCore.position.y = 3;
-        scene.add(vortexCore);
-
-        // Outer glow — layered transparent sprites for soft bloom
-        const glowGroup = new THREE.Group();
-        glowGroup.position.y = 3;
-        for (let i = 0; i < 3; i++) {
-            const s = 2 + i * 1.5;
-            const glowGeo = new THREE.PlaneGeometry(s, s);
-            const glowMat = new THREE.MeshBasicMaterial({
-                color: 0xffecd0,
-                transparent: true,
-                opacity: 0.04 - i * 0.01,
-                blending: THREE.AdditiveBlending,
-                depthWrite: false,
-                side: THREE.DoubleSide,
-            });
-            const glowPlane = new THREE.Mesh(glowGeo, glowMat);
-            glowGroup.add(glowPlane);
-            // Second plane perpendicular
-            const glowPlane2 = new THREE.Mesh(glowGeo.clone(), glowMat.clone());
-            glowPlane2.rotation.y = Math.PI / 2;
-            glowGroup.add(glowPlane2);
-        }
-        scene.add(glowGroup);
-        vortexCore.userData.glow = glowGroup;
-
-        // Particle helix
-        const geo = new THREE.BufferGeometry();
-        const positions = new Float32Array(VORTEX_COUNT * 3);
-        const colors = new Float32Array(VORTEX_COUNT * 3);
-        const sizes = new Float32Array(VORTEX_COUNT);
-
-        const warmWhite = new THREE.Color(0xfff5e0);
-        const gold = new THREE.Color(0xd4be8c);
-
-        for (let i = 0; i < VORTEX_COUNT; i++) {
-            const t = i / VORTEX_COUNT;
-            const angle = t * Math.PI * 12;
-            const radius = 0.3 + (1 - t) * 3;
-            const y = t * 18;
-
-            positions[i * 3] = Math.cos(angle) * radius;
-            positions[i * 3 + 1] = y;
-            positions[i * 3 + 2] = Math.sin(angle) * radius;
-
-            const c = t < 0.5 ? gold : warmWhite;
-            colors[i * 3] = c.r;
-            colors[i * 3 + 1] = c.g;
-            colors[i * 3 + 2] = c.b;
-
-            sizes[i] = (1 - t) * 3 + 0.5;
+        // Invite code
+        if (params.get('invite')) {
+            history.replaceState(null, '', location.pathname);
+            await handleInvite(params.get('invite'));
+            return;
         }
 
-        geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-        geo.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-
-        const mat = new THREE.PointsMaterial({
-            size: 0.12,
-            vertexColors: true,
-            transparent: true,
-            opacity: 0.6,
-            blending: THREE.AdditiveBlending,
-            depthWrite: false,
-            sizeAttenuation: true,
-        });
-
-        vortexParticles = new THREE.Points(geo, mat);
-        scene.add(vortexParticles);
-
-        // Horizontal light rings
-        for (let r = 0; r < 3; r++) {
-            const ringGeo = new THREE.TorusGeometry(1.2 + r * 0.8, 0.015, 8, 64);
-            const ringMat = new THREE.MeshBasicMaterial({
-                color: 0xd4be8c,
-                transparent: true,
-                opacity: 0.15 - r * 0.04,
-            });
-            const ring = new THREE.Mesh(ringGeo, ringMat);
-            ring.rotation.x = Math.PI / 2;
-            ring.position.y = 1 + r * 0.5;
-            scene.add(ring);
-            vortexRings.push(ring);
-        }
-    }
-
-    function updateVortex(time, delta) {
-        if (!vortexParticles) return;
-
-        const positions = vortexParticles.geometry.attributes.position;
-        const rotSpeed = phase === 'sync' ? 1.5 : 0.4;
-        const breathe = Math.sin(time * 0.8) * 0.15 + 1;
-
-        for (let i = 0; i < VORTEX_COUNT; i++) {
-            const t = i / VORTEX_COUNT;
-            const angle = t * Math.PI * 12 + time * rotSpeed;
-            const baseRadius = 0.3 + (1 - t) * 3;
-            const radius = baseRadius * breathe;
-            const y = t * 18;
-
-            positions.setXYZ(i,
-                Math.cos(angle) * radius,
-                y + Math.sin(time * 2 + t * 10) * 0.15,
-                Math.sin(angle) * radius
-            );
-        }
-        positions.needsUpdate = true;
-
-        // Core pulse
-        if (vortexCore) {
-            const pulse = Math.sin(time * 1.2) * 0.1 + 1;
-            vortexCore.scale.setScalar(pulse);
-            vortexCore.userData.glow.scale.setScalar(pulse * 1.1);
-            vortexCore.userData.glow.rotation.y = time * 0.2;
-
-            // Brighter when hovered
-            const targetOpacity = vortexHover ? 1.0 : 0.9;
-            vortexCore.material.opacity += (targetOpacity - vortexCore.material.opacity) * 0.05;
-        }
-
-        // Ring rotation
-        vortexRings.forEach((ring, i) => {
-            ring.rotation.z = time * (0.15 + i * 0.1) * (i % 2 ? -1 : 1);
-            const scale = breathe * (1 + (phase === 'sync' ? syncProgress * 0.5 : 0));
-            ring.scale.setScalar(scale);
-        });
-
-        // Vortex light intensity
-        const targetIntensity = phase === 'sync' ? 4 + syncProgress * 8 : (vortexHover ? 2.5 : 1.5);
-        vortexLight.intensity += (targetIntensity - vortexLight.intensity) * 0.03;
-    }
-
-    // ════════════════════════════════════════
-    // FLOATING DUST — atmospheric particles
-    // ════════════════════════════════════════
-    let dustParticles;
-    const DUST_COUNT = 200;
-
-    function buildDust() {
-        const geo = new THREE.BufferGeometry();
-        const positions = new Float32Array(DUST_COUNT * 3);
-
-        for (let i = 0; i < DUST_COUNT; i++) {
-            positions[i * 3] = (Math.random() - 0.5) * 24;
-            positions[i * 3 + 1] = Math.random() * 20;
-            positions[i * 3 + 2] = (Math.random() - 0.5) * 24;
-        }
-
-        geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-        const mat = new THREE.PointsMaterial({
-            color: 0xd4be8c,
-            size: 0.06,
-            transparent: true,
-            opacity: 0.35,
-            blending: THREE.AdditiveBlending,
-            depthWrite: false,
-        });
-
-        dustParticles = new THREE.Points(geo, mat);
-        scene.add(dustParticles);
-    }
-
-    function updateDust(time) {
-        if (!dustParticles) return;
-        const positions = dustParticles.geometry.attributes.position;
-        for (let i = 0; i < DUST_COUNT; i++) {
-            let y = positions.getY(i);
-            y += 0.003 + Math.sin(time + i) * 0.001;
-            if (y > 20) y = 0;
-            positions.setY(i, y);
-            // Gentle horizontal drift
-            positions.setX(i, positions.getX(i) + Math.sin(time * 0.2 + i * 0.5) * 0.002);
-        }
-        positions.needsUpdate = true;
-    }
-
-    // ════════════════════════════════════════
-    // USER CLOUD — the user's presence
-    // ════════════════════════════════════════
-    let userCloud;
-    const CLOUD_COUNT = 60;
-
-    function buildUserCloud() {
-        const geo = new THREE.BufferGeometry();
-        const positions = new Float32Array(CLOUD_COUNT * 3);
-
-        for (let i = 0; i < CLOUD_COUNT; i++) {
-            const theta = Math.random() * Math.PI * 2;
-            const phi = Math.random() * Math.PI;
-            const r = 0.3 + Math.random() * 0.3;
-            positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-            positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-            positions[i * 3 + 2] = r * Math.cos(phi);
-        }
-
-        geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-        const mat = new THREE.PointsMaterial({
-            color: 0xffffff,
-            size: 0.08,
-            transparent: true,
-            opacity: 0.5,
-            blending: THREE.AdditiveBlending,
-            depthWrite: false,
-        });
-
-        userCloud = new THREE.Points(geo, mat);
-        userCloud.position.set(0, 3, 8); // start near wall
-        scene.add(userCloud);
-    }
-
-    function updateUserCloud(time) {
-        if (!userCloud || phase === 'entrance') return;
-
-        // Cloud follows mouse position mapped to chamber space
-        const targetX = mouse.nx * 6;
-        const targetZ = mouse.ny * 6;
-        const targetY = 2.5 + mouse.ny * 0.5;
-
-        userCloud.position.x += (targetX - userCloud.position.x) * 0.02;
-        userCloud.position.z += (targetZ - userCloud.position.z) * 0.02;
-        userCloud.position.y += (targetY - userCloud.position.y) * 0.02;
-
-        // Gentle rotation
-        userCloud.rotation.y = time * 0.3;
-        userCloud.rotation.x = Math.sin(time * 0.5) * 0.2;
-
-        // Breathe size
-        const breathe = Math.sin(time * 1.5) * 0.02 + 0.08;
-        userCloud.material.size = breathe;
-
-        // Particles drift within cloud
-        const positions = userCloud.geometry.attributes.position;
-        for (let i = 0; i < CLOUD_COUNT; i++) {
-            const ox = positions.getX(i);
-            const oy = positions.getY(i);
-            const oz = positions.getZ(i);
-            positions.setX(i, ox + Math.sin(time * 2 + i) * 0.002);
-            positions.setY(i, oy + Math.cos(time * 1.5 + i * 0.7) * 0.002);
-            positions.setZ(i, oz + Math.sin(time * 1.8 + i * 1.3) * 0.002);
-
-            // Keep within sphere
-            const dist = Math.sqrt(ox * ox + oy * oy + oz * oz);
-            if (dist > 0.7) {
-                positions.setX(i, ox * 0.98);
-                positions.setY(i, oy * 0.98);
-                positions.setZ(i, oz * 0.98);
+        // Check Supabase Auth session (OAuth callback)
+        try {
+            const { data: { session } } = await sb.auth.getSession();
+            if (session) {
+                const member = await resolveAuthUser(session.user);
+                if (member) { handleAuthenticated(member); return; }
             }
+        } catch (_) {}
+
+        // Check localStorage cache
+        const cached = localStorage.getItem(AUTH_KEY);
+        if (cached) {
+            try {
+                const c = JSON.parse(cached);
+                if (c.member_id) {
+                    const { data: member } = await sb.from('members').select('*').eq('id', c.member_id).single();
+                    if (member) { handleAuthenticated(member); return; }
+                }
+            } catch (_) {}
         }
-        positions.needsUpdate = true;
+
+        // Not authenticated — show login
+        showLogin();
     }
 
-    // ════════════════════════════════════════
-    // CAMERA — slow orbit, mouse-influenced
-    // ════════════════════════════════════════
-    let cameraAngle = 0;
+    // ── AUTHENTICATED HANDLER ────────────────────
+    function handleAuthenticated(member) {
+        saveSession(member);
+        const role = member.role;
+        const status = member.membership_status || member.status;
 
-    function updateCamera(time, delta) {
-        if (phase === 'entrance') {
-            // Static, looking into the space
-            camera.position.set(0, 20, 0.01);
-            camera.lookAt(0, 0, 0);
+        if (role === 'admin' || role === 'architect' || status === 'approved' || status === 'active') {
+            window.location.href = '/app.html';
             return;
         }
 
-        // Intro descent
-        if (introProgress < 1) {
-            introProgress += delta * 0.3; // ~3.3 seconds descent
-            introProgress = Math.min(1, introProgress);
-        }
-
-        const eased = 1 - Math.pow(1 - introProgress, 3); // ease-out cubic
-
-        // Orbit slowly
-        cameraAngle += delta * 0.08;
-
-        // Mouse influence on orbit
-        const mouseInfluence = mouse.nx * 0.3;
-        const angle = cameraAngle + mouseInfluence;
-
-        const radius = 10 + (1 - eased) * 2;
-        const height = 4 + (1 - eased) * 18; // 22 → 4
-
-        const targetX = Math.sin(angle) * radius;
-        const targetZ = Math.cos(angle) * radius;
-
-        camera.position.x += (targetX - camera.position.x) * 0.02;
-        camera.position.z += (targetZ - camera.position.z) * 0.02;
-        camera.position.y += (height - camera.position.y) * 0.02;
-
-        // Look at vortex center, slightly above
-        const lookY = 3 + mouse.ny * 1;
-        camera.lookAt(0, lookY, 0);
-
-        // During sync — pull camera closer
-        if (phase === 'sync') {
-            const pullRadius = radius - syncProgress * 5;
-            camera.position.x = Math.sin(angle) * Math.max(3, pullRadius);
-            camera.position.z = Math.cos(angle) * Math.max(3, pullRadius);
-            camera.position.y = height - syncProgress * 1;
-        }
+        // Pending approval
+        content.innerHTML = `
+            <div class="gateway-pending-icon">⏳</div>
+            <div class="gateway-subtitle" style="margin-bottom:16px">Awaiting Approval</div>
+            <div class="gateway-pending">
+                Your account is being reviewed. You'll receive an email once approved.
+            </div>
+            <div class="gateway-link" onclick="doLogout()" style="margin-top:32px">Sign Out</div>
+        `;
     }
 
-    // ════════════════════════════════════════
-    // RAYCASTER — vortex interaction
-    // ════════════════════════════════════════
-    const raycaster = new THREE.Raycaster();
-    const pointer = new THREE.Vector2();
+    // ── LOGIN SCREEN ─────────────────────────────
+    function showLogin(errorMsg) {
+        content.innerHTML = `
+            ${errorMsg ? `<div class="gateway-error">${errorMsg}</div>` : ''}
+            <div class="gateway-form">
+                <label class="gateway-label">Email</label>
+                <input class="gateway-input" type="email" id="login-email" placeholder="your@email.com" autocomplete="email">
+                <label class="gateway-label">Password</label>
+                <input class="gateway-input" type="password" id="login-pass" placeholder="Your password" autocomplete="current-password">
+                <button class="gateway-btn gateway-btn-primary" id="btn-login">Sign In</button>
+            </div>
+            <div class="gateway-divider">or</div>
+            <button class="gateway-btn gateway-btn-google" id="btn-google">
+                <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                Sign in with Google
+            </button>
+            <div class="gateway-link" onclick="showRegister()">Don't have an account? Register</div>
+        `;
 
-    function checkVortexHover() {
-        if (!vortexCore || phase !== 'chamber') return;
+        document.getElementById('btn-login').addEventListener('click', doLogin);
+        document.getElementById('btn-google').addEventListener('click', doGoogleLogin);
 
-        pointer.set(mouse.nx, -mouse.ny); // three.js normalized device coords
-        // But we're not doing screen-space picking — we check distance from cloud to vortex
-        if (!userCloud) return;
-
-        const dist = userCloud.position.distanceTo(vortexCore.position);
-        const wasHover = vortexHover;
-        vortexHover = dist < 3;
-
-        // Show/hide hint
-        const hint = document.getElementById('hint');
-        if (vortexHover && !wasHover) {
-            hint.classList.add('visible');
-            document.getElementById('cursor').classList.add('hover');
-        } else if (!vortexHover && wasHover) {
-            hint.classList.remove('visible');
-            document.getElementById('cursor').classList.remove('hover');
-        }
+        // Enter key
+        document.getElementById('login-pass').addEventListener('keydown', e => {
+            if (e.key === 'Enter') doLogin();
+        });
     }
 
-    // ════════════════════════════════════════
-    // SYNC PHASE — the core experience
-    // ════════════════════════════════════════
-    function startSync() {
-        if (phase !== 'chamber' || !vortexHover) return;
-        phase = 'sync';
-        syncProgress = 0;
-        document.getElementById('hint').classList.remove('visible');
+    // ── WAITLIST / REGISTER SCREEN ───────────────
+    window.showRegister = function() {
+        content.innerHTML = `
+            <div class="gateway-subtitle" style="margin-bottom:16px">Join the Waitlist</div>
+            <div class="gateway-text">
+                Registration is currently limited. Fill the form and we will contact you when a spot opens.
+            </div>
+            <div class="gateway-form">
+                <label class="gateway-label">Name *</label>
+                <input class="gateway-input" type="text" id="wl-name" placeholder="Your name" required>
+                <label class="gateway-label">Email *</label>
+                <input class="gateway-input" type="email" id="wl-email" placeholder="your@email.com" required>
+                <label class="gateway-label">Telegram *</label>
+                <input class="gateway-input" type="text" id="wl-telegram" placeholder="@username" required>
+                <button class="gateway-btn gateway-btn-primary" id="btn-waitlist">Submit</button>
+            </div>
+            <div class="gateway-link" onclick="showLogin()">Already have an account? Sign In</div>
+        `;
 
-        // Fade in overlay
-        setTimeout(() => {
-            document.getElementById('sync-overlay').classList.add('active');
-        }, 2000);
+        document.getElementById('btn-waitlist').addEventListener('click', doWaitlist);
+    };
+
+    window.showLogin = showLogin;
+
+    // ── INVITE REGISTRATION SCREEN ───────────────
+    function showInviteForm(invite, errorMsg) {
+        content.innerHTML = `
+            <div class="gateway-subtitle" style="margin-bottom:16px">You're Invited</div>
+            <div class="gateway-text">Create your account to join OnlyGods.</div>
+            ${errorMsg ? `<div class="gateway-error">${errorMsg}</div>` : ''}
+            <div class="gateway-form">
+                <label class="gateway-label">Name *</label>
+                <input class="gateway-input" type="text" id="inv-name" placeholder="Your name" required>
+                <label class="gateway-label">Email *</label>
+                <input class="gateway-input" type="email" id="inv-email" placeholder="your@email.com" required>
+                <label class="gateway-label">Telegram *</label>
+                <input class="gateway-input" type="text" id="inv-telegram" placeholder="@username" required>
+                <label class="gateway-label">Password *</label>
+                <input class="gateway-input" type="password" id="inv-pass" placeholder="Min 6 characters" required>
+                <button class="gateway-btn gateway-btn-primary" id="btn-invite-register">Join OnlyGods</button>
+            </div>
+        `;
+
+        document.getElementById('btn-invite-register').addEventListener('click', () => doInviteRegister(invite));
     }
 
-    function updateSync(delta) {
-        if (phase !== 'sync') return;
-        syncProgress += delta * 0.08; // ~12 seconds full sync
+    // ── ACTIONS ──────────────────────────────────
 
-        // Intensify scene
-        apex.intensity = 2.5 + syncProgress * 6;
-        renderer.toneMappingExposure = 1.6 + syncProgress * 2;
+    async function doLogin() {
+        const email = document.getElementById('login-email')?.value?.trim();
+        const pass = document.getElementById('login-pass')?.value;
+        if (!email || !pass) return showLogin('Please enter email and password.');
 
-        // Whiteout at end
-        if (syncProgress >= 1) {
-            phase = 'post';
-            // Gentle return
-            setTimeout(() => {
-                document.getElementById('sync-overlay').querySelector('.sync-text').textContent = 'Synchronized';
-                document.getElementById('sync-overlay').querySelector('.sync-sub').textContent = '';
-            }, 500);
-            setTimeout(() => {
-                // Hide sync overlay, show portal
-                document.getElementById('sync-overlay').classList.remove('active');
-                document.getElementById('portal-overlay').classList.add('active');
-                apex.intensity = 2.5;
-                renderer.toneMappingExposure = 1.6;
-                phase = 'chamber';
-                syncProgress = 0;
-                // Reset sync text for next time
-                setTimeout(() => {
-                    document.getElementById('sync-overlay').querySelector('.sync-text').textContent = 'Synchronizing';
-                    document.getElementById('sync-overlay').querySelector('.sync-sub').textContent = 'Breathe';
-                }, 2000);
-                // Hide portal after 10s if not clicked
-                setTimeout(() => {
-                    document.getElementById('portal-overlay').classList.remove('active');
-                }, 10000);
-            }, 5000);
-        }
+        const btn = document.getElementById('btn-login');
+        btn.disabled = true; btn.textContent = 'Signing in...';
+
+        const { data, error } = await sb.auth.signInWithPassword({ email, password: pass });
+        if (error) { showLogin(error.message); return; }
+
+        const member = await findMemberByAuthId(data.user.id);
+        if (!member) { showLogin('No member profile found. Contact admin.'); return; }
+
+        saveSession(member);
+        window.location.href = '/app.html';
     }
 
-    // ════════════════════════════════════════
-    // INPUT — minimal, invisible
-    // ════════════════════════════════════════
-    document.addEventListener('mousemove', (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-        mouse.nx = (e.clientX / window.innerWidth) * 2 - 1;
-        mouse.ny = -(e.clientY / window.innerHeight) * 2 + 1;
+    async function doGoogleLogin() {
+        const { error } = await sb.auth.signInWithOAuth({
+            provider: 'google',
+            options: { redirectTo: location.origin + '/playground.html' }
+        });
+        if (error) showLogin(error.message);
+    }
 
-        // Move custom cursor
-        const cursor = document.getElementById('cursor');
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
-
-    // Touch support for mobile
-    document.addEventListener('touchmove', (e) => {
-        const t = e.touches[0];
-        mouse.x = t.clientX;
-        mouse.y = t.clientY;
-        mouse.nx = (t.clientX / window.innerWidth) * 2 - 1;
-        mouse.ny = -(t.clientY / window.innerHeight) * 2 + 1;
-    }, { passive: true });
-
-    // Click — enter or sync
-    document.addEventListener('click', () => {
-        if (phase === 'entrance') {
-            entered = true;
-            phase = 'chamber';
-            document.getElementById('entrance').classList.add('gone');
+    async function doWaitlist() {
+        const name = document.getElementById('wl-name')?.value?.trim();
+        const email = document.getElementById('wl-email')?.value?.trim();
+        const telegram = document.getElementById('wl-telegram')?.value?.trim();
+        if (!name || !email || !telegram) {
+            content.querySelector('.gateway-error')?.remove();
+            const err = document.createElement('div');
+            err.className = 'gateway-error';
+            err.textContent = 'All fields are required.';
+            content.querySelector('.gateway-form').prepend(err);
             return;
         }
-        if (phase === 'chamber' && vortexHover) {
-            startSync();
+
+        const btn = document.getElementById('btn-waitlist');
+        btn.disabled = true; btn.textContent = 'Submitting...';
+
+        const { error } = await sb.from('waitlist').insert({ name, email, telegram });
+        if (error) {
+            btn.disabled = false; btn.textContent = 'Submit';
+            return;
         }
-    });
-    document.addEventListener('touchstart', () => {
-        if (phase === 'entrance') {
-            entered = true;
-            phase = 'chamber';
-            document.getElementById('entrance').classList.add('gone');
-        }
-    }, { passive: true });
 
-    // Nav visibility — show when mouse near top
-    document.addEventListener('mousemove', (e) => {
-        const nav = document.getElementById('nav');
-        if (e.clientY < 80 && phase !== 'entrance') {
-            nav.classList.add('visible');
-        } else {
-            nav.classList.remove('visible');
-        }
-    });
-
-    // Resize
-    window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-
-    // ════════════════════════════════════════
-    // BUILD & ANIMATE
-    // ════════════════════════════════════════
-    buildChamber();
-    buildVortex();
-    buildDust();
-    buildUserCloud();
-
-    const clock = new THREE.Clock();
-
-    function animate() {
-        requestAnimationFrame(animate);
-        const delta = Math.min(clock.getDelta(), 0.05);
-        const time = clock.getElapsedTime();
-
-        updateCamera(time, delta);
-        updateVortex(time, delta);
-        updateDust(time);
-        updateUserCloud(time);
-        checkVortexHover();
-        updateSync(delta);
-
-        renderer.render(scene, camera);
+        content.innerHTML = `
+            <div class="gateway-success">
+                <strong>Thank you, ${name}!</strong><br><br>
+                Registration is currently limited. We've received your application and will contact you at <strong>${email}</strong> when a spot opens.
+            </div>
+            <div class="gateway-link" onclick="showLogin()" style="margin-top:24px">Back to Sign In</div>
+        `;
     }
 
-    animate();
+    async function doInviteRegister(invite) {
+        const name = document.getElementById('inv-name')?.value?.trim();
+        const email = document.getElementById('inv-email')?.value?.trim();
+        const telegram = document.getElementById('inv-telegram')?.value?.trim();
+        const pass = document.getElementById('inv-pass')?.value;
 
+        if (!name || !email || !telegram || !pass) {
+            showInviteForm(invite, 'All fields are required.');
+            return;
+        }
+        if (pass.length < 6) {
+            showInviteForm(invite, 'Password must be at least 6 characters.');
+            return;
+        }
+
+        const btn = document.getElementById('btn-invite-register');
+        btn.disabled = true; btn.textContent = 'Creating account...';
+
+        // Create Supabase Auth user
+        const { data: authData, error: authError } = await sb.auth.signUp({
+            email, password: pass,
+            options: {
+                data: { name, telegram },
+                emailRedirectTo: location.origin + '/playground.html'
+            }
+        });
+        if (authError) { showInviteForm(invite, authError.message); return; }
+
+        // Create member row
+        const { data: member, error: memberError } = await sb
+            .from('members')
+            .insert({
+                name, email,
+                contact: telegram,
+                auth_user_id: authData.user?.id || null,
+                role: 'member',
+                status: 'active',
+                membership_status: 'pending',
+            })
+            .select().single();
+
+        if (memberError) { showInviteForm(invite, memberError.message); return; }
+
+        // Increment invite used_count
+        await sb.from('invite_links')
+            .update({ used_count: invite.used_count + 1 })
+            .eq('id', invite.id);
+
+        saveSession(member);
+
+        content.innerHTML = `
+            <div class="gateway-success">
+                <strong>Welcome, ${name}!</strong><br><br>
+                We sent a confirmation email to <strong>${email}</strong>. Please check your inbox and click the link to verify your account.
+            </div>
+        `;
+    }
+
+    // ── LEGACY TOKEN ─────────────────────────────
+    async function handleToken(token) {
+        const { data: tokenRow } = await sb
+            .from('link_tokens').select('*')
+            .eq('token', token).eq('used', false).single();
+
+        if (!tokenRow || (tokenRow.expires_at && new Date(tokenRow.expires_at) < new Date())) {
+            showLogin('Invalid or expired login link.');
+            return;
+        }
+
+        await sb.from('link_tokens').update({ used: true }).eq('id', tokenRow.id);
+        const { data: member } = await sb.from('members').select('*').eq('id', tokenRow.member_id).single();
+        if (!member) { showLogin('Member not found.'); return; }
+
+        saveSession(member);
+        window.location.href = '/app.html';
+    }
+
+    // ── INVITE HANDLER ───────────────────────────
+    async function handleInvite(code) {
+        const { data: invite, error } = await sb
+            .from('invite_links').select('*')
+            .eq('code', code).eq('is_active', true).single();
+
+        if (error || !invite) { showLogin('Invalid invite link.'); return; }
+        if (new Date(invite.expires_at) < new Date()) { showLogin('This invite link has expired.'); return; }
+        if (invite.used_count >= invite.max_uses) { showLogin('This invite link has reached its maximum uses.'); return; }
+
+        showInviteForm(invite);
+    }
+
+    // ── HELPERS ──────────────────────────────────
+    async function resolveAuthUser(user) {
+        if (!user) return null;
+        let member = await findMemberByAuthId(user.id);
+        if (!member) {
+            const { data } = await sb.from('members').insert({
+                name: user.user_metadata?.full_name || user.email?.split('@')[0] || 'User',
+                email: user.email,
+                auth_user_id: user.id,
+                avatar_url: user.user_metadata?.avatar_url || null,
+                role: 'member', status: 'active', membership_status: 'pending',
+            }).select().single();
+            member = data;
+        }
+        return member || null;
+    }
+
+    async function findMemberByAuthId(authUserId) {
+        const { data } = await sb.from('members').select('*').eq('auth_user_id', authUserId).single();
+        return data || null;
+    }
+
+    function saveSession(member) {
+        localStorage.setItem(AUTH_KEY, JSON.stringify({
+            member_id: member.id,
+            auth_user_id: member.auth_user_id || null,
+            name: member.name,
+            role: member.role,
+            avatar_url: member.avatar_url,
+            membership_status: member.membership_status || member.status || 'pending',
+        }));
+    }
+
+    window.doLogout = async function() {
+        try { await sb.auth.signOut(); } catch (_) {}
+        localStorage.removeItem(AUTH_KEY);
+        showLogin();
+    };
+
+    // ── BOOT ─────────────────────────────────────
+    init();
 })();
 </script>
 </body>

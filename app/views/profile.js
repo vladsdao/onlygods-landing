@@ -156,10 +156,16 @@ export default class ProfileView {
     }
 
     _renderAvatar(member) {
-        if (member.avatar_url) {
-            return `<img class="profile-avatar" src="${member.avatar_url}" alt="">`;
-        }
-        return `<div class="profile-avatar profile-avatar-placeholder">${(member.name || '?').charAt(0).toUpperCase()}</div>`;
+        const img = member.avatar_url
+            ? `<img class="profile-avatar" src="${member.avatar_url}" alt="">`
+            : `<div class="profile-avatar profile-avatar-placeholder">${(member.name || '?').charAt(0).toUpperCase()}</div>`;
+        return `
+            ${img}
+            <div class="profile-avatar-overlay" title="Change photo">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </div>
+            <input type="file" id="avatar-input-quick" accept="image/*" class="profile-avatar-file-hidden">
+        `;
     }
 
     _setupListeners() {
@@ -172,12 +178,19 @@ export default class ProfileView {
         if (editBtn) editBtn.addEventListener('click', () => this._toggleEdit(true));
         if (cancelBtn) cancelBtn.addEventListener('click', () => this._toggleEdit(false));
         if (saveBtn) saveBtn.addEventListener('click', () => this._saveProfile());
-        if (logoutBtn) logoutBtn.addEventListener('click', () => {
-            auth.logout();
-            location.hash = '#/';
-            location.reload();
+        if (logoutBtn) logoutBtn.addEventListener('click', async () => {
+            await auth.logout();
+            window.location.href = '/playground.html';
         });
         if (avatarInput) avatarInput.addEventListener('change', (e) => this._uploadAvatar(e));
+
+        // Avatar quick-upload (click avatar outside edit mode)
+        const avatarWrap = document.getElementById('avatar-wrap');
+        const quickInput = document.getElementById('avatar-input-quick');
+        if (avatarWrap && quickInput) {
+            avatarWrap.addEventListener('click', () => quickInput.click());
+            quickInput.addEventListener('change', (e) => this._uploadAvatar(e));
+        }
 
         // Admin nav buttons
         document.getElementById('btn-admin-tasks')?.addEventListener('click', () => { location.hash = '#/align'; });
@@ -524,7 +537,7 @@ export default class ProfileView {
 
             if (error) { console.error('Invite error:', error); return; }
 
-            const link = `${location.origin}/app.html?invite=${code}`;
+            const link = `${location.origin}/playground.html?invite=${code}`;
             const resultEl = document.getElementById('invite-result');
             const linkText = document.getElementById('invite-link-text');
             if (resultEl) resultEl.classList.remove('hidden');
