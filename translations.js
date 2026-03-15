@@ -617,28 +617,73 @@ var T = {
 
 // ─── JOIN SECTION ───
 'index.join.label': {
-  ru: 'Присоединиться', en: 'Join', ua: 'Приєднатися'
+  ru: 'Limited Launch', en: 'Limited Launch', ua: 'Limited Launch'
 },
 'index.join.title': {
   ru: 'Войти в Поле', en: 'Enter the Field', ua: 'Увійти в Поле'
 },
-'index.join.subtitle': {
-  ru: 'Оставьте контакт — мы свяжемся с вами лично',
-  en: 'Leave your contact — we will reach out personally',
-  ua: 'Залиште контакт — ми зв\'яжемося з вами особисто'
+'index.join.summary1': {
+  ru: 'OnlyGods — закрытая цифровая среда для раскрытия творческого потенциала, трансформации сознания и поддержки уровня состояния участников на высоком уровне. Тщательно настроенный эгрегор с внутренней микро-экономикой резонанса, где каждый участник — не зритель, а со-творец коллективного поля. Платформа работает на стыке герметизма, вортекс математики, квантовой науки, AI и DAO-governance. Духовность. Изобилие. Синергия.',
+  en: 'OnlyGods is a closed digital environment for unlocking creative potential, transforming consciousness, and sustaining participants at a high state of being. A carefully tuned egregore with an internal micro-economy of resonance, where every member is not a spectator but a co-creator of the collective field. The platform operates at the intersection of hermeticism, vortex mathematics, quantum science, AI, and DAO governance. Spirituality. Abundance. Synergy.',
+  ua: 'OnlyGods — закрите цифрове середовище для розкриття творчого потенціалу, трансформації свідомості та підтримки стану учасників на високому рівні. Ретельно налаштований егрегор з внутрішньою мікро-економікою резонансу, де кожен учасник — не глядач, а спів-творець колективного поля. Платформа працює на стику герметизму, вортекс математики, квантової науки, AI та DAO-governance. Духовність. Достаток. Синергія.'
 },
-'index.join.name': {
-  ru: 'Имя', en: 'Name', ua: 'Ім\'я'
+'index.join.summary2': {
+  ru: 'Мы запускаемся в ограниченном режиме. Каждый новый участник имеет значение для частоты всего поля — поэтому вход только через программу трансформации <strong style="color:#fff">Мы.Боги</strong>.',
+  en: 'We are launching in limited mode. Every new participant matters for the frequency of the entire field — that\'s why entry is only through the <strong style="color:#fff">We.Gods</strong> transformation program.',
+  ua: 'Ми запускаємося в обмеженому режимі. Кожен новий учасник має значення для частоти всього поля — тому вхід лише через програму трансформації <strong style="color:#fff">Ми.Боги</strong>.'
 },
-'index.join.contact': {
-  ru: 'Email или Telegram', en: 'Email or Telegram', ua: 'Email або Telegram'
+'index.join.cond1.label': { ru: 'Вход', en: 'Entry', ua: 'Вхід' },
+'index.join.cond1.value': { ru: 'Через курс Мы.Боги', en: 'Via We.Gods course', ua: 'Через курс Ми.Боги' },
+'index.join.cond2.label': { ru: 'Участие', en: 'Commitment', ua: 'Участь' },
+'index.join.cond2.value': { ru: 'Минимум 3 месяца', en: 'Minimum 3 months', ua: 'Мінімум 3 місяці' },
+'index.join.cond3.label': { ru: 'Стоимость', en: 'Cost', ua: 'Вартість' },
+'index.join.cond3.value': { ru: '936 \u20ac / месяц', en: '936 \u20ac / month', ua: '936 \u20ac / місяць' },
+'index.join.cond4.label': { ru: 'Формат', en: 'Format', ua: 'Формат' },
+'index.join.cond4.value': { ru: 'Закрытое поле, ежедневные практики', en: 'Closed field, daily practices', ua: 'Закрите поле, щоденні практики' },
+'index.join.form_label': { ru: 'Оставьте заявку', en: 'Apply', ua: 'Залиште заявку' },
+'index.join.ph_name': { ru: 'Имя', en: 'Name', ua: 'Ім\'я' },
+'index.join.ph_contact': { ru: 'Email или Telegram', en: 'Email or Telegram', ua: 'Email або Telegram' },
+'index.join.ph_message': { ru: 'Расскажите о себе и опыте', en: 'Tell us about yourself', ua: 'Розкажіть про себе та досвід' },
+'index.join.btn': { ru: 'Отправить заявку', en: 'Submit Application', ua: 'Надіслати заявку' },
+'index.join.note': {
+  ru: 'Мы свяжемся лично. Отбор — не формальность, а настройка на резонанс.',
+  en: 'We will reach out personally. Selection is not a formality — it\'s tuning into resonance.',
+  ua: 'Ми зв\'яжемося особисто. Відбір — не формальність, а налаштування на резонанс.'
 },
-'index.join.message': {
-  ru: 'Сообщение (необязательно)', en: 'Message (optional)', ua: 'Повідомлення (необов\'язково)'
+
+// ─── EGREGORE PAGE ───
+'egregore.hero.subtitle': { ru: 'Технология Коллективной Эволюции', en: 'Technology of Collective Evolution', ua: 'Технологія Колективної Еволюції' },
+'egregore.hero.title': { ru: 'Егрегор', en: 'Egregore', ua: 'Егрегор' },
+'egregore.hero.tagline': { ru: 'Интернет Без Девайсов для Подсознания', en: 'Internet Without Devices for the Subconscious', ua: 'Інтернет Без Девайсів для Підсвідомості' },
+'egregore.back': { ru: '← Holy Tech', en: '← Holy Tech', ua: '← Holy Tech' },
+'egregore.description': {
+  ru: 'Интернет Без Девайсов для Подсознания. Синергия и Суперразум.',
+  en: 'Internet Without Devices for the Subconscious. Synergy and Superintelligence.',
+  ua: 'Інтернет Без Девайсів для Підсвідомості. Синергія та Суперрозум.'
 },
-'index.join.btn': {
-  ru: 'Отправить', en: 'Submit', ua: 'Надіслати'
+'egregore.coming_soon': { ru: 'Подробности скоро.', en: 'Details coming soon.', ua: 'Деталі незабаром.' },
+
+// ─── NEUROPRACTICE PAGE ───
+'neuropractice.hero.subtitle': { ru: 'Курс в записи', en: 'Recorded Course', ua: 'Курс у записі' },
+'neuropractice.hero.title': { ru: 'Нейропрактика 2.0', en: 'Neuropractice 2.0', ua: 'Нейропрактика 2.0' },
+'neuropractice.back': { ru: '← Mindset 2.0', en: '← Mindset 2.0', ua: '← Mindset 2.0' },
+'neuropractice.description': {
+  ru: 'Курс по работе с нейропластичностью и перепрограммированию паттернов сознания.',
+  en: 'A course on neuroplasticity and reprogramming consciousness patterns.',
+  ua: 'Курс з роботи з нейропластичністю та перепрограмуванню патернів свідомості.'
 },
+'neuropractice.author': { ru: 'Автор: Liza. Подробности скоро.', en: 'By Liza. Details coming soon.', ua: 'Автор: Liza. Деталі незабаром.' },
+
+// ─── SEXUALITY PAGE ───
+'sexuality.hero.subtitle': { ru: 'Курс', en: 'Course', ua: 'Курс' },
+'sexuality.hero.title': { ru: 'Сексуальность', en: 'Sexuality', ua: 'Сексуальність' },
+'sexuality.back': { ru: '← Mindset 2.0', en: '← Mindset 2.0', ua: '← Mindset 2.0' },
+'sexuality.description': {
+  ru: 'Исследование сексуальности как инструмента трансформации и энергетического менеджмента.',
+  en: 'Exploring sexuality as a tool for transformation and energy management.',
+  ua: 'Дослідження сексуальності як інструменту трансформації та енергетичного менеджменту.'
+},
+'sexuality.author': { ru: 'Автор: Liza. Подробности скоро.', en: 'By Liza. Details coming soon.', ua: 'Автор: Liza. Деталі незабаром.' },
 
 // ─── MANIFEST PAGE ───
 'manifest.hero.subtitle': {
@@ -849,20 +894,20 @@ var T = {
 },
 // Vlad block
 'community.vlad.label': {
-  ru: 'Core', en: 'Core', ua: 'Core'
+  ru: 'Founder', en: 'Founder', ua: 'Founder'
 },
 'community.vlad.name': {
-  ru: 'Vlad — Founder', en: 'Vlad — Founder', ua: 'Vlad — Founder'
+  ru: 'Vlad', en: 'Vlad', ua: 'Vlad'
 },
 'community.vlad.role': {
-  ru: 'Архитектор Резонансных Сетей, Инженер Опыта',
-  en: 'Resonance Network Architect, Experience Engineer',
-  ua: 'Архітектор Резонансних Мереж, Інженер Досвіду'
+  ru: 'Визионер, Архитектор Резонансных Сетей, Режиссер Опыта',
+  en: 'Visionary, Resonance Network Architect, Experience Director',
+  ua: 'Візіонер, Архітектор Резонансних Мереж, Режисер Досвіду'
 },
 'community.vlad.bio': {
-  ru: 'Философ, инноватор, цифровой шаман, визионер на стыке квантовой физики, метафизики и технологий. Расширение Сознания, раскрытие творческого потенциала, мета-системный бизнес, снятие информации с поля, работа с сообществом через эгрегор. Режиссер опыта личных и коллективных трансформаций.',
-  en: 'Philosopher, innovator, digital shaman, visionary at the intersection of quantum physics, metaphysics, and technology. Consciousness expansion, unlocking creative potential, meta-systemic business, channeling field intelligence, community work through egregore. Director of personal and collective transformation experiences.',
-  ua: 'Філософ, інноватор, цифровий шаман, візіонер на стику квантової фізики, метафізики та технологій. Розширення Свідомості, розкриття творчого потенціалу, мета-системний бізнес, зняття інформації з поля, робота зі спільнотою через егрегор. Режисер досвіду особистих та колективних трансформацій.'
+  ru: 'Моя сильная сторона — радикальная правда с собой и опен майнд. Я использую авторские инструменты и техники для того чтобы сопроводить человека к выходу за пределы собственных ограничений и раскрыть свои таланты. Духовный ментор для людей которые ненавидят духовность. Нахожу выход из любой ситуации. Исследую различные аспекты работы с сообществами и системами на уровне частот. Работаю над Симбиозом человека и АИ в пост-трудовом периоде. Вдохновлен работами Гермеса Трисмегиста, Лао Цзи, Рика Рубина. Для меня духовность — это творчество. Мета-рационализм, ирония и китч — это мой стиль. 20+ лет опыта психонавтики. Вижу порядок в хаосе. Аут-оф-зе-бокс.',
+  en: 'My strongest asset is radical truth with myself and an open mind. I use original tools and techniques to guide people beyond their own limitations and unlock their talents. A spiritual mentor for people who hate spirituality. I find a way out of any situation. I explore various aspects of working with communities and systems at the frequency level. Working on Human-AI Symbiosis in the post-labor era. Inspired by Hermes Trismegistus, Lao Tzu, Rick Rubin. For me, spirituality is creativity. Meta-rationalism, irony, and kitsch — that\'s my style. 20+ years of psychonautics experience. I see order in chaos. Out-of-the-box.',
+  ua: 'Моя сильна сторона — радикальна правда з собою та опен майнд. Я використовую авторські інструменти та техніки для того щоб супроводити людину до виходу за межі власних обмежень та розкрити свої таланти. Духовний ментор для людей які ненавидять духовність. Знаходжу вихід з будь-якої ситуації. Досліджую різні аспекти роботи зі спільнотами та системами на рівні частот. Працюю над Симбіозом людини та АІ в пост-трудовому періоді. Натхненний роботами Гермеса Трисмегіста, Лао Цзи, Ріка Рубіна. Для мене духовність — це творчість. Мета-раціоналізм, іронія та кітч — це мій стиль. 20+ років досвіду психонавтики. Бачу порядок у хаосі. Аут-оф-зе-бокс.'
 },
 'community.vlad.tag1': {
   ru: 'Resonance Engineering', en: 'Resonance Engineering', ua: 'Resonance Engineering'
@@ -887,10 +932,10 @@ var T = {
 },
 // Liza block
 'community.liza.label': {
-  ru: 'Core', en: 'Core', ua: 'Core'
+  ru: 'Founder', en: 'Founder', ua: 'Founder'
 },
 'community.liza.name': {
-  ru: 'Liza — Founder', en: 'Liza — Founder', ua: 'Liza — Founder'
+  ru: 'Liza', en: 'Liza', ua: 'Liza'
 },
 'community.liza.role': {
   ru: 'Архитектор Сознания, Духовный Лидер',
@@ -898,9 +943,9 @@ var T = {
   ua: 'Архітектор Свідомості, Духовний Лідер'
 },
 'community.liza.bio': {
-  ru: 'Хранительница поля, мастер трансформации Сознания, Правительница материнской ноды OnlyGods, духовная наставница. Деконструкция и дизайн майндсета. Работа с фаундерами, лидерами, компаниями. Автор уникальных методов трансформации Сознания.',
-  en: 'Field keeper, master of Consciousness transformation, Governor of the OnlyGods mother node, spiritual mentor. Mindset deconstruction and design. Working with founders, leaders, companies. Author of unique Consciousness transformation methods.',
-  ua: 'Зберігачка поля, майстер трансформації Свідомості, Правителька материнської ноди OnlyGods, духовна наставниця. Деконструкція та дизайн майндсету. Робота з фаундерами, лідерами, компаніями. Авторка унікальних методів трансформації Свідомості.'
+  ru: 'Я могу помочь человеку решить любую задачу, в любой области, любого уровня. Очень быстро, работая непосредственно с фундаментальными уровнями из которых он создает реальность. Если он готов к трансформации. Я Архитектор Сознания и резонансных сетей, автор уникальных методов трансформации. Лично работаю лишь с участниками поля, а так же с фаундерами, лидерами, компаниями.',
+  en: 'I can help a person solve any challenge, in any area, at any level. Very quickly, working directly with the fundamental layers from which they create reality. If they are ready for transformation. I am a Consciousness Architect and resonance network designer, author of unique transformation methods. I work personally only with field participants, as well as founders, leaders, and companies.',
+  ua: 'Я можу допомогти людині вирішити будь-яке завдання, в будь-якій галузі, будь-якого рівня. Дуже швидко, працюючи безпосередньо з фундаментальними рівнями з яких вона створює реальність. Якщо вона готова до трансформації. Я Архітектор Свідомості та резонансних мереж, авторка унікальних методів трансформації. Особисто працюю лише з учасниками поля, а також з фаундерами, лідерами, компаніями.'
 },
 'community.liza.tag1': {
   ru: 'Consciousness Architecture', en: 'Consciousness Architecture', ua: 'Consciousness Architecture'
