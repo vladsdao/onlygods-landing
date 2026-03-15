@@ -1888,7 +1888,8 @@ var T = {
 
 // ─── GAMEOVER ARTICLE ───
 'gameover.title': { ru: 'OnlyGods — 2026: GAME OVER', en: 'OnlyGods — 2026: GAME OVER', ua: 'OnlyGods — 2026: GAME OVER' },
-'gameover.back': { ru: '← Alignment', en: '← Alignment', ua: '← Alignment' },
+'gameover.back': { ru: '← Mindset 2.0', en: '← Mindset 2.0', ua: '← Mindset 2.0' },
+'gameover.hero.subtitle': { ru: '2026', en: '2026', ua: '2026' },
 'gameover.hero.title': { ru: '2026 = GAME OVER', en: '2026 = GAME OVER', ua: '2026 = GAME OVER' },
 'gameover.hero.tagline': {
   ru: 'Математика конца света, точка разворота и протокол выхода из легального рабства',
