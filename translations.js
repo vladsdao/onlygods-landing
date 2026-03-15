@@ -1289,19 +1289,19 @@ var T = {
 
 // ─── ALIGNMENT PAGE ───
 'alignment.hero.subtitle': {
-  ru: 'Со-настройка через контент и активности',
-  en: 'Co-tuning through content and activities',
-  ua: 'Со-налаштування через контент та активності'
+  ru: 'Контент и программы для со-настройки',
+  en: 'Content and programs for co-tuning',
+  ua: 'Контент та програми для со-налаштування'
 },
 'alignment.hero.title': {
-  ru: 'Alignment',
-  en: 'Alignment',
-  ua: 'Alignment'
+  ru: 'Mindset 2.0',
+  en: 'Mindset 2.0',
+  ua: 'Mindset 2.0'
 },
 'alignment.hero.tagline': {
-  ru: 'Публикации, трансляции, события и курсы резонансной сети',
-  en: 'Publications, streams, events and courses of the resonance network',
-  ua: 'Публікації, трансляції, події та курси резонансної мережі'
+  ru: 'Твой квантовый скачек. Материалы и программы для трансформации сознания',
+  en: 'Your quantum leap. Materials and programs for consciousness transformation',
+  ua: 'Твій квантовий стрибок. Матеріали та програми для трансформації свідомості'
 },
 // Quantum Kitchen
 'alignment.ec.kitchen.label': {
