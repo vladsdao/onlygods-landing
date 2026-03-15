@@ -763,22 +763,65 @@ body::after {
     padding: 80px 60px;
 }
 
-.join-section .section-label { color: #86868b; }
-.join-section .section-title { color: #ffffff; }
+.join-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
 
-.join-subtitle {
+.join-info .section-label { color: #86868b; }
+.join-info .section-title { color: #ffffff; margin-bottom: 24px; }
+
+.join-summary {
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+.join-summary:last-of-type { margin-bottom: 40px; }
+
+.join-conditions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.join-conditions li {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.join-conditions .cond-label {
     color: #86868b;
-    font-size: 16px;
-    line-height: 1.7;
-    max-width: 500px;
-    margin-bottom: 48px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.join-conditions .cond-value {
+    color: #ffffff;
+    font-size: 15px;
+    text-align: right;
+}
+
+.join-form-side .form-label {
+    color: #86868b;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: block;
 }
 
 .join-form {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    max-width: 600px;
+    grid-template-columns: 1fr;
+    gap: 14px;
 }
 
 .join-input, .join-textarea {
@@ -797,13 +840,11 @@ body::after {
 .join-input:focus, .join-textarea:focus { border-color: rgba(255,255,255,0.3); }
 
 .join-textarea {
-    grid-column: 1 / -1;
-    min-height: 100px;
+    min-height: 80px;
     resize: vertical;
 }
 
 .join-btn {
-    grid-column: 1 / -1;
     background: none;
     border: 1px solid rgba(255,255,255,0.2);
     color: #ffffff;
@@ -815,11 +856,19 @@ body::after {
     cursor: pointer;
     border-radius: 3px;
     transition: background 0.3s ease, border-color 0.3s ease;
+    margin-top: 8px;
 }
 
 .join-btn:hover {
     background: rgba(255,255,255,0.06);
     border-color: rgba(255,255,255,0.4);
+}
+
+.join-note {
+    color: #636366;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 20px;
 }
 
 /* ====================================== */
@@ -841,6 +890,7 @@ body::after {
     .nav-burger { display: flex; }
     .site-nav { padding: 0 20px; }
     .join-section { padding: 48px 24px; }
+    .join-grid { grid-template-columns: 1fr; gap: 48px; }
     .join-form { grid-template-columns: 1fr; }
     .hero-section { min-height: auto; padding: 80px 20px 32px; }
 }
@@ -857,7 +907,8 @@ body::after {
     <div class="nav-links">
         <a href="manifest.html">Manifest</a>
         <a href="technologies.html">Holy Tech</a>
-        <a href="alignment.html">Alignment</a>
+        <a href="creators.html">Creators</a>
+        <a href="mindset.html">Mindset 2.0</a>
         <a href="quantumlab.html">Quantum Lab</a>
         <a href="activities.html">Activities</a>
         <a href="playground.html">Playground</a>
@@ -878,7 +929,8 @@ body::after {
 <div class="nav-mobile" id="nav-mobile">
     <a href="manifest.html">Manifest</a>
     <a href="technologies.html">Holy Tech</a>
-    <a href="alignment.html">Alignment</a>
+        <a href="creators.html">Creators</a>
+    <a href="mindset.html">Mindset 2.0</a>
     <a href="quantumlab.html">Quantum Lab</a>
     <a href="activities.html">Activities</a>
         <a href="playground.html">Playground</a>
@@ -1162,21 +1214,61 @@ body::after {
 <!-- ====================================== -->
 <div class="content-section">
     <div class="join-section fade-in-up" id="join">
-        <div class="section-label" data-i18n="index.join.label">Присоединиться</div>
-        <h2 class="section-title" data-i18n="index.join.title">Войти в Поле</h2>
-        <p class="join-subtitle" data-i18n="index.join.subtitle">Оставьте контакт — мы свяжемся с вами лично</p>
-        <form class="join-form" action="https://formsubmit.co/vladsdao@onlygods.xyz" method="POST">
-            <input type="hidden" name="_subject" value="OnlyGods — New Join Request">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://onlygods.xyz/index.html">
-            <input class="join-input" type="text" name="name" required
-                   placeholder="Имя" data-i18n-placeholder="index.join.name">
-            <input class="join-input" type="text" name="contact" required
-                   placeholder="Email или Telegram" data-i18n-placeholder="index.join.contact">
-            <textarea class="join-textarea" name="message"
-                      placeholder="Сообщение (необязательно)" data-i18n-placeholder="index.join.message"></textarea>
-            <button type="submit" class="join-btn" data-i18n="index.join.btn">Отправить</button>
-        </form>
+        <div class="join-grid">
+
+            <!-- LEFT: Info -->
+            <div class="join-info">
+                <div class="section-label">Limited Launch</div>
+                <h2 class="section-title">Войти в Поле</h2>
+                <p class="join-summary">
+                    OnlyGods — закрытая цифровая среда для трансформации сознания.
+                    Микро-экономика резонанса, где каждый участник — не зритель, а со-творец коллективного поля.
+                    Платформа работает на стыке духовных практик, квантовых технологий и DAO-governance.
+                </p>
+                <p class="join-summary">
+                    Мы запускаемся в ограниченном режиме. Каждый новый участник имеет
+                    значение для частоты всего поля — поэтому вход только через программу
+                    трансформации <strong style="color:#fff">Мы.Боги</strong>.
+                </p>
+                <ul class="join-conditions">
+                    <li>
+                        <span class="cond-label">Вход</span>
+                        <span class="cond-value">Через курс Мы.Боги</span>
+                    </li>
+                    <li>
+                        <span class="cond-label">Участие</span>
+                        <span class="cond-value">Минимум 3 месяца</span>
+                    </li>
+                    <li>
+                        <span class="cond-label">Стоимость</span>
+                        <span class="cond-value">936 &euro; / месяц</span>
+                    </li>
+                    <li>
+                        <span class="cond-label">Формат</span>
+                        <span class="cond-value">Закрытое поле, ежедневные практики</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- RIGHT: Form -->
+            <div class="join-form-side">
+                <span class="form-label">Оставьте заявку</span>
+                <form class="join-form" action="https://formsubmit.co/vladsdao@onlygods.xyz" method="POST">
+                    <input type="hidden" name="_subject" value="OnlyGods — New Join Request">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://onlygods.xyz/index.html">
+                    <input class="join-input" type="text" name="name" required
+                           placeholder="Имя">
+                    <input class="join-input" type="text" name="contact" required
+                           placeholder="Email или Telegram">
+                    <textarea class="join-textarea" name="message"
+                              placeholder="Расскажите о себе и опыте"></textarea>
+                    <button type="submit" class="join-btn">Отправить заявку</button>
+                </form>
+                <p class="join-note">Мы свяжемся лично. Отбор — не формальность, а настройка на резонанс.</p>
+            </div>
+
+        </div>
     </div>
 </div>
 
