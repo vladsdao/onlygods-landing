@@ -257,10 +257,11 @@ body::after {
 }
 
 .panel-text {
-    font-size: 16px;
-    line-height: 1.75;
-    color: rgba(245, 245, 247, 0.7);
+    font-size: 13px;
+    line-height: 1.65;
+    color: rgba(245, 245, 247, 0.5);
     font-weight: 300;
+    letter-spacing: 0.3px;
 }
 
 /* Voice player */
@@ -716,17 +717,21 @@ const NODES = [
         role: 'Architect',
         stage: 'coagulation',
         active: true,
-        text: '',
+        color: 0xff6b4a,      // Fire — coral ember
+        glowColor: 0xff9e85,
+        text: 'Визионер, Архитектор Резонансных Сетей, Режиссер Опыта. Духовный ментор для людей которые ненавидят духовность. Мета-рационализм, ирония и китч. 20+ лет психонавтики. Вижу порядок в хаосе.',
         expression: '',
         expressionTime: ''
     },
     {
         id: 'liza',
         name: 'Liza',
-        role: 'Facilitator',
+        role: 'Consciousness Architect',
         stage: 'coagulation',
         active: true,
-        text: '',
+        color: 0x47b5e6,      // Water — deep sky
+        glowColor: 0x8ad4f5,
+        text: 'Архитектор Сознания, Духовный Лидер. Работает с фундаментальными уровнями из которых человек создает реальность. Автор уникальных методов трансформации. Лично работает с участниками поля, фаундерами, лидерами.',
         expression: '',
         expressionTime: ''
     },
@@ -736,6 +741,8 @@ const NODES = [
         role: 'Witness',
         stage: 'coagulation',
         active: true,
+        color: 0x6ed5c2,      // Water — seafoam teal
+        glowColor: 0xa8e8dc,
         text: '',
         expression: '',
         expressionTime: ''
@@ -746,6 +753,8 @@ const NODES = [
         role: 'Apex',
         stage: 'conjunction',
         active: true,
+        color: 0xffb347,      // Fire — amber gold
+        glowColor: 0xffd699,
         text: '',
         expression: '',
         expressionTime: ''
@@ -755,14 +764,14 @@ const NODES = [
 // Tetrahedron vertex positions (centered, normalized)
 const TETRA_SCALE = window.innerWidth < 768 ? 1.6 : 2.8;
 const TETRA_VERTICES = [
-    new THREE.Vector3( 0,  1.2,  0).multiplyScalar(TETRA_SCALE),           // Apex (Misha)
+    new THREE.Vector3( 0,  1.2,  0).multiplyScalar(TETRA_SCALE),           // Apex (Arina)
     new THREE.Vector3(-1, -0.4,  0.8).multiplyScalar(TETRA_SCALE),         // Vlad
     new THREE.Vector3( 1, -0.4,  0.8).multiplyScalar(TETRA_SCALE),         // Liza
-    new THREE.Vector3( 0, -0.4, -1.1).multiplyScalar(TETRA_SCALE),         // Arina
+    new THREE.Vector3( 0, -0.4, -1.1).multiplyScalar(TETRA_SCALE),         // Misha
 ];
 
-// Map nodes to vertices: Misha=apex(0), Vlad=1, Liza=2, Arina=3
-const NODE_VERTEX_MAP = [1, 2, 3, 0]; // NODES[0]=Vlad→v1, NODES[1]=Liza→v2, etc.
+// Map nodes to vertices: Arina=apex(0), Vlad=1, Liza=2, Misha=3
+const NODE_VERTEX_MAP = [1, 2, 0, 3]; // NODES[0]=Vlad→v1, NODES[1]=Liza→v2, NODES[2]=Arina→v0(apex), NODES[3]=Misha→v3
 
 // Edges of tetrahedron (all 6)
 const EDGES = [
@@ -821,22 +830,22 @@ NODES.forEach((node, i) => {
     const vi = NODE_VERTEX_MAP[i];
     const pos = TETRA_VERTICES[vi];
 
-    // Outer sphere (glow) — Apple-style soft halo
+    // Outer sphere (glow) — elemental halo
     const glowGeo = new THREE.SphereGeometry(node.active ? 0.12 : 0.06, 16, 16);
     const glowMat = new THREE.MeshBasicMaterial({
-        color: 0xd0d8ff,
+        color: node.glowColor || 0xd0d8ff,
         transparent: true,
-        opacity: node.active ? 0.05 : 0.02
+        opacity: node.active ? 0.07 : 0.02
     });
     const glowMesh = new THREE.Mesh(glowGeo, glowMat);
     glowMesh.position.copy(pos);
     glowMesh.scale.set(5, 5, 5);
     nodeGroup.add(glowMesh);
 
-    // Core sphere
+    // Core sphere — elemental color
     const geo = new THREE.SphereGeometry(node.active ? 0.12 : 0.06, 16, 16);
     const mat = new THREE.MeshBasicMaterial({
-        color: 0xf5f5f7,
+        color: node.color || 0xf5f5f7,
         transparent: true,
         opacity: node.active ? 0.9 : 0.15
     });
@@ -849,8 +858,9 @@ NODES.forEach((node, i) => {
     // HTML label (positioned via projection in animation loop)
     const labelDiv = document.createElement('div');
     labelDiv.className = `node-label ${node.active ? '' : 'empty'}`;
+    const nodeCSS = '#' + node.color.toString(16).padStart(6, '0');
     labelDiv.innerHTML = `
-        <div class="node-label-name">${node.name}</div>
+        <div class="node-label-name" style="color:${nodeCSS}">${node.name}</div>
         <div class="node-label-role">${node.role}</div>
     `;
     labelDiv.style.pointerEvents = 'auto';
@@ -1239,7 +1249,7 @@ function openPanel(nodeIndex) {
         // Empty node
         panelContent.innerHTML = `
             <div class="panel-stage">Vertex · Awaiting</div>
-            <div class="panel-name">${node.name}</div>
+            <div class="panel-name" style="color:#${node.color.toString(16).padStart(6,'0')}">${node.name}</div>
             <div class="panel-role">${node.role}</div>
             <div class="panel-divider"></div>
             <div class="panel-empty-state">
@@ -1269,7 +1279,7 @@ function openPanel(nodeIndex) {
 
         panelContent.innerHTML = `
             <div class="panel-stage">${stageLabels[node.stage] || node.stage}</div>
-            <div class="panel-name">${node.name}</div>
+            <div class="panel-name" style="color:#${node.color.toString(16).padStart(6,'0')}">${node.name}</div>
             <div class="panel-role">${node.role}</div>
 
             <div class="panel-divider"></div>

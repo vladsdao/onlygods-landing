@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="confidence.title">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnlyGods — Уверенность</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff; color: #1d1d1f;
+    overflow-x: hidden; scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(29, 29, 31, 0.12); }
+
+/* Film grain overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+}
+
+.site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+.nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; color: #1d1d1f;
+    text-decoration: none; letter-spacing: -0.5px;
+}
+
+.nav-links { display: flex; align-items: center; gap: 32px; }
+
+.nav-links a {
+    font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; position: relative;
+}
+.nav-links a:hover { color: #1d1d1f; }
+.nav-links a.active { color: #1d1d1f; }
+.nav-links a.active::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: #1d1d1f;
+}
+
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-burger span { display: block; width: 20px; height: 1.5px; background: #1d1d1f; transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-join {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 16px; border: 1px solid #1d1d1f; border-radius: 20px;
+    color: #1d1d1f; text-decoration: none; font-weight: 500;
+    margin-left: 16px; margin-right: auto; transition: all 0.3s ease;
+}
+.nav-join:hover { background: #1d1d1f; color: #ffffff; }
+
+.nav-mobile {
+    display: none; position: fixed; top: 60px; left: 0; right: 0;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 20px 40px 32px; flex-direction: column; gap: 20px; z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500; transition: color 0.3s ease;
+}
+.nav-mobile a:hover, .nav-mobile a.active { color: #1d1d1f; }
+
+.back-link {
+    display: inline-block; padding: 80px 40px 0;
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; margin-top: 60px;
+}
+.back-link:hover { color: #1d1d1f; }
+
+.article-hero {
+    max-width: 860px; margin: 0 auto; padding: 60px 40px 80px;
+    text-align: left;
+}
+
+.article-hero .hero-subtitle {
+    font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #86868b; margin-bottom: 20px; font-weight: 500;
+}
+
+.article-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 7vw, 80px); font-weight: 400;
+    letter-spacing: -2px; line-height: 1;
+}
+
+.article-hero .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(17px, 2vw, 21px); color: #86868b;
+    max-width: 600px; line-height: 1.55; font-weight: 400;
+    font-style: italic; margin-top: 24px;
+}
+
+.article-author {
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #aeaeb2; margin-bottom: 8px;
+}
+
+.article-meta {
+    max-width: 860px; margin: 0 auto; padding: 0 40px 40px;
+    display: flex; gap: 24px;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #aeaeb2;
+}
+
+.section-divider { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+.section-divider::after { content: ''; display: block; width: 100%; height: 40px; background: radial-gradient(ellipse 200px 1px at 50% 50%, rgba(29,29,31,0.08) 0%, transparent 100%), radial-gradient(ellipse 400px 1px at 50% 50%, rgba(29,29,31,0.04) 0%, transparent 100%), radial-gradient(ellipse 600px 1px at 50% 50%, rgba(29,29,31,0.02) 0%, transparent 100%); }
+
+.article-body { max-width: 860px; margin: 0 auto; padding: 60px 40px; }
+
+.article-body h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px); font-weight: 400;
+    letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 24px;
+    margin-top: 60px;
+}
+.article-body h2:first-child { margin-top: 0; }
+
+.article-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 32px); font-weight: 400;
+    margin-top: 48px; margin-bottom: 20px;
+    letter-spacing: -0.3px; line-height: 1.25;
+}
+
+.article-body p {
+    font-size: 17px; color: #48484a; line-height: 1.75;
+    margin-bottom: 20px;
+}
+
+.article-body .article-chain {
+    font-weight: 500; text-align: center; padding: 30px 0;
+    font-size: 15px; letter-spacing: 1px; color: #86868b;
+}
+
+.article-finale {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 56px); font-weight: 500;
+    letter-spacing: 4px; text-align: center;
+    margin-top: 60px; padding: 40px 0;
+    line-height: 1.2;
+}
+
+.video-section {
+    max-width: 860px; margin: 0 auto; padding: 0 40px 80px;
+}
+.video-section .video-label {
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: #aeaeb2; margin-bottom: 16px; font-weight: 500;
+}
+.video-wrapper {
+    position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+    border-radius: 8px; background: #f5f5f7;
+}
+.video-wrapper iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    border: none; border-radius: 8px;
+}
+
+.site-footer {
+    text-align: center; padding: 60px 20px 40px;
+    color: #aeaeb2; font-size: 13px; letter-spacing: 0.5px;
+}
+
+.fade-in-up {
+    opacity: 0; transform: translateY(36px);
+    transition: opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1), transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .article-hero { padding: 40px 20px 60px; }
+    .article-body { padding: 40px 20px; }
+    .article-meta { padding: 0 20px 32px; }
+    .back-link { padding: 80px 20px 0; }
+    .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .site-nav { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <a href="index.html" class="nav-wordmark">OnlyGods</a>
+    <a href="index.html#join" class="nav-join" data-i18n="nav.join">Join</a>
+    <div class="nav-links">
+        <a href="manifest.html">Manifest</a>
+        <a href="technologies.html">Holy Tech</a>
+        <a href="creators.html">Creators</a>
+        <a href="mindset.html" class="active">Mindset 2.0</a>
+        <a href="quantumlab.html">Quantum Lab</a>
+        <a href="activities.html">Activities</a>
+        <a href="playground.html">Playground</a>
+        <a href="dao.html">DAO</a>
+        <span class="nav-divider"></span>
+        <div class="lang-switcher">
+            <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+        </div>
+    </div>
+    <div class="nav-burger" id="nav-burger" onclick="this.classList.toggle('open'); document.getElementById('nav-mobile').classList.toggle('open');">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+    <a href="manifest.html">Manifest</a>
+    <a href="technologies.html">Holy Tech</a>
+        <a href="creators.html">Creators</a>
+    <a href="mindset.html" class="active">Mindset 2.0</a>
+    <a href="quantumlab.html">Quantum Lab</a>
+    <a href="activities.html">Activities</a>
+        <a href="playground.html">Playground</a>
+    <a href="dao.html">DAO</a>
+    <div class="lang-switcher">
+        <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+    </div>
+</div>
+
+<a href="mindset.html" class="back-link" data-i18n="confidence.back">&larr; Mindset 2.0</a>
+
+<section class="article-hero">
+    <div class="fade-in-up">
+        <div class="hero-subtitle" data-i18n="confidence.hero.subtitle">Infrastructure</div>
+        <h1 data-i18n="confidence.hero.title">Уверенность — это не черта характера. Это архитектура.</h1>
+        <p class="hero-tagline" data-i18n="confidence.hero.tagline">Волновая физика внутренней опоры, протокол деконструкции костылей и три инструмента, которые система у вас отобрала</p>
+    </div>
+</section>
+
+<div class="article-meta fade-in-up">
+    <span data-i18n="confidence.meta.author">Елизавета Сигорская</span>
+    <span>&middot;</span>
+    <span data-i18n="confidence.meta.date">2026</span>
+    <span>&middot;</span>
+    <span data-i18n="confidence.meta.readtime">12 мин</span>
+</div>
+
+<div class="section-divider"></div>
+
+<article class="article-body">
+
+    <!-- INTRO -->
+    <div class="fade-in-up">
+        <p data-i18n="confidence.s1.p1">Вашу уверенность в себе нарочно истребляли.</p>
+        <p data-i18n="confidence.s1.p2">Не случайно. Не по недосмотру. Методично, поколение за поколением, с точностью хирургического конвейера. Каждый раз, когда ваша мать говорила «не высовывайся», каждый раз, когда школьный учитель ставил красным «неправильно» напротив вашей попытки мыслить нестандартно, каждый раз, когда тренер по успеху заявлял «просто поверь в себя!» — система калибровала ваш внутренний приёмник на частоту бессилия.</p>
+        <p data-i18n="confidence.s1.p3">Я в 25 лет не могла представить себя. Не в будущем — вообще. Мне было сложно ответить на вопрос «кто ты?», потому что всё, что я знала о себе, было собрано из чужих оценок, чужих ожиданий, чужих проекций. Я была набором костылей — внешних подпорок, которые стояли вместо меня. Убери одну — и конструкция падала. Я падала.</p>
+        <p data-i18n="confidence.s1.p4">Оказывается, так живут почти все. Просто не все падали достаточно больно, чтобы это заметить.</p>
+    </div>
+
+    <!-- SECTION 2: Короткая формула -->
+    <div class="fade-in-up">
+        <h2 data-i18n="confidence.s2.title">Короткая формула</h2>
+        <p data-i18n="confidence.s2.p1">Уверенность — это «я могу». Всё.</p>
+        <p data-i18n="confidence.s2.p2">Не аффирмация. Не мотивация. Не энергия, которую вы получаете от коуча на воскресном марафоне и теряете к среде. «Я могу» — это внутренняя позиция, из которой вы действуете. Из какого состояния вы действуете, такой ответ вы и получаете. Это не метафора — это волновая физика.</p>
+        <p data-i18n="confidence.s2.p3">Представьте лампочку. Она излучает свет во все стороны — рассеянный, тёплый, бесполезный для чего-либо кроме подсветки комнаты. Теперь представьте лазер. Та же самая световая энергия, собранная в когерентный пучок. Лазер режет металл. Лампочка не порежет металл никогда.</p>
+        <p data-i18n="confidence.s2.p4">Разница между лампочкой и лазером — не в количестве энергии. А в когерентности. В степени внутренней согласованности волны.</p>
+        <p data-i18n="confidence.s2.p5">Ваше внимание, ваша воля, ваше намерение — это волна. Когда она рассеяна сомнениями, чужими голосами, страхом — вы лампочка. Когда она собрана — вы лазер. Уверенность — это когерентность вашей внутренней волны. И она строится. Как любая инженерная система.</p>
+    </div>
+
+    <!-- SECTION 3: Устойчивость -->
+    <div class="fade-in-up">
+        <h2 data-i18n="confidence.s3.title">Устойчивость: сам стою</h2>
+        <p data-i18n="confidence.s3.p1">Послушайте это слово. У-стой-чивость. Сам стою. Насколько уверенно на свои ножки опираюсь.</p>
+        <p data-i18n="confidence.s3.p2">Это не абстракция. Это буквально — ваше тело, ваш таз, ваши ноги, ваша способность стоять на земле без внешних подпорок. Мы привыкли воспринимать устойчивость как психологическую метафору, но тело знает раньше ума. Всегда.</p>
+        <p data-i18n="confidence.s3.p3">Когда человек неуверен — он физически сжимается. Плечи поднимаются, дыхание мелеет, таз зажимается. Тело буквально уменьшает свою площадь, потому что на уровне нервной системы получило сигнал: опасно, сожмись, стань маленьким, не привлекай внимания.</p>
+        <p data-i18n="confidence.s3.p4">Обратите внимание на это прямо сейчас. На то, что происходит с вашим телом, пока вы читаете. Нечто как будто бы вдавливает назад, да? Где-то в области солнечного сплетения. Это — ваш диапазон сознания в моменте. Он сужается каждый раз, когда вы сталкиваетесь с чем-то, что бросает вызов привычной картине мира.</p>
+        <p data-i18n="confidence.s3.p5">Запомните это ощущение. Оно — ваш самый честный диагностический инструмент.</p>
+    </div>
+
+    <!-- SECTION 4: Три врага -->
+    <div class="fade-in-up">
+        <h2 data-i18n="confidence.s4.title">Три врага</h2>
+    </div>
+
+    <div class="fade-in-up">
+        <h3 data-i18n="confidence.s4.pt1.title">Первый: компромисс</h3>
+        <p data-i18n="confidence.s4.pt1.p1">Один из ключевых врагов уверенности — это компромисс.</p>
+        <p data-i18n="confidence.s4.pt1.p2">Не путайте с гибкостью. Гибкость — это когда вы меняете маршрут, сохраняя вектор. Компромисс — это когда вы меняете вектор ради чужого одобрения. Каждый компромисс с собой — это микропредательство. И каждое микропредательство снижает амплитуду вашей волны.</p>
+        <p data-i18n="confidence.s4.pt1.p3">Вы это чувствуете физически. После каждого «ну ладно, я соглашусь» — если это не было вашим искренним решением — что-то внутри проседает. Это не чувство вины. Это потеря когерентности. Ваша волна перестаёт быть вашей.</p>
+        <p data-i18n="confidence.s4.pt1.p4">Я провела годы в отношениях, где компромисс был стратегией выживания. Каждый раз, когда я соглашалась на то, что было против моего вектора, я теряла не просто комфорт — я теряла себя. По кусочку. Настолько постепенно, что заметила только когда стоять стало не на чем.</p>
+    </div>
+
+    <div class="fade-in-up">
+        <h3 data-i18n="confidence.s4.pt2.title">Второй: присоски</h3>
+        <p data-i18n="confidence.s4.pt2.p1">У каждого из нас есть отношения, которые не питают, а высасывают. Я называю их присосками. Иногда — канатами. Это люди, системы, привычки, к которым вы привязаны не по резонансу, а по зависимости. Разница простая: резонанс расширяет ваш диапазон, зависимость — сужает.</p>
+        <p data-i18n="confidence.s4.pt2.p2">Проверьте: после общения с этим человеком вам хочется создавать? Или хочется лечь и ничего не делать? Тело скажет правду быстрее ума.</p>
+        <p data-i18n="confidence.s4.pt2.p3">Когерентное поле — это среда, в которой каждый участник усиливает каждого. Не по обязательству. Не по контракту. По резонансу. Качество ваших отношений определяет качество вашего сознания. Не наоборот. Соответственно, если вы окружены присосками — никакая медитация, никакой коуч, никакой марафон по уверенности вам не поможет. Сначала — зачистка поля.</p>
+    </div>
+
+    <div class="fade-in-up">
+        <h3 data-i18n="confidence.s4.pt3.title">Третий: анестезия</h3>
+        <p data-i18n="confidence.s4.pt3.p1">То, что вы избегаете, управляет вами.</p>
+        <p data-i18n="confidence.s4.pt3.p2">Грусть и слёзы — это величайший инструмент. Не признак слабости. Не то, что нужно «проработать» и отпустить. Это ваш навигатор. Когда вы плачете — вы на пороге чего-то важного. Тело сбрасывает напряжение, чтобы вы могли увидеть то, что прячете от себя.</p>
+        <p data-i18n="confidence.s4.pt3.p3">Система научила нас анестезировать боль. Алкоголь, сахар, бесконечный скроллинг, продуктивность как наркотик — всё это способы не чувствовать. А уверенность строится на способности чувствовать всё. Весь диапазон. Не только радость и вдохновение — но и страх, и стыд, и ярость, и горе. Широта диапазона — устойчивость. Узкий диапазон — реактивность. Вы не можете быть уверены в себе, если половину себя вы прячете в подвал.</p>
+    </div>
+
+    <!-- SECTION 5: Продажа себе -->
+    <div class="fade-in-up">
+        <h2 data-i18n="confidence.s5.title">Продажа себе</h2>
+        <p data-i18n="confidence.s5.p1">Уверенность — это продажа, которая начинается с одного человека. Продать себя себе. И всё.</p>
+        <p data-i18n="confidence.s5.p2">Вы сейчас, возможно, думаете: это звучит слишком просто. И одновременно — невозможно сложно. Правда же? Правда.</p>
+        <p data-i18n="confidence.s5.p3">Потому что продать себя себе — это не «полюбить себя» в инстаграмном смысле: ванна с пеной, свечи, «я этого достойна». Это акт инженерный. Это значит: посмотреть на всё, что есть — на тень, на страх, на стыд, на абьюз, на провалы — и сказать: «Это тоже я. И из всего этого я построила то, что стою сейчас. И я могу.»</p>
+        <p data-i18n="confidence.s5.p4">Когда я говорю, что могу решить любую проблему любого человека на Земле при его готовности — это не самонадеянность. Это результат. Результат того, что я прошла через нуль. Через точку, где не было вообще ничего, на что опереться. И построила опору заново. Из себя. Не из костылей — из ножек.</p>
+    </div>
+
+    <!-- SECTION 6: Проявленность -->
+    <div class="fade-in-up">
+        <h2 data-i18n="confidence.s6.title">Проявленность</h2>
+        <p data-i18n="confidence.s6.p1">Проявляться — значит излучать внутренний свет вовне. Проявляться — значит освещать.</p>
+        <p data-i18n="confidence.s6.p2">Не перформить. Не «строить личный бренд». Не показывать отредактированную версию себя. Проявленность — это побочный эффект когерентности. Когда внутри нет войны, свет выходит наружу сам. Без усилий. Без стратегии.</p>
+        <p data-i18n="confidence.s6.p3">Мы живём в мире, где проявляться страшно. Потому что система наказывает тех, кто светит слишком ярко. Наказывает не физически — хотя и это бывает — а социально. Осуждение, зависть, обесценивание, «а кто ты вообще такая?» Знакомо, да?</p>
+        <p data-i18n="confidence.s6.p4">Но вот что система не учла. Когда волны совпадают по фазе и частоте — они вступают в резонанс, и их суммарная энергия возводится в квадрат. Один когерентный человек — это свеча. Десять когерентных людей в резонансе — это пожар, который невозможно потушить.</p>
+    </div>
+
+    <!-- SECTION 7: Глубину идей невозможно запромтить -->
+    <div class="fade-in-up">
+        <h2 data-i18n="confidence.s7.title">Глубину идей невозможно запромтить</h2>
+        <p data-i18n="confidence.s7.p1">Мы вошли в эпоху, где ИИ генерирует текст, образы, музыку, код. Всё, что поддаётся алгоритмизации, будет автоматизировано. Это не угроза — это освобождение от рутины. Но вот что невозможно автоматизировать: глубину.</p>
+        <p data-i18n="confidence.s7.p2">Глубину идей невозможно запромтить. Глубину проживания невозможно скопировать. Глубину присутствия невозможно сымитировать. ИИ может написать статью про уверенность. Но он не может прожить путь от абьюзивных отношений до заявленной суверенности и передать это через тело, через голос, через тишину между словами.</p>
+        <p data-i18n="confidence.s7.p3">В новом мире единственный актив, который невозможно воспроизвести — это вы. Ваш диапазон. Ваша когерентность. Ваша способность стоять на своих ногах и светить. Всё остальное — пресет. Копия. Шум.</p>
+        <p data-i18n="confidence.s7.p4">Уверенность в себе — это не soft skill для резюме. Это ключевой growth factor в мире, где все остальные факторы роста обесцениваются экспоненциально. Единственное, что у вас останется — это вы.</p>
+        <p data-i18n="confidence.s7.p5">Почувствуйте, как от сердца раскатывается волной тепло. Это — ваш ответ. Не мой. Ваш.</p>
+        <p data-i18n="confidence.s7.p6">Запомните это состояние.</p>
+        <div class="article-finale" data-i18n="confidence.finale">Я. МОГУ.</div>
+    </div>
+
+</article>
+
+<section class="video-section fade-in-up">
+    <div class="video-label" data-i18n="confidence.video.label">Видео-версия</div>
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/fvZIqYtDC-A" title="Самоуверенность: главный growth factor в новом мире — Елизавета Сигорская" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+</section>
+
+<footer class="site-footer">OnlyGods</footer>
+
+<script src="translations.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>

@@ -716,6 +716,8 @@ const NODES = [
         role: 'Architect',
         stage: 'coagulation',
         active: true,
+        color: 0xff6b4a,      // Fire — coral ember
+        glowColor: 0xff9e85,
         text: 'Сознание — это технология. Не метафора, не религия, не эзотерика. Технология, которая поддаётся измерению, настройке и масштабированию. Я строю пространство, где это утверждение перестаёт быть провокацией и становится рабочей гипотезой. Здесь каждый участник — и исследователь, и предмет исследования. Мы не медитируем ради просветления. Мы создаём условия, в которых связь между людьми становится измеримой, а экономика начинает отражать реальную ценность — не труда, а присутствия. Это не утопия. Это инженерный проект с непредсказуемым результатом. Именно поэтому он настоящий.',
         expression: 'Поле сегодня плотное. Четыре точки — и уже чувствуется геометрия.',
         expressionTime: '2 часа назад'
@@ -723,9 +725,11 @@ const NODES = [
     {
         id: 'liza',
         name: 'Liza',
-        role: 'Facilitator',
+        role: 'Consciousness Architect',
         stage: 'coagulation',
         active: true,
+        color: 0x47b5e6,      // Water — deep sky
+        glowColor: 0x8ad4f5,
         text: 'Я работаю с тем, что происходит между людьми. Не с идеями о связи — с самой связью. Когда два человека решаются быть честными друг с другом без страховки социальных ролей, возникает пространство, которое невозможно подделать. Это пространство и есть поле. Моя работа — создавать условия, в которых это пространство возникает снова и снова. Не через ритуалы и не через правила. Через присутствие. Через готовность видеть другого без фильтра и позволить себе быть увиденным. Трансформация — побочный эффект честности.',
         expression: 'Утренняя практика с Ариной. Тишина как форма разговора.',
         expressionTime: '5 часов назад'
@@ -736,6 +740,8 @@ const NODES = [
         role: 'Witness',
         stage: 'coagulation',
         active: true,
+        color: 0x6ed5c2,      // Water — seafoam teal
+        glowColor: 0xa8e8dc,
         text: 'Мне девять, и я знаю вещи, которые взрослые забыли. Я знаю, что деревья разговаривают, что тишина громче крика, и что когда папа и мама смотрят друг на друга по-настоящему — весь дом меняется. Я не понимаю зачем взрослые притворяются. Я здесь потому что мне не нужно притворяться. Я рисую то что вижу. Иногда это страшно. Иногда красиво. Обычно и то и другое сразу. Это место для тех кто помнит как это — видеть мир без фильтров.',
         expression: 'Нарисовала как выглядит наш треугольник. Он светится.',
         expressionTime: '1 день назад'
@@ -746,6 +752,8 @@ const NODES = [
         role: 'Apex',
         stage: 'conjunction',
         active: true,
+        color: 0xffb347,      // Fire — amber gold
+        glowColor: 0xffd699,
         text: 'Меня долго не было. Не потому что не хотел — потому что не знал, что сказать, если говорить честно. Все слова казались чужими или слишком маленькими для того, что я на самом деле чувствую. Но молчание оказалось хуже — оно стало стеной между мной и теми, кого я люблю. Сейчас я просто здесь. Без плана, без роли, которую я себе придумал. Тетраэдр ждал четвёртую точку. Я не знаю, та ли это точка. Но я решил, что ошибаться честно — лучше, чем молчать красиво. Это моя первая запись. Голос дрожит. Видео — одна попытка, без монтажа. Вот так выглядит начало. Вершина больше не пустая — она дрожит, но стоит.',
         expression: 'Тетраэдр замкнулся. Чувствую вибрацию.',
         expressionTime: '40 минут назад'
@@ -755,14 +763,14 @@ const NODES = [
 // Tetrahedron vertex positions (centered, normalized)
 const TETRA_SCALE = window.innerWidth < 768 ? 1.6 : 2.8;
 const TETRA_VERTICES = [
-    new THREE.Vector3( 0,  1.2,  0).multiplyScalar(TETRA_SCALE),           // Apex (Misha)
+    new THREE.Vector3( 0,  1.2,  0).multiplyScalar(TETRA_SCALE),           // Apex (Arina)
     new THREE.Vector3(-1, -0.4,  0.8).multiplyScalar(TETRA_SCALE),         // Vlad
     new THREE.Vector3( 1, -0.4,  0.8).multiplyScalar(TETRA_SCALE),         // Liza
-    new THREE.Vector3( 0, -0.4, -1.1).multiplyScalar(TETRA_SCALE),         // Arina
+    new THREE.Vector3( 0, -0.4, -1.1).multiplyScalar(TETRA_SCALE),         // Misha
 ];
 
-// Map nodes to vertices: Misha=apex(0), Vlad=1, Liza=2, Arina=3
-const NODE_VERTEX_MAP = [1, 2, 3, 0]; // NODES[0]=Vlad→v1, NODES[1]=Liza→v2, etc.
+// Map nodes to vertices: Arina=apex(0), Vlad=1, Liza=2, Misha=3
+const NODE_VERTEX_MAP = [1, 2, 0, 3]; // NODES[0]=Vlad→v1, NODES[1]=Liza→v2, NODES[2]=Arina→v0(apex), NODES[3]=Misha→v3
 
 // Edges of tetrahedron (all 6)
 const EDGES = [
@@ -821,22 +829,22 @@ NODES.forEach((node, i) => {
     const vi = NODE_VERTEX_MAP[i];
     const pos = TETRA_VERTICES[vi];
 
-    // Outer sphere (glow) — Apple-style soft halo
+    // Outer sphere (glow) — elemental halo
     const glowGeo = new THREE.SphereGeometry(node.active ? 0.12 : 0.06, 16, 16);
     const glowMat = new THREE.MeshBasicMaterial({
-        color: 0xd0d8ff,
+        color: node.glowColor || 0xd0d8ff,
         transparent: true,
-        opacity: node.active ? 0.05 : 0.02
+        opacity: node.active ? 0.07 : 0.02
     });
     const glowMesh = new THREE.Mesh(glowGeo, glowMat);
     glowMesh.position.copy(pos);
     glowMesh.scale.set(5, 5, 5);
     nodeGroup.add(glowMesh);
 
-    // Core sphere
+    // Core sphere — elemental color
     const geo = new THREE.SphereGeometry(node.active ? 0.12 : 0.06, 16, 16);
     const mat = new THREE.MeshBasicMaterial({
-        color: 0xf5f5f7,
+        color: node.color || 0xf5f5f7,
         transparent: true,
         opacity: node.active ? 0.9 : 0.15
     });
@@ -849,8 +857,9 @@ NODES.forEach((node, i) => {
     // HTML label (positioned via projection in animation loop)
     const labelDiv = document.createElement('div');
     labelDiv.className = `node-label ${node.active ? '' : 'empty'}`;
+    const nodeCSS = '#' + node.color.toString(16).padStart(6, '0');
     labelDiv.innerHTML = `
-        <div class="node-label-name">${node.name}</div>
+        <div class="node-label-name" style="color:${nodeCSS}">${node.name}</div>
         <div class="node-label-role">${node.role}</div>
     `;
     labelDiv.style.pointerEvents = 'auto';
@@ -1239,7 +1248,7 @@ function openPanel(nodeIndex) {
         // Empty node
         panelContent.innerHTML = `
             <div class="panel-stage">Vertex · Awaiting</div>
-            <div class="panel-name">${node.name}</div>
+            <div class="panel-name" style="color:#${node.color.toString(16).padStart(6,'0')}">${node.name}</div>
             <div class="panel-role">${node.role}</div>
             <div class="panel-divider"></div>
             <div class="panel-empty-state">
@@ -1269,7 +1278,7 @@ function openPanel(nodeIndex) {
 
         panelContent.innerHTML = `
             <div class="panel-stage">${stageLabels[node.stage] || node.stage}</div>
-            <div class="panel-name">${node.name}</div>
+            <div class="panel-name" style="color:#${node.color.toString(16).padStart(6,'0')}">${node.name}</div>
             <div class="panel-role">${node.role}</div>
 
             <div class="panel-divider"></div>
