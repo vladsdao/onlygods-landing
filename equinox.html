@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnlyGods — Новый Резонансный Год</title>
+<meta name="description" content="Почему 1 января — не начало. Почему 13 — не суеверие. И почему 21 марта Земля действительно начинает новый оборот.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #0a0a0a; color: #f5f5f7;
+    overflow-x: hidden; scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(245, 245, 247, 0.15); }
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+}
+
+.site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; color: #f5f5f7;
+    text-decoration: none; letter-spacing: -0.5px;
+}
+
+.nav-links { display: flex; align-items: center; gap: 32px; }
+
+.nav-links a {
+    font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #6e6e73; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; position: relative;
+}
+.nav-links a:hover { color: #f5f5f7; }
+.nav-links a.active { color: #f5f5f7; }
+.nav-links a.active::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: #f5f5f7;
+}
+
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-burger span { display: block; width: 20px; height: 1.5px; background: #f5f5f7; transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-join {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 16px; border: 1px solid rgba(245,245,247,0.3); border-radius: 20px;
+    color: #f5f5f7; text-decoration: none; font-weight: 500;
+    margin-left: 16px; margin-right: auto; transition: all 0.3s ease;
+}
+.nav-join:hover { background: #f5f5f7; color: #0a0a0a; }
+
+.nav-mobile {
+    display: none; position: fixed; top: 60px; left: 0; right: 0;
+    background: rgba(10, 10, 10, 0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 20px 40px 32px; flex-direction: column; gap: 20px; z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #6e6e73; text-decoration: none; font-weight: 500; transition: color 0.3s ease;
+}
+.nav-mobile a:hover, .nav-mobile a.active { color: #f5f5f7; }
+
+.lang-switcher { display: flex; align-items: center; gap: 4px; }
+.lang-btn {
+    background: none; border: none; cursor: pointer;
+    font-size: 11px; letter-spacing: 1px; font-weight: 500;
+    color: #6e6e73; font-family: 'DM Sans', sans-serif; transition: color 0.3s;
+}
+.lang-btn:hover, .lang-active { color: #f5f5f7; }
+.lang-sep { color: #6e6e73; font-size: 10px; }
+
+.back-link {
+    display: inline-block; padding: 80px 40px 0;
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #6e6e73; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; margin-top: 60px;
+}
+.back-link:hover { color: #f5f5f7; }
+
+.article-hero {
+    max-width: 860px; margin: 0 auto; padding: 60px 40px 80px;
+    text-align: left;
+}
+
+.article-hero .hero-subtitle {
+    font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #6e6e73; margin-bottom: 20px; font-weight: 500;
+}
+
+.article-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 7vw, 80px); font-weight: 400;
+    letter-spacing: -2px; line-height: 1; color: #f5f5f7;
+}
+
+.article-hero .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(17px, 2vw, 21px); color: #6e6e73;
+    max-width: 600px; line-height: 1.55; font-weight: 400;
+    font-style: italic; margin-top: 24px;
+}
+
+.article-author {
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #6e6e73; margin-bottom: 8px;
+}
+
+.article-meta {
+    max-width: 860px; margin: 0 auto; padding: 0 40px 40px;
+    display: flex; gap: 24px;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #6e6e73;
+}
+
+.section-divider { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+.section-divider::after { content: ''; display: block; width: 100%; height: 40px; background: radial-gradient(ellipse 200px 1px at 50% 50%, rgba(245,245,247,0.06) 0%, transparent 100%), radial-gradient(ellipse 400px 1px at 50% 50%, rgba(245,245,247,0.03) 0%, transparent 100%); }
+
+.article-body { max-width: 860px; margin: 0 auto; padding: 60px 40px; }
+
+.article-body h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px); font-weight: 400;
+    letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 24px;
+    margin-top: 60px; color: #f5f5f7;
+}
+.article-body h2:first-child { margin-top: 0; }
+
+.article-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 32px); font-weight: 400;
+    margin-top: 48px; margin-bottom: 20px;
+    letter-spacing: -0.3px; line-height: 1.25; color: #f5f5f7;
+}
+
+.article-body p {
+    font-size: 17px; color: #a1a1a6; line-height: 1.75;
+    margin-bottom: 20px;
+}
+
+.article-body .article-chain {
+    font-weight: 500; text-align: center; padding: 30px 0;
+    font-size: 15px; letter-spacing: 1px; color: #6e6e73;
+}
+
+.article-finale {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 56px); font-weight: 500;
+    letter-spacing: 4px; text-align: center;
+    margin-top: 60px; padding: 40px 0;
+    line-height: 1.2; color: #f5f5f7;
+}
+
+/* SVG Visualizations */
+.viz-container {
+    max-width: 860px; margin: 40px auto;
+    padding: 40px;
+    display: flex; flex-direction: column; align-items: center;
+}
+
+.viz-container svg {
+    max-width: 100%; height: auto;
+}
+
+.viz-caption {
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: #6e6e73; margin-top: 20px; text-align: center; font-weight: 500;
+}
+
+.viz-compare {
+    display: flex; gap: 60px; justify-content: center; align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.viz-compare-item {
+    display: flex; flex-direction: column; align-items: center; gap: 16px;
+}
+
+.viz-compare-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; color: #6e6e73; font-style: italic;
+}
+
+/* 13 Grid */
+.thirteen-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; max-width: 860px; margin: 32px auto; padding: 0 40px;
+}
+
+.thirteen-item {
+    border: 1px solid rgba(245,245,247,0.08); border-radius: 8px;
+    padding: 20px; transition: border-color 0.3s;
+}
+.thirteen-item:hover { border-color: rgba(245,245,247,0.2); }
+
+.thirteen-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 300; color: rgba(245,245,247,0.15);
+    margin-bottom: 8px;
+}
+.thirteen-title {
+    font-size: 15px; font-weight: 500; color: #f5f5f7; margin-bottom: 6px;
+}
+.thirteen-desc {
+    font-size: 13px; color: #6e6e73; line-height: 1.5;
+}
+
+/* Equinox CTA */
+.equinox-cta {
+    max-width: 860px; margin: 60px auto; padding: 60px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(245,245,247,0.06);
+    border-bottom: 1px solid rgba(245,245,247,0.06);
+}
+
+.equinox-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(60px, 10vw, 120px); font-weight: 300;
+    letter-spacing: -3px; line-height: 1;
+    background: linear-gradient(135deg, #f5f5f7 0%, #6e6e73 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.equinox-label {
+    font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+    color: #6e6e73; margin-top: 16px; font-weight: 500;
+}
+
+.equinox-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-style: italic; color: #6e6e73;
+    margin-top: 24px; line-height: 1.5;
+}
+
+.cta-button {
+    display: inline-block; margin-top: 32px;
+    padding: 14px 40px; border: 1px solid rgba(245,245,247,0.3);
+    border-radius: 28px; color: #f5f5f7; text-decoration: none;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    font-weight: 500; transition: all 0.3s ease;
+}
+.cta-button:hover { background: #f5f5f7; color: #0a0a0a; }
+
+.site-footer {
+    text-align: center; padding: 60px 20px 40px;
+    color: #6e6e73; font-size: 13px; letter-spacing: 0.5px;
+}
+
+.fade-in-up {
+    opacity: 0; transform: translateY(36px);
+    transition: opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1), transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .article-hero { padding: 40px 20px 60px; }
+    .article-body { padding: 40px 20px; }
+    .article-meta { padding: 0 20px 32px; }
+    .back-link { padding: 80px 20px 0; }
+    .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .site-nav { padding: 0 20px; }
+    .viz-container { padding: 20px; }
+    .viz-compare { gap: 32px; }
+    .thirteen-grid { padding: 0 20px; grid-template-columns: 1fr; }
+    .equinox-cta { padding: 40px 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <a href="index.html" class="nav-wordmark">OnlyGods</a>
+    <a href="index.html#join" class="nav-join">Join</a>
+    <div class="nav-links">
+        <a href="manifest.html">Manifest</a>
+        <a href="technologies.html">Holy Tech</a>
+        <a href="creators.html">Creators</a>
+        <a href="mindset.html">Mindset 2.0</a>
+        <a href="quantumlab.html">Quantum Lab</a>
+        <a href="activities.html">Activities</a>
+        <a href="playground.html">Playground</a>
+        <a href="dao.html">DAO</a>
+        <span class="nav-divider"></span>
+        <div class="lang-switcher">
+            <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+        </div>
+    </div>
+    <div class="nav-burger" id="nav-burger" onclick="this.classList.toggle('open'); document.getElementById('nav-mobile').classList.toggle('open');">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+    <a href="manifest.html">Manifest</a>
+    <a href="technologies.html">Holy Tech</a>
+    <a href="creators.html">Creators</a>
+    <a href="mindset.html">Mindset 2.0</a>
+    <a href="quantumlab.html">Quantum Lab</a>
+    <a href="activities.html">Activities</a>
+    <a href="playground.html">Playground</a>
+    <a href="dao.html">DAO</a>
+    <div class="lang-switcher">
+        <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+    </div>
+</div>
+
+<a href="mindset.html" class="back-link">&larr; Mindset 2.0</a>
+
+<section class="article-hero">
+    <div class="fade-in-up">
+        <div class="hero-subtitle">Циклы и резонанс</div>
+        <h1>Новый резонансный год</h1>
+        <p class="hero-tagline">Почему 1 января — не начало. Почему 13 — не суеверие, а архитектура. И почему 21 марта Земля действительно начинает новый оборот</p>
+    </div>
+</section>
+
+<div class="article-meta fade-in-up">
+    <span>Елизавета Сигорская</span>
+    <span>&middot;</span>
+    <span>2026</span>
+    <span>&middot;</span>
+    <span>16 мин</span>
+</div>
+
+<div class="section-divider"></div>
+
+<article class="article-body">
+
+    <div class="fade-in-up">
+        <p>Вы когда-нибудь задавались вопросом, почему Новый год — первого января? Не в смысле «какой праздник», а в смысле — почему именно эта точка на орбите Земли была назначена началом? Что в ней особенного? Какой астрономический, биологический, энергетический смысл стоит за этой датой?</p>
+        <p>Никакого.</p>
+        <p>Первое января — это административная точка. Произвольная засечка, которую Папа Григорий XIII утвердил в 1582 году для удобства расчёта пасхалии. Не для вас. Для церковного бухгалтерского учёта. С тех пор вы ежегодно собираетесь за столом, поднимаете бокалы и чокаетесь за обнуление чужого цикла. Не вашего.</p>
+        <p>Давайте посмотрим, где начинается настоящий цикл. И почему это важно не в историческом смысле, а в буквальном — на уровне тела, сознания и энергии.</p>
+    </div>
+
+    <div class="fade-in-up">
+        <h2>Спираль, а не круг</h2>
+        <p>Время — не линейное. Это, пожалуй, знают уже все, кто хоть раз задумывался о природе вещей. Но вот что знают единицы: время — это и не круг. Время — это спираль.</p>
+        <p>Разница критична. Круг возвращает вас в ту же точку. Спираль возвращает вас в похожую точку, но на другом уровне. Земля не описывает замкнутую петлю вокруг Солнца — она движется в пространстве вместе с Солнцем, которое летит со скоростью 828 000 км/ч через галактику. Ваша годовая орбита — это один виток спирали в пространстве, а не один оборот по кругу.</p>
+        <p>И у этой спирали есть математика. Та самая, которая проявляется в раковинах наутилусов, в головках подсолнухов, в рогах баранов, в рукавах галактик. Последовательность Фибоначчи: 1, 1, 2, 3, 5, 8, 13, 21, 34... Каждое следующее число — сумма двух предыдущих. Спираль роста, закодированная в самой ткани вселенной.</p>
+        <p>Обратите внимание на число 13 в этой последовательности. Запомните его. Мы к нему вернёмся.</p>
+    </div>
+
+    <!-- SVG: Fibonacci Spiral -->
+    <div class="viz-container fade-in-up">
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+            <!-- Fibonacci squares -->
+            <rect x="245" y="195" width="5" height="5" fill="none" stroke="rgba(245,245,247,0.08)" stroke-width="0.5"/>
+            <rect x="240" y="195" width="5" height="5" fill="none" stroke="rgba(245,245,247,0.08)" stroke-width="0.5"/>
+            <rect x="240" y="190" width="10" height="10" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="0.5"/>
+            <rect x="225" y="185" width="15" height="15" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="0.5"/><!-- 3 --><text x="230" y="198" fill="rgba(245,245,247,0.15)" font-size="8" font-family="DM Sans">3</text>
+            <rect x="225" y="200" width="25" height="25" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="0.5"/><!-- 5 --><text x="233" y="216" fill="rgba(245,245,247,0.15)" font-size="9" font-family="DM Sans">5</text>
+            <rect x="250" y="185" width="40" height="40" fill="none" stroke="rgba(245,245,247,0.12)" stroke-width="0.5"/><!-- 8 --><text x="265" y="209" fill="rgba(245,245,247,0.15)" font-size="10" font-family="DM Sans">8</text>
+            <!-- 13 — highlighted -->
+            <rect x="225" y="120" width="65" height="65" fill="rgba(245,245,247,0.03)" stroke="rgba(245,245,247,0.35)" stroke-width="1"/>
+            <text x="250" y="158" fill="rgba(245,245,247,0.6)" font-size="18" font-family="Cormorant Garamond" font-weight="500">13</text>
+            <rect x="290" y="120" width="105" height="105" fill="none" stroke="rgba(245,245,247,0.08)" stroke-width="0.5"/><!-- 21 --><text x="335" y="178" fill="rgba(245,245,247,0.12)" font-size="14" font-family="DM Sans">21</text>
+            <rect x="120" y="120" width="170" height="170" fill="none" stroke="rgba(245,245,247,0.06)" stroke-width="0.5"/><!-- 34 --><text x="195" y="215" fill="rgba(245,245,247,0.08)" font-size="16" font-family="DM Sans">34</text>
+            <!-- Spiral path approximation -->
+            <path d="M 247 197 Q 247 195 245 195 Q 240 195 240 200 Q 240 210 250 210 Q 265 210 265 195 Q 265 185 250 185 Q 225 185 225 210 Q 225 225 250 225 Q 290 225 290 185 Q 290 145 250 145 Q 225 145 225 120 Q 225 90 260 90 Q 395 90 395 225" fill="none" stroke="rgba(245,245,247,0.4)" stroke-width="1.5"/>
+            <!-- Labels -->
+            <text x="300" y="370" fill="#6e6e73" font-size="11" font-family="DM Sans" text-anchor="middle" letter-spacing="2">СПИРАЛЬ ФИБОНАЧЧИ</text>
+            <text x="300" y="388" fill="rgba(245,245,247,0.2)" font-size="10" font-family="DM Sans" text-anchor="middle">1 · 1 · 2 · 3 · 5 · 8 · <tspan fill="rgba(245,245,247,0.6)" font-weight="500">13</tspan> · 21 · 34 · 55 · 89</text>
+        </svg>
+    </div>
+
+    <div class="fade-in-up">
+        <h2>13 — архитектура, а не суеверие</h2>
+        <p>Число 13 пугает западную цивилизацию. Тринадцатый этаж отсутствует в небоскрёбах. Пятница тринадцатого — день паники. Тринадцать за столом — дурной знак. Целая фобия — трискаидекафобия — классифицирована и внесена в учебники.</p>
+        <p>Давайте сделаем зум и посмотрим, что происходит, когда мы снимаем суеверную плёнку и смотрим на 13 как на число. Просто число. В архитектуре вселенной.</p>
+    </div>
+
+    <div class="thirteen-grid fade-in-up">
+        <div class="thirteen-item">
+            <div class="thirteen-num">13</div>
+            <div class="thirteen-title">Спирали подсолнуха</div>
+            <div class="thirteen-desc">Семена подсолнуха укладываются в 13 и 21 спираль — два соседних числа Фибоначчи. Оптимальная упаковка, закодированная в ДНК растения</div>
+        </div>
+        <div class="thirteen-item">
+            <div class="thirteen-num">13</div>
+            <div class="thirteen-title">Спирали шишки</div>
+            <div class="thirteen-desc">Чешуйки сосновой шишки — 8 спиралей в одну сторону, 13 в другую. Та же математика, другой масштаб</div>
+        </div>
+        <div class="thirteen-item">
+            <div class="thirteen-num">13</div>
+            <div class="thirteen-title">Лунных циклов в году</div>
+            <div class="thirteen-desc">365.25 ÷ 28 = 13.04. Тринадцать полных лунных оборотов. Не двенадцать — тринадцать</div>
+        </div>
+        <div class="thirteen-item">
+            <div class="thirteen-num">13</div>
+            <div class="thirteen-title">Тонов хроматической гаммы</div>
+            <div class="thirteen-desc">12 нот + октава = 13 тонов. Полный звуковой цикл замыкается на тринадцатом звуке. Тот же принцип спирали</div>
+        </div>
+        <div class="thirteen-item">
+            <div class="thirteen-num">13</div>
+            <div class="thirteen-title">Архимедовых тел</div>
+            <div class="thirteen-desc">Ровно 13 выпуклых многогранников с правильными гранями. Геометрический алфавит вселенной — 13 букв</div>
+        </div>
+        <div class="thirteen-item">
+            <div class="thirteen-num">13</div>
+            <div class="thirteen-title">Суставов в пальцах</div>
+            <div class="thirteen-desc">Каждая ваша рука — 13 фаланговых суставов. Ваш инструмент взаимодействия с миром структурирован числом 13</div>
+        </div>
+    </div>
+
+    <div class="fade-in-up">
+        <p>Одно число. Подсолнух, шишка, Луна, звук, геометрия, ваше собственное тело. Один фрактал, воспроизводящий себя в масштабах от молекулы до галактики. Это не мистика. Это архитектура. Та самая, которую вы можете увидеть, пересчитать и проверить прямо сейчас — посмотрев на свою руку.</p>
+        <p>И вот вопрос, который стоит себе задать: если вселенная организована через число 13 — почему наш календарь его вычеркнул?</p>
+    </div>
+
+    <div class="fade-in-up">
+        <h2>Кастрированный цикл</h2>
+        <p>Григорианский календарь — 12 месяцев. Длиной 28, 29, 30, 31 день — без какой-либо внутренней логики. Февраль короче остальных, потому что римский император Август отобрал у него день для «своего» месяца. Буквально — тщеславие одного человека определяет структуру вашего времени по сей день.</p>
+        <p>Теперь сделаем зум наружу. Что произошло при переходе от лунных календарей к солнечным?</p>
+        <p>Большинство древних культур жило в 13-месячном ритме. 13 лунных циклов по 28 дней = 364 дня + 1 день вне времени. Идеальная математика: каждый месяц одинаковый, каждая неделя начинается в один и тот же день, каждый квартал — ровно 91 день (13 недель). Тело знает этот ритм: менструальный цикл — 28 дней. Лунный месяц — медиана между 27.1 и 29.5 дня — 28 дней. Приливы, урожай, рождение — всё на этом пульсе.</p>
+        <p>Григорианская реформа не просто сменила календарь. Она вычеркнула 13-й месяц. Отрезала фазу обнуления — ту самую тёмную луну, паузу между циклами, в которой система перезагружается. В живых системах эта пауза не пустота — это момент максимальной потенции. Семя прорастает в темноте. Вдох невозможен без выдоха. Зима необходима для весны.</p>
+        <p>Но в линейной модели времени паузы нет. Есть только движение вперёд. Продуктивность. KPI. Двенадцать месяцев без передышки, потому что тринадцатый — «несчастливый».</p>
+        <p>Кому выгодно, чтобы вы никогда не обнулялись? Тому, для кого ваша непрерывная работа — актив.</p>
+    </div>
+
+    <!-- SVG: Calendar Comparison -->
+    <div class="viz-container fade-in-up">
+        <div class="viz-compare">
+            <div class="viz-compare-item">
+                <div class="viz-compare-label">Григорианский: 12 неравных</div>
+                <svg viewBox="0 0 240 240" width="220" height="220" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="120" cy="120" r="100" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="1"/>
+                    <!-- 12 unequal sectors — approximate day distribution -->
+                    <line x1="120" y1="120" x2="120" y2="20" stroke="rgba(239,68,68,0.3)" stroke-width="0.8"/><!-- Jan 31 -->
+                    <line x1="120" y1="120" x2="195" y2="46" stroke="rgba(239,68,68,0.3)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="216" y2="100" stroke="rgba(239,68,68,0.3)" stroke-width="0.8"/><!-- Feb 28 (shorter) -->
+                    <line x1="120" y1="120" x2="220" y2="120" stroke="rgba(239,68,68,0.3)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="210" y2="165" stroke="rgba(239,68,68,0.3)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="175" y2="205" stroke="rgba(239,68,68,0.3)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="120" y2="220" stroke="rgba(239,68,68,0.3)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="65" y2="205" stroke="rgba(239,68,68,0.3)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="30" y2="165" stroke="rgba(239,68,68,0.3)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="20" y2="120" stroke="rgba(239,68,68,0.3)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="25" y2="75" stroke="rgba(239,68,68,0.3)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="55" y2="40" stroke="rgba(239,68,68,0.3)" stroke-width="0.8"/>
+                    <text x="120" y="125" text-anchor="middle" fill="rgba(239,68,68,0.4)" font-size="28" font-family="Cormorant Garamond" font-weight="300">12</text>
+                    <text x="120" y="235" text-anchor="middle" fill="#6e6e73" font-size="9" letter-spacing="1" font-family="DM Sans">28 · 30 · 31 — ХАОС</text>
+                </svg>
+            </div>
+            <div class="viz-compare-item">
+                <div class="viz-compare-label">Естественный: 13 равных</div>
+                <svg viewBox="0 0 240 240" width="220" height="220" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="120" cy="120" r="100" fill="none" stroke="rgba(245,245,247,0.15)" stroke-width="1"/>
+                    <!-- 13 equal sectors — each 27.69° -->
+                    <line x1="120" y1="120" x2="120" y2="20" stroke="rgba(245,245,247,0.25)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="166" y2="28" stroke="rgba(245,245,247,0.25)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="201" y2="58" stroke="rgba(245,245,247,0.25)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="218" y2="103" stroke="rgba(245,245,247,0.25)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="213" y2="152" stroke="rgba(245,245,247,0.25)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="188" y2="192" stroke="rgba(245,245,247,0.25)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="150" y2="217" stroke="rgba(245,245,247,0.25)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="105" y2="220" stroke="rgba(245,245,247,0.25)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="62" y2="199" stroke="rgba(245,245,247,0.25)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="33" y2="162" stroke="rgba(245,245,247,0.25)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="22" y2="115" stroke="rgba(245,245,247,0.25)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="30" y2="67" stroke="rgba(245,245,247,0.25)" stroke-width="0.8"/>
+                    <line x1="120" y1="120" x2="58" y2="33" stroke="rgba(245,245,247,0.25)" stroke-width="0.8"/>
+                    <!-- Moon symbol in center -->
+                    <text x="120" y="125" text-anchor="middle" fill="rgba(245,245,247,0.5)" font-size="28" font-family="Cormorant Garamond" font-weight="300">13</text>
+                    <text x="120" y="235" text-anchor="middle" fill="rgba(245,245,247,0.4)" font-size="9" letter-spacing="1" font-family="DM Sans">28 × 13 + 1 = 365</text>
+                </svg>
+            </div>
+        </div>
+        <div class="viz-caption">Два колеса. Одно ломает ритм. Другое совпадает с ним</div>
+    </div>
+
+    <div class="fade-in-up">
+        <h2>Женская фаза и обнуление</h2>
+        <p>Вот что замалчивается: 13-й месяц — это не просто «ещё один месяц». Это фаза обнуления. Тёмная луна. Пауза, в которой старый цикл умирает, а новый ещё не начался.</p>
+        <p>В живых системах эта фаза — женская. Не в гендерном смысле, а в энергетическом. Принимающая, растворяющая, обнуляющая. Без неё невозможна регенерация. Без выдоха нет вдоха. Без ночи нет утра. Без зимы нет весны. Без менструации нет фертильности.</p>
+        <p>Когда 13-й месяц вычеркнули из календаря, из цивилизационного ритма убрали фазу обнуления. Осталась только фаза действия — вечная маскулинная гонка вперёд. Продуктивность без паузы. Рост без отдыха. Накопление без отпускания.</p>
+        <p>Сделаем зум на ваше тело. Что происходит с организмом, который не получает фазу обнуления? Хронический стресс, надпочечниковое истощение, бессонница, аутоиммунные реакции. Система, которая не перезагружается, — ломается. Это не метафора. Это физиология.</p>
+        <p>А теперь вернёмся на цивилизационный уровень. Экономика бесконечного роста. Культура хронической продуктивности. Выгорание как норма. «Работай пока они спят» — а потом не спи вообще. Тот же фрактал. Та же поломка. Только в масштабе.</p>
+        <p>Восстановить цикл — это не «вернуться к древним традициям». Это биологическая необходимость. Признать паузу. Признать темноту. Признать, что обнуление — это не слабость, а условие следующего витка спирали.</p>
+    </div>
+
+    <div class="fade-in-up">
+        <h2>Почему 21 марта</h2>
+        <p>Если не первое января — тогда когда?</p>
+        <p>Давайте посмотрим, что об этом знают те, кто жил до григорианского календаря.</p>
+        <p>Навруз — «новый день» — отмечается на весеннее равноденствие уже более 3 000 лет. Персия, Центральная Азия, Кавказ, Балканы. Не религиозный праздник — астрономический. Момент, когда день и ночь равны. Точка баланса перед тем, как свет начинает побеждать.</p>
+        <p>Масленица — славянский праздник, который изначально привязан к весеннему равноденствию, а не к церковному календарю. Сжигание чучела — уничтожение старого цикла. Блины — символ солнца. Это не «народное гуляние». Это ритуал перехода.</p>
+        <p>Пасха — первое воскресенье после первого полнолуния после весеннего равноденствия. Обратите внимание на формулу: она привязана к равноденствию и к Луне одновременно. Сам механизм расчёта Пасхи кричит вам, что точка отсчёта — здесь. В равноденствии.</p>
+        <p>Весеннее равноденствие — 20-21 марта — это момент, когда Земля проходит через точку равновесия на своей спиральной орбите. День равен ночи. Ни свет, ни тьма не доминируют. Идеальная когерентность. После этой точки свет начинает нарастать — энергия нового цикла набирает амплитуду.</p>
+        <p>Все древние цивилизации, вне зависимости от расстояния и контакта между собой, пришли к одному выводу: новый цикл начинается на равноденствии. Не потому что они договорились. А потому что они слушали Землю.</p>
+    </div>
+
+    <!-- SVG: Equinox Orbit -->
+    <div class="viz-container fade-in-up">
+        <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Orbit ellipse -->
+            <ellipse cx="300" cy="150" rx="240" ry="100" fill="none" stroke="rgba(245,245,247,0.08)" stroke-width="1"/>
+            <!-- Sun -->
+            <circle cx="300" cy="150" r="16" fill="rgba(245,245,247,0.06)" stroke="rgba(245,245,247,0.2)" stroke-width="1"/>
+            <text x="300" y="154" text-anchor="middle" fill="rgba(245,245,247,0.3)" font-size="9" font-family="DM Sans">☉</text>
+            <!-- Equinox points -->
+            <circle cx="300" cy="50" r="6" fill="rgba(245,245,247,0.15)" stroke="rgba(245,245,247,0.5)" stroke-width="1.5"/>
+            <text x="300" y="35" text-anchor="middle" fill="#f5f5f7" font-size="11" font-family="DM Sans" font-weight="500">21 МАРТА</text>
+            <text x="300" y="22" text-anchor="middle" fill="#6e6e73" font-size="9" font-family="DM Sans">РАВНОДЕНСТВИЕ</text>
+            <circle cx="300" cy="250" r="4" fill="rgba(245,245,247,0.08)" stroke="rgba(245,245,247,0.2)" stroke-width="1"/>
+            <text x="300" y="270" text-anchor="middle" fill="#6e6e73" font-size="9" font-family="DM Sans">23 сент</text>
+            <!-- Solstice points -->
+            <circle cx="60" cy="150" r="3" fill="rgba(245,245,247,0.06)" stroke="rgba(245,245,247,0.12)" stroke-width="1"/>
+            <text x="60" y="170" text-anchor="middle" fill="rgba(245,245,247,0.2)" font-size="8" font-family="DM Sans">21 дек</text>
+            <circle cx="540" cy="150" r="3" fill="rgba(245,245,247,0.06)" stroke="rgba(245,245,247,0.12)" stroke-width="1"/>
+            <text x="540" y="170" text-anchor="middle" fill="rgba(245,245,247,0.2)" font-size="8" font-family="DM Sans">21 июн</text>
+            <!-- Cultures around equinox -->
+            <text x="230" y="42" text-anchor="end" fill="rgba(245,245,247,0.25)" font-size="9" font-family="Cormorant Garamond" font-style="italic">Навруз · 3000+ лет</text>
+            <text x="370" y="42" text-anchor="start" fill="rgba(245,245,247,0.25)" font-size="9" font-family="Cormorant Garamond" font-style="italic">Масленица · Остара</text>
+            <!-- Jan 1 — arbitrary -->
+            <circle cx="140" cy="76" r="3" fill="rgba(239,68,68,0.3)" stroke="rgba(239,68,68,0.5)" stroke-width="1"/>
+            <text x="125" y="66" text-anchor="end" fill="rgba(239,68,68,0.4)" font-size="9" font-family="DM Sans">1 янв — ?</text>
+            <!-- Day/Night balance indicator -->
+            <line x1="250" y1="290" x2="350" y2="290" stroke="rgba(245,245,247,0.1)" stroke-width="1"/>
+            <line x1="300" y1="286" x2="300" y2="294" stroke="rgba(245,245,247,0.3)" stroke-width="1.5"/>
+            <text x="260" y="288" text-anchor="middle" fill="rgba(245,245,247,0.15)" font-size="8" font-family="DM Sans">НОЧЬ</text>
+            <text x="340" y="288" text-anchor="middle" fill="rgba(245,245,247,0.15)" font-size="8" font-family="DM Sans">ДЕНЬ</text>
+            <text x="300" y="282" text-anchor="middle" fill="rgba(245,245,247,0.35)" font-size="7" font-family="DM Sans" letter-spacing="1">БАЛАНС</text>
+        </svg>
+    </div>
+
+    <div class="fade-in-up">
+        <h2>13 × 28 + 1</h2>
+        <p>Система, которую мы восстанавливаем, не нова. Она древнее любого существующего государства.</p>
+        <p>13 месяцев по 28 дней = 364 дня. Плюс один «день вне времени» — день перехода между циклами. Точка абсолютного обнуления, не принадлежащая ни старому, ни новому году. 364 + 1 = 365.</p>
+        <p>В этой системе каждый месяц идентичен: ровно 4 недели. Каждый квартал — 91 день, 13 недель. Каждый день года приходится на один и тот же день недели каждый год. Предсказуемость. Гармония. Когерентность.</p>
+        <p>Майянская цивилизация использовала систему 13:20 — 13 интенций (тонов) × 20 архетипов = 260-дневный священный календарь Цолькин, синхронизированный с 365-дневным солнечным. Хосе Аргуэльес, математик и исследователь времени, формализовал это в систему «13 Лун» — 13 месяцев по 28 дней. Он не изобретал — он собирал то, что было до него.</p>
+        <p>Эта система совпадает с лунным ритмом. С менструальным циклом. С приливами. С ритмами сна и бодрствования, если убрать искусственное освещение. С числом Фибоначчи. С хроматической гаммой. С архимедовыми телами. С вашими суставами.</p>
+        <p>Один и тот же паттерн. Один и тот же фрактал. На всех уровнях зума — от тела до космоса.</p>
+    </div>
+
+    <div class="fade-in-up">
+        <h2>Что мы празднуем на самом деле</h2>
+        <p>Когда вы понимаете, что равноденствие — это не «языческий праздник», а точка когерентности на орбите Земли, праздники начинают выглядеть иначе.</p>
+        <p>Пасха — привязана к первому полнолунию после равноденствия. Это не «воскресение» в религиозном смысле — это буквальное возрождение света после равновесной точки. Природа воскресает. Семена прорастают. Энергия нового цикла набирает амплитуду.</p>
+        <p>Масленица — ритуал уничтожения старого цикла. Сжечь чучело — отпустить то, что отработало. Блины — солнечные диски. Неделя объедания — запас энергии перед новым витком.</p>
+        <p>Навруз — буквально «новый день». Уборка дома, новая одежда, стол с семью блюдами на «с» — семь видов ростков. Начало. Точка потенции.</p>
+        <p>Все эти праздники говорят одно и то же: цикл закончился, пауза пройдена, начинается новый виток. Они привязаны к Земле, к Луне, к Солнцу — к реальным астрономическим точкам. Не к указу императора. Не к бухгалтерскому удобству Ватикана.</p>
+        <p>И когда вы выходите из дома 21 марта и чувствуете, что воздух другой — это не «настроение». Это ваше тело резонирует с точкой когерентности планеты. Оно знает. Оно всегда знало.</p>
+    </div>
+
+    <div class="fade-in-up">
+        <h2>Новый резонансный оборот</h2>
+        <p>Мне потребовалось несколько лет исследований, чтобы увидеть одну простую вещь: мы не просто живём «не в своём ритме». Мы живём в чужом времени. Буквально — по чужим часам, чужому календарю, чужой системе координат. И каждый раз, когда мы пытаемся «восстановить баланс» внутри этой системы — мы лечим симптом, не причину.</p>
+        <p>Перейти на естественный цикл — это не про «альтернативный календарь на стену». Это про то, чтобы синхронизировать своё сознание с ритмом, который ваше тело уже знает. Вернуть себе фазу обнуления. Признать число 13 не суеверием, а архитектурой. Начать свой год не с чужого указа, а с точки, в которой Земля действительно проходит через равновесие.</p>
+        <p>Вы можете продолжать чокаться шампанским первого января. Это ваше право. Но вы теперь знаете, что в этом жесте нет ни астрономии, ни биологии, ни энергии. Есть только инерция.</p>
+        <p>А можете — обнулиться. Сжечь старый цикл. Пройти через паузу. И начать новый виток спирали оттуда, где его начинает Земля.</p>
+        <p>Почувствуйте, что происходит с телом прямо сейчас. Где-то на уровне солнечного сплетения — расширение. Не сжатие, как от тревоги. А расширение, как от правды, которую вы и так знали.</p>
+        <p>Запомните это состояние.</p>
+    </div>
+
+    <div class="article-finale fade-in-up">Новый виток начинается сейчас.</div>
+
+</article>
+
+<!-- Equinox CTA -->
+<div class="equinox-cta fade-in-up">
+    <div class="equinox-date">21.03</div>
+    <div class="equinox-label">Весеннее равноденствие · Новый резонансный год</div>
+    <div class="equinox-sub">OnlyGods начинает новый цикл вместе с Землёй</div>
+    <a href="index.html#join" class="cta-button">Присоединиться</a>
+</div>
+
+<footer class="site-footer">OnlyGods</footer>
+
+<script src="translations.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>
