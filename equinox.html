@@ -381,51 +381,47 @@ body::after {
         <p>Обратите внимание на число 13 в этой последовательности. Запомните его. Мы к нему вернёмся.</p>
     </div>
 
-    <!-- SVG: Fibonacci Spiral — mathematically correct proportions -->
+    <!-- SVG: Fibonacci Spiral — mathematically correct quarter-circle arcs -->
+    <!-- Tiling: scale=10px/unit, offset=(370,155). Squares placed: right, below, left, above cycle -->
+    <!-- Each arc: 90° clockwise quarter-circle (sweep-flag=1), center at inner tiling corner -->
     <div class="viz-container fade-in-up">
         <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
-            <!-- Fibonacci squares: 1, 1, 2, 3, 5, 8, 13, 21, 34 (scale: 1 unit = 5px) -->
-            <!-- Origin: start building from center outward using exact Fibonacci ratios -->
-            <!-- 1×1 (a) at (200, 195)-(205, 200) -->
-            <rect x="200" y="195" width="5" height="5" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="0.5"/>
-            <!-- 1×1 (b) at (195, 195)-(200, 200) -->
-            <rect x="195" y="195" width="5" height="5" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="0.5"/>
-            <!-- 2×2 at (195, 185)-(205, 195) -->
-            <rect x="195" y="185" width="10" height="10" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="0.5"/>
-            <text x="199" y="192" fill="rgba(245,245,247,0.12)" font-size="7" font-family="DM Sans">2</text>
-            <!-- 3×3 at (195, 200)-(210, 215) -->
-            <rect x="195" y="200" width="15" height="15" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="0.5"/>
-            <text x="200" y="210" fill="rgba(245,245,247,0.12)" font-size="8" font-family="DM Sans">3</text>
-            <!-- 5×5 at (205, 185)-(230, 210) -->
-            <rect x="205" y="185" width="25" height="25" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="0.5"/>
-            <text x="214" y="201" fill="rgba(245,245,247,0.12)" font-size="9" font-family="DM Sans">5</text>
-            <!-- 8×8 at (195, 145)-(235, 185) -->
-            <rect x="195" y="145" width="40" height="40" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="0.5"/>
-            <text x="210" y="170" fill="rgba(245,245,247,0.12)" font-size="11" font-family="DM Sans">8</text>
-            <!-- 13×13 at (130, 150)-(195, 215) — HIGHLIGHTED -->
-            <rect x="130" y="150" width="65" height="65" fill="rgba(245,245,247,0.03)" stroke="rgba(245,245,247,0.4)" stroke-width="1.2"/>
-            <text x="155" y="190" fill="rgba(245,245,247,0.6)" font-size="20" font-family="Cormorant Garamond" font-weight="500">13</text>
-            <!-- 21×21 at (130, 40)-(235, 145) -->
-            <rect x="130" y="40" width="105" height="105" fill="none" stroke="rgba(245,245,247,0.08)" stroke-width="0.5"/>
-            <text x="175" y="100" fill="rgba(245,245,247,0.1)" font-size="14" font-family="DM Sans">21</text>
-            <!-- 34×34 at (235, 45)-(405, 215) -->
-            <rect x="235" y="45" width="170" height="170" fill="none" stroke="rgba(245,245,247,0.06)" stroke-width="0.5"/>
-            <text x="310" y="140" fill="rgba(245,245,247,0.07)" font-size="18" font-family="DM Sans">34</text>
-            <!-- Golden spiral using quarter-circle arcs (exact Fibonacci arc construction) -->
-            <path d="M 200 200
-                     A 5 5 0 0 1 200 195
-                     A 5 5 0 0 1 195 195
-                     A 10 10 0 0 1 195 185
-                     A 15 15 0 0 1 210 200
-                     A 25 25 0 0 1 230 185
-                     A 40 40 0 0 1 195 145
-                     A 65 65 0 0 1 130 215
-                     A 105 105 0 0 1 235 40
-                     A 170 170 0 0 1 405 215"
+            <!-- 1×1 (a): (370,155)-(380,165) -->
+            <rect x="370" y="155" width="10" height="10" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="0.5"/>
+            <!-- 1×1 (b): (380,155)-(390,165) -->
+            <rect x="380" y="155" width="10" height="10" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="0.5"/>
+            <!-- 2×2: (370,165)-(390,185) -->
+            <rect x="370" y="165" width="20" height="20" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="0.5"/>
+            <text x="378" y="179" fill="rgba(245,245,247,0.12)" font-size="9" font-family="DM Sans">2</text>
+            <!-- 3×3: (340,155)-(370,185) -->
+            <rect x="340" y="155" width="30" height="30" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="0.5"/>
+            <text x="352" y="174" fill="rgba(245,245,247,0.12)" font-size="10" font-family="DM Sans">3</text>
+            <!-- 5×5: (340,105)-(390,155) -->
+            <rect x="340" y="105" width="50" height="50" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="0.5"/>
+            <text x="360" y="135" fill="rgba(245,245,247,0.12)" font-size="12" font-family="DM Sans">5</text>
+            <!-- 8×8: (390,105)-(470,185) -->
+            <rect x="390" y="105" width="80" height="80" fill="none" stroke="rgba(245,245,247,0.1)" stroke-width="0.5"/>
+            <text x="425" y="152" fill="rgba(245,245,247,0.12)" font-size="14" font-family="DM Sans">8</text>
+            <!-- 13×13: (340,185)-(470,315) — HIGHLIGHTED -->
+            <rect x="340" y="185" width="130" height="130" fill="rgba(245,245,247,0.03)" stroke="rgba(245,245,247,0.4)" stroke-width="1.2"/>
+            <text x="390" y="262" fill="rgba(245,245,247,0.6)" font-size="26" font-family="Cormorant Garamond" font-weight="500">13</text>
+            <!-- 21×21: (130,105)-(340,315) -->
+            <rect x="130" y="105" width="210" height="210" fill="none" stroke="rgba(245,245,247,0.08)" stroke-width="0.5"/>
+            <text x="225" y="220" fill="rgba(245,245,247,0.1)" font-size="18" font-family="DM Sans">21</text>
+            <!-- Golden spiral: quarter-circle arcs, each 90° CW, connecting square corners -->
+            <path d="M 370 165
+                     A 10 10 0 0 1 380 155
+                     A 10 10 0 0 1 390 165
+                     A 20 20 0 0 1 370 185
+                     A 30 30 0 0 1 340 155
+                     A 50 50 0 0 1 390 105
+                     A 80 80 0 0 1 470 185
+                     A 130 130 0 0 1 340 315
+                     A 210 210 0 0 1 130 105"
                   fill="none" stroke="rgba(245,245,247,0.45)" stroke-width="1.5" stroke-linecap="round"/>
             <!-- Labels -->
-            <text x="300" y="390" fill="#6e6e73" font-size="11" font-family="DM Sans" text-anchor="middle" letter-spacing="2">СПИРАЛЬ ФИБОНАЧЧИ</text>
-            <text x="300" y="408" fill="rgba(245,245,247,0.2)" font-size="10" font-family="DM Sans" text-anchor="middle">1 · 1 · 2 · 3 · 5 · 8 · <tspan fill="rgba(245,245,247,0.6)" font-weight="500">13</tspan> · 21 · 34 · 55 · 89</text>
+            <text x="300" y="370" fill="#6e6e73" font-size="11" font-family="DM Sans" text-anchor="middle" letter-spacing="2">СПИРАЛЬ ФИБОНАЧЧИ</text>
+            <text x="300" y="390" fill="rgba(245,245,247,0.2)" font-size="10" font-family="DM Sans" text-anchor="middle">1 · 1 · 2 · 3 · 5 · 8 · <tspan fill="rgba(245,245,247,0.6)" font-weight="500">13</tspan> · 21 · 34 · 55 · 89</text>
         </svg>
     </div>
 
