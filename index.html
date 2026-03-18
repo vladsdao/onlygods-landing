@@ -598,6 +598,155 @@ body::after {
 .stagger-4 { transition-delay: 0.26s; }
 
 /* ====================================== */
+/* HERO CTA                              */
+/* ====================================== */
+.hero-cta {
+    display: inline-block;
+    margin-top: 48px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 12px 32px;
+    border: 1px solid #1d1d1f;
+    border-radius: 20px;
+    color: #1d1d1f;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+.hero-cta:hover { background: #1d1d1f; color: #ffffff; }
+
+/* ====================================== */
+/* OFFER BLOCK                           */
+/* ====================================== */
+.offer-block {
+    background: #1d1d1f;
+    border-radius: 3px;
+    padding: 80px 60px;
+    margin-top: 56px;
+}
+
+.offer-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 400;
+    color: #f5f5f7;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.offer-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+}
+
+.offer-price-note {
+    font-size: 14px;
+    color: #86868b;
+    margin-bottom: 40px;
+}
+
+.offer-summary {
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 640px;
+    margin-bottom: 40px;
+}
+
+.offer-includes {
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.offer-includes li {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    line-height: 1.6;
+    padding-left: 20px;
+    position: relative;
+}
+
+.offer-includes li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 21px;
+    width: 6px;
+    height: 1px;
+    background: #86868b;
+}
+
+.offer-cta {
+    display: inline-block;
+    margin-top: 40px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 3px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.offer-cta:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.4);
+}
+
+/* ====================================== */
+/* CREATORS MINI                         */
+/* ====================================== */
+.creators-row {
+    display: flex;
+    gap: 48px;
+    margin-top: 40px;
+}
+
+.creator { flex: 1; }
+
+.creator-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 12px;
+}
+
+.creator-desc {
+    font-size: 16px;
+    color: #48484a;
+    line-height: 1.75;
+}
+
+.creator-link {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #86868b;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.creator-link:hover { color: #1d1d1f; }
+
+/* ====================================== */
 /* NAVIGATION                             */
 /* ====================================== */
 .site-nav {
@@ -894,6 +1043,9 @@ body::after {
     .join-grid { grid-template-columns: 1fr; gap: 48px; }
     .join-form { grid-template-columns: 1fr; }
     .hero-section { min-height: auto; padding: 80px 20px 32px; }
+    .offer-block { padding: 48px 24px; }
+    .offer-price { font-size: 36px; }
+    .creators-row { flex-direction: column; gap: 32px; }
 }
 </style>
 </head>
@@ -959,6 +1111,7 @@ body::after {
             <!-- Replace with: <iframe src="YOUR_VIDEO_URL" allowfullscreen></iframe> -->
         </div>
     </div>
+    <a href="#join" class="hero-cta fade-in-up stagger-2" data-i18n="index.hero.cta">Войти в Игру →</a>
 </section>
 
 <div class="section-divider"></div>
@@ -994,8 +1147,6 @@ body::after {
         <p class="body-text" style="max-width: 860px;" data-i18n="index.what.p1">Биологический блокчейн, новая модель общества, технологический IR4 эгрегор, резонансная сеть, инновационный инвестфонд, квантовое DAO, просвещенное сообщество, инструмент для раскрытия творческого потенциала, тайное общество, секта или лаборатория квантового сознания — это отдельные стороны проекта, но здесь важен сам Путь, не подлежащий описанию словами.</p>
     </div>
 
-    <!-- GIF SLOT -->
-    <div class="gif-slot-field fade-in-up"></div>
 
     <div class="fade-in-up" style="margin-top: 56px;">
         <p class="body-text" style="max-width: 860px;" data-i18n="index.what.p3">Игра в Бога — это, по сути, и есть проект. Творчество вне рамок, высшие состояния Сознания, Духовность как прямой опыт — вместо книжных знаний, искренний интерес к жизни и Святость в Изобилии — это то что открывается нам при достаточном уровне психо-эмоциональной энергии и открытом уме.</p>
@@ -1026,8 +1177,8 @@ body::after {
         </div>
         <div class="card stagger-2">
             <div class="card-number">02</div>
-            <h3>OnlyFans Protocol</h3>
-            <p data-i18n="index.tools.c2.desc">Интимная обстановка. Усиление резонанса коллективного поля и ускорение Эволюции Сознания через работу с сексуальной энергией на платформе OnlyFans. Без цензуры и масок. Это расширение диапазона в атмосфере эстетики, китча, игры.</p>
+            <h3>AI — Human Symbiosis</h3>
+            <p data-i18n="index.tools.c2.desc">Мы внедряем технологии, которые учитывают возможности нелокального Сознания — для поддержки работы поля объединённого Сознания. AI выступает зеркалом и инструментом синхронизации, помогая каждому участнику отслеживать своё состояние и резонанс с группой в реальном времени.</p>
         </div>
         <div class="card stagger-3">
             <div class="card-number">03</div>
@@ -1048,70 +1199,50 @@ body::after {
 <div class="section-divider"></div>
 
 <!-- ====================================== -->
-<!-- СТУПЕНИ ЭВОЛЮЦИИ                       -->
+<!-- ЕДИНЫЙ ОФФЕР                           -->
+<!-- ====================================== -->
+<div class="content-section">
+    <div class="offer-block fade-in-up">
+        <div class="offer-title" data-i18n="index.offer.name">OnlyGods</div>
+        <div class="offer-price" data-i18n="index.offer.price">936€ / месяц</div>
+        <div class="offer-price-note" data-i18n="index.offer.price_note">Минимум 3 месяца · После 3-го месяца — 369€/мес</div>
+
+        <p class="offer-summary" data-i18n="index.offer.summary">Закрытая цифровая среда для раскрытия творческого потенциала, трансформации сознания и поддержки высокого уровня состояния участников. Тщательно настроенный эгрегор с внутренней микро-экономикой резонанса, где каждый участник — не зритель, а со-творец коллективного поля.</p>
+
+        <ul class="offer-includes">
+            <li data-i18n="index.offer.i1">Программа Мы.Боги — включена в первые 3 месяца</li>
+            <li data-i18n="index.offer.i2">Еженедельные живые практики с обоими архитекторами</li>
+            <li data-i18n="index.offer.i3">Ежедневные точки синхронизации и закрытые онлайн церемонии</li>
+            <li data-i18n="index.offer.i4">AI-бот для ежедневной синхронизации и отслеживания состояния</li>
+            <li data-i18n="index.offer.i5">Доступ к оффлайн мероприятиям, ретритам, менторству</li>
+            <li data-i18n="index.offer.i6">Внутренняя экономика резонанса и участие в DAO</li>
+        </ul>
+
+        <a href="#join" class="offer-cta" data-i18n="index.offer.cta">Войти в Игру →</a>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ====================================== -->
+<!-- CREATORS (мини)                        -->
 <!-- ====================================== -->
 <div class="content-section">
     <div class="fade-in-up">
-        <div class="section-label" data-i18n="index.path.label">Путь</div>
-        <h2 class="section-title" data-i18n="index.path.title">Ступени Эволюции Участия в Поле</h2>
+        <div class="section-label" data-i18n="index.creators.label">Кто мы</div>
+        <h2 class="section-title" data-i18n="index.creators.title">Архитекторы Поля</h2>
     </div>
-
-    <div style="margin-top: 56px;">
-        <div class="tier-block fade-in-up">
-            <div class="tier-header">
-                <div class="tier-number">1.</div>
-                <div>
-                    <div class="tier-title" data-i18n="index.path.t1.title">OnlyFans</div>
-                    <div class="tier-subtitle" data-i18n="index.path.t1.subtitle">Фильтр 36.9 евро</div>
-                </div>
-            </div>
-            <p class="tier-body" data-i18n="index.path.t1.p1">Мы делимся нашим опытом без социальных масок и моральных фильтров. Наблюдая за нашим опытом вы естественным образом впитываете необходимые частоты и знания.</p>
-            <p class="tier-body" style="margin-top: 16px;" data-i18n="index.path.t1.p2">Без идеологий. Без догм. Вы принимаете только то, что откликается. Уже здесь начинается очищение от устоявшихся мыслительных моделей, убеждений и автоматизмов, которые формируют восприятие реальности — и саму реальность. Пересмотр архитектуры алгоритмов ума. Самостоятельное выявление и трансформация того, что заставляет действовать из выживания — вопреки своей природе.</p>
-            <a href="https://onlyfans.com/vladsdao" target="_blank" rel="noopener" class="tier-link" data-i18n="index.path.t1.link">Подписаться →</a>
+    <div class="creators-row fade-in-up">
+        <div class="creator">
+            <div class="creator-name" data-i18n="index.creators.vlad.name">Влад</div>
+            <p class="creator-desc" data-i18n="index.creators.vlad.desc">Проектирует архитектуру сознания и систем. За 20 лет исследований консолидировал знания древней мудрости в систему, позволяющую пройти ускоренным путём эволюции Сознания.</p>
         </div>
-
-        <div class="tier-block fade-in-up">
-            <div class="tier-header">
-                <div class="tier-number">2.</div>
-                <div>
-                    <div class="tier-title" data-i18n="index.path.t2.title">Мы</div>
-                    <div class="tier-subtitle" data-i18n="index.path.t2.subtitle">Образование и сонастройка в единой резонансной сети</div>
-                </div>
-            </div>
-            <p class="tier-body" data-i18n="index.path.t2.p1">Проводимость поля зависит от искренности каждого участника. Вход в игру требует когерентности — на ценностном и нравственном уровнях.</p>
-            <p class="tier-body" style="margin-top: 16px;" data-i18n="index.path.t2.p2">Мы — это 2-месячная программа по инженерии сознания. Глубоко, бережно, последовательно и понятно для ума, мы адаптируем архитектуру вашего сознания и совершаем переход от линейной парадигмы на квантовую — нелинейный интерфейс восприятия мира. Как обновление OS, только на уровне сознания.</p>
-            <p class="tier-body" style="margin-top: 16px;" data-i18n="index.path.t2.p3">Это точка входа в новую реальность, называемую в мировом стратегическом дискурсе "Игра Б" — мат-модель синергии.</p>
-            <p class="tier-body" style="margin-top: 16px;" data-i18n="index.path.t2.p4">Главная цель этого этапа — достичь целостности внутри себя — и целостности в наименьшей ноде — вашей семье.</p>
-            <p class="tier-body" style="margin-top: 24px; font-weight: 500; color: #1d1d1f;" data-i18n="index.path.t2.price">2 000€</p>
-            <a href="mybogi.html" class="tier-link" data-i18n="index.path.t2.link">Подать заявку →</a>
-        </div>
-
-        <div class="tier-block fade-in-up">
-            <div class="tier-header">
-                <div class="tier-number">3.</div>
-                <div>
-                    <div class="tier-title" data-i18n="index.path.t3.title">БОГИ</div>
-                    <div class="tier-subtitle" data-i18n="index.path.t3.subtitle">936€/мес · Коллективная энергостанция</div>
-                </div>
-            </div>
-            <p class="tier-body" data-i18n="index.path.t3.p1">Индивидуальное сознание имеет потолок. Коллективное — нет.</p>
-            <p class="tier-body" style="margin-top: 16px;" data-i18n="index.path.t3.p2">Когда вы входите в когерентность и ловите волну синергии — Поле подсказывает путь. Это похоже на психо-эмоциональный интернет, в котором о вас заботится коллективный разум.</p>
-            <p class="tier-body" style="margin-top: 16px;" data-i18n="index.path.t3.p3">Третий уровень погружения — групповое поле и освоение тактики Квантовых искусств.</p>
-            <p class="tier-body" style="margin-top: 16px;" data-i18n="index.path.t3.p4">Ежедневные точки синхронизации, направление коллективной энергии, доступ к оффлайн мероприятиям и закрытым онлайн церемониям. Предметы силы, сексуальные практики и т.д. Возможность учавствовать в DAO DE DO и инвестировать в проекты поля и принимать участие в разработке бизнес составляющих. Менторство, ретриты и все наши с Лизой программы обучения -50%.</p>
-            <p class="tier-body" style="margin-top: 16px; font-style: italic; color: #86868b;" data-i18n="index.path.t3.note">Вход открывается раз в три месяца. Впервые — 15.03</p>
-            <a href="#join" class="tier-link" data-i18n="index.path.t3.link">Войти в Поле →</a>
-        </div>
-
-        <div class="tier-block fade-in-up">
-            <div class="tier-header">
-                <div class="tier-number">4.</div>
-                <div>
-                    <div class="tier-title" data-i18n="index.path.t4.title">Резонансная Семья</div>
-                </div>
-            </div>
-            <p class="tier-body" data-i18n="index.path.t4.p1">Инвестиции, развитие экосистемы, управление. Ближний круг друзей — об этом расскажем лично.</p>
+        <div class="creator">
+            <div class="creator-name" data-i18n="index.creators.liza.name">Лиза</div>
+            <p class="creator-desc" data-i18n="index.creators.liza.desc">Автор методики, исследователь. Находит корневую причину — трансформирует — отпускает. Все практики в поле OnlyGods — эксклюзивны и существуют только здесь.</p>
         </div>
     </div>
+    <a href="creators.html" class="creator-link fade-in-up" data-i18n="index.creators.link">Подробнее →</a>
 </div>
 
 <div class="section-divider"></div>
@@ -1127,82 +1258,66 @@ body::after {
 
                 <div class="qa-item">
                     <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
-                        <h3 data-i18n="index.qa.q1">OnlyFans? Вы серьёзно?</h3>
+                        <h3 data-i18n="index.qa.q1">Что такое эгрегор?</h3>
                         <span class="qa-toggle"></span>
                     </div>
-                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a1">Абсолютно. Мы намеренно выбрали самый провокационный контейнер. Если название платформы вызывает сопротивление — это и есть первый тест: способны ли Вы видеть содержание за формой? Священное в профанном — не ошибка. Это метод.</div></div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a1">Эгрегор — это коллективное энергоинформационное поле, которое возникает при устойчивом резонансе группы людей. Не метафора. Когда участники синхронизированы на уровне внимания, намерения и эмоционального состояния — возникает нечто большее, чем сумма частей. Мы строим этот эгрегор осознанно: через технологию, ритм, практики и AI-инфраструктуру, которая делает невидимые процессы — измеримыми.</div></div>
                 </div>
 
                 <div class="qa-item">
                     <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
-                        <h3 data-i18n="index.qa.q2">936€ в месяц — за что именно?</h3>
+                        <h3 data-i18n="index.qa.q2">Что такое синхронизации?</h3>
                         <span class="qa-toggle"></span>
                     </div>
-                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a2">За среду. Еженедельные живые практики с обоими архитекторами. NDA-материалы и стримы. AI-бот для ежедневной синхронизации и отслеживания Вашего состояния. Внутренняя экономика, в которой участники создают и обмениваются ценностью. Но если Вы ищете список услуг — Вы ищете не то. Здесь покупают не сервис. Здесь инвестируют в поле, которое меняет качество жизни.</div></div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a2">Синхронизации — это ментальные практики работы с вниманием и энергетический менеджмент. Не медитации в классическом смысле. Это точки со-настройки: участники одновременно направляют внимание в определённое качество состояния, создавая коллективный резонанс. Включают работу с циклами, ритмом, дыханием, намерением. Проводятся ежедневно — как гигиена сознания.</div></div>
                 </div>
 
                 <div class="qa-item">
                     <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
-                        <h3 data-i18n="index.qa.q3">Что такое «поле» на практике? Не метафора ли это?</h3>
+                        <h3 data-i18n="index.qa.q3">936€ — почему такая стоимость?</h3>
                         <span class="qa-toggle"></span>
                     </div>
-                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a3">Не метафора. Поле — это живая сеть резонанса между участниками, которую мы строим через технологию, практику и прямой контакт. AI-бот в Telegram отслеживает состояние каждого участника, помогает синхронизироваться с группой и строит резонансную карту сообщества в реальном времени. Вы чувствуете это как совпадения, ясность, ускорение. Мы измеряем это как данные.</div></div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a3">Первый месяц включает полное обучение — программу Мы.Боги по инженерии сознания. Это не вебинар и не курс в записи. Это живая работа с двумя архитекторами, которая перестраивает архитектуру восприятия. Плюс ежедневные синхронизации, AI-трекинг состояния, закрытые церемонии и внутренняя экономика поля. Вы инвестируете не в контент — в среду, которая меняет качество жизни. После трёх месяцев стоимость снижается до 369€.</div></div>
                 </div>
 
                 <div class="qa-item">
                     <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
-                        <h3 data-i18n="index.qa.q4">Это секта?</h3>
+                        <h3 data-i18n="index.qa.q4">Что такое «поле» на практике?</h3>
                         <span class="qa-toggle"></span>
                     </div>
-                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a4">Секта запрещает уходить. Мы делаем так, что не хочется. Здесь нет гуру, нет догмы, нет единственной правды. Есть два архитектора, технология и люди, которые честно живут в поле. Вы можете уйти в любой момент. Подписка — помесячная, не контракт.</div></div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a4">Поле — это живая сеть резонанса между участниками, которую мы строим через технологию, практику и прямой контакт. AI-бот отслеживает состояние каждого участника и строит резонансную карту в реальном времени. Вы чувствуете это как ясность, синхронистичность, ускорение. Мы измеряем это как данные.</div></div>
                 </div>
 
                 <div class="qa-item">
                     <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
-                        <h3 data-i18n="index.qa.q5">Кто Вы такие и почему я должен Вам доверять?</h3>
+                        <h3 data-i18n="index.qa.q5">У меня есть своя практика. Зачем мне это?</h3>
                         <span class="qa-toggle"></span>
                     </div>
-                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a5">Не должны. Доверие здесь — не входной билет, а результат опыта. Влад проектирует архитектуру сознания и систем. Лиза проводит трансформацию напрямую. Вместе мы ведём каждую практику, каждый стрим, каждый процесс. Всё открыто — философия, структура, подход. Решение — за Вами.</div></div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a5">Практика в одиночестве — тренировка. Практика в поле — жизнь. Одна скрипка не может взять аккорд. Люди в совместной практике порождают состояния, недоступные каждому по отдельности — это принцип эмерджентности. Большинство сообществ предлагают знания. Мы предлагаем среду, в которой знания становятся состоянием.</div></div>
                 </div>
 
                 <div class="qa-item">
                     <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
-                        <h3 data-i18n="index.qa.q6">Мне нужно быть на камеру? Показывать себя?</h3>
+                        <h3 data-i18n="index.qa.q6">Кто Вы такие?</h3>
                         <span class="qa-toggle"></span>
                     </div>
-                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a6">Нет. OnlyFans — платформа доставки, не формат участия. Вы — участник поля, не автор канала. Ваша приватность полностью в Ваших руках. Мы не просим ничего, кроме честного присутствия.</div></div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a6">Влад проектирует архитектуру сознания и систем. Лиза проводит трансформацию напрямую. Вместе мы ведём каждую практику, каждый стрим, каждый процесс. Всё открыто — философия, структура, подход. Доверие здесь — не входной билет, а результат опыта. Решение — за Вами.</div></div>
                 </div>
 
                 <div class="qa-item">
                     <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
-                        <h3 data-i18n="index.qa.q7">У меня есть духовная практика. Зачем мне ещё одно сообщество?</h3>
+                        <h3 data-i18n="index.qa.q7">Что если через 3 месяца я хочу уйти?</h3>
                         <span class="qa-toggle"></span>
                     </div>
-                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a7">Практика в одиночестве — это тренировка. Практика в поле — это жизнь. Большинство сообществ предлагают знания. Мы предлагаем среду, в которой знания становятся состоянием. Разница — как между чтением о плавании и океаном.</div></div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a7">Уходите. Без вопросов, без манипуляций. Три месяца — минимальный цикл для интеграции. После третьего месяца подписка продолжается за 369€/месяц. Отменяете когда решите.</div></div>
                 </div>
 
                 <div class="qa-item">
                     <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
-                        <h3 data-i18n="index.qa.q8">Чем это отличается от других сообществ осознанности?</h3>
+                        <h3 data-i18n="index.qa.q8">Можно сначала попробовать?</h3>
                         <span class="qa-toggle"></span>
                     </div>
-                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a8">Мы не называем себя духовными. Здесь нет мантр, свечей и благостных улыбок. Есть радикальная честность, экономика внимания и AI-инфраструктура, которая делает невидимое — измеримым. Если Вам нужны «высокие вибрации» — это не сюда. Если Вам нужно настоящее — добро пожаловать.</div></div>
-                </div>
-
-                <div class="qa-item">
-                    <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
-                        <h3 data-i18n="index.qa.q9">Можно сначала попробовать?</h3>
-                        <span class="qa-toggle"></span>
-                    </div>
-                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a9">Нет. И это не жадность — это уважение к полю. Человек, который входит «посмотреть», приносит энергию наблюдателя. Это разрушает пространство для тех, кто вложился. Ваш входной билет — это инвестиция в собственную серьёзность. Поле чувствует разницу.</div></div>
-                </div>
-
-                <div class="qa-item">
-                    <div class="qa-question" onclick="this.parentElement.classList.toggle('active'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
-                        <h3 data-i18n="index.qa.q10">Нужно ли сначала пройти курс Мы.Боги?</h3>
-                        <span class="qa-toggle"></span>
-                    </div>
-                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a10">Курс — это двухмесячная настройка перед входом в поле. Большинство участников OnlyGods прошли его. Но это не единственный путь. Если Вы чувствуете, что готовы — напишите нам. Мы поговорим и поймём вместе.</div></div>
+                    <div class="qa-answer"><div class="qa-answer-inner" data-i18n="index.qa.a8">Нет. Человек, который входит «посмотреть», приносит энергию наблюдателя. Это разрушает пространство для тех, кто вложился. Ваш входной билет — это инвестиция в собственную серьёзность. Поле чувствует разницу.</div></div>
                 </div>
 
             </div>
@@ -1219,57 +1334,48 @@ body::after {
 
             <!-- LEFT: Info -->
             <div class="join-info">
-                <div class="section-label" data-i18n="index.join.label">Limited Launch</div>
-                <h2 class="section-title" data-i18n="index.join.title">Войти в Поле</h2>
+                <div class="section-label" data-i18n="index.join.label">Войти в Игру</div>
+                <h2 class="section-title" data-i18n="index.join.title">OnlyGods</h2>
                 <p class="join-summary" data-i18n="index.join.summary1">
-                    OnlyGods — закрытая цифровая среда для раскрытия творческого потенциала,
-                    трансформации сознания и поддержки уровня состояния участников на высоком уровне.
-                    Тщательно настроенный эгрегор с внутренней микро-экономикой резонанса,
-                    где каждый участник — не зритель, а со-творец коллективного поля.
-                    Платформа работает на стыке герметизма, вортекс математики, квантовой науки,
-                    AI и DAO-governance. Духовность. Изобилие. Синергия.
-                </p>
-                <p class="join-summary" data-i18n="index.join.summary2">
-                    Мы запускаемся в ограниченном режиме. Каждый новый участник имеет
-                    значение для частоты всего поля — поэтому вход только через программу
-                    трансформации <strong style="color:#fff">Мы.Боги</strong>.
+                    Каждый новый участник имеет значение для частоты всего поля.
+                    Духовность. Изобилие. Синергия.
                 </p>
                 <ul class="join-conditions">
                     <li>
-                        <span class="cond-label" data-i18n="index.join.cond1.label">Вход</span>
-                        <span class="cond-value" data-i18n="index.join.cond1.value">Через курс Мы.Боги</span>
+                        <span class="cond-label" data-i18n="index.join.cond1.label">Обязательство</span>
+                        <span class="cond-value" data-i18n="index.join.cond1.value">Минимум 3 месяца</span>
                     </li>
                     <li>
-                        <span class="cond-label" data-i18n="index.join.cond2.label">Участие</span>
-                        <span class="cond-value" data-i18n="index.join.cond2.value">Минимум 3 месяца</span>
+                        <span class="cond-label" data-i18n="index.join.cond2.label">Включено</span>
+                        <span class="cond-value" data-i18n="index.join.cond2.value">Программа Мы.Боги</span>
                     </li>
                     <li>
                         <span class="cond-label" data-i18n="index.join.cond3.label">Стоимость</span>
                         <span class="cond-value" data-i18n="index.join.cond3.value">936 &euro; / месяц</span>
                     </li>
                     <li>
-                        <span class="cond-label" data-i18n="index.join.cond4.label">Формат</span>
-                        <span class="cond-value" data-i18n="index.join.cond4.value">Закрытое поле, ежедневные практики</span>
+                        <span class="cond-label" data-i18n="index.join.cond4.label">После 3-го месяца</span>
+                        <span class="cond-value" data-i18n="index.join.cond4.value">369 &euro; / месяц</span>
                     </li>
                 </ul>
             </div>
 
             <!-- RIGHT: Form -->
             <div class="join-form-side">
-                <span class="form-label" data-i18n="index.join.form_label">Оставьте заявку</span>
+                <span class="form-label" data-i18n="index.join.form_label">Три поля. Одно решение.</span>
                 <form class="join-form" action="https://formsubmit.co/vladsdao@onlygods.xyz" method="POST">
-                    <input type="hidden" name="_subject" value="OnlyGods — New Join Request">
+                    <input type="hidden" name="_subject" value="OnlyGods — New Member">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="https://onlygods.xyz/index.html">
                     <input class="join-input" type="text" name="name" required
                            placeholder="Имя" data-i18n-placeholder="index.join.ph_name">
-                    <input class="join-input" type="text" name="contact" required
-                           placeholder="Email или Telegram" data-i18n-placeholder="index.join.ph_contact">
-                    <textarea class="join-textarea" name="message"
-                              placeholder="Расскажите о себе и опыте" data-i18n-placeholder="index.join.ph_message"></textarea>
-                    <button type="submit" class="join-btn" data-i18n="index.join.btn">Отправить заявку</button>
+                    <input class="join-input" type="email" name="email" required
+                           placeholder="Email" data-i18n-placeholder="index.join.ph_email">
+                    <input class="join-input" type="text" name="telegram" required
+                           placeholder="Telegram" data-i18n-placeholder="index.join.ph_telegram">
+                    <button type="submit" class="join-btn" data-i18n="index.join.btn">Войти в Игру — 936€/месяц</button>
                 </form>
-                <p class="join-note" data-i18n="index.join.note">Мы свяжемся лично. Отбор — не формальность, а настройка на резонанс.</p>
+                <p class="join-note" data-i18n="index.join.note">Мгновенный доступ после оплаты. Программа Мы.Боги включена.</p>
             </div>
 
         </div>

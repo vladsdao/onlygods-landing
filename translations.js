@@ -374,9 +374,9 @@ var T = {
   ua: 'Квантова магія в реальному часі. Ми відходимо від стандартних лекцій. Розбір запитів відбувається через миттєве переключення вашої енергетичної структури тут і зараз. Вмикаємося увагою коли це необхідно. Гнучка модель участі.'
 },
 'index.tools.c2.desc': {
-  ru: 'Интимная обстановка. Усиление резонанса коллективного поля и ускорение Эволюции Сознания через работу с сексуальной энергией на платформе OnlyFans. Без цензуры и масок. Это расширение диапазона в атмосфере эстетики, китча, игры.',
-  en: 'Intimate setting. Amplifying resonance of the collective field and accelerating Consciousness Evolution through working with sexual energy on the OnlyFans platform. No censorship, no masks. This is range expansion in an atmosphere of aesthetics, kitsch, and play.',
-  ua: 'Інтимна обстановка. Підсилення резонансу колективного поля та прискорення Еволюції Свідомості через роботу з сексуальною енергією на платформі OnlyFans. Без цензури та масок. Це розширення діапазону в атмосфері естетики, кітчу, гри.'
+  ru: 'Мы внедряем технологии, которые учитывают возможности нелокального Сознания — для поддержки работы поля объединённого Сознания. AI выступает зеркалом и инструментом синхронизации, помогая каждому участнику отслеживать своё состояние и резонанс с группой в реальном времени.',
+  en: 'We implement technologies that account for the capabilities of nonlocal Consciousness — to support the work of the unified Consciousness field. AI serves as a mirror and synchronization tool, helping each participant track their state and resonance with the group in real time.',
+  ua: 'Ми впроваджуємо технології, які враховують можливості нелокальної Свідомості — для підтримки роботи поля об\'єднаної Свідомості. AI виступає дзеркалом та інструментом синхронізації, допомагаючи кожному учаснику відстежувати свій стан та резонанс з групою в реальному часі.'
 },
 'index.tools.c3.desc': {
   ru: 'Церемонии и Поле. Создание точек синхронизации и со-настройка резонансных сетей. Ченнелинги с новыми кодами. Проведение потоков объединенного сознания и практики исцеления.',
@@ -390,6 +390,98 @@ var T = {
 },
 
 // ─── INDEX: ПУТЬ ───
+// ─── INDEX: OFFER (replaces tiers) ───
+'index.offer.label': {
+  ru: 'Путь', en: 'The Path', ua: 'Шлях'
+},
+'index.offer.title': {
+  ru: 'Индивидуальное сознание имеет потолок. Коллективное — нет.',
+  en: 'Individual consciousness has a ceiling. Collective — does not.',
+  ua: 'Індивідуальна свідомість має стелю. Колективна — ні.'
+},
+'index.offer.name': {
+  ru: 'OnlyGods', en: 'OnlyGods', ua: 'OnlyGods'
+},
+'index.offer.price': {
+  ru: '936€ / месяц', en: '936€ / month', ua: '936€ / місяць'
+},
+'index.offer.price_note': {
+  ru: 'Минимум 3 месяца · После 3-го месяца — 369€/мес',
+  en: 'Minimum 3 months · After month 3 — 369€/mo',
+  ua: 'Мінімум 3 місяці · Після 3-го місяця — 369€/міс'
+},
+'index.offer.summary': {
+  ru: 'Закрытая цифровая среда для раскрытия творческого потенциала, трансформации сознания и поддержки высокого уровня состояния участников. Тщательно настроенный эгрегор с внутренней микро-экономикой резонанса, где каждый участник — не зритель, а со-творец коллективного поля.',
+  en: 'A closed digital environment for unlocking creative potential, transforming consciousness, and sustaining participants at a high state of being. A carefully tuned egregore with an internal micro-economy of resonance, where every member is not a spectator but a co-creator of the collective field.',
+  ua: 'Закрите цифрове середовище для розкриття творчого потенціалу, трансформації свідомості та підтримки високого рівня стану учасників. Ретельно налаштований егрегор з внутрішньою мікро-економікою резонансу, де кожен учасник — не глядач, а спів-творець колективного поля.'
+},
+'index.offer.i1': {
+  ru: 'Программа Мы.Боги — включена в первые 3 месяца',
+  en: 'We.Gods program — included in first 3 months',
+  ua: 'Програма Ми.Боги — включена в перші 3 місяці'
+},
+'index.offer.i2': {
+  ru: 'Еженедельные живые практики с обоими архитекторами',
+  en: 'Weekly live practices with both architects',
+  ua: 'Щотижневі живі практики з обома архітекторами'
+},
+'index.offer.i3': {
+  ru: 'Ежедневные точки синхронизации и закрытые онлайн церемонии',
+  en: 'Daily synchronization points and closed online ceremonies',
+  ua: 'Щоденні точки синхронізації та закриті онлайн церемонії'
+},
+'index.offer.i4': {
+  ru: 'AI-бот для ежедневной синхронизации и отслеживания состояния',
+  en: 'AI bot for daily synchronization and state tracking',
+  ua: 'AI-бот для щоденної синхронізації та відстеження стану'
+},
+'index.offer.i5': {
+  ru: 'Доступ к оффлайн мероприятиям, ретритам, менторству',
+  en: 'Access to offline events, retreats, mentorship',
+  ua: 'Доступ до офлайн заходів, ретритів, менторства'
+},
+'index.offer.i6': {
+  ru: 'Внутренняя экономика резонанса и участие в DAO',
+  en: 'Internal resonance economy and DAO participation',
+  ua: 'Внутрішня економіка резонансу та участь у DAO'
+},
+'index.offer.cta': {
+  ru: 'Войти в Игру →', en: 'Enter the Game →', ua: 'Увійти в Гру →'
+},
+
+// ─── INDEX: CREATORS MINI ───
+'index.creators.label': {
+  ru: 'Кто мы', en: 'Who we are', ua: 'Хто ми'
+},
+'index.creators.title': {
+  ru: 'Архитекторы Поля', en: 'Architects of the Field', ua: 'Архітектори Поля'
+},
+'index.creators.vlad.name': {
+  ru: 'Влад', en: 'Vlad', ua: 'Влад'
+},
+'index.creators.vlad.desc': {
+  ru: 'Проектирует архитектуру сознания и систем. За 20 лет исследований консолидировал знания древней мудрости в систему, позволяющую пройти ускоренным путём эволюции Сознания.',
+  en: 'Designs the architecture of consciousness and systems. Over 20 years of research, consolidated ancient wisdom into a system enabling an accelerated path of consciousness evolution.',
+  ua: 'Проєктує архітектуру свідомості та систем. За 20 років досліджень консолідував знання давньої мудрості в систему, що дозволяє пройти прискореним шляхом еволюції Свідомості.'
+},
+'index.creators.liza.name': {
+  ru: 'Лиза', en: 'Liza', ua: 'Ліза'
+},
+'index.creators.liza.desc': {
+  ru: 'Автор методики, исследователь. Находит корневую причину — трансформирует — отпускает. Все практики в поле OnlyGods — эксклюзивны и существуют только здесь.',
+  en: 'Method author, researcher. Finds root cause — transforms — releases. All practices in the OnlyGods field are exclusive and exist only here.',
+  ua: 'Авторка методики, дослідниця. Знаходить кореневу причину — трансформує — відпускає. Всі практики в полі OnlyGods — ексклюзивні та існують лише тут.'
+},
+'index.creators.link': {
+  ru: 'Подробнее →', en: 'Learn more →', ua: 'Детальніше →'
+},
+
+// ─── INDEX: HERO CTA ───
+'index.hero.cta': {
+  ru: 'Войти в Игру →', en: 'Enter the Game →', ua: 'Увійти в Гру →'
+},
+
+// ─── OLD TIERS (kept for reference, no longer used in HTML) ───
 'index.path.label': {
   ru: 'Путь',
   en: 'The Path',
@@ -515,140 +607,115 @@ var T = {
   ua: 'Те, про що Ви думаєте прямо зараз'
 },
 'index.qa.q1': {
-  ru: 'OnlyFans? Вы серьёзно?',
-  en: 'OnlyFans? Seriously?',
-  ua: 'OnlyFans? Ви серйозно?'
+  ru: 'Что такое эгрегор?',
+  en: 'What is an egregore?',
+  ua: 'Що таке егрегор?'
 },
 'index.qa.a1': {
-  ru: 'Абсолютно. Мы намеренно выбрали самый провокационный контейнер. Ваше сопротивление — это автоматическая категоризация, нормальная реакция мозга. Но способность отделить форму от содержания — базовый навык, без которого работа с сознанием невозможна. Это не провокация. Это первый тест на вход.',
-  en: 'Absolutely. We deliberately chose the most provocative container. Your resistance is automatic categorization — a normal brain response. But the ability to separate form from content is a fundamental skill, without which consciousness work is impossible. This isn\u2019t provocation. It\u2019s the first entry test.',
-  ua: 'Абсолютно. Ми свідомо обрали найпровокативніший контейнер. Ваш спротив — це автоматична категоризація, нормальна реакція мозку. Але здатність відділити форму від змісту — базова навичка, без якої робота зі свідомістю неможлива. Це не провокація. Це перший тест на вхід.'
+  ru: 'Эгрегор — это коллективное энергоинформационное поле, которое возникает при устойчивом резонансе группы людей. Не метафора. Когда участники синхронизированы на уровне внимания, намерения и эмоционального состояния — возникает нечто большее, чем сумма частей. Мы строим этот эгрегор осознанно: через технологию, ритм, практики и AI-инфраструктуру, которая делает невидимые процессы — измеримыми.',
+  en: 'An egregore is a collective energy-informational field that arises from sustained resonance within a group. Not a metaphor. When participants are synchronized at the level of attention, intention, and emotional state — something greater than the sum of parts emerges. We build this egregore consciously: through technology, rhythm, practices, and AI infrastructure that makes invisible processes measurable.',
+  ua: 'Егрегор — це колективне енергоінформаційне поле, що виникає при сталому резонансі групи людей. Не метафора. Коли учасники синхронізовані на рівні уваги, наміру та емоційного стану — виникає щось більше, ніж сума частин. Ми будуємо цей егрегор свідомо: через технологію, ритм, практики та AI-інфраструктуру, яка робить невидимі процеси — вимірюваними.'
 },
 'index.qa.q2': {
-  ru: '936€ в месяц — за что именно?',
-  en: '936€ per month — for what exactly?',
-  ua: '936€ на місяць — за що саме?'
+  ru: 'Что такое синхронизации?',
+  en: 'What are synchronizations?',
+  ua: 'Що таке синхронізації?'
 },
 'index.qa.a2': {
-  ru: 'За среду. Еженедельные живые практики с обоими архитекторами. AI-трекинг вашего состояния. NDA-материалы и стримы. Внутренняя экономика, в которой участники создают и обмениваются ценностью. Нервная система человека биологически работает иначе в ко-регуляции с другими — одиночная обработка стресса энергетически дороже. Вы инвестируете не в сервис. Вы инвестируете в поле, ценность которого растёт с каждым участником.',
-  en: 'The environment. Weekly live practices with both architects. AI-tracking of your state. NDA materials and streams. An internal economy where participants create and exchange value. The human nervous system biologically operates differently in co-regulation with others — solo stress processing is energetically more expensive. You\u2019re not investing in a service. You\u2019re investing in a field whose value grows with every participant.',
-  ua: 'За середовище. Щотижневі живі практики з обома архітекторами. AI-трекінг вашого стану. NDA-матеріали та стріми. Внутрішня економіка, в якій учасники створюють та обмінюються цінністю. Нервова система людини біологічно працює інакше в ко-регуляції з іншими — одиночна обробка стресу енергетично дорожча. Ви інвестуєте не в сервіс. Ви інвестуєте в поле, цінність якого зростає з кожним учасником.'
+  ru: 'Синхронизации — это ментальные практики работы с вниманием и энергетический менеджмент. Не медитации в классическом смысле. Это точки со-настройки: участники одновременно направляют внимание в определённое качество состояния, создавая коллективный резонанс. Включают работу с циклами, ритмом, дыханием, намерением. Проводятся ежедневно — как гигиена сознания.',
+  en: 'Synchronizations are mental practices of attention work and energy management. Not meditation in the classical sense. These are co-tuning points: participants simultaneously direct attention toward a specific quality of state, creating collective resonance. They include work with cycles, rhythm, breath, and intention. Conducted daily — as consciousness hygiene.',
+  ua: 'Синхронізації — це ментальні практики роботи з увагою та енергетичний менеджмент. Не медитації в класичному сенсі. Це точки со-налаштування: учасники одночасно спрямовують увагу в певну якість стану, створюючи колективний резонанс. Включають роботу з циклами, ритмом, диханням, наміром. Проводяться щоденно — як гігієна свідомості.'
 },
 'index.qa.q3': {
-  ru: 'Что такое «поле» на практике? Не метафора ли это?',
-  en: 'What is the "field" in practice? Isn\'t it just a metaphor?',
-  ua: 'Що таке «поле» на практиці? Чи не метафора це?'
+  ru: '936€ — почему такая стоимость?',
+  en: '936€ — why this price?',
+  ua: '936€ — чому така вартість?'
 },
 'index.qa.a3': {
-  ru: 'Не метафора. Электромагнитное поле сердца регистрируется на расстоянии свыше 3 метров — это измеренный факт (HeartMath Institute). Люди в общем пространстве спонтанно синхронизируются — как маятники на одной стене. AI-бот в Telegram отслеживает состояние каждого участника и строит резонансную карту сообщества в реальном времени через ir4. Вы чувствуете это как ясность, совпадения, ускорение. Мы измеряем это как данные.',
-  en: 'Not a metaphor. The heart\u2019s electromagnetic field is detectable at distances exceeding 3 meters — a measured fact (HeartMath Institute). People sharing a space spontaneously synchronize — like pendulums on the same wall. A Telegram AI bot tracks each participant\u2019s state and builds a real-time resonance map of the community through ir4. You feel it as clarity, coincidences, acceleration. We measure it as data.',
-  ua: 'Не метафора. Електромагнітне поле серця реєструється на відстані понад 3 метри — це виміряний факт (HeartMath Institute). Люди у спільному просторі спонтанно синхронізуються — як маятники на одній стіні. AI-бот у Telegram відстежує стан кожного учасника і будує резонансну карту спільноти в реальному часі через ir4. Ви відчуваєте це як ясність, збіги, прискорення. Ми вимірюємо це як дані.'
+  ru: 'Первый месяц включает полное обучение — программу Мы.Боги по инженерии сознания. Это не вебинар и не курс в записи. Это живая работа с двумя архитекторами, которая перестраивает архитектуру восприятия. Плюс ежедневные синхронизации, AI-трекинг состояния, закрытые церемонии и внутренняя экономика поля. Вы инвестируете не в контент — в среду, которая меняет качество жизни. После трёх месяцев стоимость снижается до 369€.',
+  en: 'The first month includes full training — the We.Gods consciousness engineering program. Not a webinar or a recorded course. It\u2019s live work with two architects that restructures the architecture of perception. Plus daily synchronizations, AI state tracking, closed ceremonies, and the field\u2019s internal economy. You\u2019re investing not in content — but in an environment that changes quality of life. After three months, the price drops to 369€.',
+  ua: 'Перший місяць включає повне навчання — програму Ми.Боги з інженерії свідомості. Це не вебінар і не курс у записі. Це жива робота з двома архітекторами, яка перебудовує архітектуру сприйняття. Плюс щоденні синхронізації, AI-трекінг стану, закриті церемонії та внутрішня економіка поля. Ви інвестуєте не в контент — у середовище, яке змінює якість життя. Після трьох місяців вартість знижується до 369€.'
 },
 'index.qa.q4': {
-  ru: 'Это секта?',
-  en: 'Is this a cult?',
-  ua: 'Це секта?'
+  ru: 'Что такое «поле» на практике?',
+  en: 'What is the "field" in practice?',
+  ua: 'Що таке «поле» на практиці?'
 },
 'index.qa.a4': {
-  ru: 'Секта запрещает уходить. Мы делаем так, что не хочется. Но если нужна формальная проверка — есть 8 критериев контроля сознания Лифтона. Примените каждый: нет контроля среды, нет гуру, нет догмы, нет единственной правды. Методология открыта и фальсифицируема. Подписка помесячная — не контракт. Если не работает, вы это увидите в данных, а не услышите от нас.',
-  en: 'A cult forbids leaving. We make it so you don\u2019t want to. But if you need a formal check — there are Lifton\u2019s 8 criteria of thought reform. Apply each one: no milieu control, no guru, no dogma, no single truth. The methodology is open and falsifiable. Subscription is monthly — not a contract. If it doesn\u2019t work, you\u2019ll see it in the data, not hear it from us.',
-  ua: 'Секта забороняє йти. Ми робимо так, що не хочеться. Але якщо потрібна формальна перевірка — є 8 критеріїв контролю свідомості Ліфтона. Застосуйте кожен: немає контролю середовища, немає гуру, немає догми, немає єдиної правди. Методологія відкрита і фальсифіковна. Підписка помісячна — не контракт. Якщо не працює, ви це побачите в даних, а не почуєте від нас.'
+  ru: 'Поле — это живая сеть резонанса между участниками, которую мы строим через технологию, практику и прямой контакт. AI-бот отслеживает состояние каждого участника и строит резонансную карту в реальном времени. Вы чувствуете это как ясность, синхронистичность, ускорение. Мы измеряем это как данные.',
+  en: 'The field is a living resonance network between participants, built through technology, practice, and direct contact. An AI bot tracks each participant\u2019s state and builds a resonance map in real time. You feel it as clarity, synchronicity, acceleration. We measure it as data.',
+  ua: 'Поле — це жива мережа резонансу між учасниками, яку ми будуємо через технологію, практику та прямий контакт. AI-бот відстежує стан кожного учасника і будує резонансну карту в реальному часі. Ви відчуваєте це як ясність, синхроністичність, прискорення. Ми вимірюємо це як дані.'
 },
 'index.qa.q5': {
-  ru: 'Кто Вы такие и почему я должен Вам доверять?',
-  en: 'Who are you and why should I trust you?',
-  ua: 'Хто Ви такі і чому я маю Вам довіряти?'
+  ru: 'У меня есть своя практика. Зачем мне это?',
+  en: 'I have my own practice. Why do I need this?',
+  ua: 'У мене є своя практика. Навіщо мені це?'
 },
 'index.qa.a5': {
-  ru: 'Не должны. Доверие здесь — не входной билет, а результат опыта. Влад проектирует архитектуру систем и сознания. Лиза проводит трансформацию напрямую. Вместе мы ведём каждую практику, каждый стрим, каждый процесс. ir4 построена для независимой проверки: если измеримых результатов нет — модель обновляется. Всё открыто. Решение за Вами.',
-  en: 'You shouldn\u2019t. Trust here isn\u2019t the entry ticket — it\u2019s the result of experience. Vlad designs the architecture of systems and consciousness. Liza facilitates transformation directly. Together we lead every practice, every stream, every process. ir4 is built for independent verification: if measurable results are absent, the model updates. Everything is open. The decision is yours.',
-  ua: 'Не маєте. Довіра тут — не вхідний квиток, а результат досвіду. Влад проєктує архітектуру систем і свідомості. Ліза проводить трансформацію напряму. Разом ми ведемо кожну практику, кожен стрім, кожен процес. ir4 побудована для незалежної перевірки: якщо вимірюваних результатів немає — модель оновлюється. Все відкрито. Рішення за Вами.'
+  ru: 'Практика в одиночестве — тренировка. Практика в поле — жизнь. Одна скрипка не может взять аккорд. Люди в совместной практике порождают состояния, недоступные каждому по отдельности — это принцип эмерджентности. Большинство сообществ предлагают знания. Мы предлагаем среду, в которой знания становятся состоянием.',
+  en: 'Practice alone is training. Practice in the field is life. A single violin cannot play a chord. People in shared practice generate states inaccessible to each individually — this is the principle of emergence. Most communities offer knowledge. We offer an environment where knowledge becomes a state of being.',
+  ua: 'Практика наодинці — тренування. Практика в полі — життя. Одна скрипка не може взяти акорд. Люди у спільній практиці породжують стани, недоступні кожному окремо — це принцип емерджентності. Більшість спільнот пропонують знання. Ми пропонуємо середовище, в якому знання стають станом.'
 },
 'index.qa.q6': {
-  ru: 'Мне нужно быть на камеру? Показывать себя?',
-  en: 'Do I need to be on camera? Show myself?',
-  ua: 'Мені потрібно бути на камеру? Показувати себе?'
+  ru: 'Кто Вы такие?',
+  en: 'Who are you?',
+  ua: 'Хто Ви такі?'
 },
 'index.qa.a6': {
-  ru: 'Нет. OnlyFans — инфраструктура: DRM-защита контента, 20+ способов оплаты, 190+ стран. Техническое решение, не идеологическое. Вы — участник поля, не контент-креатор. Полная анонимность возможна и поддерживается. Мы не просим ничего, кроме честного присутствия.',
-  en: 'No. OnlyFans is infrastructure: content DRM protection, 20+ payment methods, 190+ countries. A technical decision, not an ideological one. You\u2019re a field participant, not a content creator. Full anonymity is possible and supported. We ask for nothing but honest presence.',
-  ua: 'Ні. OnlyFans — інфраструктура: DRM-захист контенту, 20+ способів оплати, 190+ країн. Технічне рішення, не ідеологічне. Ви — учасник поля, не контент-креатор. Повна анонімність можлива і підтримується. Ми не просимо нічого, крім чесної присутності.'
+  ru: 'Влад проектирует архитектуру сознания и систем. Лиза проводит трансформацию напрямую. Вместе мы ведём каждую практику, каждый стрим, каждый процесс. Всё открыто — философия, структура, подход. Доверие здесь — не входной билет, а результат опыта. Решение — за Вами.',
+  en: 'Vlad designs the architecture of consciousness and systems. Liza facilitates transformation directly. Together we lead every practice, every stream, every process. Everything is open — philosophy, structure, approach. Trust here is not the entry ticket — it\u2019s the result of experience. The decision is yours.',
+  ua: 'Влад проєктує архітектуру свідомості та систем. Ліза проводить трансформацію напряму. Разом ми ведемо кожну практику, кожен стрім, кожен процес. Все відкрито — філософія, структура, підхід. Довіра тут — не вхідний квиток, а результат досвіду. Рішення — за Вами.'
 },
 'index.qa.q7': {
-  ru: 'У меня есть духовная практика. Зачем мне ещё одно сообщество?',
-  en: 'I already have a spiritual practice. Why do I need another community?',
-  ua: 'У мене є духовна практика. Навіщо мені ще одна спільнота?'
+  ru: 'Что если через 3 месяца я хочу уйти?',
+  en: 'What if I want to leave after 3 months?',
+  ua: 'Що якщо через 3 місяці я хочу піти?'
 },
 'index.qa.a7': {
-  ru: 'Практика в одиночестве — тренировка. Практика в поле — жизнь. Одна скрипка не может взять аккорд. Люди в совместной практике порождают состояния, недоступные каждому по отдельности — это принцип эмерджентности, не вера. Большинство сообществ предлагают знания. Мы предлагаем среду, в которой знания становятся состоянием.',
-  en: 'Practice alone is training. Practice in the field is life. A single violin cannot play a chord. People in shared practice generate states inaccessible to each individually — this is the principle of emergence, not belief. Most communities offer knowledge. We offer an environment where knowledge becomes a state of being.',
-  ua: 'Практика наодинці — тренування. Практика в полі — життя. Одна скрипка не може взяти акорд. Люди у спільній практиці породжують стани, недоступні кожному окремо — це принцип емерджентності, не віра. Більшість спільнот пропонують знання. Ми пропонуємо середовище, в якому знання стають станом.'
+  ru: 'Уходите. Без вопросов, без манипуляций. Три месяца — минимальный цикл для интеграции. После третьего месяца подписка продолжается за 369€/месяц. Отменяете когда решите.',
+  en: 'Leave. No questions, no manipulation. Three months is the minimum integration cycle. After the third month, subscription continues at 369€/month. Cancel whenever you decide.',
+  ua: 'Йдіть. Без запитань, без маніпуляцій. Три місяці — мінімальний цикл для інтеграції. Після третього місяця підписка продовжується за 369€/місяць. Скасовуєте коли вирішите.'
 },
 'index.qa.q8': {
-  ru: 'Чем это отличается от других сообществ осознанности?',
-  en: 'How is this different from other consciousness communities?',
-  ua: 'Чим це відрізняється від інших спільнот усвідомленості?'
-},
-'index.qa.a8': {
-  ru: 'Мы не называем себя духовными. Здесь нет мантр, свечей и благостных улыбок. Есть радикальная честность и AI-инфраструктура, которая делает невидимое измеримым. Ключевая разница: если когерентность поля не растёт — методология обновляется. Мы не просим верить. Мы предъявляем данные. Если данные не убеждают — значит, модель нужно доработать, а не «вы просто не чувствуете».',
-  en: 'We don\u2019t call ourselves spiritual. There are no mantras, candles, or blissful smiles here. There\u2019s radical honesty and AI infrastructure that makes the invisible measurable. The key difference: if field coherence doesn\u2019t grow, the methodology updates. We don\u2019t ask you to believe. We present data. If the data isn\u2019t convincing, the model needs refinement — not \u201Cyou just don\u2019t feel it.\u201D',
-  ua: 'Ми не називаємо себе духовними. Тут немає мантр, свічок і блаженних посмішок. Є радикальна чесність та AI-інфраструктура, яка робить невидиме вимірюваним. Ключова різниця: якщо когерентність поля не зростає — методологія оновлюється. Ми не просимо вірити. Ми пред\u2019являємо дані. Якщо дані не переконують — значить, модель потрібно доопрацювати, а не «ви просто не відчуваєте».'
-},
-'index.qa.q9': {
   ru: 'Можно сначала попробовать?',
   en: 'Can I try it first?',
   ua: 'Можна спочатку спробувати?'
 },
-'index.qa.a9': {
-  ru: 'Нет. И это не жадность — это уважение к полю. Человек, который входит «посмотреть», меняет динамику группы — это задокументированный эффект наблюдателя. Ваша инвестиция — это глубина вашей включённости. Пробный доступ порождает поверхностную обработку. Поле требует серьёзности.',
-  en: 'No. And it\u2019s not greed — it\u2019s respect for the field. A person who enters \u201Cto look around\u201D changes the group\u2019s dynamics — this is the documented observer effect. Your investment is the depth of your engagement. Trial access produces shallow processing. The field requires seriousness.',
-  ua: 'Ні. І це не жадібність — це повага до поля. Людина, яка входить «подивитися», змінює динаміку групи — це задокументований ефект спостерігача. Ваша інвестиція — це глибина вашої включеності. Пробний доступ породжує поверхневу обробку. Поле вимагає серйозності.'
-},
-'index.qa.q10': {
-  ru: 'Нужно ли сначала пройти курс Мы.Боги?',
-  en: 'Do I need to take the We.Gods course first?',
-  ua: 'Чи потрібно спочатку пройти курс Ми.Боги?'
-},
-'index.qa.a10': {
-  ru: 'Курс — это двухмесячная настройка перед входом в поле. Большинство участников OnlyGods прошли его — это даёт общий язык, калибрует систему и сокращает время адаптации. Но это не единственный путь. Если Вы чувствуете, что готовы — напишите нам. Мы поговорим и поймём вместе.',
-  en: 'The course is a two-month calibration before entering the field. Most OnlyGods participants have completed it — it gives a shared language, calibrates the system, and shortens adaptation time. But it\u2019s not the only path. If you feel ready — write to us. We\u2019ll talk and figure it out together.',
-  ua: 'Курс — це двомісячне налаштування перед входом у поле. Більшість учасників OnlyGods пройшли його — це дає спільну мову, калібрує систему і скорочує час адаптації. Але це не єдиний шлях. Якщо Ви відчуваєте, що готові — напишіть нам. Ми поговоримо і зрозуміємо разом.'
+'index.qa.a8': {
+  ru: 'Нет. Человек, который входит «посмотреть», приносит энергию наблюдателя. Это разрушает пространство для тех, кто вложился. Ваш входной билет — это инвестиция в собственную серьёзность. Поле чувствует разницу.',
+  en: 'No. A person who enters "to look around" brings observer energy. This disrupts the space for those who invested. Your entry ticket is an investment in your own seriousness. The field feels the difference.',
+  ua: 'Ні. Людина, яка входить «подивитися», приносить енергію спостерігача. Це руйнує простір для тих, хто вклався. Ваш вхідний квиток — це інвестиція у власну серйозність. Поле відчуває різницю.'
 },
 
 // ─── JOIN SECTION ───
 'index.join.label': {
-  ru: 'Limited Launch', en: 'Limited Launch', ua: 'Limited Launch'
+  ru: 'Войти в Игру', en: 'Enter the Game', ua: 'Увійти в Гру'
 },
 'index.join.title': {
-  ru: 'Войти в Поле', en: 'Enter the Field', ua: 'Увійти в Поле'
+  ru: 'OnlyGods', en: 'OnlyGods', ua: 'OnlyGods'
 },
 'index.join.summary1': {
-  ru: 'OnlyGods — закрытая цифровая среда для раскрытия творческого потенциала, трансформации сознания и поддержки уровня состояния участников на высоком уровне. Тщательно настроенный эгрегор с внутренней микро-экономикой резонанса, где каждый участник — не зритель, а со-творец коллективного поля. Платформа работает на стыке герметизма, вортекс математики, квантовой науки, AI и DAO-governance. Духовность. Изобилие. Синергия.',
-  en: 'OnlyGods is a closed digital environment for unlocking creative potential, transforming consciousness, and sustaining participants at a high state of being. A carefully tuned egregore with an internal micro-economy of resonance, where every member is not a spectator but a co-creator of the collective field. The platform operates at the intersection of hermeticism, vortex mathematics, quantum science, AI, and DAO governance. Spirituality. Abundance. Synergy.',
-  ua: 'OnlyGods — закрите цифрове середовище для розкриття творчого потенціалу, трансформації свідомості та підтримки стану учасників на високому рівні. Ретельно налаштований егрегор з внутрішньою мікро-економікою резонансу, де кожен учасник — не глядач, а спів-творець колективного поля. Платформа працює на стику герметизму, вортекс математики, квантової науки, AI та DAO-governance. Духовність. Достаток. Синергія.'
+  ru: 'Каждый новый участник имеет значение для частоты всего поля. Духовность. Изобилие. Синергия.',
+  en: 'Every new participant matters for the frequency of the entire field. Spirituality. Abundance. Synergy.',
+  ua: 'Кожен новий учасник має значення для частоти всього поля. Духовність. Достаток. Синергія.'
 },
-'index.join.summary2': {
-  ru: 'Мы запускаемся в ограниченном режиме. Каждый новый участник имеет значение для частоты всего поля — поэтому вход только через программу трансформации <strong style="color:#fff">Мы.Боги</strong>.',
-  en: 'We are launching in limited mode. Every new participant matters for the frequency of the entire field — that\'s why entry is only through the <strong style="color:#fff">We.Gods</strong> transformation program.',
-  ua: 'Ми запускаємося в обмеженому режимі. Кожен новий учасник має значення для частоти всього поля — тому вхід лише через програму трансформації <strong style="color:#fff">Ми.Боги</strong>.'
-},
-'index.join.cond1.label': { ru: 'Вход', en: 'Entry', ua: 'Вхід' },
-'index.join.cond1.value': { ru: 'Через курс Мы.Боги', en: 'Via We.Gods course', ua: 'Через курс Ми.Боги' },
-'index.join.cond2.label': { ru: 'Участие', en: 'Commitment', ua: 'Участь' },
-'index.join.cond2.value': { ru: 'Минимум 3 месяца', en: 'Minimum 3 months', ua: 'Мінімум 3 місяці' },
+'index.join.cond1.label': { ru: 'Обязательство', en: 'Commitment', ua: 'Зобов\'язання' },
+'index.join.cond1.value': { ru: 'Минимум 3 месяца', en: 'Minimum 3 months', ua: 'Мінімум 3 місяці' },
+'index.join.cond2.label': { ru: 'Включено', en: 'Included', ua: 'Включено' },
+'index.join.cond2.value': { ru: 'Программа Мы.Боги', en: 'We.Gods program', ua: 'Програма Ми.Боги' },
 'index.join.cond3.label': { ru: 'Стоимость', en: 'Cost', ua: 'Вартість' },
 'index.join.cond3.value': { ru: '936 \u20ac / месяц', en: '936 \u20ac / month', ua: '936 \u20ac / місяць' },
-'index.join.cond4.label': { ru: 'Формат', en: 'Format', ua: 'Формат' },
-'index.join.cond4.value': { ru: 'Закрытое поле, ежедневные практики', en: 'Closed field, daily practices', ua: 'Закрите поле, щоденні практики' },
-'index.join.form_label': { ru: 'Оставьте заявку', en: 'Apply', ua: 'Залиште заявку' },
+'index.join.cond4.label': { ru: 'После 3-го месяца', en: 'After month 3', ua: 'Після 3-го місяця' },
+'index.join.cond4.value': { ru: '369 \u20ac / месяц', en: '369 \u20ac / month', ua: '369 \u20ac / місяць' },
+'index.join.form_label': { ru: 'Три поля. Одно решение.', en: 'Three fields. One decision.', ua: 'Три поля. Одне рішення.' },
 'index.join.ph_name': { ru: 'Имя', en: 'Name', ua: 'Ім\'я' },
-'index.join.ph_contact': { ru: 'Email или Telegram', en: 'Email or Telegram', ua: 'Email або Telegram' },
-'index.join.ph_message': { ru: 'Расскажите о себе и опыте', en: 'Tell us about yourself', ua: 'Розкажіть про себе та досвід' },
-'index.join.btn': { ru: 'Отправить заявку', en: 'Submit Application', ua: 'Надіслати заявку' },
+'index.join.ph_email': { ru: 'Email', en: 'Email', ua: 'Email' },
+'index.join.ph_telegram': { ru: 'Telegram', en: 'Telegram', ua: 'Telegram' },
+'index.join.btn': { ru: 'Войти в Игру — 936€/месяц', en: 'Enter the Game — 936€/month', ua: 'Увійти в Гру — 936€/місяць' },
 'index.join.note': {
-  ru: 'Мы свяжемся лично. Отбор — не формальность, а настройка на резонанс.',
-  en: 'We will reach out personally. Selection is not a formality — it\'s tuning into resonance.',
-  ua: 'Ми зв\'яжемося особисто. Відбір — не формальність, а налаштування на резонанс.'
+  ru: 'Мгновенный доступ после оплаты. Программа Мы.Боги включена.',
+  en: 'Instant access after payment. We.Gods program included.',
+  ua: 'Миттєвий доступ після оплати. Програма Ми.Боги включена.'
 },
 
 // ─── EGREGORE PAGE ───
