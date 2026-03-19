@@ -226,20 +226,44 @@ h1, h2, h3 {
     margin-top: 16px;
 }
 
-/* Visual placeholder */
-.visual-slot {
+/* ========== IMAGES ========== */
+.section-image {
     max-width: 100%;
-    aspect-ratio: 16 / 9;
     border-radius: 8px;
     margin-top: 64px;
-    background: #f5f5f7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    letter-spacing: 1px;
-    color: #86868b;
-    text-transform: uppercase;
+    overflow: hidden;
+}
+
+.section-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Full-bleed dark image (hero forks, offer fork) */
+.full-bleed-image {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    overflow: hidden;
+}
+
+.full-bleed-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Offer image — single fork */
+.offer-image {
+    max-width: 680px;
+    margin: 0 auto 64px;
+}
+
+.offer-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
 }
 
 /* ========== FIELD (03) ========== */
@@ -568,6 +592,11 @@ h1, h2, h3 {
     </div>
 </section>
 
+<!-- Full-bleed: 49 tuning forks circle -->
+<div class="full-bleed-image">
+    <img src="images/onepager/forks-circle.jpg" alt="49 камертонов в круге — резонансное поле" loading="lazy">
+</div>
+
 <div class="divider"></div>
 
 <!-- ==================== 02: ARCHITECTS ==================== -->
@@ -599,7 +628,9 @@ h1, h2, h3 {
     <p class="architects-summary">Архитектор и проводник. Система и поток. Мы ведём каждую практику, каждый стрим, каждый процесс лично.</p>
     <p class="architects-trust">Доверие здесь не входной билет. Оно приходит как результат вашего прямого опыта.</p>
 
-    <div class="visual-slot" id="img-architects">куб + капля</div>
+    <div class="section-image">
+        <img src="images/onepager/cube-drop.jpg" alt="Куб и капля — структура и поток" loading="lazy">
+    </div>
 </section>
 
 <div class="divider"></div>
@@ -639,7 +670,9 @@ h1, h2, h3 {
         <p>Когда с сознания сняты ограничения и фильтры, каждый момент жизни становится актом создания. Люди в поле не «раскрывают потенциал» — они обнаруживают, что потолка не было. Был только страх перед собственным масштабом.</p>
     </div>
 
-    <div class="visual-slot" id="img-field">камертоны в круге</div>
+    <div class="section-image">
+        <img src="images/onepager/forks-front.jpg" alt="Камертоны — сетевой эффект сознания" loading="lazy">
+    </div>
 </section>
 
 <!-- ==================== 04: VIDEO — DARK ==================== -->
@@ -654,7 +687,9 @@ h1, h2, h3 {
 
 <!-- ==================== 05: ENGINEERING ==================== -->
 <section class="section reveal">
-    <div class="visual-slot" id="img-engineering">чип в камне</div>
+    <div class="section-image">
+        <img src="images/onepager/chip-stone.jpg" alt="Чип в камне — древняя мудрость и технологии" loading="lazy">
+    </div>
 
     <div class="engineering-text" style="margin-top: 64px;">
         <span class="lead">Вы входите в поле. В первый день — ничего особенного. На третий — замечаете, что думаете не так, как вчера. Через неделю — решения приходят до того, как вы формулируете вопрос. Через месяц — ваше окружение спрашивает, что с вами произошло.</span>
@@ -744,6 +779,11 @@ h1, h2, h3 {
         <p>Резонансная сеть, которая работает на фоне вашей жизни. Каждый участник усиливает каждого.</p>
     </div>
 </section>
+
+<!-- Single fork — offer image -->
+<div class="offer-image reveal">
+    <img src="images/onepager/fork-single.jpg" alt="Один камертон — ваш вход" loading="lazy">
+</div>
 
 <!-- ==================== 07: ENTRY — DARK ==================== -->
 <div class="section-dark">
