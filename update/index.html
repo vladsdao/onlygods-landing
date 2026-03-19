@@ -683,6 +683,49 @@ body::after {
     border-color: rgba(255,255,255,0.4);
 }
 
+.offer-path {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.offer-path-item {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.offer-path-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.offer-path-when {
+    color: #86868b;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.offer-path-what {
+    color: #ffffff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    font-style: italic;
+    text-align: right;
+}
+
+.offer-path-desc {
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: 12px;
+    max-width: 640px;
+}
+
 /* ====================================== */
 /* CREATORS MINI                         */
 /* ====================================== */
@@ -1206,7 +1249,36 @@ body::after {
         <div class="offer-price" data-i18n="index.offer.price">936€ / месяц</div>
         <div class="offer-price-note" data-i18n="index.offer.price_note">Минимум 3 месяца · После 3-го месяца — 369€/мес</div>
 
-        <p class="offer-summary" data-i18n="index.offer.summary2">Живые практики с обоими архитекторами, ежедневные синхронизации, AI-трекинг состояния, закрытые церемонии, прямая работа с полем и доступ к внутренней экономике резонанса. Первые три месяца включают программу Мы.Боги — полную перепрошивку мировоззрения и нервной системы.</p>
+        <ul class="offer-path">
+            <li class="offer-path-item">
+                <div class="offer-path-header">
+                    <span class="offer-path-when" data-i18n="index.offer.p1.when">Месяц 1–3</span>
+                    <span class="offer-path-what" data-i18n="index.offer.p1.what">Программа Мы.Боги</span>
+                </div>
+                <div class="offer-path-desc" data-i18n="index.offer.p1.desc">Деконструкция мировоззрения до фундамента и пересборка. Перепрошивка нервной системы, работа с телом, вниманием и энергией. Закрытые знания, которые не выживают вне поля.</div>
+            </li>
+            <li class="offer-path-item">
+                <div class="offer-path-header">
+                    <span class="offer-path-when" data-i18n="index.offer.p2.when">Ежедневно</span>
+                    <span class="offer-path-what" data-i18n="index.offer.p2.what">Синхронизации</span>
+                </div>
+                <div class="offer-path-desc" data-i18n="index.offer.p2.desc">Со-настройка внимания с живой сетью сознаний. Не медитации — точки когерентности. AI отслеживает ваше состояние и строит резонансную карту в реальном времени.</div>
+            </li>
+            <li class="offer-path-item">
+                <div class="offer-path-header">
+                    <span class="offer-path-when" data-i18n="index.offer.p3.when">Еженедельно</span>
+                    <span class="offer-path-what" data-i18n="index.offer.p3.what">Живые практики</span>
+                </div>
+                <div class="offer-path-desc" data-i18n="index.offer.p3.desc">Разбор не через разговор, а через мгновенное переключение энергетической структуры. Оба архитектора. Церемонии, ченнелинги, прямая передача состояния.</div>
+            </li>
+            <li class="offer-path-item">
+                <div class="offer-path-header">
+                    <span class="offer-path-when" data-i18n="index.offer.p4.when">Постоянно</span>
+                    <span class="offer-path-what" data-i18n="index.offer.p4.what">Поле</span>
+                </div>
+                <div class="offer-path-desc" data-i18n="index.offer.p4.desc">Резонансная сеть, которая работает на фоне вашей жизни. Внутренняя экономика, DAO, оффлайн-встречи, ретриты. Среда, в которой сознание расширяется как побочный эффект присутствия.</div>
+            </li>
+        </ul>
 
         <a href="#join" class="offer-cta" data-i18n="index.offer.cta">Войти в Игру →</a>
     </div>
