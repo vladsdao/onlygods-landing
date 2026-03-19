@@ -20,7 +20,7 @@ document.head.appendChild(s);
 var T = {
 
 // ─── NAV ───
-'nav.join': { ru: 'Вступить', en: 'Join', ua: 'Вступити' },
+'nav.join': { ru: 'Подключиться', en: 'Connect', ua: 'Підключитись' },
 
 // ─── PAGE TITLES ───
 'index.title': {
@@ -538,7 +538,7 @@ var T = {
   ua: 'Внутрішня економіка резонансу та участь у DAO'
 },
 'index.offer.cta': {
-  ru: 'Войти в Игру →', en: 'Enter the Game →', ua: 'Увійти в Гру →'
+  ru: 'Подключиться →', en: 'Connect →', ua: 'Підключитись →'
 },
 
 // ─── INDEX: CREATORS MINI ───
@@ -570,7 +570,7 @@ var T = {
 
 // ─── INDEX: HERO CTA ───
 'index.hero.cta': {
-  ru: 'Войти в Игру →', en: 'Enter the Game →', ua: 'Увійти в Гру →'
+  ru: 'Подключиться →', en: 'Connect →', ua: 'Підключитись →'
 },
 
 // ─── OLD TIERS (kept for reference, no longer used in HTML) ───
@@ -781,7 +781,7 @@ var T = {
 
 // ─── JOIN SECTION ───
 'index.join.label': {
-  ru: 'Войти в Игру', en: 'Enter the Game', ua: 'Увійти в Гру'
+  ru: 'Подключиться', en: 'Connect', ua: 'Підключитись'
 },
 'index.join.title': {
   ru: 'OnlyGods', en: 'OnlyGods', ua: 'OnlyGods'
@@ -803,7 +803,7 @@ var T = {
 'index.join.ph_name': { ru: 'Имя', en: 'Name', ua: 'Ім\'я' },
 'index.join.ph_email': { ru: 'Email', en: 'Email', ua: 'Email' },
 'index.join.ph_telegram': { ru: 'Telegram', en: 'Telegram', ua: 'Telegram' },
-'index.join.btn': { ru: 'Войти в Игру — 936€/месяц', en: 'Enter the Game — 936€/month', ua: 'Увійти в Гру — 936€/місяць' },
+'index.join.btn': { ru: 'Подключиться — 936€/месяц', en: 'Connect — 936€/month', ua: 'Підключитись — 936€/місяць' },
 'index.join.note': {
   ru: 'Мгновенный доступ после оплаты. Программа Мы.Боги включена.',
   en: 'Instant access after payment. We.Gods program included.',
