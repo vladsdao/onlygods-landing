@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="dao.title">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnlyGods — DAO DE DO</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #0a0a0a; color: #f5f5f7;
+    overflow-x: hidden; scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(245, 245, 247, 0.15); }
+
+/* Film grain overlay — dark theme */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+}
+
+.site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; color: #f5f5f7;
+    text-decoration: none; letter-spacing: -0.5px;
+}
+
+.nav-links { display: flex; align-items: center; gap: 32px; }
+
+.nav-links a {
+    font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #6e6e73; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; position: relative;
+}
+.nav-links a:hover { color: #f5f5f7; }
+.nav-links a.active { color: #f5f5f7; }
+.nav-links a.active::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: #f5f5f7;
+}
+
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-burger span { display: block; width: 20px; height: 1.5px; background: #f5f5f7; transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-join {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 16px; border: 1px solid rgba(245,245,247,0.3); border-radius: 20px;
+    color: #f5f5f7; text-decoration: none; font-weight: 500;
+    margin-left: 16px; margin-right: auto; transition: all 0.3s ease;
+}
+.nav-join:hover { background: #f5f5f7; color: #0a0a0a; }
+
+.nav-mobile {
+    display: none; position: fixed; top: 60px; left: 0; right: 0;
+    background: rgba(10, 10, 10, 0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 20px 40px 32px; flex-direction: column; gap: 20px; z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #6e6e73; text-decoration: none; font-weight: 500; transition: color 0.3s ease;
+}
+.nav-mobile a:hover, .nav-mobile a.active { color: #f5f5f7; }
+
+.page-hero {
+    min-height: 60vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 120px 20px 80px;
+}
+
+.page-hero .hero-subtitle {
+    font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #6e6e73; margin-bottom: 20px; font-weight: 500;
+}
+
+.page-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 100px); font-weight: 400;
+    letter-spacing: -2px; line-height: 1; color: #f5f5f7;
+}
+
+.page-hero .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.2vw, 22px); color: #6e6e73;
+    max-width: 500px; line-height: 1.5; font-weight: 400;
+    font-style: italic; margin-top: 20px;
+}
+
+.content-section { max-width: 1080px; margin: 0 auto; padding: 100px 40px; }
+
+.section-label {
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #6e6e73; margin-bottom: 20px; font-weight: 500;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 60px); font-weight: 400;
+    letter-spacing: -1px; line-height: 1.1; margin-bottom: 24px;
+    color: #f5f5f7;
+}
+
+.section-divider { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+.section-divider::after { content: ''; display: block; width: 100%; height: 40px; background: radial-gradient(ellipse 200px 1px at 50% 50%, rgba(245,245,247,0.06) 0%, transparent 100%), radial-gradient(ellipse 400px 1px at 50% 50%, rgba(245,245,247,0.03) 0%, transparent 100%); }
+
+.body-text { font-size: 17px; color: #a1a1a6; line-height: 1.75; max-width: 860px; }
+.body-text + .body-text { margin-top: 20px; }
+
+.dao-etymology {
+    display: flex; justify-content: center; gap: 64px;
+    padding: 40px 0 48px; text-align: center;
+}
+.dao-char { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.char-symbol {
+    font-size: clamp(52px, 8vw, 84px); line-height: 1;
+    font-weight: 300; color: #f5f5f7;
+}
+.char-word {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 600; letter-spacing: 4px;
+    text-transform: uppercase; color: rgba(245,245,247,0.7);
+}
+.char-meaning {
+    font-size: 12px; color: #6e6e73; letter-spacing: 1.5px;
+    text-transform: uppercase; font-weight: 500;
+}
+
+.dao-pillars {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px 48px;
+    margin-top: 32px;
+}
+.pillar-item { display: flex; gap: 14px; align-items: flex-start; }
+.pillar-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 300; color: rgba(245,245,247,0.2);
+    line-height: 1.1; flex-shrink: 0; min-width: 20px;
+}
+.pillar-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 500; margin-bottom: 4px; line-height: 1.2;
+    color: #f5f5f7;
+}
+.pillar-content p { font-size: 14px; color: #6e6e73; line-height: 1.55; }
+
+.dao-features { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; }
+.feature-item { display: flex; gap: 14px; align-items: flex-start; }
+.feature-marker {
+    width: 5px; height: 5px; background: rgba(245,245,247,0.3); border-radius: 50%;
+    flex-shrink: 0; margin-top: 9px;
+}
+.feature-content h3 {
+    font-size: 16px; font-weight: 500; color: #f5f5f7; margin-bottom: 4px;
+}
+.feature-content p { font-size: 15px; color: #6e6e73; line-height: 1.55; }
+
+.dao-access {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.5vw, 28px); font-weight: 400;
+    font-style: italic; color: #6e6e73;
+    text-align: center; line-height: 1.5;
+    max-width: 560px; margin: 0 auto;
+}
+.dao-access-sub {
+    font-size: 13px; color: rgba(245,245,247,0.25); text-align: center;
+    margin-top: 16px; letter-spacing: 0.5px;
+}
+
+.lang-switcher { display: flex; align-items: center; gap: 4px; }
+.lang-btn {
+    background: none; border: none; cursor: pointer;
+    font-size: 11px; letter-spacing: 1px; font-weight: 500;
+    color: #6e6e73; font-family: 'DM Sans', sans-serif;
+    padding: 2px 4px; transition: color 0.3s ease;
+}
+.lang-btn:hover { color: #f5f5f7; }
+.lang-btn.lang-active { color: #f5f5f7; }
+.lang-sep { color: rgba(245,245,247,0.15); font-size: 11px; }
+
+@media (max-width: 768px) {
+    .dao-etymology { gap: 32px; }
+    .dao-pillars { grid-template-columns: 1fr; }
+}
+
+.site-footer {
+    text-align: center; padding: 60px 20px 40px;
+    color: rgba(245,245,247,0.2); font-size: 13px; letter-spacing: 0.5px;
+}
+
+.fade-in-up {
+    opacity: 0; transform: translateY(36px);
+    transition: opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1), transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .content-section { padding: 60px 20px; }
+    .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .site-nav { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <a href="index.html" class="nav-wordmark">OnlyGods</a>
+    <a href="index.html#join" class="nav-join" data-i18n="nav.join">Join</a>
+    <div class="nav-links">
+        <a href="manifest.html">Manifest</a>
+        <a href="technologies.html">Holy Tech</a>
+        <a href="creators.html">Creators</a>
+        <a href="mindset.html">Mindset 2.0</a>
+        <a href="quantumlab.html">Quantum Lab</a>
+        <a href="activities.html">Activities</a>
+        <a href="playground.html">Playground</a>
+        <a href="dao.html" class="active">DAO</a>
+        <span class="nav-divider"></span>
+        <div class="lang-switcher">
+            <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+        </div>
+    </div>
+    <div class="nav-burger" id="nav-burger" onclick="this.classList.toggle('open'); document.getElementById('nav-mobile').classList.toggle('open');">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+    <a href="manifest.html">Manifest</a>
+    <a href="technologies.html">Holy Tech</a>
+        <a href="creators.html">Creators</a>
+    <a href="mindset.html">Mindset 2.0</a>
+    <a href="quantumlab.html">Quantum Lab</a>
+    <a href="activities.html">Activities</a>
+        <a href="playground.html">Playground</a>
+    <a href="dao.html" class="active">DAO</a>
+    <div class="lang-switcher">
+        <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+    </div>
+</div>
+
+<section class="page-hero">
+    <div class="fade-in-up">
+        <div class="hero-subtitle" data-i18n="dao.hero.subtitle">Экосистема</div>
+        <h1 data-i18n="dao.hero.title">DAO DE DO</h1>
+        <p class="hero-tagline" data-i18n="dao.hero.tagline">Децентрализованная автономная организация объединенного сознания</p>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Философия -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="dao.philosophy.label">Философия</div>
+        <div class="dao-etymology">
+            <div class="dao-char">
+                <span class="char-symbol">道</span>
+                <span class="char-word">DAO</span>
+                <span class="char-meaning" data-i18n="dao.char1">Путь</span>
+            </div>
+            <div class="dao-char">
+                <span class="char-symbol">德</span>
+                <span class="char-word">DE</span>
+                <span class="char-meaning" data-i18n="dao.char2">Состояние</span>
+            </div>
+            <div class="dao-char">
+                <span class="char-symbol">做</span>
+                <span class="char-word">DO</span>
+                <span class="char-meaning" data-i18n="dao.char3">Мастерство</span>
+            </div>
+        </div>
+        <p class="body-text" data-i18n="dao.philosophy.body">Не корпорация. Не фонд. Не клуб по интересам. Живая система, где каждый участник — одновременно инвестор, оператор и бенефициар единого поля. Сообщества — это новое золото. DAO DE DO — инфраструктура, чтобы это золото работало.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- Архитектура -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="dao.pillars.label">Архитектура</div>
+        <h2 class="section-title" data-i18n="dao.pillars.title">Шесть столпов</h2>
+        <div class="dao-pillars">
+            <div class="pillar-item">
+                <span class="pillar-num">1</span>
+                <div class="pillar-content">
+                    <h3 data-i18n="dao.p1.title">Эволюция сознания</h3>
+                    <p data-i18n="dao.p1.desc">Не побочный продукт. Базовый вектор всей системы.</p>
+                </div>
+            </div>
+            <div class="pillar-item">
+                <span class="pillar-num">2</span>
+                <div class="pillar-content">
+                    <h3 data-i18n="dao.p2.title">Эгрегориальное поле</h3>
+                    <p data-i18n="dao.p2.desc">Коллективное сознание как рабочая инфраструктура.</p>
+                </div>
+            </div>
+            <div class="pillar-item">
+                <span class="pillar-num">3</span>
+                <div class="pillar-content">
+                    <h3 data-i18n="dao.p3.title">Замкнутая экономика</h3>
+                    <p data-i18n="dao.p3.desc">Каждая транзакция питает экосистему, не покидая её.</p>
+                </div>
+            </div>
+            <div class="pillar-item">
+                <span class="pillar-num">4</span>
+                <div class="pillar-content">
+                    <h3 data-i18n="dao.p4.title">IR4-интеграция</h3>
+                    <p data-i18n="dao.p4.desc">Измерение резонанса. AI-навигация. Квантовые метрики.</p>
+                </div>
+            </div>
+            <div class="pillar-item">
+                <span class="pillar-num">5</span>
+                <div class="pillar-content">
+                    <h3 data-i18n="dao.p5.title">Кооперация</h3>
+                    <p data-i18n="dao.p5.desc">Proof of Reputation вместо Proof of Stake. Вес определяет вклад, не кошелёк.</p>
+                </div>
+            </div>
+            <div class="pillar-item">
+                <span class="pillar-num">6</span>
+                <div class="pillar-content">
+                    <h3 data-i18n="dao.p6.title">Энергетический REIT</h3>
+                    <p data-i18n="dao.p6.desc">Инвестиции в места силы и пространства трансформации.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- Механика -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="dao.features.label">Механика</div>
+        <h2 class="section-title" data-i18n="dao.features.title">Что делает это другим</h2>
+        <div class="dao-features">
+            <div class="feature-item">
+                <div class="feature-marker"></div>
+                <div class="feature-content">
+                    <h3 data-i18n="dao.f1.title">AI + блокчейн гавернанс</h3>
+                    <p data-i18n="dao.f1.desc">Решения принимает коллективный разум, не совет директоров.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-marker"></div>
+                <div class="feature-content">
+                    <h3 data-i18n="dao.f2.title">Токенизированный человеческий капитал</h3>
+                    <p data-i18n="dao.f2.desc">Навыки, репутация и вклад имеют измеримую стоимость внутри системы.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-marker"></div>
+                <div class="feature-content">
+                    <h3 data-i18n="dao.f3.title">Квантово-ориентированные инвестиции</h3>
+                    <p data-i18n="dao.f3.desc">Сознательные технологии, VR/AR, нейроинтерфейсы — не крипто-казино.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-marker"></div>
+                <div class="feature-content">
+                    <h3 data-i18n="dao.f4.title">Женское лидерство</h3>
+                    <p data-i18n="dao.f4.desc">Этическая архитектура вместо иерархии силы.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- Доступ -->
+<div class="content-section">
+    <div class="fade-in-up" style="display: flex; flex-direction: column; align-items: center;">
+        <p class="dao-access" data-i18n="dao.access.text">Полная документация DAO DE DO — для участников OnlyGods</p>
+        <p class="dao-access-sub" data-i18n="dao.access.sub">Токеномика · Модель участия · Инвестиционный трек — по запросу</p>
+    </div>
+</div>
+
+<footer class="site-footer">OnlyGods</footer>
+
+<script src="translations.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="community.title">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnlyGods — Creators</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff; color: #1d1d1f;
+    overflow-x: hidden; scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(29, 29, 31, 0.12); }
+
+/* Film grain overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+}
+
+.site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+.nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; color: #1d1d1f;
+    text-decoration: none; letter-spacing: -0.5px;
+}
+
+.nav-links { display: flex; align-items: center; gap: 32px; }
+
+.nav-links a {
+    font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; position: relative;
+}
+.nav-links a:hover { color: #1d1d1f; }
+.nav-links a.active { color: #1d1d1f; }
+.nav-links a.active::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: #1d1d1f;
+}
+
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-burger span { display: block; width: 20px; height: 1.5px; background: #1d1d1f; transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-join {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 16px; border: 1px solid #1d1d1f; border-radius: 20px;
+    color: #1d1d1f; text-decoration: none; font-weight: 500;
+    margin-left: 16px; margin-right: auto; transition: all 0.3s ease;
+}
+.nav-join:hover { background: #1d1d1f; color: #ffffff; }
+
+.nav-mobile {
+    display: none; position: fixed; top: 60px; left: 0; right: 0;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 20px 40px 32px; flex-direction: column; gap: 20px; z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500; transition: color 0.3s ease;
+}
+.nav-mobile a:hover, .nav-mobile a.active { color: #1d1d1f; }
+
+.page-hero {
+    min-height: 60vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 120px 20px 80px;
+}
+
+.page-hero .hero-subtitle {
+    font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #86868b; margin-bottom: 20px; font-weight: 500;
+}
+
+.page-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 100px); font-weight: 400;
+    letter-spacing: -2px; line-height: 1;
+}
+
+.content-section { max-width: 1080px; margin: 0 auto; padding: 100px 40px; }
+
+.section-divider { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+.section-divider::after { content: ''; display: block; width: 100%; height: 40px; background: radial-gradient(ellipse 200px 1px at 50% 50%, rgba(29,29,31,0.08) 0%, transparent 100%), radial-gradient(ellipse 400px 1px at 50% 50%, rgba(29,29,31,0.04) 0%, transparent 100%), radial-gradient(ellipse 600px 1px at 50% 50%, rgba(29,29,31,0.02) 0%, transparent 100%); }
+
+.section-label {
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #86868b; margin-bottom: 16px; font-weight: 500;
+}
+
+/* ==================== FOUNDER BLOCKS ==================== */
+
+.founder-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.founder-photo {
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.founder-photo img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.founder-photo:hover img {
+    transform: scale(1.03);
+}
+
+.founder-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 400;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.founder-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    color: #86868b;
+    margin-bottom: 28px;
+}
+
+.founder-bio {
+    font-size: 17px;
+    color: #48484a;
+    line-height: 1.75;
+}
+
+.founder-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 28px;
+}
+
+.founder-tag {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #86868b;
+    padding: 6px 14px;
+    border: 1px solid #e5e5e7;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.founder-tag:hover {
+    color: #1d1d1f;
+    border-color: #1d1d1f;
+}
+
+.founder-link {
+    display: inline-block;
+    margin-top: 32px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #86868b;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.founder-link:hover {
+    color: #1d1d1f;
+}
+
+/* ==================== MEMBERS SECTION ==================== */
+
+.members-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.members-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 400;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.member-card {
+    padding: 40px;
+    background: #fbfbfd;
+    border-radius: 3px;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.member-card:hover {
+    transform: translateY(-4px);
+}
+
+.member-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.member-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.member-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    color: #86868b;
+    margin-bottom: 16px;
+}
+
+.member-bio {
+    font-size: 15px;
+    color: #48484a;
+    line-height: 1.7;
+}
+
+.member-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+}
+
+.member-tag {
+    font-size: 10px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #aeaeb2;
+    padding: 4px 10px;
+    border: 1px solid #e5e5e7;
+    border-radius: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.member-tag:hover {
+    color: #86868b;
+    border-color: #86868b;
+}
+
+.member-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #aeaeb2;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.member-link:hover {
+    color: #1d1d1f;
+}
+
+/* ==================== FOOTER + ANIMATIONS ==================== */
+
+.section-note {
+    text-align: center; color: #aeaeb2; font-size: 14px;
+    letter-spacing: 1px; font-style: italic;
+}
+
+.site-footer {
+    text-align: center; padding: 60px 20px 40px;
+    color: #aeaeb2; font-size: 13px; letter-spacing: 0.5px;
+}
+
+.fade-in-up {
+    opacity: 0; transform: translateY(36px);
+    transition: opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1), transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.fade-in-up.visible { opacity: 1; transform: translateY(0); }
+.stagger-1 { transition-delay: 0.05s; }
+.stagger-2 { transition-delay: 0.12s; }
+.stagger-3 { transition-delay: 0.19s; }
+.stagger-4 { transition-delay: 0.26s; }
+
+@media (max-width: 768px) {
+    .content-section { padding: 60px 20px; }
+    .founder-block {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .founder-block--right .founder-photo {
+        order: -1;
+    }
+    .founder-photo img {
+        aspect-ratio: 3 / 4;
+    }
+    .members-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .member-card { padding: 28px; }
+    .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .site-nav { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <a href="index.html" class="nav-wordmark">OnlyGods</a>
+    <a href="index.html#join" class="nav-join" data-i18n="nav.join">Join</a>
+    <div class="nav-links">
+        <a href="manifest.html">Manifest</a>
+        <a href="technologies.html">Holy Tech</a>
+        <a href="creators.html" class="active">Creators</a>
+        <a href="mindset.html">Mindset 2.0</a>
+        <a href="quantumlab.html">Quantum Lab</a>
+        <a href="activities.html">Activities</a>
+        <a href="playground.html">Playground</a>
+        <a href="dao.html">DAO</a>
+        <span class="nav-divider"></span>
+        <div class="lang-switcher">
+            <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+        </div>
+    </div>
+    <div class="nav-burger" id="nav-burger" onclick="this.classList.toggle('open'); document.getElementById('nav-mobile').classList.toggle('open');">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+    <a href="manifest.html">Manifest</a>
+    <a href="technologies.html">Holy Tech</a>
+        <a href="creators.html" class="active">Creators</a>
+    <a href="mindset.html">Mindset 2.0</a>
+    <a href="quantumlab.html">Quantum Lab</a>
+    <a href="activities.html">Activities</a>
+        <a href="playground.html">Playground</a>
+    <a href="dao.html">DAO</a>
+    <div class="lang-switcher">
+        <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="fade-in-up">
+        <div class="hero-subtitle" data-i18n="community.hero.subtitle">Архитекторы</div>
+        <h1 data-i18n="community.hero.title">About Us</h1>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- VLAD — photo left, text right -->
+<div class="content-section">
+    <div class="founder-block fade-in-up">
+        <div class="founder-photo">
+            <img src="vlad-photo.png" alt="Vlad">
+        </div>
+        <div class="founder-info">
+            <div class="section-label" data-i18n="community.vlad.label">Founder</div>
+            <h2 class="founder-name">Vlad</h2>
+            <div class="founder-role" data-i18n="community.vlad.role">Визионер, Архитектор Резонансных Сетей, Режиссер Опыта</div>
+            <p class="founder-bio" data-i18n="community.vlad.bio">Моя сильная сторона — радикальная правда с собой и опен майнд. Я использую авторские инструменты и техники для того чтобы сопроводить человека к выходу за пределы собственных ограничений и раскрыть свои таланты. Духовный ментор для людей которые ненавидят духовность. Нахожу выход из любой ситуации. Исследую различные аспекты работы с сообществами и системами на уровне частот. Работаю над Симбиозом человека и АИ в пост-трудовом периоде. Вдохновлен работами Гермеса Трисмегиста, Лао Цзи, Рика Рубина. Для меня духовность — это творчество. Мета-рационализм, ирония и китч — это мой стиль. 20+ лет опыта психонавтики. Вижу порядок в хаосе. Аут-оф-зе-бокс.</p>
+            <div class="founder-tags">
+                <span class="founder-tag" data-i18n="community.vlad.tag1">Resonance Engineering</span>
+                <span class="founder-tag" data-i18n="community.vlad.tag2">Psychonautics</span>
+                <span class="founder-tag" data-i18n="community.vlad.tag3">AI &times; Consciousness</span>
+                <span class="founder-tag" data-i18n="community.vlad.tag4">DAO Development</span>
+                <span class="founder-tag" data-i18n="community.vlad.tag5">Shadow Work</span>
+                <span class="founder-tag" data-i18n="community.vlad.tag6">Vibe Investing</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- LIZA — text left, photo right -->
+<div class="content-section">
+    <div class="founder-block founder-block--right fade-in-up">
+        <div class="founder-info">
+            <div class="section-label" data-i18n="community.liza.label">Founder</div>
+            <h2 class="founder-name">Liza</h2>
+            <div class="founder-role" data-i18n="community.liza.role">Архитектор Сознания, Духовный Лидер</div>
+            <p class="founder-bio" data-i18n="community.liza.bio">Я могу помочь человеку решить любую задачу, в любой области, любого уровня. Очень быстро, работая непосредственно с фундаментальными уровнями из которых он создает реальность. Если он готов к трансформации. Я Архитектор Сознания и резонансных сетей, автор уникальных методов трансформации. Лично работаю лишь с участниками поля, а так же с фаундерами, лидерами, компаниями.</p>
+            <div class="founder-tags">
+                <span class="founder-tag" data-i18n="community.liza.tag1">Consciousness Architecture</span>
+                <span class="founder-tag" data-i18n="community.liza.tag2">Governance</span>
+                <span class="founder-tag" data-i18n="community.liza.tag3">Mind Deconstruction</span>
+                <span class="founder-tag" data-i18n="community.liza.tag4">Quantum Leadership</span>
+                <span class="founder-tag" data-i18n="community.liza.tag5">Divine Wisdom</span>
+            </div>
+        </div>
+        <div class="founder-photo">
+            <img src="liza-photo.jpg" alt="Liza">
+        </div>
+    </div>
+</div>
+
+
+<footer class="site-footer">OnlyGods</footer>
+
+<script src="translations.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>

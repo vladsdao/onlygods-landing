@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>OnlyGods — Playground</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --void: #0a0a0a;
+    --light: #f5f5f7;
+    --dim: #6e6e73;
+    --ghost: rgba(245, 245, 247, 0.08);
+    --glow: rgba(245, 245, 247, 0.15);
+}
+
+body, html {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--void);
+    color: var(--light);
+    overflow: hidden;
+    width: 100%; height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: default;
+}
+
+::selection { background: var(--glow); }
+
+/* Film grain — consciousness texture */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+}
+
+/* ====================================== */
+/* CANVAS CONTAINER                       */
+/* ====================================== */
+#network-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+}
+
+/* ====================================== */
+/* MINIMAL NAV — wordmark + apply only    */
+/* ====================================== */
+.network-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 60px;
+    background: transparent;
+    transition: background 0.6s ease;
+}
+
+.network-nav.scrolled {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--light);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease 0.5s forwards;
+}
+
+.nav-apply {
+    font-size: 11px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    padding: 7px 20px;
+    border: 1px solid rgba(245, 245, 247, 0.2);
+    border-radius: 20px;
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.4s ease;
+    opacity: 0;
+    animation: fadeIn 1.5s ease 1s forwards;
+    cursor: pointer;
+    background: transparent;
+}
+
+.nav-apply:hover {
+    background: var(--light);
+    color: var(--void);
+    border-color: var(--light);
+}
+
+/* ====================================== */
+/* NODE LABELS IN 3D SPACE (CSS2D)        */
+/* ====================================== */
+.node-label {
+    position: absolute;
+    pointer-events: auto !important;
+    cursor: pointer;
+    text-align: center;
+    user-select: none;
+    transition: opacity 0.4s ease;
+}
+
+
+.node-label-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    color: var(--light);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    text-transform: uppercase;
+}
+
+.node-label:hover .node-label-name {
+    opacity: 1;
+}
+
+.node-label-role {
+    display: none;
+}
+
+.node-label.empty .node-label-name {
+    opacity: 0.25;
+    font-style: italic;
+}
+
+.node-label.empty .node-label-role {
+    opacity: 0.2;
+}
+
+/* ====================================== */
+/* NODE DETAIL PANEL                      */
+/* ====================================== */
+.node-panel {
+    position: fixed;
+    top: 0;
+    right: -480px;
+    width: 480px;
+    max-width: 100vw;
+    height: 100vh;
+    z-index: 200;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-left: 1px solid var(--ghost);
+    overflow-y: auto;
+    transition: right 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    padding: 80px 48px 48px;
+}
+
+.node-panel.open {
+    right: 0;
+}
+
+.panel-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+.panel-close:hover { opacity: 1; }
+
+.panel-close::before,
+.panel-close::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 1px;
+    background: var(--light);
+}
+.panel-close::before { transform: rotate(45deg); }
+.panel-close::after { transform: rotate(-45deg); }
+
+.panel-stage {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.panel-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: 400;
+    letter-spacing: -1px;
+    line-height: 1;
+    color: var(--light);
+    margin-bottom: 8px;
+}
+
+.panel-role {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dim);
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.panel-divider {
+    width: 100%;
+    height: 1px;
+    background: radial-gradient(
+        ellipse 200px 1px at 0% 50%,
+        rgba(245, 245, 247, 0.08) 0%,
+        transparent 100%
+    );
+    margin: 32px 0;
+}
+
+.panel-section-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.panel-text {
+    font-size: 13px;
+    line-height: 1.65;
+    color: rgba(245, 245, 247, 0.5);
+    font-weight: 300;
+    letter-spacing: 0.3px;
+}
+
+/* Voice player */
+.panel-voice {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border: 1px solid var(--ghost);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.panel-voice:hover {
+    border-color: rgba(245, 245, 247, 0.15);
+}
+
+.voice-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(245, 245, 247, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.voice-icon svg {
+    width: 12px;
+    height: 12px;
+    fill: var(--light);
+    opacity: 0.7;
+}
+
+.voice-waveform {
+    flex: 1;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.voice-bar {
+    width: 2px;
+    background: rgba(245, 245, 247, 0.3);
+    border-radius: 1px;
+    transition: background 0.2s ease;
+}
+
+.voice-duration {
+    font-size: 11px;
+    color: var(--dim);
+    letter-spacing: 0.5px;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+}
+
+/* Video placeholder */
+.panel-video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    border: 1px solid var(--ghost);
+    background: rgba(245, 245, 247, 0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.panel-video:hover {
+    border-color: rgba(245, 245, 247, 0.15);
+}
+
+.video-play {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(245, 245, 247, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-play svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--light);
+    opacity: 0.5;
+    margin-left: 2px;
+}
+
+.video-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dim);
+    font-weight: 500;
+}
+
+/* Expression (daily) */
+.panel-expression {
+    padding: 20px;
+    border: 1px solid var(--ghost);
+    border-radius: 12px;
+    position: relative;
+}
+
+.expression-badge {
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--void);
+    background: var(--dim);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 500;
+    position: absolute;
+    top: -8px;
+    left: 20px;
+}
+
+.expression-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(245, 245, 247, 0.6);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.expression-time {
+    font-size: 10px;
+    color: var(--dim);
+    margin-top: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* Empty node state */
+.panel-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-tetrahedron {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 24px;
+    opacity: 0.15;
+}
+
+.empty-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--light);
+    opacity: 0.4;
+    margin-bottom: 8px;
+}
+
+.empty-desc {
+    font-size: 13px;
+    color: var(--dim);
+    line-height: 1.6;
+    max-width: 280px;
+}
+
+/* ====================================== */
+/* FIELD STATUS (bottom center)           */
+/* ====================================== */
+.field-status {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeIn 2s ease 2s forwards;
+}
+
+.field-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--light);
+    opacity: 0.4;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.field-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dim);
+    font-weight: 500;
+}
+
+.field-count {
+    font-variant-numeric: tabular-nums;
+    color: rgba(245, 245, 247, 0.5);
+}
+
+/* ====================================== */
+/* GEOMETRY INFO (bottom left)            */
+/* ====================================== */
+.geometry-info {
+    position: fixed;
+    bottom: 24px;
+    left: 40px;
+    z-index: 100;
+    opacity: 0;
+    animation: fadeIn 2s ease 2.5s forwards;
+}
+
+.geometry-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--dim);
+    font-weight: 500;
+}
+
+/* ====================================== */
+/* HINT (bottom right)                    */
+/* ====================================== */
+.interaction-hint {
+    position: fixed;
+    bottom: 24px;
+    right: 40px;
+    z-index: 100;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--dim);
+    opacity: 0;
+    animation: fadeIn 2s ease 3s forwards;
+    transition: opacity 0.5s ease;
+}
+
+.interaction-hint.hidden {
+    opacity: 0 !important;
+}
+
+/* ====================================== */
+/* OVERLAY BACKDROP                       */
+/* ====================================== */
+.panel-backdrop {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 150;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.panel-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ====================================== */
+/* ANIMATIONS                             */
+/* ====================================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+}
+
+/* ====================================== */
+/* MOBILE                                 */
+/* ====================================== */
+@media (max-width: 768px) {
+    .network-nav { padding: 0 20px; }
+
+    .node-label-name { font-size: 13px; }
+    .node-label-role { font-size: 8px; letter-spacing: 1.5px; }
+
+    .node-panel {
+        width: 100vw;
+        right: -100vw;
+        padding: 72px 28px 40px;
+    }
+    .node-panel.open { right: 0; }
+
+    .geometry-info { left: 20px; }
+    .interaction-hint { right: 20px; }
+
+    .panel-name {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .field-status { bottom: 16px; }
+    .geometry-info { display: none; }
+    .interaction-hint { display: none; }
+}
+
+/* ====================================== */
+/* AR BUTTON (iOS Quick Look)             */
+/* ====================================== */
+.ar-button {
+    position: fixed;
+    bottom: 24px;
+    right: 40px;
+    z-index: 100;
+    display: none; /* shown via JS on iOS */
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px 8px 14px;
+    border: 1px solid rgba(245, 245, 247, 0.15);
+    border-radius: 20px;
+    background: rgba(245, 245, 247, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    opacity: 0;
+    animation: fadeIn 2s ease 3s forwards;
+    text-decoration: none;
+    color: var(--light);
+}
+
+.ar-button:hover {
+    background: rgba(245, 245, 247, 0.08);
+    border-color: rgba(245, 245, 247, 0.25);
+}
+
+.ar-button:active {
+    transform: scale(0.96);
+}
+
+.ar-button svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0.6;
+}
+
+.ar-button-label {
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.6;
+}
+
+.ar-button.generating .ar-button-label::after {
+    content: '...';
+    animation: dots 1.5s steps(3, end) infinite;
+}
+
+@keyframes dots {
+    0% { content: '.'; }
+    33% { content: '..'; }
+    66% { content: '...'; }
+}
+
+@media (max-width: 768px) {
+    .ar-button {
+        bottom: 56px;
+        right: 20px;
+    }
+    .interaction-hint.ar-visible {
+        display: none;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV — minimal -->
+<nav class="network-nav">
+    <a href="index.html" class="nav-wordmark">OnlyGods</a>
+    <a href="app.html" class="nav-apply">Log In</a>
+</nav>
+
+<!-- THREE.JS CANVAS -->
+<canvas id="network-canvas"></canvas>
+
+<!-- NODE DETAIL PANEL -->
+<div class="panel-backdrop" id="panelBackdrop"></div>
+<div class="node-panel" id="nodePanel">
+    <button class="panel-close" id="panelClose"></button>
+    <div id="panelContent"></div>
+</div>
+
+<!-- FIELD STATUS -->
+<div class="field-status">
+    <div class="field-pulse"></div>
+    <span class="field-label">Field: <span class="field-count">4 nodes</span> · Tetrahedron</span>
+</div>
+
+<!-- GEOMETRY INFO -->
+<div class="geometry-info">
+    <span class="geometry-label">Phase I · Seed</span>
+</div>
+
+<!-- INTERACTION HINT -->
+<div class="interaction-hint" id="hint">Click a node to explore</div>
+
+<!-- AR BUTTON (iOS Quick Look) -->
+<button class="ar-button" id="arButton" aria-label="View in AR">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3L20 7.5V16.5L12 21L4 16.5V7.5L12 3Z"/>
+        <path d="M12 12L20 7.5"/>
+        <path d="M12 12V21"/>
+        <path d="M12 12L4 7.5"/>
+    </svg>
+    <span class="ar-button-label">View in AR</span>
+</button>
+<!-- Hidden AR anchor for Quick Look -->
+<a id="arLink" rel="ar" style="display:none;"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a>
+
+<!-- THREE.JS + MODULES -->
+<script type="importmap">
+{
+    "imports": {
+        "three": "https://unpkg.com/three@0.162.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.162.0/examples/jsm/"
+    }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { USDZExporter } from 'three/addons/exporters/USDZExporter.js';
+// Labels positioned via manual 3D→2D projection (no CSS2DRenderer)
+
+// ============================================
+// SEED DATA — 4 founders
+// ============================================
+const NODES = [
+    {
+        id: 'vlad',
+        name: 'Vlad',
+        role: 'Architect',
+        stage: 'coagulation',
+        active: true,
+        color: 0xff6b4a,      // Fire — coral ember
+        glowColor: 0xff9e85,
+        text: 'Визионер, Архитектор Резонансных Сетей, Режиссер Опыта. Духовный ментор для людей которые ненавидят духовность. Мета-рационализм, ирония и китч. 20+ лет психонавтики. Вижу порядок в хаосе.',
+        expression: '',
+        expressionTime: ''
+    },
+    {
+        id: 'liza',
+        name: 'Liza',
+        role: 'Consciousness Architect',
+        stage: 'coagulation',
+        active: true,
+        color: 0x47b5e6,      // Water — deep sky
+        glowColor: 0x8ad4f5,
+        text: 'Архитектор Сознания, Духовный Лидер. Работает с фундаментальными уровнями из которых человек создает реальность. Автор уникальных методов трансформации. Лично работает с участниками поля, фаундерами, лидерами.',
+        expression: '',
+        expressionTime: ''
+    },
+    {
+        id: 'arina',
+        name: 'Arina',
+        role: 'Witness',
+        stage: 'coagulation',
+        active: true,
+        color: 0x6ed5c2,      // Water — seafoam teal
+        glowColor: 0xa8e8dc,
+        text: '',
+        expression: '',
+        expressionTime: ''
+    },
+    {
+        id: 'misha',
+        name: 'Misha',
+        role: 'Apex',
+        stage: 'conjunction',
+        active: true,
+        color: 0xffb347,      // Fire — amber gold
+        glowColor: 0xffd699,
+        text: '',
+        expression: '',
+        expressionTime: ''
+    }
+];
+
+// Tetrahedron vertex positions (centered, normalized)
+const TETRA_SCALE = window.innerWidth < 768 ? 1.6 : 2.8;
+const TETRA_VERTICES = [
+    new THREE.Vector3( 0,  1.2,  0).multiplyScalar(TETRA_SCALE),           // Apex (Arina)
+    new THREE.Vector3(-1, -0.4,  0.8).multiplyScalar(TETRA_SCALE),         // Vlad
+    new THREE.Vector3( 1, -0.4,  0.8).multiplyScalar(TETRA_SCALE),         // Liza
+    new THREE.Vector3( 0, -0.4, -1.1).multiplyScalar(TETRA_SCALE),         // Misha
+];
+
+// Map nodes to vertices: Arina=apex(0), Vlad=1, Liza=2, Misha=3
+const NODE_VERTEX_MAP = [1, 2, 0, 3]; // NODES[0]=Vlad→v1, NODES[1]=Liza→v2, NODES[2]=Arina→v0(apex), NODES[3]=Misha→v3
+
+// Edges of tetrahedron (all 6)
+const EDGES = [
+    [0, 1], [0, 2], [0, 3], // Apex to base
+    [1, 2], [2, 3], [3, 1]  // Base triangle
+];
+
+// ============================================
+// SCENE SETUP
+// ============================================
+const canvas = document.getElementById('network-canvas');
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0a0a0a);
+
+const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 500);
+// Adjust camera distance for screen size
+const isMobile = window.innerWidth < 768;
+camera.fov = isMobile ? 55 : 50;
+camera.updateProjectionMatrix();
+camera.position.set(0, isMobile ? 1 : 3, isMobile ? 20 : 32);
+
+const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    alpha: false
+});
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+// Label container (manual 3D→2D projection)
+const labelContainer = document.createElement('div');
+labelContainer.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:10;';
+document.body.appendChild(labelContainer);
+
+// Controls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+controls.enablePan = false;
+controls.minDistance = 6;
+controls.maxDistance = 200;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.3;
+controls.enableZoom = true;
+controls.touches = { ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY };
+
+// ============================================
+// CREATE GEOMETRY
+// ============================================
+
+// Node spheres
+const nodeMeshes = [];
+const nodeGroup = new THREE.Group();
+
+NODES.forEach((node, i) => {
+    const vi = NODE_VERTEX_MAP[i];
+    const pos = TETRA_VERTICES[vi];
+
+    // Outer sphere (glow) — elemental halo
+    const glowGeo = new THREE.SphereGeometry(node.active ? 0.12 : 0.06, 16, 16);
+    const glowMat = new THREE.MeshBasicMaterial({
+        color: node.glowColor || 0xd0d8ff,
+        transparent: true,
+        opacity: node.active ? 0.07 : 0.02
+    });
+    const glowMesh = new THREE.Mesh(glowGeo, glowMat);
+    glowMesh.position.copy(pos);
+    glowMesh.scale.set(5, 5, 5);
+    nodeGroup.add(glowMesh);
+
+    // Core sphere — elemental color
+    const geo = new THREE.SphereGeometry(node.active ? 0.12 : 0.06, 16, 16);
+    const mat = new THREE.MeshBasicMaterial({
+        color: node.color || 0xf5f5f7,
+        transparent: true,
+        opacity: node.active ? 0.9 : 0.15
+    });
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.copy(pos);
+    mesh.userData = { nodeIndex: i, glow: glowMesh };
+    nodeGroup.add(mesh);
+    nodeMeshes.push(mesh);
+
+    // HTML label (positioned via projection in animation loop)
+    const labelDiv = document.createElement('div');
+    labelDiv.className = `node-label ${node.active ? '' : 'empty'}`;
+    const nodeCSS = '#' + node.color.toString(16).padStart(6, '0');
+    labelDiv.innerHTML = `
+        <div class="node-label-name" style="color:${nodeCSS}">${node.name}</div>
+        <div class="node-label-role">${node.role}</div>
+    `;
+    labelDiv.style.pointerEvents = 'auto';
+    labelDiv.addEventListener('click', (e) => { e.stopPropagation(); openPanel(i); });
+    labelContainer.appendChild(labelDiv);
+
+    // Store label reference and offset for projection
+    mesh.userData.labelDiv = labelDiv;
+    mesh.userData.labelOffset = -0.45;
+});
+
+scene.add(nodeGroup);
+
+// Center of tetrahedron (used for edge curvature + void particles)
+const center = new THREE.Vector3();
+TETRA_VERTICES.forEach(v => center.add(v));
+center.divideScalar(4);
+
+// Edges — all solid, curved inward (Howard Lynchpin concavity)
+// With string vibration animation
+const edgeGroup = new THREE.Group();
+const CURVE_FACTOR = 0.15;
+const seedEdgeVibData = []; // Store for vibration animation
+
+EDGES.forEach(([a, b]) => {
+    const va = TETRA_VERTICES[a];
+    const vb = TETRA_VERTICES[b];
+
+    const mid = new THREE.Vector3().lerpVectors(va, vb, 0.5);
+    const toCenter = new THREE.Vector3().subVectors(center, mid);
+    const edgeLen = va.distanceTo(vb);
+    const curveMid = mid.clone().add(toCenter.normalize().multiplyScalar(edgeLen * CURVE_FACTOR));
+
+    const curve = new THREE.QuadraticBezierCurve3(va, curveMid, vb);
+    const points = curve.getPoints(48); // More points for smooth vibration
+
+    // Compute perpendicular direction for vibration
+    const edgeDir = new THREE.Vector3().subVectors(vb, va).normalize();
+    let perp = new THREE.Vector3().crossVectors(edgeDir, new THREE.Vector3(0, 1, 0));
+    if (perp.length() < 0.1) perp = new THREE.Vector3().crossVectors(edgeDir, new THREE.Vector3(1, 0, 0));
+    perp.normalize();
+
+    const geo = new THREE.BufferGeometry().setFromPoints(points);
+    const mat = new THREE.LineBasicMaterial({
+        color: 0xf5f5f7,
+        transparent: true,
+        opacity: 0.35,
+        linewidth: 1
+    });
+
+    const line = new THREE.Line(geo, mat);
+    edgeGroup.add(line);
+
+    seedEdgeVibData.push({
+        geo,
+        originalPoints: points.map(p => p.clone()),
+        perp,
+        phaseOffset: Math.random() * Math.PI * 2
+    });
+});
+
+scene.add(edgeGroup);
+
+// ============================================
+// GHOST NETWORK — Massive neural consciousness web
+// 20 generations of tetrahedral close-packing.
+// Lines curve inward (Howard Lynchpin concavity).
+// ============================================
+const ghostGroup = new THREE.Group();
+const ghostEdgeData = [];
+const gen1Nodes = [];
+
+(function buildGhostNetwork() {
+    const MAX_GEN = 20;
+    const MAX_FACES = 60000; // safety limit
+    const round = (v) => `${Math.round(v.x*80)},${Math.round(v.y*80)},${Math.round(v.z*80)}`;
+    const edgeId = (a, b) => { const [p, q] = [round(a), round(b)].sort(); return `${p}|${q}`; };
+
+    const knownVerts = new Map();
+    const knownEdges = new Set();
+
+    // Tier-based collection: [near, mid, far, ultra]
+    const tiers = [
+        { minGen: 1, maxGen: 3, nodes: [], edges: [], opacity: 0.025, edgeOpacity: 0.007, size: 0.03 },
+        { minGen: 4, maxGen: 8, nodes: [], edges: [], opacity: 0.012, edgeOpacity: 0.004, size: 0.022 },
+        { minGen: 9, maxGen: 14, nodes: [], edges: [], opacity: 0.006, edgeOpacity: 0.002, size: 0.016 },
+        { minGen: 15, maxGen: 20, nodes: [], edges: [], opacity: 0.003, edgeOpacity: 0.001, size: 0.01 }
+    ];
+
+    function getTier(gen) {
+        return tiers.find(t => gen >= t.minGen && gen <= t.maxGen);
+    }
+
+    const T = TETRA_VERTICES;
+    T.forEach(v => knownVerts.set(round(v), v));
+    EDGES.forEach(([a, b]) => knownEdges.add(edgeId(T[a], T[b])));
+
+    let queue = [
+        { face: [T[1], T[2], T[3]], opp: T[0], gen: 1 },
+        { face: [T[0], T[2], T[3]], opp: T[1], gen: 1 },
+        { face: [T[0], T[1], T[3]], opp: T[2], gen: 1 },
+        { face: [T[0], T[1], T[2]], opp: T[3], gen: 1 }
+    ];
+
+    const processed = new Set();
+
+    while (queue.length > 0 && processed.size < MAX_FACES) {
+        const next = [];
+
+        for (const item of queue) {
+            if (item.gen > MAX_GEN || processed.size >= MAX_FACES) continue;
+
+            const faceKey = [round(item.face[0]), round(item.face[1]), round(item.face[2])].sort().join('|');
+            if (processed.has(faceKey)) continue;
+            processed.add(faceKey);
+
+            const [a, b, c] = item.face;
+            const cx = (a.x + b.x + c.x) / 3;
+            const cy = (a.y + b.y + c.y) / 3;
+            const cz = (a.z + b.z + c.z) / 3;
+            const nv = new THREE.Vector3(2 * cx - item.opp.x, 2 * cy - item.opp.y, 2 * cz - item.opp.z);
+
+            const nk = round(nv);
+            if (!knownVerts.has(nk)) {
+                knownVerts.set(nk, nv.clone());
+                const tier = getTier(item.gen);
+                if (tier) tier.nodes.push(nv.clone());
+                if (item.gen === 1) gen1Nodes.push(nv.clone());
+            }
+            const storedV = knownVerts.get(nk);
+
+            for (const fv of [a, b, c]) {
+                const ek = edgeId(storedV, fv);
+                if (!knownEdges.has(ek)) {
+                    knownEdges.add(ek);
+                    const tier = getTier(item.gen);
+                    if (tier) tier.edges.push({ from: storedV.clone(), to: fv.clone() });
+                }
+            }
+
+            if (item.gen < MAX_GEN) {
+                next.push(
+                    { face: [a, b, storedV], opp: c, gen: item.gen + 1 },
+                    { face: [a, c, storedV], opp: b, gen: item.gen + 1 },
+                    { face: [b, c, storedV], opp: a, gen: item.gen + 1 }
+                );
+            }
+        }
+
+        queue = next;
+    }
+
+    // Curved edge helper
+    const CURVE_SEG = 8;
+    function getCurvedEdgeSegments(from, to) {
+        const mid = new THREE.Vector3().lerpVectors(from, to, 0.5);
+        const toC = new THREE.Vector3().subVectors(center, mid);
+        const len = from.distanceTo(to);
+        const curveMid = mid.clone().add(toC.normalize().multiplyScalar(len * CURVE_FACTOR));
+        const curve = new THREE.QuadraticBezierCurve3(from, curveMid, to);
+        const pts = curve.getPoints(CURVE_SEG);
+        const segs = [];
+        for (let i = 0; i < pts.length - 1; i++) {
+            segs.push(pts[i].x, pts[i].y, pts[i].z, pts[i+1].x, pts[i+1].y, pts[i+1].z);
+        }
+        return segs;
+    }
+
+    function precomputeCurveMid(from, to) {
+        const mid = new THREE.Vector3().lerpVectors(from, to, 0.5);
+        const toC = new THREE.Vector3().subVectors(center, mid);
+        const len = from.distanceTo(to);
+        return mid.clone().add(toC.normalize().multiplyScalar(len * CURVE_FACTOR));
+    }
+
+    // Render each tier (4 tiers × 2 objects = 8 draw calls)
+    tiers.forEach(tier => {
+        if (tier.nodes.length > 0) {
+            const positions = new Float32Array(tier.nodes.length * 3);
+            tier.nodes.forEach((v, i) => {
+                positions[i * 3] = v.x;
+                positions[i * 3 + 1] = v.y;
+                positions[i * 3 + 2] = v.z;
+            });
+            const geo = new THREE.BufferGeometry();
+            geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            ghostGroup.add(new THREE.Points(geo, new THREE.PointsMaterial({
+                color: 0xf5f5f7, size: tier.size, transparent: true,
+                opacity: tier.opacity, sizeAttenuation: true, depthWrite: false
+            })));
+        }
+
+        if (tier.edges.length > 0) {
+            const positions = [];
+            tier.edges.forEach(e => {
+                positions.push(...getCurvedEdgeSegments(e.from, e.to));
+                ghostEdgeData.push({ from: e.from, to: e.to, curveMid: precomputeCurveMid(e.from, e.to) });
+            });
+            const geo = new THREE.BufferGeometry();
+            geo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+            ghostGroup.add(new THREE.LineSegments(geo, new THREE.LineBasicMaterial({
+                color: 0xf5f5f7, transparent: true, opacity: tier.edgeOpacity, depthWrite: false
+            })));
+        }
+    });
+})();
+
+// Also store seed edges for energy flow
+EDGES.forEach(([a, b]) => {
+    const va = TETRA_VERTICES[a], vb = TETRA_VERTICES[b];
+    const mid = new THREE.Vector3().lerpVectors(va, vb, 0.5);
+    const toC = new THREE.Vector3().subVectors(center, mid);
+    const len = va.distanceTo(vb);
+    const curveMid = mid.clone().add(toC.normalize().multiplyScalar(len * CURVE_FACTOR));
+    ghostEdgeData.push({ from: va, to: vb, curveMid });
+});
+
+scene.add(ghostGroup);
+
+// ============================================
+// ENERGY FLOW — Fast particles along all edges
+// ============================================
+const ENERGY_COUNT = 1200;
+const energyGeo = new THREE.BufferGeometry();
+const energyPositions = new Float32Array(ENERGY_COUNT * 3);
+
+const energyParticles = [];
+for (let i = 0; i < ENERGY_COUNT; i++) {
+    const edge = ghostEdgeData[Math.floor(Math.random() * ghostEdgeData.length)];
+    energyParticles.push({
+        from: edge.from, to: edge.to, curveMid: edge.curveMid,
+        speed: 0.4 + Math.random() * 1.2, // 3x faster
+        phase: Math.random() * Math.PI * 2
+    });
+}
+
+energyGeo.setAttribute('position', new THREE.BufferAttribute(energyPositions, 3));
+const energyMat = new THREE.PointsMaterial({
+    color: 0x99bbff, size: 0.018, transparent: true, opacity: 0.15,
+    sizeAttenuation: true, depthWrite: false, blending: THREE.AdditiveBlending
+});
+const energyPoints = new THREE.Points(energyGeo, energyMat);
+scene.add(energyPoints);
+
+// ============================================
+// FREE NODE LABELS — Available slots (gen-1)
+// ============================================
+gen1Nodes.forEach((pos, i) => {
+    const labelDiv = document.createElement('div');
+    labelDiv.className = 'node-label empty';
+    labelDiv.innerHTML = `<div class="node-label-name" style="opacity:0.15; font-size:11px;">○</div>`;
+    labelDiv.style.pointerEvents = 'none';
+    labelContainer.appendChild(labelDiv);
+});
+
+// Spotlight — soft radial glow behind the seed (Apple-style depth)
+const spotCanvas = document.createElement('canvas');
+spotCanvas.width = 256; spotCanvas.height = 256;
+const spotCtx = spotCanvas.getContext('2d');
+const grad = spotCtx.createRadialGradient(128, 128, 0, 128, 128, 128);
+grad.addColorStop(0, 'rgba(180, 200, 255, 0.12)');
+grad.addColorStop(0.4, 'rgba(140, 160, 220, 0.04)');
+grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+spotCtx.fillStyle = grad;
+spotCtx.fillRect(0, 0, 256, 256);
+const spotTex = new THREE.CanvasTexture(spotCanvas);
+const spotMat = new THREE.SpriteMaterial({ map: spotTex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending });
+const spotlight = new THREE.Sprite(spotMat);
+spotlight.position.copy(center);
+spotlight.scale.set(18, 18, 1);
+scene.add(spotlight);
+
+// Interior void — subtle particle field inside tetrahedron
+const voidParticles = new THREE.Group();
+const voidGeo = new THREE.BufferGeometry();
+const voidCount = 30;
+const voidPositions = new Float32Array(voidCount * 3);
+
+for (let i = 0; i < voidCount; i++) {
+    // Random point near center
+    voidPositions[i * 3] = center.x + (Math.random() - 0.5) * 1.5;
+    voidPositions[i * 3 + 1] = center.y + (Math.random() - 0.5) * 1.5;
+    voidPositions[i * 3 + 2] = center.z + (Math.random() - 0.5) * 1.5;
+}
+
+voidGeo.setAttribute('position', new THREE.BufferAttribute(voidPositions, 3));
+const voidMat = new THREE.PointsMaterial({
+    color: 0xf5f5f7,
+    size: 0.02,
+    transparent: true,
+    opacity: 0.15,
+    sizeAttenuation: true
+});
+const voidPoints = new THREE.Points(voidGeo, voidMat);
+scene.add(voidPoints);
+
+// ============================================
+// RAYCASTER (click detection)
+// ============================================
+const raycaster = new THREE.Raycaster();
+raycaster.params.Points.threshold = 0.5;
+const mouse = new THREE.Vector2();
+let hoveredNode = null;
+
+function onPointerMove(e) {
+    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(nodeMeshes);
+
+    if (intersects.length > 0) {
+        const node = intersects[0].object;
+        if (hoveredNode !== node) {
+            // Reset previous
+            if (hoveredNode) {
+                hoveredNode.material.opacity = NODES[hoveredNode.userData.nodeIndex].active ? 0.9 : 0.15;
+                hoveredNode.userData.glow.material.opacity = NODES[hoveredNode.userData.nodeIndex].active ? 0.08 : 0.03;
+            }
+            hoveredNode = node;
+            node.material.opacity = 1;
+            node.userData.glow.material.opacity = 0.15;
+            canvas.style.cursor = 'pointer';
+        }
+    } else {
+        if (hoveredNode) {
+            hoveredNode.material.opacity = NODES[hoveredNode.userData.nodeIndex].active ? 0.9 : 0.15;
+            hoveredNode.userData.glow.material.opacity = NODES[hoveredNode.userData.nodeIndex].active ? 0.08 : 0.03;
+            hoveredNode = null;
+            canvas.style.cursor = 'default';
+        }
+    }
+}
+
+function onPointerDown(e) {
+    // Skip if dragging
+    if (e.button !== 0) return;
+    const startX = e.clientX;
+    const startY = e.clientY;
+
+    const onUp = (e2) => {
+        const dx = e2.clientX - startX;
+        const dy = e2.clientY - startY;
+        if (Math.sqrt(dx * dx + dy * dy) < 5) {
+            // It's a click, not a drag
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(nodeMeshes);
+            if (intersects.length > 0) {
+                const idx = intersects[0].object.userData.nodeIndex;
+                openPanel(idx);
+            }
+        }
+        window.removeEventListener('pointerup', onUp);
+    };
+    window.addEventListener('pointerup', onUp);
+}
+
+window.addEventListener('pointermove', onPointerMove);
+window.addEventListener('pointerdown', onPointerDown);
+
+// ============================================
+// NODE PANEL
+// ============================================
+const panel = document.getElementById('nodePanel');
+const panelContent = document.getElementById('panelContent');
+const panelBackdrop = document.getElementById('panelBackdrop');
+const panelClose = document.getElementById('panelClose');
+const hint = document.getElementById('hint');
+
+function generateWaveformBars() {
+    const count = 40;
+    let bars = '';
+    for (let i = 0; i < count; i++) {
+        const h = 4 + Math.random() * 18;
+        bars += `<div class="voice-bar" style="height: ${h}px"></div>`;
+    }
+    return bars;
+}
+
+function openPanel(nodeIndex) {
+    const node = NODES[nodeIndex];
+    controls.autoRotate = false;
+    hint.classList.add('hidden');
+
+    if (!node.active) {
+        // Empty node
+        panelContent.innerHTML = `
+            <div class="panel-stage">Vertex · Awaiting</div>
+            <div class="panel-name" style="color:#${node.color.toString(16).padStart(6,'0')}">${node.name}</div>
+            <div class="panel-role">${node.role}</div>
+            <div class="panel-divider"></div>
+            <div class="panel-empty-state">
+                <svg class="empty-tetrahedron" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.5">
+                    <path d="M50 10 L15 80 L85 80 Z" opacity="0.3"/>
+                    <path d="M50 10 L50 55" opacity="0.15"/>
+                    <path d="M15 80 L50 55" opacity="0.15"/>
+                    <path d="M85 80 L50 55" opacity="0.15"/>
+                </svg>
+                <div class="empty-title">Пустая вершина</div>
+                <div class="empty-desc">
+                    Эта точка ждёт. Когда ${node.name} заполнит свой нод — текст, голос, видео — вершина активируется и тетраэдр замкнётся.
+                </div>
+            </div>
+        `;
+    } else {
+        // Active node
+        const stageLabels = {
+            calcination: 'I · Calcination',
+            dissolution: 'II · Dissolution',
+            separation: 'III · Separation',
+            conjunction: 'IV · Conjunction',
+            fermentation: 'V · Fermentation',
+            distillation: 'VI · Distillation',
+            coagulation: 'VII · Coagulation'
+        };
+
+        panelContent.innerHTML = `
+            <div class="panel-stage">${stageLabels[node.stage] || node.stage}</div>
+            <div class="panel-name" style="color:#${node.color.toString(16).padStart(6,'0')}">${node.name}</div>
+            <div class="panel-role">${node.role}</div>
+
+            <div class="panel-divider"></div>
+
+            <div class="panel-section-label">Text · 1000</div>
+            <div class="panel-text">${node.text}</div>
+
+            <div class="panel-divider"></div>
+
+            <div class="panel-section-label">Voice · 1:00</div>
+            <div class="panel-voice">
+                <div class="voice-icon">
+                    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+                </div>
+                <div class="voice-waveform">${generateWaveformBars()}</div>
+                <div class="voice-duration">1:00</div>
+            </div>
+
+            <div class="panel-divider"></div>
+
+            <div class="panel-section-label">Video · 0:30</div>
+            <div class="panel-video">
+                <div class="video-play">
+                    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+                </div>
+                <div class="video-label">30 sec · presence</div>
+            </div>
+
+            ${node.expression ? `
+                <div class="panel-divider"></div>
+                <div class="panel-section-label">Expression · Today</div>
+                <div class="panel-expression">
+                    <div class="expression-badge">Live</div>
+                    <div class="expression-text">${node.expression}</div>
+                    <div class="expression-time">${node.expressionTime}</div>
+                </div>
+            ` : ''}
+        `;
+    }
+
+    panel.classList.add('open');
+    panelBackdrop.classList.add('open');
+}
+
+function closePanel() {
+    panel.classList.remove('open');
+    panelBackdrop.classList.remove('open');
+    controls.autoRotate = true;
+}
+
+panelClose.addEventListener('click', closePanel);
+panelBackdrop.addEventListener('click', closePanel);
+
+// ESC to close
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closePanel();
+});
+
+// ============================================
+// ANIMATION LOOP
+// ============================================
+const clock = new THREE.Clock();
+
+function animate() {
+    requestAnimationFrame(animate);
+    const elapsed = clock.getElapsedTime();
+
+    // Coherence breathing — subtle scale oscillation
+    const breathe = 1 + Math.sin(elapsed * 0.5) * 0.015;
+    nodeGroup.scale.set(breathe, breathe, breathe);
+    edgeGroup.scale.set(breathe, breathe, breathe);
+    ghostGroup.scale.set(breathe, breathe, breathe);
+
+    // Node pulse — active nodes glow rhythmically
+    nodeMeshes.forEach((mesh, i) => {
+        if (NODES[i].active && mesh !== hoveredNode) {
+            const phase = elapsed * 0.8 + i * 1.5;
+            const pulse = 0.8 + Math.sin(phase) * 0.1;
+            mesh.material.opacity = pulse;
+
+            // Glow pulse
+            const glowPulse = 0.05 + Math.sin(phase) * 0.03;
+            mesh.userData.glow.material.opacity = glowPulse;
+        }
+    });
+
+    // Void particles drift
+    const positions = voidGeo.attributes.position.array;
+    for (let i = 0; i < voidCount; i++) {
+        positions[i * 3] += Math.sin(elapsed * 0.3 + i) * 0.001;
+        positions[i * 3 + 1] += Math.cos(elapsed * 0.2 + i * 0.7) * 0.001;
+        positions[i * 3 + 2] += Math.sin(elapsed * 0.25 + i * 1.3) * 0.001;
+    }
+    voidGeo.attributes.position.needsUpdate = true;
+
+    // Seed edge vibration — strings of consciousness
+    seedEdgeVibData.forEach((ed) => {
+        const positions = ed.geo.attributes.position.array;
+        const pts = ed.originalPoints;
+        const numPts = pts.length;
+
+        for (let i = 0; i < numPts; i++) {
+            const t = i / (numPts - 1);
+            const envelope = Math.sin(t * Math.PI); // zero at endpoints
+            const wave = Math.sin(t * Math.PI * 4 + elapsed * 5 + ed.phaseOffset) * 0.02 * envelope;
+            const wave2 = Math.sin(t * Math.PI * 7 + elapsed * 3.3 + ed.phaseOffset * 1.7) * 0.008 * envelope;
+
+            positions[i * 3]     = pts[i].x + ed.perp.x * (wave + wave2);
+            positions[i * 3 + 1] = pts[i].y + ed.perp.y * (wave + wave2);
+            positions[i * 3 + 2] = pts[i].z + ed.perp.z * (wave + wave2);
+        }
+        ed.geo.attributes.position.needsUpdate = true;
+    });
+
+    // Edge opacity pulse
+    edgeGroup.children.forEach((line, i) => {
+        const edgePulse = 0.2 + Math.sin(elapsed * 0.6 + i * 2) * 0.05;
+        line.material.opacity = edgePulse;
+    });
+
+    // Energy flow — particles travel along curved edges
+    const ep = energyGeo.attributes.position.array;
+    for (let i = 0; i < ENERGY_COUNT; i++) {
+        const p = energyParticles[i];
+        const t = ((elapsed * p.speed + p.phase) % (Math.PI * 2)) / (Math.PI * 2);
+        const mt = 1 - t;
+        ep[i * 3]     = mt * mt * p.from.x + 2 * mt * t * p.curveMid.x + t * t * p.to.x;
+        ep[i * 3 + 1] = mt * mt * p.from.y + 2 * mt * t * p.curveMid.y + t * t * p.to.y;
+        ep[i * 3 + 2] = mt * mt * p.from.z + 2 * mt * t * p.curveMid.z + t * t * p.to.z;
+    }
+    energyGeo.attributes.position.needsUpdate = true;
+
+    // Project 3D node positions to 2D screen coords for labels
+    const tempV = new THREE.Vector3();
+    nodeMeshes.forEach((mesh) => {
+        const node = NODES[mesh.userData.nodeIndex];
+        tempV.copy(mesh.position);
+        tempV.y += mesh.userData.labelOffset;
+        // Apply group transforms
+        tempV.applyMatrix4(nodeGroup.matrixWorld);
+        tempV.project(camera);
+
+        const x = (tempV.x * 0.5 + 0.5) * window.innerWidth;
+        const y = (-tempV.y * 0.5 + 0.5) * window.innerHeight;
+
+        const label = mesh.userData.labelDiv;
+        label.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+
+        // Hide if behind camera
+        label.style.opacity = tempV.z > 1 ? '0' : '1';
+    });
+
+    // Project free node labels (gen-1 ghost nodes)
+    const freeLabels = labelContainer.querySelectorAll('.node-label.empty');
+    let freeIdx = nodeMeshes.length; // skip founder labels
+    gen1Nodes.forEach((pos, i) => {
+        const freeLabel = labelContainer.children[nodeMeshes.length + i];
+        if (!freeLabel) return;
+        tempV.copy(pos);
+        tempV.y += -0.3;
+        tempV.applyMatrix4(ghostGroup.matrixWorld);
+        tempV.project(camera);
+        const x = (tempV.x * 0.5 + 0.5) * window.innerWidth;
+        const y = (-tempV.y * 0.5 + 0.5) * window.innerHeight;
+        freeLabel.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+        // Pulse opacity
+        const pulse = 0.06 + Math.sin(elapsed * 0.5 + i * 1.2) * 0.04;
+        freeLabel.style.opacity = tempV.z > 1 ? '0' : String(pulse);
+    });
+
+    controls.update();
+    renderer.render(scene, camera);
+}
+
+animate();
+
+// ============================================
+// RESIZE
+// ============================================
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    // Adjust camera distance on resize
+    const mobile = window.innerWidth < 768;
+    camera.position.z = mobile ? 12 : 12;
+});
+
+// ============================================
+// ENTRANCE ANIMATION
+// ============================================
+// Fade in the geometry from nothing
+nodeGroup.scale.set(0.01, 0.01, 0.01);
+edgeGroup.scale.set(0.01, 0.01, 0.01);
+ghostGroup.scale.set(0.01, 0.01, 0.01);
+energyPoints.material.opacity = 0;
+voidPoints.material.opacity = 0;
+// Store ghost material opacities for entrance fade
+const ghostTargetOpacities = ghostGroup.children.map(c => c.material.opacity);
+ghostGroup.children.forEach(c => { c.material.opacity = 0; });
+
+function entranceAnimation() {
+    const duration = 2500;
+    const start = performance.now();
+
+    function step(now) {
+        const t = Math.min((now - start) / duration, 1);
+        // Cubic ease-out
+        const ease = 1 - Math.pow(1 - t, 3);
+
+        const s = 0.01 + ease * 0.99;
+        nodeGroup.scale.set(s, s, s);
+        edgeGroup.scale.set(s, s, s);
+        ghostGroup.scale.set(s, s, s);
+        voidPoints.material.opacity = ease * 0.15;
+        energyPoints.material.opacity = ease * 0.15;
+        // Fade in ghost network
+        ghostGroup.children.forEach((c, i) => {
+            c.material.opacity = ease * ghostTargetOpacities[i];
+        });
+
+        if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+}
+
+// Start entrance after brief pause
+setTimeout(entranceAnimation, 300);
+
+// ============================================
+// AR — USDZ Quick Look (iOS)
+// ============================================
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+              (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const arButton = document.getElementById('arButton');
+const arLink = document.getElementById('arLink');
+
+if (isIOS) {
+    arButton.style.display = 'flex';
+    document.getElementById('hint')?.classList.add('ar-visible');
+}
+
+arButton.addEventListener('click', async () => {
+    arButton.classList.add('generating');
+
+    try {
+        // Build a solid-mesh scene for USDZ (no wireframes/lines/particles)
+        const arScene = new THREE.Scene();
+
+        // Scale factor for AR (model should be ~20cm in real space)
+        const arScale = 0.03;
+
+        // Node spheres — white metallic
+        const nodeMat = new THREE.MeshStandardMaterial({
+            color: 0xf5f5f7,
+            metalness: 0.3,
+            roughness: 0.4,
+            emissive: 0xd0d8ff,
+            emissiveIntensity: 0.1
+        });
+
+        NODES.forEach((node, i) => {
+            const vi = NODE_VERTEX_MAP[i];
+            const pos = TETRA_VERTICES[vi].clone().multiplyScalar(arScale);
+
+            // Core node sphere
+            const sphere = new THREE.Mesh(
+                new THREE.SphereGeometry(0.12 * arScale * 12, 16, 16),
+                nodeMat
+            );
+            sphere.position.copy(pos);
+            arScene.add(sphere);
+
+            // Subtle outer glow sphere
+            const glowMat = new THREE.MeshStandardMaterial({
+                color: 0xd0d8ff,
+                metalness: 0,
+                roughness: 1,
+                transparent: true,
+                opacity: 0.08
+            });
+            const glow = new THREE.Mesh(
+                new THREE.SphereGeometry(0.12 * arScale * 28, 12, 12),
+                glowMat
+            );
+            glow.position.copy(pos);
+            arScene.add(glow);
+        });
+
+        // Edges as thin tube meshes (USDZ can't render lines)
+        const tubeRadius = 0.003;
+        const edgeMat = new THREE.MeshStandardMaterial({
+            color: 0xf5f5f7,
+            metalness: 0.2,
+            roughness: 0.6,
+            transparent: true,
+            opacity: 0.6
+        });
+
+        EDGES.forEach(([a, b]) => {
+            const va = TETRA_VERTICES[a].clone().multiplyScalar(arScale);
+            const vb = TETRA_VERTICES[b].clone().multiplyScalar(arScale);
+
+            // Curved edge (Howard concavity)
+            const mid = new THREE.Vector3().lerpVectors(va, vb, 0.5);
+            const arCenter = new THREE.Vector3();
+            TETRA_VERTICES.forEach(v => arCenter.add(v.clone().multiplyScalar(arScale)));
+            arCenter.divideScalar(4);
+            const toCenter = new THREE.Vector3().subVectors(arCenter, mid);
+            const edgeLen = va.distanceTo(vb);
+            const curveMid = mid.clone().add(toCenter.normalize().multiplyScalar(edgeLen * CURVE_FACTOR));
+
+            const curve = new THREE.QuadraticBezierCurve3(va, curveMid, vb);
+            const tubeGeo = new THREE.TubeGeometry(curve, 24, tubeRadius, 6, false);
+            const tube = new THREE.Mesh(tubeGeo, edgeMat);
+            arScene.add(tube);
+        });
+
+        // Ghost network — first 2 generations as thin tubes + tiny spheres
+        // (simplified for AR performance)
+        const ghostNodeMat = new THREE.MeshStandardMaterial({
+            color: 0xf5f5f7,
+            metalness: 0,
+            roughness: 0.8,
+            transparent: true,
+            opacity: 0.15
+        });
+        const ghostEdgeMat = new THREE.MeshStandardMaterial({
+            color: 0xf5f5f7,
+            metalness: 0,
+            roughness: 0.8,
+            transparent: true,
+            opacity: 0.06
+        });
+
+        // Generate 2 ghost generations for AR
+        const arFaces = [];
+        const seedFaces = [
+            [0, 1, 2], [0, 1, 3], [0, 2, 3], [1, 2, 3]
+        ];
+        const arVerts = TETRA_VERTICES.map(v => v.clone().multiplyScalar(arScale));
+        const usedKeys = new Set();
+        arVerts.forEach(v => usedKeys.add(`${v.x.toFixed(3)},${v.y.toFixed(3)},${v.z.toFixed(3)}`));
+
+        // Seed faces for expansion
+        seedFaces.forEach(f => arFaces.push({ verts: f, gen: 0 }));
+
+        for (let gen = 1; gen <= 2; gen++) {
+            const parentFaces = arFaces.filter(f => f.gen === gen - 1);
+            for (const face of parentFaces) {
+                const [ia, ib, ic] = face.verts;
+                const faceVerts = [arVerts[ia], arVerts[ib], arVerts[ic]];
+                const centroid = new THREE.Vector3(
+                    (faceVerts[0].x + faceVerts[1].x + faceVerts[2].x) / 3,
+                    (faceVerts[0].y + faceVerts[1].y + faceVerts[2].y) / 3,
+                    (faceVerts[0].z + faceVerts[1].z + faceVerts[2].z) / 3
+                );
+
+                // For each face, the opposite vertex is the one NOT in this face
+                const allIndices = [0, 1, 2, 3].filter(x => !face.verts.includes(x));
+                // For seed faces, there's exactly one opposite vertex
+                // For later gens, we use reflection through centroid
+                const oppositeIdx = allIndices[0];
+                if (oppositeIdx === undefined) continue;
+
+                const opposite = arVerts[oppositeIdx];
+                const newV = new THREE.Vector3(
+                    2 * centroid.x - opposite.x,
+                    2 * centroid.y - opposite.y,
+                    2 * centroid.z - opposite.z
+                );
+
+                const key = `${newV.x.toFixed(3)},${newV.y.toFixed(3)},${newV.z.toFixed(3)}`;
+                if (usedKeys.has(key)) continue;
+                usedKeys.add(key);
+
+                const newIdx = arVerts.length;
+                arVerts.push(newV);
+
+                // Add ghost node sphere
+                const ghostSphere = new THREE.Mesh(
+                    new THREE.SphereGeometry(0.003, 8, 8),
+                    ghostNodeMat
+                );
+                ghostSphere.position.copy(newV);
+                arScene.add(ghostSphere);
+
+                // Add ghost edges from new vertex to face vertices
+                face.verts.forEach(vi => {
+                    const va = arVerts[vi];
+                    const gmid = new THREE.Vector3().lerpVectors(va, newV, 0.5);
+                    const gCenter = centroid;
+                    const gToCenter = new THREE.Vector3().subVectors(gCenter, gmid);
+                    const gLen = va.distanceTo(newV);
+                    const gCurveMid = gmid.clone().add(gToCenter.normalize().multiplyScalar(gLen * 0.1));
+
+                    const gCurve = new THREE.QuadraticBezierCurve3(va, gCurveMid, newV);
+                    const gTube = new THREE.Mesh(
+                        new THREE.TubeGeometry(gCurve, 12, 0.001, 4, false),
+                        ghostEdgeMat
+                    );
+                    arScene.add(gTube);
+                });
+
+                // Register new faces
+                arFaces.push({ verts: [face.verts[0], face.verts[1], newIdx], gen });
+                arFaces.push({ verts: [face.verts[0], face.verts[2], newIdx], gen });
+                arFaces.push({ verts: [face.verts[1], face.verts[2], newIdx], gen });
+            }
+        }
+
+        // Add ambient light (USDZ needs lights for PBR materials)
+        arScene.add(new THREE.AmbientLight(0xffffff, 0.6));
+        const dirLight = new THREE.DirectionalLight(0xf5f5f7, 0.8);
+        dirLight.position.set(1, 2, 1);
+        arScene.add(dirLight);
+
+        // Export to USDZ
+        const exporter = new USDZExporter();
+        const arrayBuffer = await exporter.parseAsync(arScene);
+        const blob = new Blob([arrayBuffer], { type: 'model/vnd.usdz+zip' });
+        const url = URL.createObjectURL(blob);
+
+        // Trigger Quick Look via hidden anchor
+        arLink.href = url;
+        arLink.click();
+
+        arButton.classList.remove('generating');
+    } catch (err) {
+        console.error('AR export failed:', err);
+        arButton.classList.remove('generating');
+    }
+});
+
+</script>
+
+</body>
+</html>

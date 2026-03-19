@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="qk.title">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnlyGods — Quantum Kitchen</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff; color: #1d1d1f;
+    overflow-x: hidden; scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(29, 29, 31, 0.12); }
+
+/* Film grain overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+}
+
+.site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+.nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; color: #1d1d1f;
+    text-decoration: none; letter-spacing: -0.5px;
+}
+
+.nav-links { display: flex; align-items: center; gap: 32px; }
+
+.nav-links a {
+    font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; position: relative;
+}
+.nav-links a:hover { color: #1d1d1f; }
+.nav-links a.active { color: #1d1d1f; }
+.nav-links a.active::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: #1d1d1f;
+}
+
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-burger span { display: block; width: 20px; height: 1.5px; background: #1d1d1f; transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-join {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 16px; border: 1px solid #1d1d1f; border-radius: 20px;
+    color: #1d1d1f; text-decoration: none; font-weight: 500;
+    margin-left: 16px; margin-right: auto; transition: all 0.3s ease;
+}
+.nav-join:hover { background: #1d1d1f; color: #ffffff; }
+
+.nav-mobile {
+    display: none; position: fixed; top: 60px; left: 0; right: 0;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 20px 40px 32px; flex-direction: column; gap: 20px; z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500; transition: color 0.3s ease;
+}
+.nav-mobile a:hover, .nav-mobile a.active { color: #1d1d1f; }
+
+/* BACK LINK */
+.back-link {
+    display: inline-block; padding: 80px 40px 0;
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; margin-top: 60px;
+}
+.back-link:hover { color: #1d1d1f; }
+
+/* DARK HERO */
+.event-hero {
+    background: #1d1d1f; color: #ffffff;
+    padding: 100px 40px 80px; text-align: center;
+    margin-top: 60px; position: relative; overflow: hidden;
+}
+.event-hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(52, 199, 89, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.event-hero .hero-label {
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+    color: #86868b; font-weight: 500; margin-bottom: 24px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.pulse {
+    display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+    background: #34c759; animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52, 199, 89, 0.5); }
+    50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(52, 199, 89, 0); }
+}
+
+.event-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 6vw, 80px); font-weight: 300;
+    letter-spacing: -2px; line-height: 1;
+    position: relative;
+}
+
+.event-hero .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 26px); color: #aeaeb2;
+    font-style: italic; font-weight: 400;
+    margin-top: 24px; line-height: 1.4;
+}
+
+.event-meta {
+    display: flex; align-items: center; justify-content: center; gap: 24px;
+    margin-top: 40px; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; color: #86868b; font-weight: 500;
+}
+.event-meta-sep { width: 4px; height: 4px; border-radius: 50%; background: #48484a; }
+
+/* CONTENT SECTIONS */
+.content-section {
+    max-width: 860px; margin: 0 auto; padding: 80px 40px;
+}
+
+.section-label {
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #86868b; margin-bottom: 16px; font-weight: 500;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px); font-weight: 400;
+    letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 24px;
+}
+
+.body-text {
+    font-size: 17px; color: #48484a; line-height: 1.75;
+}
+
+.section-divider { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+.section-divider::after { content: ''; display: block; width: 100%; height: 40px; background: radial-gradient(ellipse 200px 1px at 50% 50%, rgba(29,29,31,0.08) 0%, transparent 100%), radial-gradient(ellipse 400px 1px at 50% 50%, rgba(29,29,31,0.04) 0%, transparent 100%), radial-gradient(ellipse 600px 1px at 50% 50%, rgba(29,29,31,0.02) 0%, transparent 100%); }
+
+/* TOPICS GRID */
+.topics-section {
+    max-width: 1080px; margin: 0 auto; padding: 80px 40px;
+}
+
+.topics-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    margin-top: 40px;
+}
+
+.topic-card {
+    padding: 36px; background: #fbfbfd; border-radius: 3px;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.topic-card:hover { transform: translateY(-4px); }
+
+.topic-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px; font-weight: 300; color: #d1d1d6;
+    line-height: 1; margin-bottom: 16px;
+}
+
+.topic-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 500; letter-spacing: -0.3px;
+    margin-bottom: 10px; line-height: 1.2;
+}
+
+.topic-desc {
+    font-size: 14px; color: #86868b; line-height: 1.6;
+}
+
+/* FORMAT CARDS */
+.format-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-top: 32px;
+}
+
+.format-card {
+    text-align: center; padding: 40px 24px;
+    background: #1d1d1f; border-radius: 3px; color: #ffffff;
+}
+
+.format-icon {
+    font-size: 36px; margin-bottom: 16px;
+    display: block;
+}
+
+.format-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 400; margin-bottom: 8px;
+}
+
+.format-desc {
+    font-size: 13px; color: #86868b; line-height: 1.5;
+}
+
+/* LOCATION */
+.location-block {
+    background: #fbfbfd; border-radius: 3px; padding: 48px;
+    display: flex; gap: 40px; align-items: center; margin-top: 32px;
+}
+
+.location-info { flex: 1; }
+
+.location-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 400; letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.location-desc {
+    font-size: 15px; color: #86868b; line-height: 1.6;
+}
+
+.location-map {
+    width: 280px; height: 200px; flex-shrink: 0;
+    background: #e5e5e7; border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #aeaeb2;
+}
+
+/* CTA SECTION */
+.cta-section {
+    text-align: center; padding: 80px 40px 40px;
+    max-width: 860px; margin: 0 auto;
+}
+
+.cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 40px); font-weight: 400;
+    letter-spacing: -0.5px; margin-bottom: 16px;
+}
+
+.cta-desc {
+    font-size: 15px; color: #86868b; line-height: 1.6;
+    max-width: 480px; margin: 0 auto 32px;
+}
+
+.cta-btn {
+    display: inline-block; padding: 14px 40px;
+    background: #1d1d1f; color: #ffffff;
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    font-weight: 500; text-decoration: none; border-radius: 3px;
+    transition: all 0.3s ease;
+}
+.cta-btn:hover { background: #48484a; }
+
+.cta-support {
+    display: block; margin-top: 16px;
+    font-size: 13px; color: #aeaeb2; text-decoration: none;
+}
+.cta-support:hover { color: #1d1d1f; }
+
+/* BLOCKQUOTE */
+.event-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 30px); font-weight: 400;
+    font-style: italic; line-height: 1.5;
+    color: #48484a;
+    border-left: 3px solid #1d1d1f;
+    padding-left: 28px; margin: 48px 0;
+}
+
+/* IMAGE PLACEHOLDER */
+.img-placeholder {
+    width: 100%; aspect-ratio: 16 / 9;
+    background: #f5f5f7; border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #d1d1d6; margin: 40px 0;
+}
+
+/* FOOTER */
+.site-footer {
+    text-align: center; padding: 60px 20px 40px;
+    color: #aeaeb2; font-size: 13px; letter-spacing: 0.5px;
+}
+
+/* ANIMATIONS */
+.fade-in-up {
+    opacity: 0; transform: translateY(36px);
+    transition: opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1), transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .content-section { padding: 60px 20px; }
+    .topics-section { padding: 60px 20px; }
+    .topics-grid { grid-template-columns: 1fr; }
+    .format-grid { grid-template-columns: 1fr; }
+    .location-block { flex-direction: column; padding: 32px; }
+    .location-map { width: 100%; }
+    .event-hero { padding: 80px 20px 60px; }
+    .event-meta { flex-direction: column; gap: 8px; }
+    .event-meta-sep { display: none; }
+    .cta-section { padding: 60px 20px 30px; }
+    .section-divider { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .site-nav { padding: 0 20px; }
+    .back-link { padding: 80px 20px 0; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <a href="index.html" class="nav-wordmark">OnlyGods</a>
+    <a href="index.html#join" class="nav-join" data-i18n="nav.join">Join</a>
+    <div class="nav-links">
+        <a href="manifest.html">Manifest</a>
+        <a href="technologies.html">Holy Tech</a>
+        <a href="creators.html">Creators</a>
+        <a href="mindset.html" class="active">Mindset 2.0</a>
+        <a href="quantumlab.html">Quantum Lab</a>
+        <a href="activities.html">Activities</a>
+        <a href="playground.html">Playground</a>
+        <a href="dao.html">DAO</a>
+        <span class="nav-divider"></span>
+        <div class="lang-switcher">
+            <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+        </div>
+    </div>
+    <div class="nav-burger" id="nav-burger" onclick="this.classList.toggle('open'); document.getElementById('nav-mobile').classList.toggle('open');">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+    <a href="manifest.html">Manifest</a>
+    <a href="technologies.html">Holy Tech</a>
+        <a href="creators.html">Creators</a>
+    <a href="mindset.html" class="active">Mindset 2.0</a>
+    <a href="quantumlab.html">Quantum Lab</a>
+    <a href="activities.html">Activities</a>
+        <a href="playground.html">Playground</a>
+    <a href="dao.html">DAO</a>
+    <div class="lang-switcher">
+        <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+    </div>
+</div>
+
+<!-- DARK HERO -->
+<section class="event-hero">
+    <div class="fade-in-up">
+        <div class="hero-label">
+            <span class="pulse"></span>
+            <span data-i18n="qk.hero.label">Закрытый ивент лаборатории</span>
+        </div>
+        <h1 data-i18n="qk.hero.title">Quantum Kitchen</h1>
+        <p class="hero-tagline" data-i18n="qk.hero.tagline">Исследование. Ирония. Практика. Закуски.</p>
+        <div class="event-meta">
+            <span data-i18n="qk.hero.date">24 марта 2026</span>
+            <span class="event-meta-sep"></span>
+            <span data-i18n="qk.hero.location">Sintra, Portugal</span>
+            <span class="event-meta-sep"></span>
+            <span data-i18n="qk.hero.format">Закрытый ивент</span>
+        </div>
+    </div>
+</section>
+
+<!-- CONCEPT -->
+<div class="content-section fade-in-up">
+    <div class="section-label" data-i18n="qk.concept.label">Что это</div>
+    <div class="section-title" data-i18n="qk.concept.title">Лаборатория сознания в формате кухни</div>
+    <p class="body-text" data-i18n="qk.concept.text1">
+        Quantum Kitchen — закрытый ивент лаборатории сознания OnlyGods. Не конференция, не семинар, не ретрит. Кухня — потому что самые важные разговоры в жизни происходят не в залах и не на сцене. Они происходят дома. На кухне. Среди своих.
+    </p>
+    <blockquote class="event-quote" data-i18n="qk.concept.quote">
+        Самые глубокие трансформации происходят в разговорах с друзьями на кухне.
+    </blockquote>
+    <p class="body-text" data-i18n="qk.concept.text2">
+        Лекция об объединённом сознании и творчестве вне рамок — для предпринимателей, которым тесно. Живые разборы кейсов и трансформации. Мишленовские закуски, шампанское и абсолютное отсутствие пафоса. Китч как эстетика. Ирония как метод. Инструменты нелокального сознания — на практике.
+    </p>
+    <div class="img-placeholder" data-i18n="qk.concept.img">Фото · скоро</div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- PROGRAMME -->
+<div class="topics-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="qk.topics.label">Меню вечера</div>
+        <div class="section-title" data-i18n="qk.topics.title">Пять блюд Quantum Kitchen</div>
+    </div>
+    <div class="topics-grid">
+        <div class="topic-card fade-in-up">
+            <div class="topic-number">01</div>
+            <div class="topic-title" data-i18n="qk.topic1.title">Презентация: Резонансный Майндсет</div>
+            <div class="topic-desc" data-i18n="qk.topic1.desc">Со-первенство и синергия в бизнесе 2026. Не мотивационный спич — презентация того, что мы нашли, измерили и проверили на себе в лаборатории OnlyGods. Как работает резонанс между людьми и почему он масштабирует быстрее любой стратегии</div>
+        </div>
+        <div class="topic-card fade-in-up">
+            <div class="topic-number">02</div>
+            <div class="topic-title" data-i18n="qk.topic2.title">Практика: Разборы реальных кейсов</div>
+            <div class="topic-desc" data-i18n="qk.topic2.desc">Живая групповая демонстрация 5Д Сознания в работе с бизнесом. Синергия, работа с эгрегорами, снятие информации из поля</div>
+        </div>
+        <div class="topic-card fade-in-up">
+            <div class="topic-number">03</div>
+            <div class="topic-title" data-i18n="qk.topic3.title">Дискуссия: Holy Creator</div>
+            <div class="topic-desc" data-i18n="qk.topic3.desc">Предпринимательство как духовный путь. Не эзотерика для бизнесменов — бизнес для тех, кто уже проснулся. Открытый разговор. Без слайдов, без модератора, без правильных ответов</div>
+        </div>
+        <div class="topic-card fade-in-up">
+            <div class="topic-number">04</div>
+            <div class="topic-title" data-i18n="qk.topic4.title">Закуски: Consciousness Buffet</div>
+            <div class="topic-desc" data-i18n="qk.topic4.desc">Мишленовские закуски от Миши. Шампанское, икра, принятие себя и растворение концепций. Нетворкинг, который случается сам — когда люди в одном поле, им не нужны визитки</div>
+        </div>
+        <div class="topic-card fade-in-up">
+            <div class="topic-number">05</div>
+            <div class="topic-title" data-i18n="qk.topic5.title">Финал: Огонь и ритуалы</div>
+            <div class="topic-desc" data-i18n="qk.topic5.desc">Суть личных ритуалов и церемоний. Простые инструменты для глубокой работы с подсознанием — без гуру, без системы, без «духовных практик» в кавычках. Как играть в жизнь без излишней важности и творить как ребёнок. Разговоры у костра</div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- FORMAT -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="qk.format.label">Формат</div>
+        <div class="section-title" data-i18n="qk.format.title">Ингредиенты</div>
+    </div>
+    <div class="format-grid fade-in-up">
+        <div class="format-card">
+            <span class="format-icon">🔬</span>
+            <div class="format-title" data-i18n="qk.format.f1.title">Исследование</div>
+            <div class="format-desc" data-i18n="qk.format.f1.desc">Презентация и живые разборы. Данные лаборатории — на языке кухни</div>
+        </div>
+        <div class="format-card">
+            <span class="format-icon">◎</span>
+            <div class="format-title" data-i18n="qk.format.f2.title">Практики</div>
+            <div class="format-desc" data-i18n="qk.format.f2.desc">Живые эксперименты с сознанием. Не теория — прямой опыт. Руками, телом, вниманием</div>
+        </div>
+        <div class="format-card">
+            <span class="format-icon">🍿</span>
+            <div class="format-title" data-i18n="qk.format.f3.title">Закуски</div>
+            <div class="format-desc" data-i18n="qk.format.f3.desc">Мишленовские канапе от Миши, шампанское, икра. Сознание лучше расширяется на сытый желудок</div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- LOCATION -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label" data-i18n="qk.location.label">Место</div>
+        <div class="location-block">
+            <div class="location-info">
+                <div class="location-name" data-i18n="qk.location.name">Sintra, Portugal</div>
+                <p class="location-desc" data-i18n="qk.location.desc">
+                    Дома у Влада и Лизы. Синтра, Португалия — домашняя обстановка,
+                    живые люди, без сцен и круглых столов. Детали — после подтверждения участия.
+                </p>
+            </div>
+            <div class="location-map" data-i18n="qk.location.map">Карта · скоро</div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- CTA -->
+<div class="cta-section fade-in-up">
+    <div class="cta-title" data-i18n="qk.cta.title">Закрытый ивент. Ограниченные места.</div>
+    <p class="cta-desc" data-i18n="qk.cta.desc">
+        Участие по приглашению или запросу. Напишите — расскажем, подходит ли вам.
+    </p>
+    <a href="https://t.me/viki_assistant" class="cta-btn" target="_blank" data-i18n="qk.cta.btn">Хочу на кухню</a>
+    <a href="https://t.me/viki_assistant" class="cta-support" target="_blank" data-i18n="qk.cta.support">связаться с поддержкой</a>
+</div>
+
+<footer class="site-footer">OnlyGods</footer>
+
+<script src="translations.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>

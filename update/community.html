@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="membership.title">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnlyGods — Membership</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff; color: #1d1d1f;
+    overflow-x: hidden; scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(29, 29, 31, 0.12); }
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+}
+
+.site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+.nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; color: #1d1d1f;
+    text-decoration: none; letter-spacing: -0.5px;
+}
+
+.nav-links { display: flex; align-items: center; gap: 32px; }
+
+.nav-links a {
+    font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; position: relative;
+}
+.nav-links a:hover { color: #1d1d1f; }
+.nav-links a.active { color: #1d1d1f; }
+.nav-links a.active::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: #1d1d1f;
+}
+
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-burger span { display: block; width: 20px; height: 1.5px; background: #1d1d1f; transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-join {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 16px; border: 1px solid #1d1d1f; border-radius: 20px;
+    color: #1d1d1f; text-decoration: none; font-weight: 500;
+    margin-left: 16px; margin-right: auto; transition: all 0.3s ease;
+}
+.nav-join:hover { background: #1d1d1f; color: #ffffff; }
+
+.nav-mobile {
+    display: none; position: fixed; top: 60px; left: 0; right: 0;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 20px 40px 32px; flex-direction: column; gap: 20px; z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500; transition: color 0.3s ease;
+}
+.nav-mobile a:hover, .nav-mobile a.active { color: #1d1d1f; }
+
+.page-hero {
+    min-height: 60vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 120px 20px 80px;
+}
+
+.page-hero .hero-subtitle {
+    font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #86868b; margin-bottom: 20px; font-weight: 500;
+}
+
+.page-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 100px); font-weight: 400;
+    letter-spacing: -2px; line-height: 1;
+}
+
+.page-hero .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.2vw, 22px); color: #86868b;
+    max-width: 560px; line-height: 1.5; font-weight: 400;
+    font-style: italic; margin-top: 20px;
+}
+
+.content-section { max-width: 1080px; margin: 0 auto; padding: 100px 40px; }
+
+.section-label {
+    font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #86868b; font-weight: 500; margin-bottom: 16px;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 48px); font-weight: 400;
+    letter-spacing: -1px; line-height: 1.1; margin-bottom: 32px;
+}
+
+.section-body {
+    font-size: 15px; line-height: 1.8; color: #48484a;
+    max-width: 720px;
+}
+
+.section-divider {
+    max-width: 1080px; margin: 0 auto; height: 1px;
+    background: #f0f0f2; border: none;
+}
+
+/* Journey Steps */
+.journey-steps { display: flex; flex-direction: column; gap: 0; margin-top: 48px; }
+
+.journey-step {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+    padding: 40px 0;
+    border-bottom: 1px solid #f0f0f2;
+}
+
+.journey-step:first-child { border-top: 1px solid #f0f0f2; }
+
+.step-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 300; color: #d1d1d6;
+    line-height: 1;
+}
+
+.step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 400; margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.step-desc {
+    font-size: 15px; line-height: 1.7; color: #48484a;
+}
+
+/* Reviews */
+.reviews-grid { display: flex; flex-direction: column; gap: 0; margin-top: 48px; }
+
+.review-card {
+    padding: 48px 0;
+    border-bottom: 1px solid #f0f0f2;
+}
+
+.review-card:first-child { border-top: 1px solid #f0f0f2; }
+
+.review-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 400; font-style: italic;
+    line-height: 1.5; color: #1d1d1f;
+    max-width: 720px;
+}
+
+.review-author {
+    font-size: 13px; letter-spacing: 1px; color: #86868b;
+    margin-top: 16px; font-weight: 500;
+}
+
+/* Apply CTA */
+.apply-section {
+    max-width: 1080px; margin: 0 auto; padding: 100px 40px;
+    text-align: center;
+}
+
+.apply-section .section-label,
+.apply-section .section-title { text-align: center; }
+
+.apply-section .section-body {
+    margin: 0 auto 40px; text-align: center;
+}
+
+.apply-btn {
+    display: inline-block;
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 16px 48px; background: #1d1d1f; color: #ffffff;
+    text-decoration: none; font-weight: 500; border-radius: 32px;
+    transition: all 0.3s ease;
+}
+.apply-btn:hover { background: #48484a; }
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 60px 20px 40px;
+    color: #aeaeb2;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+/* Scroll animations */
+.fade-in {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.stagger-1 { transition-delay: 0.06s; }
+.stagger-2 { transition-delay: 0.12s; }
+.stagger-3 { transition-delay: 0.18s; }
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .site-nav { padding: 0 20px; }
+    .content-section, .apply-section { padding: 60px 20px; }
+    .journey-step { grid-template-columns: 40px 1fr; gap: 16px; padding: 28px 0; }
+    .step-number { font-size: 24px; }
+    .review-card { padding: 32px 0; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <a href="index.html" class="nav-wordmark">OnlyGods</a>
+    <a href="index.html#join" class="nav-join" data-i18n="nav.join">Join</a>
+    <div class="nav-links">
+        <a href="manifest.html">Manifest</a>
+        <a href="technologies.html">Holy Tech</a>
+        <a href="creators.html">Creators</a>
+        <a href="mindset.html">Mindset 2.0</a>
+        <a href="quantumlab.html">Quantum Lab</a>
+        <a href="activities.html">Activities</a>
+        <a href="playground.html">Playground</a>
+        <a href="dao.html">DAO</a>
+        <span class="nav-divider"></span>
+        <div class="lang-switcher">
+            <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+        </div>
+    </div>
+    <div class="nav-burger" id="nav-burger" onclick="this.classList.toggle('open'); document.getElementById('nav-mobile').classList.toggle('open');">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+    <a href="manifest.html">Manifest</a>
+    <a href="technologies.html">Holy Tech</a>
+        <a href="creators.html">Creators</a>
+    <a href="mindset.html">Mindset 2.0</a>
+    <a href="quantumlab.html">Quantum Lab</a>
+    <a href="activities.html">Activities</a>
+        <a href="playground.html">Playground</a>
+    <a href="dao.html">DAO</a>
+    <div class="lang-switcher">
+        <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="hero-subtitle fade-in" data-i18n="membership.hero.subtitle">Сообщество</div>
+    <h1 class="fade-in stagger-1" data-i18n="membership.hero.title">Community</h1>
+    <p class="hero-tagline fade-in stagger-2" data-i18n="membership.hero.tagline">Путь участника, отзывы, вход в поле</p>
+</section>
+
+<!-- MEMBER JOURNEY -->
+<section class="content-section">
+    <div class="section-label fade-in" data-i18n="membership.journey.label">Путь участника</div>
+    <h2 class="section-title fade-in stagger-1" data-i18n="membership.journey.title">How It Works</h2>
+    <p class="section-body fade-in stagger-2" data-i18n="membership.journey.intro">Вход в OnlyGods — это путь, а не покупка. Каждый этап — фильтр и точка трансформации.</p>
+
+    <div class="journey-steps">
+        <div class="journey-step fade-in">
+            <div class="step-number" data-i18n="membership.step0.label">00</div>
+            <div>
+                <div class="step-title" data-i18n="membership.step0.title">OnlyFans — фильтр</div>
+                <div class="step-desc" data-i18n="membership.step0.desc">Первая точка контакта. Контент, энергия, вайб. Фильтр на резонанс.</div>
+            </div>
+        </div>
+        <div class="journey-step fade-in stagger-1">
+            <div class="step-number" data-i18n="membership.step1.label">01</div>
+            <div>
+                <div class="step-title" data-i18n="membership.step1.title">Мы.Боги — курс-фильтр</div>
+                <div class="step-desc" data-i18n="membership.step1.desc">8 недель практик, интеграции и групповой работы. Точка входа в экосистему.</div>
+            </div>
+        </div>
+        <div class="journey-step fade-in stagger-2">
+            <div class="step-number" data-i18n="membership.step2.label">02</div>
+            <div>
+                <div class="step-title" data-i18n="membership.step2.title">OnlyGods — поле</div>
+                <div class="step-desc" data-i18n="membership.step2.desc">Подписка на резонансную сеть. Ежедневные практики, контент, групповые ритуалы.</div>
+            </div>
+        </div>
+        <div class="journey-step fade-in stagger-3">
+            <div class="step-number" data-i18n="membership.step3.label">03</div>
+            <div>
+                <div class="step-title" data-i18n="membership.step3.title">DaoDeDo — управление</div>
+                <div class="step-desc" data-i18n="membership.step3.desc">DAO-уровень. Участие в решениях, внутренняя экономика, голосование.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- REVIEWS -->
+<section class="content-section">
+    <div class="section-label fade-in" data-i18n="membership.reviews.label">Отзывы</div>
+    <h2 class="section-title fade-in stagger-1" data-i18n="membership.reviews.title">Voices from the Field</h2>
+
+    <div class="reviews-grid">
+        <div class="review-card fade-in">
+            <div class="review-text" data-i18n="membership.review1.text">«Это не курс. Это перепрошивка операционной системы. После Мы.Боги я перестала путать тревогу с интуицией.»</div>
+            <div class="review-author" data-i18n="membership.review1.author">— Участник потока #2</div>
+        </div>
+        <div class="review-card fade-in stagger-1">
+            <div class="review-text" data-i18n="membership.review2.text">«Я пришёл за инструментами — остался ради поля. Здесь не продают просветление, здесь его инженерят.»</div>
+            <div class="review-author" data-i18n="membership.review2.author">— Участник потока #1</div>
+        </div>
+        <div class="review-card fade-in stagger-2">
+            <div class="review-text" data-i18n="membership.review3.text">«Самый странный и самый честный проект, в котором я участвовала. Нет гуру, есть протокол.»</div>
+            <div class="review-author" data-i18n="membership.review3.author">— Участник потока #3</div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- APPLY -->
+<section class="apply-section">
+    <div class="section-label fade-in" data-i18n="membership.apply.label">Вступить</div>
+    <h2 class="section-title fade-in stagger-1" data-i18n="membership.apply.title">Join the Field</h2>
+    <p class="section-body fade-in stagger-2" data-i18n="membership.apply.desc">Вход через курс Мы.Боги. Заполни заявку — мы свяжемся.</p>
+    <a href="mybogi.html" class="apply-btn fade-in stagger-3" data-i18n="membership.apply.cta">Подать заявку →</a>
+</section>
+
+<footer class="site-footer">OnlyGods</footer>
+
+<script src="translations.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>

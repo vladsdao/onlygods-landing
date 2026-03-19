@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="vlad.title">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnlyGods — Vlad</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #ffffff; color: #1d1d1f;
+    overflow-x: hidden; scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(29, 29, 31, 0.12); }
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+}
+
+/* NAV */
+.site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+.nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; color: #1d1d1f;
+    text-decoration: none; letter-spacing: -0.5px;
+}
+
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a {
+    font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500;
+    transition: color 0.3s ease; position: relative;
+}
+.nav-links a:hover { color: #1d1d1f; }
+.nav-links a.active { color: #1d1d1f; }
+.nav-links a.active::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: #1d1d1f;
+}
+
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-burger span { display: block; width: 20px; height: 1.5px; background: #1d1d1f; transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-join {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 16px; border: 1px solid #1d1d1f; border-radius: 20px;
+    color: #1d1d1f; text-decoration: none; font-weight: 500;
+    margin-left: 16px; margin-right: auto; transition: all 0.3s ease;
+}
+.nav-join:hover { background: #1d1d1f; color: #ffffff; }
+
+.nav-mobile {
+    display: none; position: fixed; top: 60px; left: 0; right: 0;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 20px 40px 32px; flex-direction: column; gap: 20px; z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #86868b; text-decoration: none; font-weight: 500; transition: color 0.3s ease;
+}
+.nav-mobile a:hover, .nav-mobile a.active { color: #1d1d1f; }
+
+/* BACK LINK */
+.back-link {
+    display: inline-block;
+    padding: 80px 40px 0;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #86868b;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    margin-top: 60px;
+}
+.back-link:hover { color: #1d1d1f; }
+
+/* PROFILE HERO */
+.profile-hero {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 40px 48px;
+    text-align: center;
+}
+
+.profile-hero-label {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #86868b;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.profile-hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 10vw, 120px);
+    font-weight: 400;
+    letter-spacing: -2px;
+    line-height: 1;
+}
+
+.profile-hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    color: #86868b;
+    line-height: 1.5;
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* PROFILE MEDIA */
+.profile-media {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.profile-media img {
+    width: 100%;
+    border-radius: 3px;
+    display: block;
+}
+
+.profile-video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #f5f5f7;
+}
+
+.profile-video iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* SECTION DIVIDER */
+.section-divider { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+.section-divider::after { content: ''; display: block; width: 100%; height: 40px; background: radial-gradient(ellipse 200px 1px at 50% 50%, rgba(29,29,31,0.08) 0%, transparent 100%), radial-gradient(ellipse 400px 1px at 50% 50%, rgba(29,29,31,0.04) 0%, transparent 100%), radial-gradient(ellipse 600px 1px at 50% 50%, rgba(29,29,31,0.02) 0%, transparent 100%); }
+
+/* PROFILE BODY */
+.profile-body {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+.profile-body h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 28px;
+    color: #1d1d1f;
+}
+
+.profile-body p {
+    font-size: 17px;
+    color: #48484a;
+    line-height: 1.75;
+    margin-bottom: 20px;
+}
+
+.profile-body .intro-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.4;
+    color: #1d1d1f;
+    margin-bottom: 32px;
+    letter-spacing: -0.3px;
+}
+
+/* SERVICES */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 28px;
+}
+
+.service-card {
+    padding: 36px;
+    background: #fbfbfd;
+    border-radius: 3px;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+}
+
+.service-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1d1d1f;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+}
+
+.service-card p {
+    font-size: 15px;
+    color: #48484a;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.service-card-meta {
+    font-size: 13px;
+    color: #aeaeb2;
+    letter-spacing: 0.5px;
+    margin-top: 12px;
+    font-style: italic;
+}
+
+/* MEDIA LIST */
+.media-video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #f5f5f7;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media-video iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.media-video-placeholder {
+    font-size: 14px;
+    color: #aeaeb2;
+    letter-spacing: 1px;
+    font-style: italic;
+}
+
+.media-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.media-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid #f0f0f2;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+.media-item:first-child {
+    border-top: 1px solid #f0f0f2;
+}
+
+.media-item:hover {
+    opacity: 0.7;
+}
+
+.media-item-type {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #aeaeb2;
+    min-width: 60px;
+    font-weight: 500;
+}
+
+.media-item-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    flex: 1;
+    letter-spacing: -0.3px;
+}
+
+.media-item-arrow {
+    color: #aeaeb2;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.media-item:hover .media-item-arrow {
+    transform: translateX(4px);
+    color: #1d1d1f;
+}
+
+/* SOCIAL LINKS */
+.social-links {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.social-link {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #86868b;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #1d1d1f;
+}
+
+/* BOOKING CTA */
+.booking-cta {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.booking-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 400;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+}
+
+.booking-desc {
+    font-size: 17px;
+    color: #86868b;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto 32px;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 18px 48px;
+    background: #1d1d1f;
+    color: #ffffff;
+    font-size: 13px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+.cta-btn:hover {
+    background: #48484a;
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+.site-footer {
+    text-align: center; padding: 60px 20px 40px;
+    color: #aeaeb2; font-size: 13px; letter-spacing: 0.5px;
+}
+
+/* ANIMATIONS */
+.fade-in-up {
+    opacity: 0; transform: translateY(36px);
+    transition: opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1), transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.fade-in-up.visible { opacity: 1; transform: translateY(0); }
+.stagger-1 { transition-delay: 0.05s; }
+.stagger-2 { transition-delay: 0.12s; }
+
+@media (max-width: 768px) {
+    .back-link { padding: 80px 20px 0; }
+    .profile-hero { padding: 40px 20px 32px; }
+    .profile-media { padding: 0 20px; }
+    .profile-body { padding: 40px 20px; }
+    .section-divider { padding: 0 20px; }
+    .service-card { padding: 28px; }
+    .social-links { flex-wrap: wrap; justify-content: center; }
+    .cta-btn { padding: 16px 36px; font-size: 12px; }
+    .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .site-nav { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+    <a href="index.html" class="nav-wordmark">OnlyGods</a>
+    <a href="index.html#join" class="nav-join" data-i18n="nav.join">Join</a>
+    <div class="nav-links">
+        <a href="manifest.html">Manifest</a>
+        <a href="technologies.html">Holy Tech</a>
+        <a href="creators.html">Creators</a>
+        <a href="mindset.html">Mindset 2.0</a>
+        <a href="quantumlab.html">Quantum Lab</a>
+        <a href="activities.html">Activities</a>
+        <a href="playground.html">Playground</a>
+        <a href="dao.html">DAO</a>
+        <span class="nav-divider"></span>
+        <div class="lang-switcher">
+            <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+        </div>
+    </div>
+    <div class="nav-burger" id="nav-burger" onclick="this.classList.toggle('open'); document.getElementById('nav-mobile').classList.toggle('open');">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+    <a href="manifest.html">Manifest</a>
+    <a href="technologies.html">Holy Tech</a>
+        <a href="creators.html">Creators</a>
+    <a href="mindset.html">Mindset 2.0</a>
+    <a href="quantumlab.html">Quantum Lab</a>
+    <a href="activities.html">Activities</a>
+        <a href="playground.html">Playground</a>
+    <a href="dao.html">DAO</a>
+    <div class="lang-switcher">
+        <button class="lang-btn lang-active" data-lang="ru" onclick="OGLang.setLang('ru')">RU</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="en" onclick="OGLang.setLang('en')">EN</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-btn" data-lang="ua" onclick="OGLang.setLang('ua')">UA</button>
+    </div>
+</div>
+
+<!-- BACK LINK -->
+<a href="creators.html" class="back-link" data-i18n="vlad.back">&larr; About Us</a>
+
+<!-- HERO -->
+<section class="profile-hero">
+    <div class="fade-in-up">
+        <div class="profile-hero-label" data-i18n="vlad.hero.label">Founder</div>
+        <h1 class="profile-hero-name" data-i18n="vlad.hero.name">Vlad</h1>
+        <div class="profile-hero-tagline" data-i18n="vlad.hero.tagline">Meta-System Architect, Vision</div>
+    </div>
+</section>
+
+<!-- PHOTO / VIDEO -->
+<div class="profile-media fade-in-up">
+    <img src="vlad-photo.png" alt="Vlad" data-i18n-alt="vlad.media.alt">
+</div>
+
+<div class="section-divider" style="margin-top: 48px;"></div>
+
+<!-- BIO -->
+<article class="profile-body">
+    <div class="fade-in-up">
+        <div class="intro-heading" data-i18n="vlad.bio.heading">Строю инфраструктуру, в которой сознание становится экономической силой.</div>
+        <p data-i18n="vlad.bio.p1">20 лет духовных практик, опыт просветления и исследования на стыке квантовой физики и метафизики привели к созданию OnlyGods — экосистемы, где сознание обретает измеримую ценность. Не теоретик и не гуру. Архитектор систем, которые работают.</p>
+        <p data-i18n="vlad.bio.p2">Автор методологии ir4 (In Resonance) — фреймворка для измерения и фасилитации резонанса между людьми, идеями и состояниями. Интеллектуальный хребет экосистемы. То, что отличает «чувствую» от «измеряю».</p>
+        <p data-i18n="vlad.bio.p3">Визионер, ENTP, хаотик-креатив. Мыслю нелинейно, строю системы цивилизационного масштаба. Направляю AI-агентов на строительство того, что вижу. Вместе с Лизой создаём поле, где трансформация — не обещание, а повседневная реальность.</p>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- SERVICES -->
+    <div class="fade-in-up">
+        <h2 data-i18n="vlad.services.title">Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-card-title" data-i18n="vlad.services.s1.title">Consciousness Architecture Consulting</div>
+                <p data-i18n="vlad.services.s1.desc">Проектирование экосистем сознания: от архитектуры сообщества до экономических моделей, где внимание и резонанс создают реальную ценность.</p>
+                <div class="service-card-meta" data-i18n="vlad.services.s1.meta">По запросу</div>
+            </div>
+            <div class="service-card">
+                <div class="service-card-title" data-i18n="vlad.services.s2.title">1:1 Strategic Sessions</div>
+                <p data-i18n="vlad.services.s2.desc">Стратегические сессии для основателей и лидеров, работающих на стыке технологий и сознания. Первые принципы, не конвенции.</p>
+                <div class="service-card-meta" data-i18n="vlad.services.s2.meta">500&euro; / session</div>
+            </div>
+            <div class="service-card">
+                <div class="service-card-title" data-i18n="vlad.services.s3.title">Vibe Code Architecture</div>
+                <p data-i18n="vlad.services.s3.desc">Проектирование и строительство digital-продуктов через AI-агентов. Видение &rarr; архитектура &rarr; работающий продукт. Без написания кода.</p>
+                <div class="service-card-meta" data-i18n="vlad.services.s3.meta">Проектная основа</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- MEDIA -->
+    <div class="fade-in-up">
+        <h2 data-i18n="vlad.media.title">Media</h2>
+
+        <div class="media-video">
+            <span class="media-video-placeholder" data-i18n="vlad.media.placeholder">Video coming soon</span>
+        </div>
+
+        <div class="media-list">
+            <a href="#" class="media-item" target="_blank">
+                <span class="media-item-type" data-i18n="vlad.media.m1.type">Article</span>
+                <span class="media-item-title" data-i18n="vlad.media.m1.title">Физика квантово-волновой святости</span>
+                <span class="media-item-arrow">&rarr;</span>
+            </a>
+            <a href="#" class="media-item" target="_blank">
+                <span class="media-item-type" data-i18n="vlad.media.m2.type">Research</span>
+                <span class="media-item-title" data-i18n="vlad.media.m2.title">ir4: Measuring Resonance</span>
+                <span class="media-item-arrow">&rarr;</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- SOCIAL -->
+    <div class="fade-in-up">
+        <div class="social-links">
+            <a href="#" class="social-link" target="_blank" rel="noopener">Telegram</a>
+            <a href="#" class="social-link" target="_blank" rel="noopener">Instagram</a>
+            <a href="#" class="social-link" target="_blank" rel="noopener">YouTube</a>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- BOOKING -->
+    <div class="fade-in-up">
+        <div class="booking-cta">
+            <h2 class="booking-title" data-i18n="vlad.booking.title">Book a Session</h2>
+            <p class="booking-desc" data-i18n="vlad.booking.desc">Стратегическая сессия для тех, кто строит на стыке технологий и сознания.</p>
+            <a href="mailto:vladsdao@gmail.com" class="cta-btn" data-i18n="vlad.booking.cta">Написать</a>
+        </div>
+    </div>
+
+</article>
+
+<footer class="site-footer">OnlyGods</footer>
+
+<script src="translations.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>
