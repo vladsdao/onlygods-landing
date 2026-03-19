@@ -488,6 +488,34 @@ body::after {
     object-position: 55% 5%;
 }
 
+/* Caduceus hero — dark section image+text */
+.caduceus-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-top: 64px;
+}
+
+.caduceus-text {
+    max-width: 520px;
+}
+
+.caduceus-image {
+    overflow: hidden;
+    border-radius: 3px;
+    max-height: 600px;
+    display: flex;
+    justify-content: center;
+}
+
+.caduceus-image img {
+    height: 100%;
+    max-height: 600px;
+    width: auto;
+    object-fit: contain;
+}
+
 .benefits-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1143,9 +1171,11 @@ body::after {
 /* RESPONSIVE                             */
 /* ====================================== */
 @media (max-width: 768px) {
-    .grid-2, .grid-2-asymmetric, .grid-4, .benefits-grid, .benefit-grid, .field-hero {
+    .grid-2, .grid-2-asymmetric, .grid-4, .benefits-grid, .benefit-grid, .field-hero, .caduceus-hero {
         grid-template-columns: 1fr;
     }
+    .caduceus-image { max-height: 400px; }
+    .caduceus-image img { max-height: 400px; }
     .content-section {
         padding: 80px 20px;
     }
@@ -1267,8 +1297,13 @@ body::after {
     </div>
 
 
-    <div class="fade-in-up" style="margin-top: 56px;">
-        <p class="body-text" style="max-width: 860px;" data-i18n="index.what.p3">Игра в Бога — это, по сути, и есть проект. Творчество вне рамок, высшие состояния Сознания, Духовность как прямой опыт — вместо книжных знаний, искренний интерес к жизни и Святость в Изобилии — это то что открывается нам при достаточном уровне психо-эмоциональной энергии и открытом уме.</p>
+    <div class="caduceus-hero fade-in-up">
+        <div class="caduceus-text">
+            <p class="body-text" data-i18n="index.what.p3">Игра в Бога — это, по сути, и есть проект. Творчество вне рамок, высшие состояния Сознания, Духовность как прямой опыт — вместо книжных знаний, искренний интерес к жизни и Святость в Изобилии — это то что открывается нам при достаточном уровне психо-эмоциональной энергии и открытом уме.</p>
+        </div>
+        <div class="caduceus-image">
+            <img src="images/onepager/Caduceus.jpg" alt="OnlyGods Caduceus">
+        </div>
     </div>
 
     <div class="fade-in-up" style="margin-top: 56px;">
