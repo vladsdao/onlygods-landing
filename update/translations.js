@@ -359,104 +359,74 @@ var T = {
 
 // ─── INDEX: МЕХАНИКА ПОЛЯ ───
 'index.mechanics.label': {
-  ru: 'Поле',
-  en: 'The Field',
-  ua: 'Поле'
+  ru: 'Путь',
+  en: 'The Path',
+  ua: 'Шлях'
 },
 'index.mechanics.title': {
-  ru: 'Что вы обретаете',
-  en: 'What you gain',
-  ua: 'Що ви здобуваєте'
+  ru: 'Как это достигается',
+  en: 'How it\'s achieved',
+  ua: 'Як це досягається'
 },
 'index.mechanics.t1.title': {
-  ru: 'Десять лет за один цикл',
-  en: 'Ten years in one cycle',
-  ua: 'Десять років за один цикл'
-},
-'index.mechanics.t1.solo': {
-  ru: 'Медитируешь годами. Читаешь книги. Ходишь на ретриты. Возвращаешься в ту же точку — потому что одна скрипка не берёт аккорд. Индивидуальное сознание имеет потолок.',
-  en: 'You meditate for years. Read books. Attend retreats. Return to the same point — because a single violin can\'t play a chord. Individual consciousness has a ceiling.',
-  ua: 'Медитуєш роками. Читаєш книги. Їздиш на ретрити. Повертаєшся в ту ж точку — бо одна скрипка не бере акорд. Індивідуальна свідомість має стелю.'
+  ru: 'Деконструкция ума и выход из иллюзий',
+  en: 'Mind deconstruction and exit from illusions',
+  ua: 'Деконструкція розуму і вихід з ілюзій'
 },
 'index.mechanics.t1.body': {
-  ru: 'Когерентная группа — это другая физика. Десятки синхронизированных сознаний работают как ускоритель, которого у отшельников не было. То, на что традиции отводили десятилетия, здесь сжимается в месяцы. Не потому что мы лучше — а потому что коллективное сознание не имеет предела.',
-  en: 'A coherent group is different physics. Dozens of synchronized minds work as an accelerator hermits never had. What traditions stretched over decades compresses into months here. Not because we\'re better — but because collective consciousness has no ceiling.',
-  ua: 'Когерентна група — це інша фізика. Десятки синхронізованих свідомостей працюють як прискорювач, якого у відлюдників не було. Те, на що традиції відводили десятиліття, тут стискається в місяці. Не тому що ми кращі — а тому що колективна свідомість не має межі.'
+  ru: 'Выявить и трансформировать подсознательные паттерны слива энергии и стереотипы. Всё, что вы избегаете, управляет вами — здесь это становится видимым. Не теория. Прямой опыт, который меняет архитектуру восприятия.',
+  en: 'Identify and transform subconscious energy-draining patterns and stereotypes. Everything you avoid controls you — here it becomes visible. Not theory. Direct experience that changes the architecture of perception.',
+  ua: 'Виявити і трансформувати підсвідомі патерни зливу енергії та стереотипи. Все, чого ви уникаєте, керує вами — тут це стає видимим. Не теорія. Прямий досвід, який змінює архітектуру сприйняття.'
 },
 'index.mechanics.t2.title': {
-  ru: 'Коллективный разум — твой ресурс',
-  en: 'Collective intelligence — your resource',
-  ua: 'Колективний розум — твій ресурс'
-},
-'index.mechanics.t2.solo': {
-  ru: 'Приходит инсайт — не с кем проверить. Окружение не понимает. Начинаешь сомневаться в том, что чувствуешь. Твой опыт ограничен твоей сферой.',
-  en: 'An insight arrives — no one to verify it with. Your circle doesn\'t understand. You start doubting what you feel. Your experience is limited to your domain.',
-  ua: 'Приходить інсайт — нема з ким перевірити. Оточення не розуміє. Починаєш сумніватися в тому, що відчуваєш. Твій досвід обмежений твоєю сферою.'
+  ru: 'Радикальная честность и open mind',
+  en: 'Radical honesty and open mind',
+  ua: 'Радикальна чесність і open mind'
 },
 'index.mechanics.t2.body': {
-  ru: 'Инсайты, опыт и навыки всех участников — из бизнеса, здоровья, отношений, творчества — становятся доступны через поле. Не через разговоры, а на подсознательном уровне. Чужие прорывы в разных сферах — это твой ресурс. Коллективный разум работает на тебя, пока ты живёшь свою жизнь.',
-  en: 'Insights, experience, and skills of all participants — from business, health, relationships, creativity — become accessible through the field. Not through conversation, but at the subconscious level. Others\' breakthroughs across domains become your resource. Collective intelligence works for you while you live your life.',
-  ua: 'Інсайти, досвід і навички всіх учасників — з бізнесу, здоров\'я, стосунків, творчості — стають доступні через поле. Не через розмови, а на підсвідомому рівні. Чужі прориви в різних сферах — це твій ресурс. Колективний розум працює на тебе, поки ти живеш своє життя.'
+  ru: 'Стереть ограничения и всё, что успели чужого на себя надеть. Убеждения, которые вы считаете своими, почти всегда чужие. Радикальная честность — это не добродетель, а инструмент: без неё невозможно увидеть, что именно мешает.',
+  en: 'Erase limitations and everything foreign you\'ve taken on. Beliefs you consider yours are almost always someone else\'s. Radical honesty isn\'t a virtue — it\'s a tool: without it, you can\'t see what\'s actually in the way.',
+  ua: 'Стерти обмеження і все, що встигли чужого на себе надіти. Переконання, які ви вважаєте своїми, майже завжди чужі. Радикальна чесність — це не чеснота, а інструмент: без неї неможливо побачити, що саме заважає.'
 },
 'index.mechanics.t3.title': {
-  ru: 'Считывание реальности',
-  en: 'Reading reality',
-  ua: 'Зчитування реальності'
-},
-'index.mechanics.t3.solo': {
-  ru: 'Принимаешь решения на основе логики, которая работает только с прошлыми данными. Интуицию гасишь — «это не рационально». Видишь только то, что позволяют фильтры.',
-  en: 'You make decisions based on logic that only works with past data. You suppress intuition — "that\'s not rational." You see only what your filters allow.',
-  ua: 'Приймаєш рішення на основі логіки, яка працює лише з минулими даними. Інтуїцію гасиш — «це не раціонально». Бачиш лише те, що дозволяють фільтри.'
+  ru: 'Энергетический менеджмент и работа с вниманием',
+  en: 'Energy management and attention work',
+  ua: 'Енергетичний менеджмент і робота з увагою'
 },
 'index.mechanics.t3.body': {
-  ru: 'Интуиция обостряется до хирургической точности. Считываешь истинные намерения людей до того, как они произнесут слова — суперскилл и для бизнеса, и для жизни. Синхронистичности перестают выглядеть как совпадения. Идеи воплощаются быстрее, потому что ты начинаешь видеть связи, невидимые из линейной парадигмы.',
-  en: 'Intuition sharpens to surgical precision. You read people\'s true intentions before they speak — a superpower for business and life. Synchronicities stop looking like coincidences. Ideas manifest faster because you start seeing connections invisible from a linear paradigm.',
-  ua: 'Інтуїція загострюється до хірургічної точності. Зчитуєш справжні наміри людей до того, як вони вимовлять слова — суперскіл і для бізнесу, і для життя. Синхроністичності перестають виглядати як збіги. Ідеї втілюються швидше, бо ти починаєш бачити зв\'язки, невидимі з лінійної парадигми.'
+  ru: 'Выстроить новый ритм опыта — действий из желаний и интереса, а не из страха и долга. Внимание — это энергия. Куда направлено внимание, туда течёт сила. Мы учим управлять этим осознанно.',
+  en: 'Build a new rhythm of experience — actions from desire and interest, not from fear and obligation. Attention is energy. Where attention goes, power flows. We teach conscious management of this.',
+  ua: 'Вибудувати новий ритм досвіду — дій із бажань та інтересу, а не зі страху та обов\'язку. Увага — це енергія. Куди спрямована увага, туди тече сила. Ми вчимо керувати цим усвідомлено.'
 },
 'index.mechanics.t4.title': {
-  ru: 'Пересборка, а не ремонт',
-  en: 'Reassembly, not repair',
-  ua: 'Перескладання, а не ремонт'
-},
-'index.mechanics.t4.solo': {
-  ru: 'Латаешь дыры. Прорабатываешь бесконечно, но картина не меняется. Ньютоновская логика: разделяй, конкурируй, экстраполируй прошлое на будущее. Эта фрагментация перекладывается на всё — здоровье, экономику, отношения.',
-  en: 'Patching holes. Processing endlessly, but the picture doesn\'t change. Newtonian logic: divide, compete, extrapolate the past into the future. This fragmentation transfers to everything — health, economy, relationships.',
-  ua: 'Латаєш діри. Опрацьовуєш нескінченно, але картина не змінюється. Ньютонівська логіка: поділяй, конкуруй, екстраполюй минуле на майбутнє. Ця фрагментація перекладається на все — здоров\'я, економіку, стосунки.'
+  ru: 'Осознание нового фреймворка 5Д Сознания',
+  en: 'Awareness of the new 5D Consciousness framework',
+  ua: 'Усвідомлення нового фреймворку 5Д Свідомості'
 },
 'index.mechanics.t4.body': {
-  ru: 'Не новые знания поверх старых. Полная пересборка — от фрагментации к когерентности, от конкуренции к симбиозу, от линейного мышления к квантовой парадигме. Ты получаешь другую операционную систему сознания. Это некомфортно — и это единственный способ увидеть то, что раньше не мог.',
-  en: 'Not new knowledge on top of old. Complete reassembly — from fragmentation to coherence, from competition to symbiosis, from linear thinking to quantum paradigm. You get a different operating system for consciousness. It\'s uncomfortable — and it\'s the only way to see what you couldn\'t before.',
-  ua: 'Не нові знання поверх старих. Повне перескладання — від фрагментації до когерентності, від конкуренції до симбіозу, від лінійного мислення до квантової парадигми. Ти отримуєш іншу операційну систему свідомості. Це некомфортно — і це єдиний спосіб побачити те, чого раніше не міг.'
+  ru: 'Получить необходимые знания и осознать по-новому своего персонажа. От линейного мышления — к квантовой парадигме. От фрагментации — к когерентности. Это не новые знания поверх старых, а другая операционная система.',
+  en: 'Gain the necessary knowledge and re-perceive your character. From linear thinking to quantum paradigm. From fragmentation to coherence. Not new knowledge on top of old — a different operating system.',
+  ua: 'Отримати необхідні знання і усвідомити по-новому свого персонажа. Від лінійного мислення — до квантової парадигми. Від фрагментації — до когерентності. Це не нові знання поверх старих, а інша операційна система.'
 },
 'index.mechanics.t5.title': {
-  ru: 'Круг силы',
-  en: 'Circle of strength',
-  ua: 'Коло сили'
-},
-'index.mechanics.t5.solo': {
-  ru: 'Окружение обесценивает. Советует «быть реалистом». Навязывает свои страхи как заботу. Вместо поддержки — критика. Вместо резонанса — помехи. Ты теряешь решительность.',
-  en: 'Your circle devalues you. Advises "being realistic." Imposes their fears as care. Instead of support — criticism. Instead of resonance — noise. You lose resolve.',
-  ua: 'Оточення знецінює. Радить «бути реалістом». Нав\'язує свої страхи як турботу. Замість підтримки — критика. Замість резонансу — перешкоди. Ти втрачаєш рішучість.'
+  ru: 'Резонансная модель взаимоотношений',
+  en: 'Resonant relationship model',
+  ua: 'Резонансна модель взаємовідносин'
 },
 'index.mechanics.t5.body': {
-  ru: 'Круг людей, которые поддерживают тебя во всём — искренне, когерентно, без эго-игр. Это даёт решительность, уверенность и колоссально больше сил действовать. Ты учишься строить такие же симбиотические структуры — в семье, в бизнесе, в любых отношениях. Сексуальная энергия — строительный материал, не табу.',
-  en: 'A circle of people who support you in everything — sincerely, coherently, without ego games. This gives resolve, confidence, and vastly more energy to act. You learn to build similar symbiotic structures — in family, business, any relationship. Sexual energy is building material, not taboo.',
-  ua: 'Коло людей, які підтримують тебе в усьому — щиро, когерентно, без его-ігор. Це дає рішучість, впевненість і колосально більше сил діяти. Ти вчишся будувати такі ж симбіотичні структури — в сім\'ї, в бізнесі, в будь-яких стосунках. Сексуальна енергія — будівельний матеріал, не табу.'
+  ru: 'Находиться в поле людей со схожими ценностями. Круг, который поддерживает, а не обесценивает. Вы учитесь строить когерентные симбиотические структуры — в семье, в бизнесе, в любых отношениях. Сексуальная энергия — строительный материал, не табу.',
+  en: 'Being in a field of people with shared values. A circle that supports, not devalues. You learn to build coherent symbiotic structures — in family, business, any relationship. Sexual energy is building material, not taboo.',
+  ua: 'Знаходитись у полі людей зі схожими цінностями. Коло, яке підтримує, а не знецінює. Ви вчитесь будувати когерентні симбіотичні структури — в сім\'ї, в бізнесі, в будь-яких стосунках. Сексуальна енергія — будівельний матеріал, не табу.'
 },
 'index.mechanics.t6.title': {
-  ru: 'Энергия и Состояние Творца',
-  en: 'Energy and the Creator State',
-  ua: 'Енергія і Стан Творця'
-},
-'index.mechanics.t6.solo': {
-  ru: 'Упираешься в потолок проводимости. Энергии хватает на функционирование, но не на создание. Масштабные идеи не проходят — фильтры, страхи, ограничения пропускной способности.',
-  en: 'You hit your conductivity ceiling. There\'s enough energy to function, but not to create. Big ideas don\'t make it through — filters, fears, bandwidth limitations.',
-  ua: 'Впираєшся в стелю провідності. Енергії вистачає на функціонування, але не на створення. Масштабні ідеї не проходять — фільтри, страхи, обмеження пропускної здатності.'
+  ru: 'Синергия в поле объединённого Сознания',
+  en: 'Synergy in the field of united Consciousness',
+  ua: 'Синергія в полі об\'єднаної Свідомості'
 },
 'index.mechanics.t6.body': {
-  ru: 'Высокий уровень психо-эмоциональной энергии. Состояние Творца как норма, не как пиковый опыт. Проводимость растёт — идеи воплощаются быстрее, потому что через тебя проходит больше. Сознание в ресурсном состоянии — нектар чистого творчества вне рамок. Попробовав, невозможно согласиться на меньшее.',
-  en: 'High psycho-emotional energy level. Creator state as the norm, not a peak experience. Conductivity grows — ideas manifest faster because more flows through you. Consciousness in a resourceful state — nectar of pure creativity beyond limits. Once tasted, you can\'t settle for less.',
-  ua: 'Високий рівень психо-емоційної енергії. Стан Творця як норма, не як піковий досвід. Провідність зростає — ідеї втілюються швидше, бо через тебе проходить більше. Свідомість у ресурсному стані — нектар чистої творчості поза рамками. Спробувавши, неможливо погодитись на менше.'
+  ru: 'Поле усиливает вас, в то время как вы усиливаете поле. Коллективное сознание не имеет предела — индивидуальное имеет. То, на что традиции отводили десятилетия, здесь сжимается в месяцы. Попадая в наше поле, человек выходит за рамки собственных ограничений.',
+  en: 'The field strengthens you while you strengthen the field. Collective consciousness has no ceiling — individual does. What traditions stretched over decades compresses into months here. Entering our field, a person transcends their own limitations.',
+  ua: 'Поле підсилює вас, у той час як ви підсилюєте поле. Колективна свідомість не має межі — індивідуальна має. Те, на що традиції відводили десятиліття, тут стискається в місяці. Потрапляючи в наше поле, людина виходить за рамки власних обмежень.'
 },
 
 // ─── INDEX: ИНСТРУМЕНТЫ ───
