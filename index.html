@@ -19,10 +19,20 @@
 /* ========== RESET + FOUNDATION ========== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+:root {
+    --content: 900px;
+    --content-wide: 1100px;
+    --body-size: 17px;
+    --body-color: #3a3a3c;
+    --secondary-color: #86868b;
+    --heading-color: #1d1d1f;
+    --section-gap: 100px;
+}
+
 body, html {
     font-family: 'DM Sans', sans-serif;
     background: #ffffff;
-    color: #1d1d1f;
+    color: var(--heading-color);
     overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -31,7 +41,7 @@ body, html {
 
 ::selection { background: rgba(29, 29, 31, 0.12); }
 
-/* Film grain — analog texture */
+/* Film grain */
 body::after {
     content: '';
     position: fixed;
@@ -44,22 +54,22 @@ body::after {
     background-size: 256px 256px;
 }
 
-/* ========== TYPOGRAPHY ========== */
+/* ========== TYPOGRAPHY — UNIFIED ========== */
 h1, h2, h3 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
     line-height: 1.1;
 }
 
-/* ========== LAYOUT ========== */
+/* ========== LAYOUT — SINGLE GRID ========== */
 .section {
-    max-width: 720px;
+    max-width: var(--content);
     margin: 0 auto;
-    padding: 120px 24px;
+    padding: var(--section-gap) 24px;
 }
 
 @media (min-width: 768px) {
-    .section { padding: 160px 40px; }
+    .section { padding: var(--section-gap) 40px; }
 }
 
 /* ========== HERO (01) ========== */
@@ -71,7 +81,11 @@ h1, h2, h3 {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 80px 24px 120px;
+    padding: 80px 24px 60px;
+}
+
+@media (min-width: 768px) {
+    .hero { padding: 80px 60px 80px; }
 }
 
 .hero-wordmark {
@@ -94,36 +108,36 @@ h1, h2, h3 {
     font-size: 12px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #86868b;
+    color: var(--secondary-color);
     margin-top: 16px;
     font-weight: 500;
 }
 
 .hero-body {
-    max-width: 560px;
+    max-width: calc(var(--content) - 80px);
     margin-top: 56px;
-    font-size: 17px;
-    color: #48484a;
-    line-height: 1.8;
+    font-size: var(--body-size);
+    color: var(--body-color);
+    line-height: 1.85;
     text-align: left;
 }
 
-.hero-body p { margin-bottom: 24px; }
+.hero-body p { margin-bottom: 20px; }
 
 .hero-body .accent {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 21px;
+    font-size: clamp(19px, 2.2vw, 22px);
     font-style: italic;
-    color: #1d1d1f;
+    color: var(--heading-color);
     line-height: 1.5;
 }
 
 .hero-coda {
-    max-width: 480px;
+    max-width: calc(var(--content) - 80px);
     margin-top: 8px;
     font-size: 15px;
-    color: #86868b;
-    line-height: 1.7;
+    color: var(--secondary-color);
+    line-height: 1.8;
     text-align: left;
 }
 
@@ -132,14 +146,14 @@ h1, h2, h3 {
     font-size: 12px;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: #86868b;
+    color: var(--secondary-color);
     margin-bottom: 48px;
     font-weight: 500;
 }
 
 .architect-block {
     display: flex;
-    gap: 40px;
+    gap: 48px;
     align-items: flex-start;
     margin-bottom: 56px;
 }
@@ -148,8 +162,8 @@ h1, h2, h3 {
 
 .architect-photo {
     flex-shrink: 0;
-    width: 200px;
-    height: 260px;
+    width: 220px;
+    height: 280px;
     border-radius: 4px;
     overflow: hidden;
     background: #f0f0f0;
@@ -159,6 +173,7 @@ h1, h2, h3 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center;
     filter: grayscale(100%) contrast(1.1);
     transition: filter 0.6s ease;
 }
@@ -176,22 +191,22 @@ h1, h2, h3 {
     font-size: 11px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #86868b;
+    color: var(--secondary-color);
 }
 
 .architect-text { flex: 1; }
 
 .architect-block p {
-    font-size: 17px;
-    color: #48484a;
-    line-height: 1.8;
+    font-size: var(--body-size);
+    color: var(--body-color);
+    line-height: 1.85;
 }
 
 .architect-block .name {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(28px, 3.5vw, 36px);
     font-weight: 400;
-    color: #1d1d1f;
+    color: var(--heading-color);
     display: block;
     margin-bottom: 12px;
     letter-spacing: -0.5px;
@@ -212,17 +227,10 @@ h1, h2, h3 {
 
 .architects-summary {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 21px;
+    font-size: clamp(19px, 2.2vw, 22px);
     font-style: italic;
-    color: #1d1d1f;
+    color: var(--heading-color);
     line-height: 1.5;
-    margin-top: 16px;
-}
-
-.architects-trust {
-    font-size: 15px;
-    color: #86868b;
-    line-height: 1.7;
     margin-top: 16px;
 }
 
@@ -240,7 +248,7 @@ h1, h2, h3 {
     display: block;
 }
 
-/* Full-bleed dark image (hero forks, offer fork) */
+/* Full-bleed dark image */
 .full-bleed-image {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
@@ -253,10 +261,63 @@ h1, h2, h3 {
     display: block;
 }
 
+/* Cropped panoramic strip inside hero */
+.hero-image-strip {
+    width: 100%;
+    margin: 16px 0 0;
+    border-radius: 8px;
+    overflow: hidden;
+    line-height: 0;
+    height: 240px;
+}
+
+.hero-image-strip img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 45%;
+}
+
+.hero-image-caption {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--secondary-color);
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* Cropped image strip for sections */
+.section-image-strip {
+    width: 100%;
+    max-width: calc(var(--content) - 80px);
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    line-height: 0;
+    height: 400px;
+}
+
+@media (max-width: 767px) {
+    .section-image-strip { max-width: calc(100% - 48px); }
+}
+
+.section-image-strip img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center bottom;
+}
+
 /* Offer image — single fork */
 .offer-image {
-    max-width: 680px;
+    max-width: var(--content);
     margin: 0 auto 64px;
+    padding: 0 24px;
 }
 
 .offer-image img {
@@ -271,7 +332,7 @@ h1, h2, h3 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(18px, 2.2vw, 22px);
     font-style: italic;
-    color: #86868b;
+    color: var(--secondary-color);
     line-height: 1.6;
     margin-bottom: 8px;
 }
@@ -279,51 +340,71 @@ h1, h2, h3 {
 .field-epigraph-source {
     font-size: 14px;
     color: #a1a1a6;
-    margin-bottom: 72px;
+    margin-bottom: 64px;
 }
 
-.field-item { margin-bottom: 48px; }
+/* 2-column grid for field items on desktop */
+.field-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+@media (min-width: 768px) {
+    .field-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 48px 64px;
+    }
+}
+
+.field-item {
+    padding-left: 20px;
+    border-left: 2px solid rgba(29, 29, 31, 0.06);
+}
 
 .field-item h3 {
     font-size: 15px;
     font-family: 'DM Sans', sans-serif;
     font-weight: 500;
     letter-spacing: 0.5px;
-    color: #1d1d1f;
-    margin-bottom: 12px;
+    color: var(--heading-color);
+    margin-bottom: 10px;
 }
 
 .field-item p {
-    font-size: 16px;
-    color: #48484a;
-    line-height: 1.75;
+    font-size: var(--body-size);
+    color: var(--body-color);
+    line-height: 1.8;
 }
 
-/* ========== VIDEO (04) — DARK ========== */
+/* ========== VIDEO (04) ========== */
 .section-dark {
-    background: #1d1d1f;
+    background: var(--heading-color);
     color: #f5f5f7;
 }
 
 .video-section {
+    max-width: var(--content);
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 24px;
+    padding: 40px 24px;
 }
 
 @media (min-width: 768px) {
-    .video-section { padding: 140px 40px; }
+    .video-section { padding: 60px 40px; }
 }
 
 .video-container {
     width: 100%;
-    max-width: 360px;
+    max-width: 280px;
     aspect-ratio: 9 / 16;
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
-    background: #0a0a0a;
+    background: #f0f0f0;
     position: relative;
+    border: 1px solid rgba(29, 29, 31, 0.06);
 }
 
 .video-container video {
@@ -338,25 +419,25 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 1px;
-    color: #6e6e73;
+    color: var(--secondary-color);
     text-transform: uppercase;
 }
 
 /* ========== ENGINEERING (05) ========== */
 .engineering-text {
-    font-size: 17px;
-    color: #48484a;
-    line-height: 1.8;
+    font-size: var(--body-size);
+    color: var(--body-color);
+    line-height: 1.85;
     margin-bottom: 24px;
 }
 
 .engineering-text .lead {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 21px;
+    font-size: clamp(19px, 2.2vw, 22px);
     font-style: italic;
-    color: #1d1d1f;
+    color: var(--heading-color);
     line-height: 1.5;
     display: block;
     margin-bottom: 32px;
@@ -365,7 +446,7 @@ h1, h2, h3 {
 .pillars {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px 20px;
+    gap: 32px 28px;
     justify-content: center;
     margin-top: 64px;
     padding-top: 48px;
@@ -376,77 +457,97 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-    width: calc(100% / 6 - 20px);
-    min-width: 80px;
+    gap: 14px;
+    width: calc(100% / 6 - 28px);
+    min-width: 90px;
 }
 
 .pillar-icon {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .pillar-icon svg {
-    width: 32px;
-    height: 32px;
-    stroke: #86868b;
+    width: 36px;
+    height: 36px;
+    stroke: var(--secondary-color);
     stroke-width: 1;
     fill: none;
+    transition: stroke 0.3s;
 }
+
+.pillar:hover .pillar-icon svg { stroke: var(--heading-color); }
 
 .pillar-label {
     font-size: 11px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #86868b;
+    color: var(--secondary-color);
     text-align: center;
     font-weight: 500;
 }
 
 /* ========== PATH (06) ========== */
 .path-intro {
-    font-size: 17px;
-    color: #48484a;
-    line-height: 1.8;
+    font-size: var(--body-size);
+    color: var(--body-color);
+    line-height: 1.85;
     margin-bottom: 64px;
 }
 
-.path-step { margin-bottom: 48px; }
+/* Path grid: 2x2 on desktop */
+.path-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+@media (min-width: 768px) {
+    .path-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 48px 64px;
+    }
+}
+
+.path-step {
+    padding-left: 20px;
+    border-left: 2px solid rgba(29, 29, 31, 0.06);
+}
 
 .path-step .step-label {
     font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #86868b;
+    color: var(--secondary-color);
     font-weight: 500;
     margin-bottom: 8px;
 }
 
 .path-step h3 {
     font-family: 'DM Sans', sans-serif;
-    font-size: 17px;
+    font-size: var(--body-size);
     font-weight: 500;
-    color: #1d1d1f;
+    color: var(--heading-color);
     margin-bottom: 10px;
 }
 
 .path-step p {
-    font-size: 16px;
-    color: #48484a;
-    line-height: 1.75;
+    font-size: var(--body-size);
+    color: var(--body-color);
+    line-height: 1.8;
 }
 
 /* ========== ENTRY (07) — DARK ========== */
 .entry-section {
-    padding: 120px 24px 80px;
+    padding: var(--section-gap) 24px 80px;
     text-align: center;
 }
 
 @media (min-width: 768px) {
-    .entry-section { padding: 160px 40px 120px; }
+    .entry-section { padding: var(--section-gap) 40px 100px; }
 }
 
 .entry-section .entry-lead {
@@ -454,7 +555,7 @@ h1, h2, h3 {
     font-size: clamp(20px, 2.5vw, 26px);
     font-style: italic;
     color: #a1a1a6;
-    max-width: 480px;
+    max-width: 560px;
     margin: 0 auto 16px;
     line-height: 1.5;
 }
@@ -462,14 +563,14 @@ h1, h2, h3 {
 .entry-section .entry-filter {
     font-size: 15px;
     color: #6e6e73;
-    max-width: 420px;
+    max-width: 500px;
     margin: 0 auto 48px;
     line-height: 1.7;
 }
 
 .entry-section .entry-tagline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 17px;
+    font-size: var(--body-size);
     font-style: italic;
     color: #6e6e73;
     margin-bottom: 24px;
@@ -492,7 +593,7 @@ h1, h2, h3 {
 
 /* Form */
 .entry-form {
-    max-width: 360px;
+    max-width: 400px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -524,7 +625,7 @@ h1, h2, h3 {
     border: none;
     border-radius: 8px;
     background: #f5f5f7;
-    color: #1d1d1f;
+    color: var(--heading-color);
     cursor: pointer;
     transition: opacity 0.3s;
     margin-top: 8px;
@@ -543,9 +644,16 @@ h1, h2, h3 {
 
 /* ========== SECTION DIVIDERS ========== */
 .divider {
-    max-width: 720px;
+    max-width: var(--content);
     margin: 0 auto;
     padding: 0 24px;
+}
+
+/* ========== MOBILE ========== */
+@media (max-width: 600px) {
+    .hero-image-strip { height: 120px; }
+    .section-image-strip { height: 180px !important; }
+    .section-image-strip img { object-position: 60% 80% !important; }
 }
 
 .divider::after {
@@ -583,6 +691,11 @@ h1, h2, h3 {
         <p>Рядом с определёнными людьми вы думаете яснее, чувствуете точнее, решаете быстрее. Это не харизма. Это физика. Два сознания в резонансе порождают третье состояние, недоступное каждому по отдельности.</p>
 
         <p>Теперь представьте поле из десятков таких сознаний — и инженерную среду, которая делает этот эффект воспроизводимым.</p>
+
+        <div class="hero-image-strip">
+            <img src="images/onepager/forks-circle.jpg" alt="49 камертонов в круге — резонансное поле" loading="lazy">
+        </div>
+        <p class="hero-image-caption">«Если вы хотите найти секреты Вселенной, мыслите категориями энергии, частоты и вибрации» — Никола Тесла</p>
     </div>
 
     <div class="hero-coda reveal">
@@ -592,21 +705,20 @@ h1, h2, h3 {
     </div>
 </section>
 
-<!-- Full-bleed: 49 tuning forks circle -->
-<div class="full-bleed-image">
-    <img src="images/onepager/forks-circle.jpg" alt="49 камертонов в круге — резонансное поле" loading="lazy">
-</div>
-
 <div class="divider"></div>
 
+<!-- Cube + drop — before architects -->
+<div class="section-image-strip">
+    <img src="images/onepager/cube-drop.jpg" alt="Куб и капля — структура и поток" loading="lazy">
+</div>
+
 <!-- ==================== 02: ARCHITECTS ==================== -->
-<section class="section architects reveal">
+<section class="section architects reveal" style="padding-top: 56px;">
     <div class="section-label">Архитекторы</div>
 
     <div class="architect-block">
         <div class="architect-photo">
-            <!-- Replace with: <img src="vlad-photo.png" alt="Влад" loading="lazy"> -->
-            <div class="photo-placeholder">фото</div>
+            <img src="images/onepager/Vlad.jpg" alt="Влад" loading="lazy">
         </div>
         <div class="architect-text">
             <span class="name">Влад</span>
@@ -616,8 +728,7 @@ h1, h2, h3 {
 
     <div class="architect-block reverse">
         <div class="architect-photo">
-            <!-- Replace with: <img src="liza-photo.jpg" alt="Лиза" loading="lazy"> -->
-            <div class="photo-placeholder">фото</div>
+            <img src="images/onepager/Liza.jpg" alt="Лиза" loading="lazy">
         </div>
         <div class="architect-text">
             <span class="name">Лиза</span>
@@ -625,65 +736,61 @@ h1, h2, h3 {
         </div>
     </div>
 
-    <p class="architects-summary">Архитектор и проводник. Система и поток. Мы ведём каждую практику, каждый стрим, каждый процесс лично.</p>
-    <p class="architects-trust">Доверие здесь не входной билет. Оно приходит как результат вашего прямого опыта.</p>
-
-    <div class="section-image">
-        <img src="images/onepager/cube-drop.jpg" alt="Куб и капля — структура и поток" loading="lazy">
-    </div>
+    <p class="architects-summary">Главный входной билет — ваш резонанс с идеей и её авторами. Созвучие на уровне чувств это главное условие для настройки Синергии. Вы должны почувствовать интерес.</p>
 </section>
 
 <div class="divider"></div>
+
+<!-- Forks front — before Field -->
+<div class="section-image-strip" style="margin-bottom: 0; height: 450px;">
+    <img src="images/onepager/forks-front.jpg" alt="Камертоны — сетевой эффект сознания" loading="lazy" style="object-position: center 60%;">
+</div>
 
 <!-- ==================== 03: FIELD ==================== -->
 <section class="section reveal">
     <div class="field-epigraph">«Мудрый человек слышит о Дао и следует ему усердно. Обычный человек слышит о Дао и следует ему то да, то нет. Глупый человек слышит о Дао и смеётся над ним. Если бы он не смеялся, это не было бы истинным Дао.»</div>
     <div class="field-epigraph-source">— Лао Цзы</div>
 
-    <div class="field-item">
-        <h3>1. Зеркало, которое нельзя выключить</h3>
-        <p>Поле отражает всё. Каждую слепую зону, каждое сопротивление, каждую ложь, которую вы называете убеждением. Вы не сможете спрятаться — и именно поэтому это работает.</p>
-    </div>
+    <div class="field-grid">
+        <div class="field-item">
+            <h3>1. Зеркало, которое нельзя выключить</h3>
+            <p>Поле отражает всё. Каждую слепую зону, каждое сопротивление, каждую ложь, которую вы называете убеждением. Вы не сможете спрятаться — и именно поэтому это работает.</p>
+        </div>
 
-    <div class="field-item">
-        <h3>2. Сжатие времени</h3>
-        <p>То, что традиции растягивали на десятилетия, здесь происходит в реальном времени. Не потому что мы лучше. А потому что поле из десятков синхронизированных сознаний — ускоритель, которого у отшельников не было.</p>
-    </div>
+        <div class="field-item">
+            <h3>2. Сжатие времени</h3>
+            <p>То, что традиции растягивали на десятилетия, здесь происходит в реальном времени. Не потому что мы лучше. А потому что поле из десятков синхронизированных сознаний — ускоритель, которого у отшельников не было.</p>
+        </div>
 
-    <div class="field-item">
-        <h3>3. Сетевой эффект сознания</h3>
-        <p>Каждый новый участник увеличивает плотность поля для всех остальных. Вы не потребляете — вы генерируете. Ваше состояние буквально становится инфраструктурой для чужих прорывов.</p>
-    </div>
+        <div class="field-item">
+            <h3>3. Сетевой эффект сознания</h3>
+            <p>Каждый новый участник увеличивает плотность поля для всех остальных. Вы не потребляете — вы генерируете. Ваше состояние буквально становится инфраструктурой для чужих прорывов.</p>
+        </div>
 
-    <div class="field-item">
-        <h3>4. Снос устаревшей операционной системы</h3>
-        <p>Не новые знания поверх старых. Деконструкция мировоззрения до фундамента — и пересборка с закрытыми знаниями, которые не выживают вне поля. Вы не узнаёте новое. Вы перестаёте быть тем, кто не мог это видеть.</p>
-    </div>
+        <div class="field-item">
+            <h3>4. Снос устаревшей операционной системы</h3>
+            <p>Не новые знания поверх старых. Деконструкция мировоззрения до фундамента — и пересборка с закрытыми знаниями, которые не выживают вне поля. Вы не узнаёте новое. Вы перестаёте быть тем, кто не мог это видеть.</p>
+        </div>
 
-    <div class="field-item">
-        <h3>5. Экономика, которая следует за сознанием</h3>
-        <p>Не «духовность ИЛИ деньги». Состояние сознания напрямую влияет на экономическую реальность. Мы не философствуем об этом — мы строим систему, в которой это измеримо.</p>
-    </div>
+        <div class="field-item">
+            <h3>5. Экономика, которая следует за сознанием</h3>
+            <p>Не «духовность ИЛИ деньги». Состояние сознания напрямую влияет на экономическую реальность. Мы не философствуем об этом — мы строим систему, в которой это измеримо.</p>
+        </div>
 
-    <div class="field-item">
-        <h3>6. Творчество как суть</h3>
-        <p>Когда с сознания сняты ограничения и фильтры, каждый момент жизни становится актом создания. Люди в поле не «раскрывают потенциал» — они обнаруживают, что потолка не было. Был только страх перед собственным масштабом.</p>
-    </div>
-
-    <div class="section-image">
-        <img src="images/onepager/forks-front.jpg" alt="Камертоны — сетевой эффект сознания" loading="lazy">
+        <div class="field-item">
+            <h3>6. Творчество как суть</h3>
+            <p>Когда с сознания сняты ограничения и фильтры, каждый момент жизни становится актом создания. Люди в поле не «раскрывают потенциал» — они обнаруживают, что потолка не было. Был только страх перед собственным масштабом.</p>
+        </div>
     </div>
 </section>
 
-<!-- ==================== 04: VIDEO — DARK ==================== -->
-<div class="section-dark">
-    <section class="video-section">
-        <div class="video-container">
-            <!-- Replace with actual video: <video src="testimonial.mp4" autoplay muted playsinline loop></video> -->
-            <div class="video-placeholder">видео-отзыв участника</div>
-        </div>
-    </section>
-</div>
+<!-- ==================== 04: VIDEO ==================== -->
+<section class="video-section">
+    <div class="video-container">
+        <!-- Replace with actual video: <video src="testimonial.mp4" autoplay muted playsinline loop></video> -->
+        <div class="video-placeholder">видео-отзыв участника</div>
+    </div>
+</section>
 
 <!-- ==================== 05: ENGINEERING ==================== -->
 <section class="section reveal">
@@ -755,28 +862,30 @@ h1, h2, h3 {
         <p style="margin-top:20px;">Сознание в ресурсном состоянии — как нектар или даже наркотик чистого творчества вне рамок. Попробовав однажды, невозможно согласиться на меньшее. Если вам резонирует идея радикальной осознанности и синергии и вы устали жить не наслаждаясь каждым моментом, а в бесконечной интерпретации реальности через призмы страха и системы выживания — вам сюда.</p>
     </div>
 
-    <div class="path-step">
-        <div class="step-label">Месяц 1–3</div>
-        <h3>Программа Мы.Боги</h3>
-        <p>Деконструкция. Перепрошивка мировоззрения. Живая работа с обоими архитекторами. Не курс в записи — прямой контакт, который перестраивает архитектуру восприятия.</p>
-    </div>
+    <div class="path-grid">
+        <div class="path-step">
+            <div class="step-label">Месяц 1–3</div>
+            <h3>Программа Мы.Боги</h3>
+            <p>Деконструкция. Перепрошивка мировоззрения. Живая работа с обоими архитекторами. Не курс в записи — прямой контакт, который перестраивает архитектуру восприятия.</p>
+        </div>
 
-    <div class="path-step">
-        <div class="step-label">Ежедневно</div>
-        <h3>Синхронизации</h3>
-        <p>Со-настройка внимания с живой сетью. Гигиена сознания. AI фиксирует состояние и строит резонансную карту поля в реальном времени.</p>
-    </div>
+        <div class="path-step">
+            <div class="step-label">Ежедневно</div>
+            <h3>Синхронизации</h3>
+            <p>Со-настройка внимания с живой сетью. Гигиена сознания. AI фиксирует состояние и строит резонансную карту поля в реальном времени.</p>
+        </div>
 
-    <div class="path-step">
-        <div class="step-label">Еженедельно</div>
-        <h3>Живые практики</h3>
-        <p>Разбор не через разговор, а через мгновенное переключение энергетической структуры. Закрытые церемонии. Прямая передача.</p>
-    </div>
+        <div class="path-step">
+            <div class="step-label">Еженедельно</div>
+            <h3>Живые практики</h3>
+            <p>Разбор не через разговор, а через мгновенное переключение энергетической структуры. Закрытые церемонии. Прямая передача.</p>
+        </div>
 
-    <div class="path-step">
-        <div class="step-label">Постоянно</div>
-        <h3>Поле</h3>
-        <p>Резонансная сеть, которая работает на фоне вашей жизни. Каждый участник усиливает каждого.</p>
+        <div class="path-step">
+            <div class="step-label">Постоянно</div>
+            <h3>Поле</h3>
+            <p>Резонансная сеть, которая работает на фоне вашей жизни. Каждый участник усиливает каждого.</p>
+        </div>
     </div>
 </section>
 
