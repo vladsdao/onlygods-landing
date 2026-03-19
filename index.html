@@ -468,27 +468,24 @@ body::after {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 64px;
-    align-items: center;
+    align-items: start;
 }
 
 .field-hero-text {
-    max-width: 520px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    max-width: 560px;
+    padding-top: 16px;
 }
 
 .field-hero-image {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
 }
 
 .field-hero-image img {
     width: 100%;
-    max-width: 380px;
     height: auto;
     object-fit: contain;
+    border-radius: 3px;
 }
 
 
