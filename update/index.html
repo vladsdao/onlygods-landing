@@ -461,6 +461,33 @@ body::after {
     transform: translateY(-2px);
 }
 
+/* ====================================== */
+/* FIELD HERO (image + text)              */
+/* ====================================== */
+.field-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.field-hero-text {
+    max-width: 520px;
+}
+
+.field-hero-image {
+    overflow: hidden;
+    border-radius: 3px;
+    max-height: 480px;
+}
+
+.field-hero-image img {
+    width: 140%;
+    margin-left: -20%;
+    object-fit: cover;
+    object-position: 55% 5%;
+}
+
 .benefits-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1116,7 +1143,7 @@ body::after {
 /* RESPONSIVE                             */
 /* ====================================== */
 @media (max-width: 768px) {
-    .grid-2, .grid-2-asymmetric, .grid-4, .benefits-grid, .benefit-grid {
+    .grid-2, .grid-2-asymmetric, .grid-4, .benefits-grid, .benefit-grid, .field-hero {
         grid-template-columns: 1fr;
     }
     .content-section {
@@ -1294,9 +1321,14 @@ body::after {
         <h2 class="section-title" data-i18n="index.field.title">Поле Объединённого Сознания</h2>
     </div>
 
-    <div class="fade-in-up" style="margin-top: 48px;">
-        <p class="body-text" style="max-width: 860px;" data-i18n="index.field.p1">Поле — это живой поток данных состоящих из трансляции нашего прямого опыта без искажений, синхронизационных практик и образовательных материалов. Так же мы используем сексуальную энергию как инструмент усиления резонанса и проводимости.</p>
-        <p class="body-text" style="max-width: 860px; margin-top: 20px;" data-i18n="index.field.p2">Проводимость поля зависит от проводимости его отдельных участников, качества внимания, системы управления энергией.</p>
+    <div class="field-hero fade-in-up" style="margin-top: 48px;">
+        <div class="field-hero-text">
+            <p class="body-text" data-i18n="index.field.p1">Поле — это живой поток данных состоящих из трансляции нашего прямого опыта без искажений, синхронизационных практик и образовательных материалов. Так же мы используем сексуальную энергию как инструмент усиления резонанса и проводимости.</p>
+            <p class="body-text" style="margin-top: 20px;" data-i18n="index.field.p2">Проводимость поля зависит от проводимости его отдельных участников, качества внимания, системы управления энергией.</p>
+        </div>
+        <div class="field-hero-image">
+            <img src="images/onepager/router.jpg" alt="Hermes with router">
+        </div>
     </div>
 
     <div class="fade-in-up" style="margin-top: 56px;">
