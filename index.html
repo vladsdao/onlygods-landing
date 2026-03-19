@@ -467,25 +467,28 @@ body::after {
 .field-hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    gap: 64px;
     align-items: center;
 }
 
 .field-hero-text {
     max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .field-hero-image {
-    overflow: hidden;
-    border-radius: 3px;
-    max-height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .field-hero-image img {
-    width: 140%;
-    margin-left: -20%;
-    object-fit: cover;
-    object-position: 55% 5%;
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    object-fit: contain;
 }
 
 /* Caduceus hero — dark section image+text */
