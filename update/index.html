@@ -727,28 +727,52 @@ body::after {
 }
 
 /* ====================================== */
-/* CREATORS MINI                         */
+/* CREATORS                              */
 /* ====================================== */
-.creators-row {
-    display: flex;
+.creator-card {
+    display: grid;
+    grid-template-columns: 280px 1fr;
     gap: 48px;
-    margin-top: 40px;
+    align-items: start;
+    margin-bottom: 80px;
 }
 
-.creator { flex: 1; }
+.creator-card.reverse {
+    grid-template-columns: 1fr 280px;
+}
+
+.creator-card.reverse .creator-photo { order: 2; }
+.creator-card.reverse .creator-info { order: 1; }
+
+.creator-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    display: block;
+    filter: grayscale(100%);
+}
 
 .creator-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
+    font-size: 36px;
     font-weight: 400;
     font-style: italic;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .creator-desc {
-    font-size: 16px;
+    font-size: 17px;
     color: #48484a;
     line-height: 1.75;
+}
+
+.creator-bridge {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.5vw, 24px);
+    font-style: italic;
+    color: #48484a;
+    line-height: 1.6;
+    max-width: 860px;
 }
 
 .creator-link {
@@ -1064,7 +1088,11 @@ body::after {
     .hero-section { min-height: auto; padding: 80px 20px 32px; }
     .offer-block { padding: 48px 24px; }
     .offer-price { font-size: 36px; }
-    .creators-row { flex-direction: column; gap: 32px; }
+    .creator-card,
+    .creator-card.reverse { grid-template-columns: 1fr; gap: 32px; }
+    .creator-card.reverse .creator-photo { order: 0; }
+    .creator-card.reverse .creator-info { order: 0; }
+    .creator-photo img { max-width: 240px; }
 }
 </style>
 </head>
@@ -1287,24 +1315,36 @@ body::after {
 <div class="section-divider"></div>
 
 <!-- ====================================== -->
-<!-- CREATORS (мини)                        -->
+<!-- CREATORS                               -->
 <!-- ====================================== -->
 <div class="content-section">
     <div class="fade-in-up">
-        <div class="section-label" data-i18n="index.creators.label">Кто мы</div>
-        <h2 class="section-title" data-i18n="index.creators.title">Архитекторы Поля</h2>
+        <div class="section-label" data-i18n="index.creators.label2">Архитекторы</div>
     </div>
-    <div class="creators-row fade-in-up">
-        <div class="creator">
+
+    <div class="creator-card fade-in-up" style="margin-top: 56px;">
+        <div class="creator-photo">
+            <img src="vlad-photo.png" alt="Влад">
+        </div>
+        <div class="creator-info">
             <div class="creator-name" data-i18n="index.creators.vlad.name">Влад</div>
-            <p class="creator-desc" data-i18n="index.creators.vlad.desc">Проектирует архитектуру сознания и систем. За 20 лет исследований консолидировал знания древней мудрости в систему, позволяющую пройти ускоренным путём эволюции Сознания.</p>
-        </div>
-        <div class="creator">
-            <div class="creator-name" data-i18n="index.creators.liza.name">Лиза</div>
-            <p class="creator-desc" data-i18n="index.creators.liza.desc">Автор методики, исследователь. Находит корневую причину — трансформирует — отпускает. Все практики в поле OnlyGods — эксклюзивны и существуют только здесь.</p>
+            <p class="creator-desc" data-i18n="index.creators.vlad.desc2">Визионер, режиссёр опыта, инженер сознания. Двадцать лет исследований древней мудрости, сжатые в инженерный фреймворк, который позволяет пройти ускоренным путём то, на что традиции отводили десятилетия. Строит структуру, в которой трансформация становится неизбежной — не через веру, а через архитектуру среды.</p>
         </div>
     </div>
-    <a href="creators.html" class="creator-link fade-in-up" data-i18n="index.creators.link">Подробнее →</a>
+
+    <div class="creator-card reverse fade-in-up">
+        <div class="creator-info">
+            <div class="creator-name" data-i18n="index.creators.liza.name">Лиза</div>
+            <p class="creator-desc" data-i18n="index.creators.liza.desc2">Проводит трансформацию напрямую. Находит корневую причину — трансформирует — отпускает. Каждая практика в поле OnlyGods — авторская, эксклюзивная и существует только здесь. Может решить любую проблему любого человека на земле — при одном условии: он готов к трансформации.</p>
+        </div>
+        <div class="creator-photo">
+            <img src="liza-photo.jpg" alt="Лиза">
+        </div>
+    </div>
+
+    <div class="fade-in-up">
+        <p class="creator-bridge" data-i18n="index.creators.bridge">Главный входной билет — ваш резонанс с идеей и её авторами. Созвучие на уровне чувств это главное условие для настройки Синергии. Вы должны почувствовать интерес.</p>
+    </div>
 </div>
 
 <div class="section-divider"></div>
