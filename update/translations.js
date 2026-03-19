@@ -357,6 +357,78 @@ var T = {
   ua: 'Загальна гармонізація всіх сфер життя та підвищення рівня щастя'
 },
 
+// ─── INDEX: МЕХАНИКА ПОЛЯ ───
+'index.mechanics.label': {
+  ru: 'Механика Поля',
+  en: 'Field Mechanics',
+  ua: 'Механіка Поля'
+},
+'index.mechanics.title': {
+  ru: 'Что происходит, когда вы входите',
+  en: 'What happens when you enter',
+  ua: 'Що відбувається, коли ви входите'
+},
+'index.mechanics.t1.title': {
+  ru: 'Зеркало без кнопки «выкл»',
+  en: 'A mirror with no off switch',
+  ua: 'Дзеркало без кнопки «вимк»'
+},
+'index.mechanics.t1.body': {
+  ru: 'Поле отражает всё. Каждую слепую зону, каждое сопротивление, каждую ложь, которую вы привыкли называть убеждением. Обратите внимание на тело — что-то уже сжалось, правда? Это нормально. Вы не сможете спрятаться в этом пространстве. И именно поэтому оно работает — то, что вы избегаете, управляет вами.',
+  en: 'The field reflects everything. Every blind spot, every resistance, every lie you\'ve been calling a belief. Notice your body — something already tightened, right? That\'s normal. You can\'t hide in this space. And that\'s exactly why it works — what you avoid controls you.',
+  ua: 'Поле відображає все. Кожну сліпу зону, кожен опір, кожну брехню, яку ви звикли називати переконанням. Зверніть увагу на тіло — щось вже стиснулось, правда? Це нормально. Ви не зможете сховатися в цьому просторі. І саме тому воно працює — те, чого ви уникаєте, керує вами.'
+},
+'index.mechanics.t2.title': {
+  ru: 'Десять лет за один цикл',
+  en: 'Ten years in one cycle',
+  ua: 'Десять років за один цикл'
+},
+'index.mechanics.t2.body': {
+  ru: 'Традиции растягивали трансформацию на десятилетия. Отшельник в пещере работал один — со своим сознанием, своими ограничениями, своим темпом. Здесь работает поле из десятков синхронизированных сознаний — ускоритель, которого у отшельников просто не было. Не потому что мы лучше. А потому что когерентная группа — это другая физика.',
+  en: 'Traditions stretched transformation over decades. A hermit in a cave worked alone — with their own consciousness, limitations, pace. Here, a field of dozens of synchronized minds acts as an accelerator that hermits simply didn\'t have. Not because we\'re better. But because a coherent group is different physics.',
+  ua: 'Традиції розтягували трансформацію на десятиліття. Відлюдник у печері працював сам — зі своєю свідомістю, своїми обмеженнями, своїм темпом. Тут працює поле з десятків синхронізованих свідомостей — прискорювач, якого у відлюдників просто не було. Не тому що ми кращі. А тому що когерентна група — це інша фізика.'
+},
+'index.mechanics.t3.title': {
+  ru: 'Ваше состояние — инфраструктура',
+  en: 'Your state is infrastructure',
+  ua: 'Ваш стан — інфраструктура'
+},
+'index.mechanics.t3.body': {
+  ru: 'Каждый новый участник увеличивает плотность поля для всех остальных. Вы не потребляете контент — вы генерируете состояние. Давайте сделаем зум: одна скрипка не берёт аккорд. Группа синхронизированных сознаний порождает эмерджентные состояния, недоступные каждому по отдельности. Ваша когерентность буквально становится инфраструктурой для чужих прорывов.',
+  en: 'Each new participant increases field density for everyone. You don\'t consume content — you generate state. Let\'s zoom in: a single violin can\'t play a chord. A group of synchronized minds produces emergent states inaccessible to each individually. Your coherence literally becomes infrastructure for others\' breakthroughs.',
+  ua: 'Кожен новий учасник збільшує щільність поля для всіх інших. Ви не споживаєте контент — ви генеруєте стан. Давайте зробимо зум: одна скрипка не бере акорд. Група синхронізованих свідомостей породжує емерджентні стани, недоступні кожному окремо. Ваша когерентність буквально стає інфраструктурою для чужих проривів.'
+},
+'index.mechanics.t4.title': {
+  ru: 'Деконструкция до фундамента',
+  en: 'Deconstruction to the foundation',
+  ua: 'Деконструкція до фундаменту'
+},
+'index.mechanics.t4.body': {
+  ru: 'Не новые знания поверх старых. Это не работает — можно прорабатывать бесконечно, но глобально картина не изменится. Здесь другой процесс: деконструкция мировоззрения до самого основания и пересборка. С закрытыми знаниями, которые не выживают вне поля. Вы не узнаёте новое. Вы перестаёте быть тем, кто не мог это видеть.',
+  en: 'Not new knowledge on top of old. That doesn\'t work — you can process endlessly, but the big picture won\'t change. This is a different process: worldview deconstruction down to the foundation and reassembly. With closed knowledge that doesn\'t survive outside the field. You don\'t learn something new. You stop being someone who couldn\'t see it.',
+  ua: 'Не нові знання поверх старих. Це не працює — можна опрацьовувати нескінченно, але глобально картина не зміниться. Тут інший процес: деконструкція світогляду до самої основи і перескладання. Із закритими знаннями, які не виживають поза полем. Ви не дізнаєтесь нове. Ви перестаєте бути тим, хто не міг це бачити.'
+},
+'index.mechanics.t5.title': {
+  ru: 'Сознание ↔ Экономика',
+  en: 'Consciousness ↔ Economy',
+  ua: 'Свідомість ↔ Економіка'
+},
+'index.mechanics.t5.body': {
+  ru: 'Не «духовность или деньги». Это ложная поляризация. Состояние сознания напрямую влияет на экономическую реальность — и наоборот. Это всегда симбиоз. Мы не философствуем об этом — мы строим систему, в которой это измеримо. Инвестиция в расширение сознания — как инвестиция в золото во время кризиса. Только доходность выше.',
+  en: 'Not "spirituality or money." That\'s a false polarization. State of consciousness directly affects economic reality — and vice versa. It\'s always symbiosis. We don\'t philosophize about it — we build a system where it\'s measurable. Investing in consciousness expansion is like investing in gold during a crisis. Only the returns are higher.',
+  ua: 'Не «духовність або гроші». Це хибна поляризація. Стан свідомості безпосередньо впливає на економічну реальність — і навпаки. Це завжди симбіоз. Ми не філософствуємо про це — ми будуємо систему, в якій це вимірюється. Інвестиція в розширення свідомості — як інвестиція в золото під час кризи. Тільки дохідність вища.'
+},
+'index.mechanics.t6.title': {
+  ru: 'Когда потолок исчезает',
+  en: 'When the ceiling disappears',
+  ua: 'Коли стеля зникає'
+},
+'index.mechanics.t6.body': {
+  ru: 'Когда с сознания сняты фильтры и ограничения, каждый момент становится актом создания. Люди в поле не «раскрывают потенциал» — они обнаруживают, что потолка не было. Был только страх перед собственным масштабом. Почувствуйте, как от этой мысли что-то расширяется в груди. Запомните это состояние.',
+  en: 'When filters and limitations are removed from consciousness, every moment becomes an act of creation. People in the field don\'t "unlock potential" — they discover there was no ceiling. Only the fear of their own scale. Feel how something expands in your chest from this thought. Remember this state.',
+  ua: 'Коли зі свідомості зняті фільтри та обмеження, кожен момент стає актом створення. Люди в полі не «розкривають потенціал» — вони виявляють, що стелі не було. Був лише страх перед власним масштабом. Відчуйте, як від цієї думки щось розширюється в грудях. Запам\'ятайте цей стан.'
+},
+
 // ─── INDEX: ИНСТРУМЕНТЫ ───
 'index.tools.label': {
   ru: 'Инструменты',
