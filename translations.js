@@ -20,7 +20,7 @@ document.head.appendChild(s);
 var T = {
 
 // ─── NAV ───
-'nav.join': { ru: 'Вступить', en: 'Join', ua: 'Вступити' },
+'nav.join': { ru: 'Подключиться', en: 'Connect', ua: 'Підключитись' },
 
 // ─── PAGE TITLES ───
 'index.title': {
@@ -356,6 +356,98 @@ var T = {
   en: 'Overall harmonization of all life areas and increased happiness',
   ua: 'Загальна гармонізація всіх сфер життя та підвищення рівня щастя'
 },
+'index.field.b16': {
+  ru: 'Считывание истинных намерений — для бизнеса и жизни',
+  en: 'Reading true intentions — for business and life',
+  ua: 'Зчитування справжніх намірів — для бізнесу та життя'
+},
+'index.field.b17': {
+  ru: 'Умение строить когерентные симбиотические структуры — семья, бизнес, сообщество',
+  en: 'Ability to build coherent symbiotic structures — family, business, community',
+  ua: 'Вміння будувати когерентні симбіотичні структури — сім\'я, бізнес, спільнота'
+},
+'index.field.b18': {
+  ru: 'Круг когерентной поддержки — решительность, уверенность и сила действовать',
+  en: 'Circle of coherent support — resolve, confidence, and power to act',
+  ua: 'Коло когерентної підтримки — рішучість, впевненість і сила діяти'
+},
+'index.field.b19': {
+  ru: 'Расширение сексуальной энергии как строительного материала',
+  en: 'Expansion of sexual energy as building material',
+  ua: 'Розширення сексуальної енергії як будівельного матеріалу'
+},
+
+// ─── INDEX: МЕХАНИКА ПОЛЯ ───
+'index.mechanics.label': {
+  ru: 'Путь',
+  en: 'The Path',
+  ua: 'Шлях'
+},
+'index.mechanics.title': {
+  ru: 'Как это достигается',
+  en: 'How it\'s achieved',
+  ua: 'Як це досягається'
+},
+'index.mechanics.t1.title': {
+  ru: 'Деконструкция ума и выход из иллюзий',
+  en: 'Mind deconstruction and exit from illusions',
+  ua: 'Деконструкція розуму і вихід з ілюзій'
+},
+'index.mechanics.t1.body': {
+  ru: 'Выявить и трансформировать подсознательные паттерны слива энергии и стереотипы. Всё, что вы избегаете, управляет вами — здесь это становится видимым. Не теория. Прямой опыт, который меняет архитектуру восприятия.',
+  en: 'Identify and transform subconscious energy-draining patterns and stereotypes. Everything you avoid controls you — here it becomes visible. Not theory. Direct experience that changes the architecture of perception.',
+  ua: 'Виявити і трансформувати підсвідомі патерни зливу енергії та стереотипи. Все, чого ви уникаєте, керує вами — тут це стає видимим. Не теорія. Прямий досвід, який змінює архітектуру сприйняття.'
+},
+'index.mechanics.t2.title': {
+  ru: 'Радикальная честность и open mind',
+  en: 'Radical honesty and open mind',
+  ua: 'Радикальна чесність і open mind'
+},
+'index.mechanics.t2.body': {
+  ru: 'Стереть ограничения и всё, что успели чужого на себя надеть. Убеждения, которые вы считаете своими, почти всегда чужие. Радикальная честность — это не добродетель, а инструмент: без неё невозможно увидеть, что именно мешает.',
+  en: 'Erase limitations and everything foreign you\'ve taken on. Beliefs you consider yours are almost always someone else\'s. Radical honesty isn\'t a virtue — it\'s a tool: without it, you can\'t see what\'s actually in the way.',
+  ua: 'Стерти обмеження і все, що встигли чужого на себе надіти. Переконання, які ви вважаєте своїми, майже завжди чужі. Радикальна чесність — це не чеснота, а інструмент: без неї неможливо побачити, що саме заважає.'
+},
+'index.mechanics.t3.title': {
+  ru: 'Энергетический менеджмент и работа с вниманием',
+  en: 'Energy management and attention work',
+  ua: 'Енергетичний менеджмент і робота з увагою'
+},
+'index.mechanics.t3.body': {
+  ru: 'Выстроить новый ритм опыта — действий из желаний и интереса, а не из страха и долга. Внимание — это энергия. Куда направлено внимание, туда течёт сила. Мы учим управлять этим осознанно.',
+  en: 'Build a new rhythm of experience — actions from desire and interest, not from fear and obligation. Attention is energy. Where attention goes, power flows. We teach conscious management of this.',
+  ua: 'Вибудувати новий ритм досвіду — дій із бажань та інтересу, а не зі страху та обов\'язку. Увага — це енергія. Куди спрямована увага, туди тече сила. Ми вчимо керувати цим усвідомлено.'
+},
+'index.mechanics.t4.title': {
+  ru: 'Осознание нового фреймворка 5Д Сознания',
+  en: 'Awareness of the new 5D Consciousness framework',
+  ua: 'Усвідомлення нового фреймворку 5Д Свідомості'
+},
+'index.mechanics.t4.body': {
+  ru: 'Получить необходимые знания и осознать по-новому своего персонажа. От линейного мышления — к квантовой парадигме. От фрагментации — к когерентности. Это не новые знания поверх старых, а другая операционная система.',
+  en: 'Gain the necessary knowledge and re-perceive your character. From linear thinking to quantum paradigm. From fragmentation to coherence. Not new knowledge on top of old — a different operating system.',
+  ua: 'Отримати необхідні знання і усвідомити по-новому свого персонажа. Від лінійного мислення — до квантової парадигми. Від фрагментації — до когерентності. Це не нові знання поверх старих, а інша операційна система.'
+},
+'index.mechanics.t5.title': {
+  ru: 'Резонансная модель взаимоотношений',
+  en: 'Resonant relationship model',
+  ua: 'Резонансна модель взаємовідносин'
+},
+'index.mechanics.t5.body': {
+  ru: 'Находиться в поле людей со схожими ценностями. Круг, который поддерживает, а не обесценивает. Вы учитесь строить когерентные симбиотические структуры — в семье, в бизнесе, в любых отношениях. Сексуальная энергия — строительный материал, не табу.',
+  en: 'Being in a field of people with shared values. A circle that supports, not devalues. You learn to build coherent symbiotic structures — in family, business, any relationship. Sexual energy is building material, not taboo.',
+  ua: 'Знаходитись у полі людей зі схожими цінностями. Коло, яке підтримує, а не знецінює. Ви вчитесь будувати когерентні симбіотичні структури — в сім\'ї, в бізнесі, в будь-яких стосунках. Сексуальна енергія — будівельний матеріал, не табу.'
+},
+'index.mechanics.t6.title': {
+  ru: 'Синергия в поле объединённого Сознания',
+  en: 'Synergy in the field of united Consciousness',
+  ua: 'Синергія в полі об\'єднаної Свідомості'
+},
+'index.mechanics.t6.body': {
+  ru: 'Поле усиливает вас, в то время как вы усиливаете поле. Коллективное сознание не имеет предела — индивидуальное имеет. То, на что традиции отводили десятилетия, здесь сжимается в месяцы. Попадая в наше поле, человек выходит за рамки собственных ограничений.',
+  en: 'The field strengthens you while you strengthen the field. Collective consciousness has no ceiling — individual does. What traditions stretched over decades compresses into months here. Entering our field, a person transcends their own limitations.',
+  ua: 'Поле підсилює вас, у той час як ви підсилюєте поле. Колективна свідомість не має межі — індивідуальна має. Те, на що традиції відводили десятиліття, тут стискається в місяці. Потрапляючи в наше поле, людина виходить за рамки власних обмежень.'
+},
 
 // ─── INDEX: ИНСТРУМЕНТЫ ───
 'index.tools.label': {
@@ -446,7 +538,7 @@ var T = {
   ua: 'Внутрішня економіка резонансу та участь у DAO'
 },
 'index.offer.cta': {
-  ru: 'Войти в Игру →', en: 'Enter the Game →', ua: 'Увійти в Гру →'
+  ru: 'Подключиться →', en: 'Connect →', ua: 'Підключитись →'
 },
 
 // ─── INDEX: CREATORS MINI ───
@@ -478,7 +570,7 @@ var T = {
 
 // ─── INDEX: HERO CTA ───
 'index.hero.cta': {
-  ru: 'Войти в Игру →', en: 'Enter the Game →', ua: 'Увійти в Гру →'
+  ru: 'Подключиться →', en: 'Connect →', ua: 'Підключитись →'
 },
 
 // ─── OLD TIERS (kept for reference, no longer used in HTML) ───
@@ -689,7 +781,7 @@ var T = {
 
 // ─── JOIN SECTION ───
 'index.join.label': {
-  ru: 'Войти в Игру', en: 'Enter the Game', ua: 'Увійти в Гру'
+  ru: 'Подключиться', en: 'Connect', ua: 'Підключитись'
 },
 'index.join.title': {
   ru: 'OnlyGods', en: 'OnlyGods', ua: 'OnlyGods'
@@ -711,7 +803,7 @@ var T = {
 'index.join.ph_name': { ru: 'Имя', en: 'Name', ua: 'Ім\'я' },
 'index.join.ph_email': { ru: 'Email', en: 'Email', ua: 'Email' },
 'index.join.ph_telegram': { ru: 'Telegram', en: 'Telegram', ua: 'Telegram' },
-'index.join.btn': { ru: 'Войти в Игру — 936€/месяц', en: 'Enter the Game — 936€/month', ua: 'Увійти в Гру — 936€/місяць' },
+'index.join.btn': { ru: 'Подключиться — 936€/месяц', en: 'Connect — 936€/month', ua: 'Підключитись — 936€/місяць' },
 'index.join.note': {
   ru: 'Мгновенный доступ после оплаты. Программа Мы.Боги включена.',
   en: 'Instant access after payment. We.Gods program included.',
