@@ -356,6 +356,26 @@ var T = {
   en: 'Overall harmonization of all life areas and increased happiness',
   ua: 'Загальна гармонізація всіх сфер життя та підвищення рівня щастя'
 },
+'index.field.b16': {
+  ru: 'Считывание истинных намерений — для бизнеса и жизни',
+  en: 'Reading true intentions — for business and life',
+  ua: 'Зчитування справжніх намірів — для бізнесу та життя'
+},
+'index.field.b17': {
+  ru: 'Умение строить когерентные симбиотические структуры — семья, бизнес, сообщество',
+  en: 'Ability to build coherent symbiotic structures — family, business, community',
+  ua: 'Вміння будувати когерентні симбіотичні структури — сім\'я, бізнес, спільнота'
+},
+'index.field.b18': {
+  ru: 'Круг когерентной поддержки — решительность, уверенность и сила действовать',
+  en: 'Circle of coherent support — resolve, confidence, and power to act',
+  ua: 'Коло когерентної підтримки — рішучість, впевненість і сила діяти'
+},
+'index.field.b19': {
+  ru: 'Расширение сексуальной энергии как строительного материала',
+  en: 'Expansion of sexual energy as building material',
+  ua: 'Розширення сексуальної енергії як будівельного матеріалу'
+},
 
 // ─── INDEX: МЕХАНИКА ПОЛЯ ───
 'index.mechanics.label': {

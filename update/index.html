@@ -438,6 +438,29 @@ body::after {
 .dark-list li { color: #a1a1a6; }
 .dark-list li::before { background: #6e6e73; }
 
+/* ====================================== */
+/* BENEFIT GRID                           */
+/* ====================================== */
+.benefit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.benefit-card {
+    background: #fbfbfd;
+    padding: 24px 28px;
+    border-radius: 3px;
+    font-size: 15px;
+    color: #48484a;
+    line-height: 1.65;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.benefit-card:hover {
+    transform: translateY(-2px);
+}
+
 .benefits-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1093,7 +1116,7 @@ body::after {
 /* RESPONSIVE                             */
 /* ====================================== */
 @media (max-width: 768px) {
-    .grid-2, .grid-2-asymmetric, .grid-4, .benefits-grid {
+    .grid-2, .grid-2-asymmetric, .grid-4, .benefits-grid, .benefit-grid {
         grid-template-columns: 1fr;
     }
     .content-section {
@@ -1278,24 +1301,38 @@ body::after {
 
     <div class="fade-in-up" style="margin-top: 56px;">
         <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; margin-bottom: 24px; letter-spacing: -0.3px;" data-i18n="index.field.func_title">Ключевые функции:</h3>
-        <ul class="styled-list">
-            <li data-i18n="index.field.f1">Образование и трансформация Сознания</li>
-            <li data-i18n="index.field.f2">Синхронизация и фокусировка коллективного внимания</li>
-            <li data-i18n="index.field.f3">Система энергетического менеджмента</li>
-            <li data-i18n="index.field.f4">Визуализация интерфейса эгрегора</li>
-            <li data-i18n="index.field.f5">Инструмент управления сообществом</li>
-        </ul>
+        <div class="benefit-grid">
+            <div class="benefit-card" data-i18n="index.field.f1">Образование и трансформация Сознания</div>
+            <div class="benefit-card" data-i18n="index.field.f2">Синхронизация и фокусировка коллективного внимания</div>
+            <div class="benefit-card" data-i18n="index.field.f3">Система энергетического менеджмента</div>
+            <div class="benefit-card" data-i18n="index.field.f4">Визуализация интерфейса эгрегора и трекинг динамики поля</div>
+            <div class="benefit-card" data-i18n="index.field.f5">Инструмент управления сообществом и ресурсами</div>
+        </div>
     </div>
 
-    <div class="fade-in-up" style="margin-top: 48px;">
-        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; margin-bottom: 24px; letter-spacing: -0.3px;" data-i18n="index.field.benefits_title">Преимущества от участия в поле:</h3>
-        <ul class="styled-list">
-            <li data-i18n="index.field.b1">Высокий уровень психо-эмоциональной энергии</li>
-            <li data-i18n="index.field.b2">Апдейт майндсета и Состояние Творца</li>
-            <li data-i18n="index.field.b3">Глубина проживания и интерпретаций жизненного опыта</li>
-            <li data-i18n="index.field.b4">Ускоренная эволюция Сознания и более глубокие трансформации</li>
-            <li data-i18n="index.field.b5">Общая гармонизация всех сфер жизни</li>
-        </ul>
+    <div class="fade-in-up" style="margin-top: 56px;">
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; margin-bottom: 24px; letter-spacing: -0.3px;" data-i18n="index.field.benefits.heading">Преимущества от участия в поле:</h3>
+        <div class="benefit-grid">
+            <div class="benefit-card" data-i18n="index.field.b1">Высокий уровень психо-эмоционально энергии</div>
+            <div class="benefit-card" data-i18n="index.field.b2">Апдейт майндсета и Состояние Творца</div>
+            <div class="benefit-card" data-i18n="index.field.b3">Глубина проживания и интерпретаций жизненного опыта</div>
+            <div class="benefit-card" data-i18n="index.field.b4">Идеи опережающие время и творчество вне рамок</div>
+            <div class="benefit-card" data-i18n="index.field.b5">Синхронистичность внутренних и внешних ритмов, удача</div>
+            <div class="benefit-card" data-i18n="index.field.b6">Раскрытие интуиции и сверх-человеческих качеств 5Д Сознания</div>
+            <div class="benefit-card" data-i18n="index.field.b7">Более высокая проводимость идей, ресурса, состояний</div>
+            <div class="benefit-card" data-i18n="index.field.b8">Использование коллективного опыта и навыков на уровне подсознания</div>
+            <div class="benefit-card" data-i18n="index.field.b9">Более глубокие инсайты за счет коллективного разума</div>
+            <div class="benefit-card" data-i18n="index.field.b10">Возможность коллективно влиять на реальность и переключать ветки</div>
+            <div class="benefit-card" data-i18n="index.field.b11">Снимать информацию из поля и предвидеть будущее</div>
+            <div class="benefit-card" data-i18n="index.field.b12">Повышенная осознанность и стрессоустойчивость</div>
+            <div class="benefit-card" data-i18n="index.field.b13">Внутренний баланс, восстановление здоровья</div>
+            <div class="benefit-card" data-i18n="index.field.b14">Ускоренная эволюция Сознания и более глубокие трансформации</div>
+            <div class="benefit-card" data-i18n="index.field.b15">Общая гармонизация всех сфер жизни и повышение уровня счастья</div>
+            <div class="benefit-card" data-i18n="index.field.b16">Считывание истинных намерений — для бизнеса и жизни</div>
+            <div class="benefit-card" data-i18n="index.field.b17">Умение строить когерентные симбиотические структуры — семья, бизнес, сообщество</div>
+            <div class="benefit-card" data-i18n="index.field.b18">Круг когерентной поддержки — решительность, уверенность и сила действовать</div>
+            <div class="benefit-card" data-i18n="index.field.b19">Расширение сексуальной энергии как строительного материала</div>
+        </div>
     </div>
 </div>
 
