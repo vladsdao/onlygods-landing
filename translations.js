@@ -803,7 +803,7 @@ var T = {
 'index.join.ph_name': { ru: 'Имя', en: 'Name', ua: 'Ім\'я' },
 'index.join.ph_email': { ru: 'Email', en: 'Email', ua: 'Email' },
 'index.join.ph_telegram': { ru: 'Telegram', en: 'Telegram', ua: 'Telegram' },
-'index.join.btn': { ru: 'Подключиться — 936€/месяц', en: 'Connect — 936€/month', ua: 'Підключитись — 936€/місяць' },
+'index.join.btn': { ru: 'Подключиться к полю — 936€/месяц', en: 'Connect to the field — 936€/month', ua: 'Підключитись до поля — 936€/місяць' },
 'index.join.note': {
   ru: 'Мгновенный доступ после оплаты. Программа Мы.Боги включена.',
   en: 'Instant access after payment. We.Gods program included.',
