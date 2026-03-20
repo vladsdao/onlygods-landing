@@ -825,7 +825,7 @@ var T = {
 // ─── NEUROPRACTICE PAGE ───
 'neuropractice.hero.subtitle': { ru: 'Курс в записи', en: 'Recorded Course', ua: 'Курс у записі' },
 'neuropractice.hero.title': { ru: 'Нейропрактика 2.0', en: 'Neuropractice 2.0', ua: 'Нейропрактика 2.0' },
-'neuropractice.back': { ru: '← Mindset 2.0', en: '← Mindset 2.0', ua: '← Mindset 2.0' },
+'neuropractice.back': { ru: '← Metapedia', en: '← Metapedia', ua: '← Metapedia' },
 'neuropractice.description': {
   ru: 'Курс по работе с нейропластичностью и перепрограммированию паттернов сознания.',
   en: 'A course on neuroplasticity and reprogramming consciousness patterns.',
@@ -836,7 +836,7 @@ var T = {
 // ─── SEXUALITY PAGE ───
 'sexuality.hero.subtitle': { ru: 'Курс', en: 'Course', ua: 'Курс' },
 'sexuality.hero.title': { ru: 'Сексуальность', en: 'Sexuality', ua: 'Сексуальність' },
-'sexuality.back': { ru: '← Mindset 2.0', en: '← Mindset 2.0', ua: '← Mindset 2.0' },
+'sexuality.back': { ru: '← Metapedia', en: '← Metapedia', ua: '← Metapedia' },
 'sexuality.description': {
   ru: 'Исследование сексуальности как инструмента трансформации и энергетического менеджмента.',
   en: 'Exploring sexuality as a tool for transformation and energy management.',
@@ -1168,7 +1168,7 @@ var T = {
 
 // ─── MISHA PERSONAL PAGE ───
 'misha.title': { ru: 'OnlyGods — Misha Gayday', en: 'OnlyGods — Misha Gayday', ua: 'OnlyGods — Misha Gayday' },
-'misha.back': { ru: '← About Us', en: '← About Us', ua: '← About Us' },
+'misha.back': { ru: '← Home', en: '← Home', ua: '← Home' },
 'misha.hero.label': {
   ru: 'Участник ядра', en: 'Core Member', ua: 'Учасник ядра'
 },
@@ -1237,7 +1237,7 @@ var T = {
   ru: 'OnlyGods — Vlad', en: 'OnlyGods — Vlad', ua: 'OnlyGods — Vlad'
 },
 'vlad.back': {
-  ru: '← About Us', en: '← About Us', ua: '← About Us'
+  ru: '← Home', en: '← Home', ua: '← Home'
 },
 'vlad.hero.label': {
   ru: 'Founder', en: 'Founder', ua: 'Founder'
@@ -1344,7 +1344,7 @@ var T = {
   ru: 'OnlyGods — Liza', en: 'OnlyGods — Liza', ua: 'OnlyGods — Liza'
 },
 'liza.back': {
-  ru: '← About Us', en: '← About Us', ua: '← About Us'
+  ru: '← Home', en: '← Home', ua: '← Home'
 },
 'liza.hero.label': {
   ru: 'Founder', en: 'Founder', ua: 'Founder'
@@ -1453,9 +1453,9 @@ var T = {
   ua: 'Контент та програми для со-налаштування'
 },
 'alignment.hero.title': {
-  ru: 'Mindset 2.0',
-  en: 'Mindset 2.0',
-  ua: 'Mindset 2.0'
+  ru: 'Metapedia',
+  en: 'Metapedia',
+  ua: 'Metapedia'
 },
 'alignment.hero.tagline': {
   ru: 'Твой квантовый скачек. Материалы и программы для трансформации сознания',
@@ -1681,7 +1681,7 @@ var T = {
 
 // ─── MYBOGI PAGE ───
 'mybogi.title': { ru: 'OnlyGods — Мы.Боги', en: 'OnlyGods — We.Gods', ua: 'OnlyGods — Ми.Боги' },
-'mybogi.back': { ru: '← Alignment', en: '← Alignment', ua: '← Alignment' },
+'mybogi.back': { ru: '← Metapedia', en: '← Metapedia', ua: '← Metapedia' },
 'mybogi.hero.subtitle': { ru: 'Модель резонансных отношений', en: 'A model of resonant relationships', ua: 'Модель резонансних стосунків' },
 'mybogi.hero.title': { ru: 'МЫ. БОГИ.', en: 'WE. GODS.', ua: 'МИ. БОГИ.' },
 'mybogi.hero.authors': {
@@ -2052,7 +2052,7 @@ var T = {
 
 // ─── RETREAT PAGE ───
 'retreat.title': { ru: 'OnlyGods — System Reboot', en: 'OnlyGods — System Reboot', ua: 'OnlyGods — System Reboot' },
-'retreat.back': { ru: '← Alignment', en: '← Alignment', ua: '← Alignment' },
+'retreat.back': { ru: '← Metapedia', en: '← Metapedia', ua: '← Metapedia' },
 'retreat.hero.subtitle': {
   ru: 'Ретрит',
   en: 'Retreat',
@@ -2092,7 +2092,7 @@ var T = {
 
 // ─── GAMEOVER ARTICLE ───
 'gameover.title': { ru: 'OnlyGods — 2026: GAME OVER', en: 'OnlyGods — 2026: GAME OVER', ua: 'OnlyGods — 2026: GAME OVER' },
-'gameover.back': { ru: '← Mindset 2.0', en: '← Mindset 2.0', ua: '← Mindset 2.0' },
+'gameover.back': { ru: '← Metapedia', en: '← Metapedia', ua: '← Metapedia' },
 'gameover.hero.subtitle': { ru: '2026', en: '2026', ua: '2026' },
 'gameover.hero.title': { ru: '2026 = GAME OVER', en: '2026 = GAME OVER', ua: '2026 = GAME OVER' },
 'gameover.hero.tagline': {
