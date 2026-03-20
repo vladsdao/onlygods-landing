@@ -462,6 +462,55 @@ body::after {
 }
 
 /* ====================================== */
+/* PROGRAM SECTION                        */
+/* ====================================== */
+.program-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid rgba(29,29,31,0.08);
+}
+
+.program-item {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 18px 24px;
+    border-bottom: 1px solid rgba(29,29,31,0.08);
+    font-size: 15px;
+    color: #1d1d1f;
+    line-height: 1.5;
+}
+
+.program-item:nth-child(odd) {
+    border-right: 1px solid rgba(29,29,31,0.08);
+}
+
+.program-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: #86868b;
+    min-width: 24px;
+    font-weight: 500;
+}
+
+.abilities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 48px;
+}
+
+.ability-card {
+    background: #1d1d1f;
+    color: #f5f5f7;
+    padding: 28px 32px;
+    border-radius: 3px;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+/* ====================================== */
 /* FIELD HERO (image + text)              */
 /* ====================================== */
 .field-hero {
@@ -1144,8 +1193,11 @@ body::after {
 /* RESPONSIVE                             */
 /* ====================================== */
 @media (max-width: 768px) {
-    .grid-2, .grid-2-asymmetric, .grid-4, .benefits-grid, .benefit-grid, .field-hero, .caduceus-hero {
+    .grid-2, .grid-2-asymmetric, .grid-4, .benefits-grid, .benefit-grid, .field-hero, .caduceus-hero, .program-grid, .abilities-grid {
         grid-template-columns: 1fr;
+    }
+    .program-item:nth-child(odd) {
+        border-right: none;
     }
     .caduceus-image { max-height: 400px; }
     .caduceus-image img { max-height: 400px; }
@@ -1342,27 +1394,59 @@ body::after {
     </div>
 
     <div class="fade-in-up" style="margin-top: 56px;">
-        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; margin-bottom: 24px; letter-spacing: -0.3px;" data-i18n="index.field.benefits.heading">Преимущества от участия в поле:</h3>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; margin-bottom: 24px; letter-spacing: -0.3px;" data-i18n="index.field.benefits.heading">Что вы получаете в поле:</h3>
         <div class="benefit-grid">
-            <div class="benefit-card" data-i18n="index.field.b1">Высокий уровень психо-эмоционально энергии</div>
-            <div class="benefit-card" data-i18n="index.field.b2">Апдейт майндсета и Состояние Творца</div>
-            <div class="benefit-card" data-i18n="index.field.b3">Глубина проживания и интерпретаций жизненного опыта</div>
-            <div class="benefit-card" data-i18n="index.field.b4">Идеи опережающие время и творчество вне рамок</div>
-            <div class="benefit-card" data-i18n="index.field.b5">Синхронистичность внутренних и внешних ритмов, удача</div>
-            <div class="benefit-card" data-i18n="index.field.b6">Раскрытие интуиции и сверх-человеческих качеств 5Д Сознания</div>
-            <div class="benefit-card" data-i18n="index.field.b7">Более высокая проводимость идей, ресурса, состояний</div>
-            <div class="benefit-card" data-i18n="index.field.b8">Использование коллективного опыта и навыков на уровне подсознания</div>
-            <div class="benefit-card" data-i18n="index.field.b9">Более глубокие инсайты за счет коллективного разума</div>
-            <div class="benefit-card" data-i18n="index.field.b10">Возможность коллективно влиять на реальность и переключать ветки</div>
-            <div class="benefit-card" data-i18n="index.field.b11">Снимать информацию из поля и предвидеть будущее</div>
-            <div class="benefit-card" data-i18n="index.field.b12">Повышенная осознанность и стрессоустойчивость</div>
-            <div class="benefit-card" data-i18n="index.field.b13">Внутренний баланс, восстановление здоровья</div>
-            <div class="benefit-card" data-i18n="index.field.b14">Ускоренная эволюция Сознания и более глубокие трансформации</div>
-            <div class="benefit-card" data-i18n="index.field.b15">Общая гармонизация всех сфер жизни и повышение уровня счастья</div>
-            <div class="benefit-card" data-i18n="index.field.b16">Считывание истинных намерений — для бизнеса и жизни</div>
-            <div class="benefit-card" data-i18n="index.field.b17">Умение строить когерентные симбиотические структуры — семья, бизнес, сообщество</div>
+            <div class="benefit-card" data-i18n="index.field.b1">Проводимость идей, инсайтов, энергии и навыков — умноженная на количество участников по принципу резонанса</div>
+            <div class="benefit-card" data-i18n="index.field.b2">Экстрасенсорика: ясновидение, яснослышание, телепатия, считывание истинных намерений людей</div>
+            <div class="benefit-card" data-i18n="index.field.b3">Доступ к коллективному сознанию — индивидуальный опыт, знания и навыки каждого участника становятся вашими</div>
+            <div class="benefit-card" data-i18n="index.field.b4">Переключение веток реальности — нелинейное влияние на пространство-время через когерентное намерение</div>
+            <div class="benefit-card" data-i18n="index.field.b5">Сексуальная энергия как строительный материал — расширение воображения, масштаб идей, скорость воплощения</div>
+            <div class="benefit-card" data-i18n="index.field.b6">Построение резонансных сетей — энергостанции на уровне семьи, компании, сообщества</div>
+            <div class="benefit-card" data-i18n="index.field.b7">Круг людей, поддерживающих тебя во всём — когерентная искренняя поддержка вместо критики. Решительность и сила действовать</div>
+            <div class="benefit-card" data-i18n="index.field.b8">Ускоренная эволюция: когда поднимается точка напряжения у одного — она трансформируется у всех. 10 лет за один цикл</div>
+        </div>
+    </div>
+</div>
 
-            <div class="benefit-card" data-i18n="index.field.b19">Расширение сексуальной энергии как строительного материала</div>
+<div class="section-divider"></div>
+
+<!-- ====================================== -->
+<!-- ПРОГРАММА МЫ.БОГИ                      -->
+<!-- ====================================== -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label">Программа</div>
+        <h2 class="section-title">Мы.Боги</h2>
+        <p class="body-text" style="margin-top: 24px; max-width: 720px; color: #86868b;">Первые 3 месяца — деконструкция мировоззрения до фундамента и пересборка. 17 тем, которые не выживают вне поля.</p>
+    </div>
+
+    <div class="program-grid fade-in-up" style="margin-top: 48px;">
+        <div class="program-item"><span class="program-num">01</span> Деконструкция понятия Бог и Мета-рационализм</div>
+        <div class="program-item"><span class="program-num">02</span> Отличие архитектуры майндсета</div>
+        <div class="program-item"><span class="program-num">03</span> Новые инструменты 5Д Сознания и правила игры</div>
+        <div class="program-item"><span class="program-num">04</span> Распаковка своего персонажа</div>
+        <div class="program-item"><span class="program-num">05</span> Вдохновение и движение в потоке</div>
+        <div class="program-item"><span class="program-num">06</span> Алхимия, Дао, Недеяние</div>
+        <div class="program-item"><span class="program-num">07</span> Дух, Объединённое Сознание и Космический разум</div>
+        <div class="program-item"><span class="program-num">08</span> Переписывание контракта души</div>
+        <div class="program-item"><span class="program-num">09</span> Пути и методы эволюции Сознания</div>
+        <div class="program-item"><span class="program-num">10</span> Кунг-фу абстрактного мышления</div>
+        <div class="program-item"><span class="program-num">11</span> Растождествление с иллюзиями отделённости</div>
+        <div class="program-item"><span class="program-num">12</span> Энергетический менеджмент и Синергия</div>
+        <div class="program-item"><span class="program-num">13</span> Построение Резонансной сети</div>
+        <div class="program-item"><span class="program-num">14</span> Эгрегоры. Уровень Администратора</div>
+        <div class="program-item"><span class="program-num">15</span> Ритуалы и церемонии как точки синхронизации</div>
+        <div class="program-item"><span class="program-num">16</span> Идеи. Глубокое понимание и взаимодействие</div>
+        <div class="program-item"><span class="program-num">17</span> Сообщество Богов и модель нового Олимпа</div>
+    </div>
+
+    <div class="fade-in-up">
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; margin-top: 56px; margin-bottom: 24px; letter-spacing: -0.3px;">Что вы сможете:</h3>
+        <div class="abilities-grid">
+            <div class="ability-card">Переключение веток реальности — нелинейное влияние на события через когерентное намерение группы</div>
+            <div class="ability-card">Построение резонансных сетей — создание энергостанций на уровне семьи, компании, сообщества</div>
+            <div class="ability-card">Считывание людей — истинные намерения, состояния, потенциал. Для бизнеса и жизни</div>
+            <div class="ability-card">Раскрытие интуиции и сверхспособностей — ясновидение, яснослышание, телепатия</div>
         </div>
     </div>
 </div>
