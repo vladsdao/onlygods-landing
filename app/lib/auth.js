@@ -68,7 +68,7 @@ class OGAuth {
             password,
             options: {
                 data: { name, telegram },
-                emailRedirectTo: `${location.origin}/playground.html`
+                emailRedirectTo: `${location.origin}/app.html`
             }
         });
 
@@ -101,7 +101,7 @@ class OGAuth {
         const { error } = await sb.auth.signInWithOAuth({
             provider: 'google',
             options: {
-                redirectTo: `${location.origin}/playground.html`
+                redirectTo: `${location.origin}/app.html`
             }
         });
         if (error) return { error: error.message };
@@ -227,7 +227,7 @@ class OGAuth {
             password,
             options: {
                 data: { name, telegram },
-                emailRedirectTo: `${location.origin}/playground.html`
+                emailRedirectTo: `${location.origin}/app.html`
             }
         });
 
