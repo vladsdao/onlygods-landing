@@ -1,4 +1,4 @@
-const CACHE_SHELL = 'og-shell-v3';
+const CACHE_SHELL = 'og-shell-v4';
 const CACHE_CDN = 'og-cdn-v1';
 
 const SHELL_ASSETS = [

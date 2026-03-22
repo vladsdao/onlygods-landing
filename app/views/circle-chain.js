@@ -165,15 +165,18 @@ export default class CircleChainView {
 
         return `
             <div class="cc-card ${isYourTurn ? 'cc-card-urgent' : ''}" data-circle-id="${c.id}">
-                <div class="cc-card-title">${skills[0]?.icon || '○'} "${this._esc(c.title)}"</div>
-                <div class="cc-card-meta">
-                    ${counts.completed}/${counts.total} completed
-                    ${isYourTurn && timeLeft ? ` · <span class="cc-time-left">⏱ ${timeLeft}</span>` : ''}
-                    ${!isYourTurn && c.status === 'active' ? ' · waiting...' : ''}
-                    ${c.status === 'completed' ? ' · View results' : ''}
-                    ${c.status === 'draft' ? ' · Draft' : ''}
+                ${c.cover_url ? `<div class="cc-card-cover"><img src="${c.cover_url}" alt=""></div>` : ''}
+                <div class="cc-card-body">
+                    <div class="cc-card-title">${skills[0]?.icon || '○'} "${this._esc(c.title)}"</div>
+                    <div class="cc-card-meta">
+                        ${counts.completed}/${counts.total} completed
+                        ${isYourTurn && timeLeft ? ` · <span class="cc-time-left">⏱ ${timeLeft}</span>` : ''}
+                        ${!isYourTurn && c.status === 'active' ? ' · waiting...' : ''}
+                        ${c.status === 'completed' ? ' · View results' : ''}
+                        ${c.status === 'draft' ? ' · Draft' : ''}
+                    </div>
+                    ${skills.length ? `<div class="cc-card-skills">${skills.map(s => `<span class="cc-skill-tag">${s.icon} ${s.name}</span>`).join('')}</div>` : ''}
                 </div>
-                ${skills.length ? `<div class="cc-card-skills">${skills.map(s => `<span class="cc-skill-tag">${s.icon} ${s.name}</span>`).join('')}</div>` : ''}
             </div>
         `;
     }
@@ -260,7 +263,12 @@ export default class CircleChainView {
             <div class="cc-detail ${themeClass}" ${themeStyle ? `style="${themeStyle}"` : ''}>
                 ${theme.custom_css ? `<style>${theme.custom_css}</style>` : ''}
 
-                <button class="cc-back-btn" id="cc-btn-back">← Back</button>
+                <button class="cc-back-btn" id="cc-btn-back">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                    Back
+                </button>
+
+                ${circle.cover_url ? `<div class="cc-detail-cover"><img src="${circle.cover_url}" alt=""></div>` : ''}
 
                 <div class="cc-detail-header">
                     <div class="cc-detail-title">"${this._esc(circle.title)}"</div>
@@ -696,6 +704,21 @@ export default class CircleChainView {
                     </div>
                 </div>
 
+                <div class="cc-form-card">
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">Cover Photo <span class="cc-form-optional">optional</span></label>
+                        <div class="cc-form-hint">A visual that sets the mood for this circle</div>
+                        <div class="cc-cover-upload" id="cc-cover-upload">
+                            <input type="file" id="cc-cover-input" accept="image/*" style="display:none">
+                            <div class="cc-cover-placeholder" id="cc-cover-placeholder">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span>Upload image</span>
+                            </div>
+                            <img class="cc-cover-preview" id="cc-cover-preview" style="display:none" alt="">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="cc-form-actions">
                     <button class="cc-create-submit" id="cc-btn-save-circle">
                         Create Circle
@@ -717,6 +740,22 @@ export default class CircleChainView {
         });
         this.container.querySelectorAll('[data-member]').forEach(cb => cb.addEventListener('change', updateCount));
         document.getElementById('cc-btn-save-circle')?.addEventListener('click', () => this._createCircle());
+
+        // Cover photo upload
+        const coverUpload = document.getElementById('cc-cover-upload');
+        const coverInput = document.getElementById('cc-cover-input');
+        const coverPreview = document.getElementById('cc-cover-preview');
+        const coverPlaceholder = document.getElementById('cc-cover-placeholder');
+        coverUpload?.addEventListener('click', () => coverInput?.click());
+        coverInput?.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file && coverPreview && coverPlaceholder) {
+                const url = URL.createObjectURL(file);
+                coverPreview.src = url;
+                coverPreview.style.display = 'block';
+                coverPlaceholder.style.display = 'none';
+            }
+        });
     }
 
     async _createCircle() {
@@ -727,6 +766,7 @@ export default class CircleChainView {
         const timeLimit = parseInt(document.getElementById('cc-create-time')?.value) || 24;
         const selectedSkills = [...this.container.querySelectorAll('[data-skill]:checked')].map(cb => cb.value);
         const selectedMembers = [...this.container.querySelectorAll('[data-member]:checked')].map(cb => cb.value);
+        const coverFile = document.getElementById('cc-cover-input')?.files?.[0];
 
         if (!title || !prompt) return;
         if (selectedMembers.length < 2) return;
@@ -735,6 +775,20 @@ export default class CircleChainView {
         if (btn) { btn.disabled = true; btn.textContent = 'Creating...'; }
 
         try {
+            // Upload cover photo first if present
+            let coverUrl = null;
+            if (coverFile) {
+                const ext = coverFile.name.split('.').pop();
+                const path = `covers/${Date.now()}.${ext}`;
+                const { error: uploadErr } = await this.sb.storage
+                    .from('circle-photos')
+                    .upload(path, coverFile, { upsert: true });
+                if (!uploadErr) {
+                    const { data: urlData } = this.sb.storage.from('circle-photos').getPublicUrl(path);
+                    coverUrl = urlData?.publicUrl;
+                }
+            }
+
             const { data: circle, error } = await this.sb
                 .from('circles')
                 .insert({
@@ -744,6 +798,7 @@ export default class CircleChainView {
                     description: desc || null,
                     time_limit_hours: timeLimit,
                     created_by: auth.getMemberId(),
+                    cover_url: coverUrl,
                     status: 'draft',
                 })
                 .select()
@@ -766,7 +821,8 @@ export default class CircleChainView {
                 }))
             );
 
-            await this._openCircle(circle.id);
+            // Redirect to list — new circle appears in Drafts section
+            await this._loadCircleList();
         } catch (err) {
             console.error('Create circle error:', err);
             if (btn) { btn.disabled = false; btn.textContent = 'Create Circle'; }
