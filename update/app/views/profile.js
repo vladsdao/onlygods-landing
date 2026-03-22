@@ -89,6 +89,11 @@ export default class ProfileView {
                     <div class="profile-stats" id="profile-stats">Loading...</div>
                 </div>
 
+                <div class="profile-section" id="skill-scores-section" style="display:none">
+                    <div class="profile-section-label">Development Profile</div>
+                    <div class="profile-skills" id="profile-skills"></div>
+                </div>
+
                 <div class="profile-section">
                     <div class="profile-section-label">Sync Progress</div>
                     <div class="profile-stat-grid" id="sync-progress-stats"></div>
@@ -152,7 +157,7 @@ export default class ProfileView {
         `;
 
         this._setupListeners();
-        await Promise.all([this._loadStats(), this._loadSyncProgress()]);
+        await Promise.all([this._loadStats(), this._loadSyncProgress(), this._loadSkillScores()]);
     }
 
     _renderAvatar(member) {
@@ -329,6 +334,41 @@ export default class ProfileView {
                 </div>
             </div>
         `;
+    }
+
+    async _loadSkillScores() {
+        const memberId = auth.getMemberId();
+        const { data: scores } = await this.sb
+            .from('member_skill_scores')
+            .select('*, circle_skills:skill_id(name, name_ru, icon)')
+            .eq('member_id', memberId)
+            .order('score', { ascending: false });
+
+        const section = document.getElementById('skill-scores-section');
+        const el = document.getElementById('profile-skills');
+        if (!section || !el || !scores || scores.length === 0) return;
+
+        section.style.display = '';
+        const maxScore = Math.max(...scores.map(s => s.score), 1);
+
+        const { data: participations } = await this.sb
+            .from('circle_participants')
+            .select('status')
+            .eq('member_id', memberId);
+
+        const completed = (participations || []).filter(p => p.status === 'completed').length;
+        const active = (participations || []).filter(p => ['waiting', 'active'].includes(p.status)).length;
+
+        const rows = scores.map(s => {
+            const skill = s.circle_skills;
+            const pct = Math.min(100, Math.round((s.score / maxScore) * 100));
+            const icon = this._esc(skill?.icon || '○');
+            const name = this._esc(skill?.name_ru || skill?.name || '');
+            return `<div class="profile-skill-row"><div class="profile-skill-icon">${icon}</div><div class="profile-skill-name">${name}</div><div class="profile-skill-bar"><div class="profile-skill-fill" style="width:${pct}%"></div></div><div class="profile-skill-score">${s.score}</div></div>`;
+        }).join('');
+
+        // All data is from our own DB and escaped via _esc()
+        el.innerHTML = rows + `<div class="profile-circles-count">Circles: ${completed} completed · ${active} active</div>`;
     }
 
     async _loadSyncProgress() {
