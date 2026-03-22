@@ -150,6 +150,47 @@ export default class ProfileView {
                 </div>
                 ` : ''}
 
+                <div class="profile-feedback-section">
+                    <button class="profile-feedback-btn" id="btn-feedback">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                        Report a Bug or Suggest Improvements
+                    </button>
+                </div>
+
+                <div class="profile-feedback-form" id="feedback-form" style="display:none">
+                    <div class="feedback-form-title">Your Feedback</div>
+                    <div class="feedback-form-group">
+                        <label class="feedback-label">Type</label>
+                        <div class="feedback-themes">
+                            <label class="feedback-theme-pill"><input type="radio" name="fb-theme" value="bug" checked><span>Bug</span></label>
+                            <label class="feedback-theme-pill"><input type="radio" name="fb-theme" value="improvement"><span>Improvement</span></label>
+                            <label class="feedback-theme-pill"><input type="radio" name="fb-theme" value="idea"><span>Idea</span></label>
+                            <label class="feedback-theme-pill"><input type="radio" name="fb-theme" value="other"><span>Other</span></label>
+                        </div>
+                    </div>
+                    <div class="feedback-form-group">
+                        <label class="feedback-label">Describe</label>
+                        <textarea class="feedback-textarea" id="fb-text" rows="4" placeholder="What happened? What would you improve?"></textarea>
+                    </div>
+                    <div class="feedback-form-group">
+                        <label class="feedback-label">Screenshot <span class="feedback-optional">optional</span></label>
+                        <div class="feedback-screenshot-row">
+                            <label class="feedback-screenshot-btn" for="fb-screenshot">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                Add screenshot
+                            </label>
+                            <input type="file" id="fb-screenshot" accept="image/*" style="display:none">
+                            <span class="feedback-screenshot-name" id="fb-screenshot-name"></span>
+                        </div>
+                        <img class="feedback-screenshot-preview" id="fb-screenshot-preview" style="display:none" alt="">
+                    </div>
+                    <div class="feedback-form-actions">
+                        <button class="feedback-submit-btn" id="btn-submit-feedback">Send Feedback</button>
+                        <button class="feedback-cancel-btn" id="btn-cancel-feedback">Cancel</button>
+                    </div>
+                    <div class="feedback-success" id="fb-success" style="display:none">Thank you! Your feedback has been sent.</div>
+                </div>
+
                 <div class="profile-footer">
                     <button class="profile-logout-btn" id="btn-logout">Log Out</button>
                 </div>
@@ -203,6 +244,27 @@ export default class ProfileView {
         document.getElementById('btn-admin-members')?.addEventListener('click', () => { location.hash = '#/crm'; });
         document.getElementById('btn-admin-bot')?.addEventListener('click', () => { location.hash = '#/crm'; });
         document.getElementById('btn-admin-invite')?.addEventListener('click', () => this._showInviteModal());
+
+        // Feedback form
+        document.getElementById('btn-feedback')?.addEventListener('click', () => {
+            const form = document.getElementById('feedback-form');
+            if (form) form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        });
+        document.getElementById('btn-cancel-feedback')?.addEventListener('click', () => {
+            const form = document.getElementById('feedback-form');
+            if (form) form.style.display = 'none';
+        });
+        document.getElementById('fb-screenshot')?.addEventListener('change', (e) => {
+            const file = e.target.files?.[0];
+            const nameEl = document.getElementById('fb-screenshot-name');
+            const previewEl = document.getElementById('fb-screenshot-preview');
+            if (nameEl) nameEl.textContent = file?.name || '';
+            if (file && previewEl) {
+                previewEl.src = URL.createObjectURL(file);
+                previewEl.style.display = 'block';
+            }
+        });
+        document.getElementById('btn-submit-feedback')?.addEventListener('click', () => this._submitFeedback());
     }
 
     _toggleEdit(show) {
@@ -369,6 +431,62 @@ export default class ProfileView {
 
         // All data is from our own DB and escaped via _esc()
         el.innerHTML = rows + `<div class="profile-circles-count">Circles: ${completed} completed · ${active} active</div>`;
+    }
+
+    async _submitFeedback() {
+        const theme = this.container.querySelector('input[name="fb-theme"]:checked')?.value || 'other';
+        const text = document.getElementById('fb-text')?.value?.trim();
+        if (!text) { document.getElementById('fb-text')?.focus(); return; }
+
+        const btn = document.getElementById('btn-submit-feedback');
+        if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+
+        try {
+            // Upload screenshot if present
+            let screenshotUrl = null;
+            const file = document.getElementById('fb-screenshot')?.files?.[0];
+            if (file) {
+                const path = `feedback/${Date.now()}-${file.name}`;
+                const { error: uploadErr } = await this.sb.storage
+                    .from('circle-photos')
+                    .upload(path, file, { upsert: true });
+                if (!uploadErr) {
+                    const { data: urlData } = this.sb.storage.from('circle-photos').getPublicUrl(path);
+                    screenshotUrl = urlData?.publicUrl;
+                }
+            }
+
+            const member = auth.getMember();
+            await this.sb.from('feedback').insert({
+                member_id: auth.getMemberId(),
+                member_name: member?.name || 'Unknown',
+                theme,
+                text_content: text,
+                screenshot_url: screenshotUrl,
+                page_url: window.location.href,
+            });
+
+            // Show success
+            const form = document.getElementById('feedback-form');
+            const success = document.getElementById('fb-success');
+            if (success) success.style.display = 'block';
+            if (btn) btn.style.display = 'none';
+            document.getElementById('btn-cancel-feedback')?.click();
+            setTimeout(() => {
+                if (form) form.style.display = 'none';
+                if (success) success.style.display = 'none';
+                if (btn) { btn.style.display = ''; btn.disabled = false; btn.textContent = 'Send Feedback'; }
+                const textEl = document.getElementById('fb-text');
+                if (textEl) textEl.value = '';
+                const previewEl = document.getElementById('fb-screenshot-preview');
+                if (previewEl) previewEl.style.display = 'none';
+                const nameEl = document.getElementById('fb-screenshot-name');
+                if (nameEl) nameEl.textContent = '';
+            }, 3000);
+        } catch (err) {
+            console.error('Feedback error:', err);
+            if (btn) { btn.disabled = false; btn.textContent = 'Send Feedback'; }
+        }
     }
 
     async _loadSyncProgress() {
