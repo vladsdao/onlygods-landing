@@ -1,0 +1,865 @@
+import { getClient } from '../lib/supabase.js';
+import { auth } from '../lib/auth.js';
+
+const STATUS_ICONS = { waiting: '○', active: '●', completed: '✓', skipped: '–', timed_out: '⏱' };
+
+export default class CircleChainView {
+    constructor(container) {
+        this.container = container;
+        this.sb = getClient();
+        this.circles = [];
+        this.skills = [];
+        this.members = [];
+        this.currentCircle = null;
+        this.channels = [];
+        this.countdownTimer = null;
+    }
+
+    async render() {
+        await this._loadSkills();
+        await this._loadCircleList();
+    }
+
+    // ──────── CIRCLE LIST ────────
+
+    async _loadCircleList() {
+        this.currentCircle = null;
+        this._clearCountdown();
+
+        const memberId = auth.getMemberId();
+        const { data: participations } = await this.sb
+            .from('circle_participants')
+            .select('circle_id, status, order_position, assigned_at, deadline_at')
+            .eq('member_id', memberId);
+
+        const circleIds = (participations || []).map(p => p.circle_id);
+        if (circleIds.length === 0 && !auth.isAdmin()) {
+            this._renderEmpty();
+            return;
+        }
+
+        // Load circles the user participates in
+        let query = this.sb.from('circles').select('*');
+        if (!auth.isAdmin()) {
+            query = query.in('id', circleIds);
+        }
+        const { data: circles } = await query.order('created_at', { ascending: false });
+        this.circles = circles || [];
+
+        // Load participant counts
+        const allCircleIds = this.circles.map(c => c.id);
+        const { data: allParticipants } = await this.sb
+            .from('circle_participants')
+            .select('circle_id, status, member_id')
+            .in('circle_id', allCircleIds);
+
+        // Build participation map
+        const partMap = {};
+        (participations || []).forEach(p => { partMap[p.circle_id] = p; });
+
+        // Build counts
+        const countMap = {};
+        (allParticipants || []).forEach(p => {
+            if (!countMap[p.circle_id]) countMap[p.circle_id] = { total: 0, completed: 0 };
+            countMap[p.circle_id].total++;
+            if (p.status === 'completed') countMap[p.circle_id].completed++;
+        });
+
+        // Load skill tags
+        const { data: skillTags } = await this.sb
+            .from('circle_skill_tags')
+            .select('circle_id, skill_id')
+            .in('circle_id', allCircleIds);
+
+        const skillMap = {};
+        (skillTags || []).forEach(st => {
+            if (!skillMap[st.circle_id]) skillMap[st.circle_id] = [];
+            const skill = this.skills.find(s => s.id === st.skill_id);
+            if (skill) skillMap[st.circle_id].push(skill);
+        });
+
+        // Categorize
+        const yourTurn = [];
+        const inProgress = [];
+        const completed = [];
+        const drafts = [];
+
+        this.circles.forEach(c => {
+            const myPart = partMap[c.id];
+            const counts = countMap[c.id] || { total: 0, completed: 0 };
+            c._myStatus = myPart?.status;
+            c._counts = counts;
+            c._skills = skillMap[c.id] || [];
+            c._deadline = myPart?.deadline_at;
+
+            if (c.status === 'draft') {
+                drafts.push(c);
+            } else if (c.status === 'completed' || c.status === 'cancelled') {
+                completed.push(c);
+            } else if (myPart?.status === 'active') {
+                yourTurn.push(c);
+            } else {
+                inProgress.push(c);
+            }
+        });
+
+        this.container.innerHTML = `
+            <div class="circle-chain-list">
+                ${auth.isAdmin() ? `
+                    <button class="cc-create-btn" id="cc-btn-create">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                        Create Circle
+                    </button>
+                ` : ''}
+
+                ${yourTurn.length ? `
+                    <div class="cc-section">
+                        <div class="cc-section-title"><span class="cc-dot cc-dot-active"></span> Your Turn (${yourTurn.length})</div>
+                        ${yourTurn.map(c => this._renderCircleCard(c)).join('')}
+                    </div>
+                ` : ''}
+
+                ${inProgress.length ? `
+                    <div class="cc-section">
+                        <div class="cc-section-title"><span class="cc-dot cc-dot-waiting"></span> In Progress (${inProgress.length})</div>
+                        ${inProgress.map(c => this._renderCircleCard(c)).join('')}
+                    </div>
+                ` : ''}
+
+                ${completed.length ? `
+                    <div class="cc-section">
+                        <div class="cc-section-title"><span class="cc-dot cc-dot-done"></span> Completed (${completed.length})</div>
+                        ${completed.map(c => this._renderCircleCard(c)).join('')}
+                    </div>
+                ` : ''}
+
+                ${auth.isAdmin() && drafts.length ? `
+                    <div class="cc-section">
+                        <div class="cc-section-title">Drafts (${drafts.length})</div>
+                        ${drafts.map(c => this._renderCircleCard(c)).join('')}
+                    </div>
+                ` : ''}
+
+                ${!yourTurn.length && !inProgress.length && !completed.length && !drafts.length ? `
+                    <div class="cc-empty">
+                        <div class="cc-empty-icon">○</div>
+                        <div class="cc-empty-text">No circles yet</div>
+                        <div class="cc-empty-sub">When you're added to a circle, it will appear here</div>
+                    </div>
+                ` : ''}
+            </div>
+        `;
+
+        // Bind events
+        document.getElementById('cc-btn-create')?.addEventListener('click', () => this._showCreateForm());
+        this.container.querySelectorAll('.cc-card').forEach(card => {
+            card.addEventListener('click', () => this._openCircle(card.dataset.circleId));
+        });
+    }
+
+    _renderCircleCard(c) {
+        const counts = c._counts;
+        const skills = c._skills;
+        const isYourTurn = c._myStatus === 'active';
+        const timeLeft = c._deadline ? this._formatTimeLeft(c._deadline) : '';
+
+        return `
+            <div class="cc-card ${isYourTurn ? 'cc-card-urgent' : ''}" data-circle-id="${c.id}">
+                <div class="cc-card-title">${skills[0]?.icon || '○'} "${this._esc(c.title)}"</div>
+                <div class="cc-card-meta">
+                    ${counts.completed}/${counts.total} completed
+                    ${isYourTurn && timeLeft ? ` · <span class="cc-time-left">⏱ ${timeLeft}</span>` : ''}
+                    ${!isYourTurn && c.status === 'active' ? ' · waiting...' : ''}
+                    ${c.status === 'completed' ? ' · View results' : ''}
+                    ${c.status === 'draft' ? ' · Draft' : ''}
+                </div>
+                ${skills.length ? `<div class="cc-card-skills">${skills.map(s => `<span class="cc-skill-tag">${s.icon} ${s.name}</span>`).join('')}</div>` : ''}
+            </div>
+        `;
+    }
+
+    _renderEmpty() {
+        this.container.innerHTML = `
+            <div class="cc-empty">
+                <div class="cc-empty-icon">○</div>
+                <div class="cc-empty-text">No circles yet</div>
+                <div class="cc-empty-sub">When you're added to a circle, it will appear here</div>
+            </div>
+        `;
+    }
+
+    // ──────── CIRCLE DETAIL ────────
+
+    async _openCircle(circleId) {
+        this._clearCountdown();
+        const { data: circle } = await this.sb.from('circles').select('*').eq('id', circleId).single();
+        if (!circle) return;
+        this.currentCircle = circle;
+
+        // Load participants with member info
+        const { data: participants } = await this.sb
+            .from('circle_participants')
+            .select('*, members:member_id(id, name, avatar_url)')
+            .eq('circle_id', circleId)
+            .order('order_position');
+
+        // Load submissions
+        const { data: submissions } = await this.sb
+            .from('circle_submissions')
+            .select('*, members:member_id(id, name, avatar_url)')
+            .eq('circle_id', circleId)
+            .order('submitted_at');
+
+        // Load likes counts
+        const submissionIds = (submissions || []).map(s => s.id);
+        let likesMap = {};
+        let myLikes = new Set();
+        if (submissionIds.length) {
+            const { data: likes } = await this.sb
+                .from('circle_likes')
+                .select('submission_id, member_id')
+                .in('submission_id', submissionIds);
+            (likes || []).forEach(l => {
+                likesMap[l.submission_id] = (likesMap[l.submission_id] || 0) + 1;
+                if (l.member_id === auth.getMemberId()) myLikes.add(l.submission_id);
+            });
+        }
+
+        // Load comments
+        const { data: comments } = await this.sb
+            .from('circle_comments')
+            .select('*, members:member_id(id, name, avatar_url)')
+            .eq('circle_id', circleId)
+            .order('created_at');
+
+        // Load skill tags
+        const { data: skillTags } = await this.sb
+            .from('circle_skill_tags')
+            .select('skill_id')
+            .eq('circle_id', circleId);
+        const circleSkills = (skillTags || []).map(st => this.skills.find(s => s.id === st.skill_id)).filter(Boolean);
+
+        const memberId = auth.getMemberId();
+        const myParticipant = (participants || []).find(p => p.member_id === memberId);
+        const isMyTurn = myParticipant?.status === 'active';
+        const submissionMap = {};
+        (submissions || []).forEach(s => { submissionMap[s.member_id] = s; });
+
+        const completedCount = (participants || []).filter(p => p.status === 'completed').length;
+        const totalCount = (participants || []).length;
+
+        // Apply theme
+        const theme = circle.theme || {};
+        const themeStyle = [
+            theme.bg ? `--cc-bg: ${theme.bg}` : '',
+            theme.accent ? `--cc-accent: ${theme.accent}` : '',
+        ].filter(Boolean).join(';');
+        const themeClass = theme.css_class || '';
+
+        this.container.innerHTML = `
+            <div class="cc-detail ${themeClass}" ${themeStyle ? `style="${themeStyle}"` : ''}>
+                ${theme.custom_css ? `<style>${theme.custom_css}</style>` : ''}
+
+                <button class="cc-back-btn" id="cc-btn-back">← Back</button>
+
+                <div class="cc-detail-header">
+                    <div class="cc-detail-title">"${this._esc(circle.title)}"</div>
+                    <div class="cc-detail-skills">
+                        ${circleSkills.map(s => `<span class="cc-skill-tag">${s.icon} ${s.name}</span>`).join(' ')}
+                    </div>
+                    <div class="cc-detail-meta">
+                        ⏱ ${circle.time_limit_hours}h per turn · ${completedCount}/${totalCount} done
+                        ${circle.status === 'completed' ? ' · Completed' : ''}
+                    </div>
+                    ${circle.guide_text ? `<div class="cc-guide"><div class="cc-guide-label">Guide</div><div class="cc-guide-text">${this._esc(circle.guide_text)}</div></div>` : ''}
+                    <div class="cc-task-prompt">${this._esc(circle.task_prompt)}</div>
+                </div>
+
+                ${auth.isAdmin() && circle.status === 'draft' ? `
+                    <div class="cc-admin-actions">
+                        <button class="cc-start-btn" id="cc-btn-start">Start Circle</button>
+                        <button class="cc-cancel-btn" id="cc-btn-cancel-circle">Cancel</button>
+                    </div>
+                ` : ''}
+
+                <div class="cc-chain">
+                    <div class="cc-chain-title">Chain Progress</div>
+                    ${(participants || []).map(p => {
+                        const sub = submissionMap[p.member_id];
+                        const member = p.members;
+                        const isActive = p.status === 'active' && p.member_id === memberId;
+                        const likeCount = sub ? (likesMap[sub.id] || 0) : 0;
+                        const iLiked = sub ? myLikes.has(sub.id) : false;
+
+                        if (isActive) {
+                            return `
+                                <div class="cc-chain-item cc-chain-active">
+                                    <div class="cc-chain-marker">●</div>
+                                    <div class="cc-chain-content">
+                                        <div class="cc-chain-name">YOUR TURN</div>
+                                        <div class="cc-submission-form" id="cc-submission-form">
+                                            <textarea class="cc-textarea" id="cc-text" placeholder="Write your response..." rows="4"></textarea>
+                                            <div class="cc-photo-row">
+                                                <label class="cc-photo-btn" for="cc-photo-input">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                                    Add photo
+                                                </label>
+                                                <input type="file" id="cc-photo-input" accept="image/*" style="display:none">
+                                                <span class="cc-photo-name" id="cc-photo-name"></span>
+                                            </div>
+                                            <div class="cc-submit-row">
+                                                <button class="cc-submit-btn" id="cc-btn-submit">Submit →</button>
+                                                <div class="cc-countdown" id="cc-countdown">${p.deadline_at ? this._formatTimeLeft(p.deadline_at) : ''}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        }
+
+                        if (sub) {
+                            return `
+                                <div class="cc-chain-item cc-chain-done">
+                                    <div class="cc-chain-marker">✓</div>
+                                    <div class="cc-chain-content">
+                                        <div class="cc-chain-name">${this._esc(member?.name || 'Unknown')}</div>
+                                        <div class="cc-chain-text">${this._esc(sub.text_content)}</div>
+                                        ${sub.photo_url ? `<img class="cc-chain-photo" src="${sub.photo_url}" alt="">` : ''}
+                                        <div class="cc-chain-actions">
+                                            <button class="cc-like-btn ${iLiked ? 'cc-liked' : ''}" data-submission-id="${sub.id}">
+                                                ${iLiked ? '♥' : '♡'} ${likeCount || ''}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        }
+
+                        // Waiting or timed_out
+                        return `
+                            <div class="cc-chain-item cc-chain-waiting">
+                                <div class="cc-chain-marker">${STATUS_ICONS[p.status] || '○'}</div>
+                                <div class="cc-chain-content">
+                                    <div class="cc-chain-name">${this._esc(member?.name || 'Unknown')}</div>
+                                    <div class="cc-chain-status">${p.status === 'timed_out' ? 'Timed out' : p.status === 'active' ? 'Working on it...' : 'Waiting...'}</div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+
+                <div class="cc-comments-section">
+                    <div class="cc-comments-title">Comments</div>
+                    <div class="cc-comments-list" id="cc-comments-list">
+                        ${(comments || []).map(c => `
+                            <div class="cc-comment">
+                                <span class="cc-comment-author">${this._esc(c.members?.name || 'Unknown')}:</span>
+                                <span class="cc-comment-text">${this._formatMentions(this._esc(c.text_content))}</span>
+                            </div>
+                        `).join('')}
+                        ${!(comments || []).length ? '<div class="cc-comments-empty">No comments yet</div>' : ''}
+                    </div>
+                    ${myParticipant ? `
+                        <div class="cc-comment-form">
+                            <input type="text" class="cc-comment-input" id="cc-comment-input" placeholder="Write a comment... @mention">
+                            <button class="cc-comment-send" id="cc-btn-comment">→</button>
+                        </div>
+                    ` : ''}
+                </div>
+            </div>
+        `;
+
+        // Bind events
+        document.getElementById('cc-btn-back')?.addEventListener('click', () => this._loadCircleList());
+        document.getElementById('cc-btn-submit')?.addEventListener('click', () => this._submitResponse());
+        document.getElementById('cc-photo-input')?.addEventListener('change', (e) => {
+            const name = e.target.files[0]?.name || '';
+            const el = document.getElementById('cc-photo-name');
+            if (el) el.textContent = name;
+        });
+        document.getElementById('cc-btn-comment')?.addEventListener('click', () => this._submitComment());
+        document.getElementById('cc-comment-input')?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') this._submitComment();
+        });
+        document.getElementById('cc-btn-start')?.addEventListener('click', () => this._startCircle(circleId));
+        document.getElementById('cc-btn-cancel-circle')?.addEventListener('click', () => this._cancelCircle(circleId));
+
+        // Like buttons
+        this.container.querySelectorAll('.cc-like-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this._toggleLike(btn.dataset.submissionId);
+            });
+        });
+
+        // Start countdown timer if it's my turn
+        if (isMyTurn && myParticipant.deadline_at) {
+            this._startCountdown(myParticipant.deadline_at);
+        }
+
+        // Subscribe to realtime updates
+        this._subscribeCircle(circleId);
+    }
+
+    // ──────── SUBMISSION ────────
+
+    async _submitResponse() {
+        const textEl = document.getElementById('cc-text');
+        const photoEl = document.getElementById('cc-photo-input');
+        const text = textEl?.value?.trim();
+        if (!text) { textEl?.focus(); return; }
+
+        const btn = document.getElementById('cc-btn-submit');
+        if (btn) { btn.disabled = true; btn.textContent = 'Submitting...'; }
+
+        try {
+            let photoUrl = null;
+            const file = photoEl?.files?.[0];
+            if (file) {
+                const ext = file.name.split('.').pop();
+                const path = `${this.currentCircle.id}/${auth.getMemberId()}.${ext}`;
+                const { error: uploadErr } = await this.sb.storage
+                    .from('circle-photos')
+                    .upload(path, file, { upsert: true });
+                if (!uploadErr) {
+                    const { data: urlData } = this.sb.storage.from('circle-photos').getPublicUrl(path);
+                    photoUrl = urlData?.publicUrl;
+                }
+            }
+
+            // Insert submission
+            const { error } = await this.sb.from('circle_submissions').insert({
+                circle_id: this.currentCircle.id,
+                member_id: auth.getMemberId(),
+                text_content: text,
+                photo_url: photoUrl,
+            });
+
+            if (error) throw error;
+
+            // Advance turn
+            await this._advanceTurn(this.currentCircle.id);
+
+            // Refresh
+            await this._openCircle(this.currentCircle.id);
+        } catch (err) {
+            console.error('Submit error:', err);
+            if (btn) { btn.disabled = false; btn.textContent = 'Submit →'; }
+        }
+    }
+
+    // ──────── TURN ADVANCEMENT ────────
+
+    async _advanceTurn(circleId) {
+        const memberId = auth.getMemberId();
+
+        // Mark current participant as completed
+        await this.sb
+            .from('circle_participants')
+            .update({ status: 'completed', completed_at: new Date().toISOString() })
+            .eq('circle_id', circleId)
+            .eq('member_id', memberId)
+            .eq('status', 'active');
+
+        // Find next waiting participant
+        const { data: waiting } = await this.sb
+            .from('circle_participants')
+            .select('id, order_position')
+            .eq('circle_id', circleId)
+            .eq('status', 'waiting')
+            .order('order_position')
+            .limit(1);
+
+        if (waiting && waiting.length > 0) {
+            const next = waiting[0];
+            const circle = this.currentCircle;
+            const now = new Date();
+            const deadline = new Date(now.getTime() + (circle.time_limit_hours || 24) * 3600000);
+
+            await this.sb
+                .from('circle_participants')
+                .update({
+                    status: 'active',
+                    assigned_at: now.toISOString(),
+                    deadline_at: deadline.toISOString(),
+                })
+                .eq('id', next.id);
+
+            await this.sb
+                .from('circles')
+                .update({ current_turn: next.order_position })
+                .eq('id', circleId);
+        } else {
+            // Circle complete
+            await this.sb
+                .from('circles')
+                .update({ status: 'completed', completed_at: new Date().toISOString() })
+                .eq('id', circleId);
+        }
+
+        // Update skill scores
+        await this._updateScores(circleId, memberId);
+    }
+
+    async _updateScores(circleId, memberId) {
+        const { data: skillTags } = await this.sb
+            .from('circle_skill_tags')
+            .select('skill_id, weight')
+            .eq('circle_id', circleId);
+
+        for (const tag of (skillTags || [])) {
+            const points = 10 * (tag.weight || 1);
+
+            // Upsert skill score
+            const { data: existing } = await this.sb
+                .from('member_skill_scores')
+                .select('score, circles_completed')
+                .eq('member_id', memberId)
+                .eq('skill_id', tag.skill_id)
+                .single();
+
+            if (existing) {
+                await this.sb
+                    .from('member_skill_scores')
+                    .update({
+                        score: existing.score + points,
+                        circles_completed: existing.circles_completed + 1,
+                        last_updated: new Date().toISOString(),
+                    })
+                    .eq('member_id', memberId)
+                    .eq('skill_id', tag.skill_id);
+            } else {
+                await this.sb
+                    .from('member_skill_scores')
+                    .insert({
+                        member_id: memberId,
+                        skill_id: tag.skill_id,
+                        score: points,
+                        circles_completed: 1,
+                    });
+            }
+        }
+    }
+
+    // ──────── LIKES ────────
+
+    async _toggleLike(submissionId) {
+        const memberId = auth.getMemberId();
+
+        const { data: existing } = await this.sb
+            .from('circle_likes')
+            .select('submission_id')
+            .eq('submission_id', submissionId)
+            .eq('member_id', memberId)
+            .single();
+
+        if (existing) {
+            await this.sb
+                .from('circle_likes')
+                .delete()
+                .eq('submission_id', submissionId)
+                .eq('member_id', memberId);
+        } else {
+            await this.sb
+                .from('circle_likes')
+                .insert({ submission_id: submissionId, member_id: memberId });
+        }
+
+        if (this.currentCircle) {
+            await this._openCircle(this.currentCircle.id);
+        }
+    }
+
+    // ──────── COMMENTS ────────
+
+    async _submitComment() {
+        const input = document.getElementById('cc-comment-input');
+        const text = input?.value?.trim();
+        if (!text || !this.currentCircle) return;
+
+        // Parse @mentions
+        const mentionRegex = /@(\w+)/g;
+        const mentionedNames = [];
+        let match;
+        while ((match = mentionRegex.exec(text)) !== null) {
+            mentionedNames.push(match[1]);
+        }
+
+        // Resolve mentioned member IDs
+        let mentionedIds = [];
+        if (mentionedNames.length) {
+            const { data: mentioned } = await this.sb
+                .from('members')
+                .select('id, name')
+                .in('name', mentionedNames);
+            mentionedIds = (mentioned || []).map(m => m.id);
+        }
+
+        await this.sb.from('circle_comments').insert({
+            circle_id: this.currentCircle.id,
+            member_id: auth.getMemberId(),
+            text_content: text,
+            mentioned_member_ids: mentionedIds,
+        });
+
+        input.value = '';
+        await this._openCircle(this.currentCircle.id);
+    }
+
+    // ──────── ADMIN: CREATE CIRCLE ────────
+
+    async _showCreateForm() {
+        const { data: members } = await this.sb
+            .from('members')
+            .select('id, name, avatar_url')
+            .order('name');
+        this.members = members || [];
+
+        this.container.innerHTML = `
+            <div class="cc-create-form">
+                <button class="cc-back-btn" id="cc-btn-back-create">← Back</button>
+                <div class="cc-create-title">Create Circle</div>
+
+                <div class="cc-form-group">
+                    <label class="cc-form-label">Title</label>
+                    <input type="text" class="cc-form-input" id="cc-create-title" placeholder="e.g. Write 4 lines of poetry">
+                </div>
+
+                <div class="cc-form-group">
+                    <label class="cc-form-label">Task Prompt</label>
+                    <textarea class="cc-form-textarea" id="cc-create-prompt" rows="3" placeholder="The actual challenge/task description"></textarea>
+                </div>
+
+                <div class="cc-form-group">
+                    <label class="cc-form-label">Guide (optional)</label>
+                    <textarea class="cc-form-textarea" id="cc-create-guide" rows="2" placeholder="Short guide or instructions for participants"></textarea>
+                </div>
+
+                <div class="cc-form-group">
+                    <label class="cc-form-label">Description (optional)</label>
+                    <input type="text" class="cc-form-input" id="cc-create-desc" placeholder="Brief description of this circle">
+                </div>
+
+                <div class="cc-form-group">
+                    <label class="cc-form-label">Skills</label>
+                    <div class="cc-skills-grid" id="cc-skills-grid">
+                        ${this.skills.map(s => `
+                            <label class="cc-skill-checkbox">
+                                <input type="checkbox" value="${s.id}" data-skill>
+                                ${s.icon} ${s.name_ru || s.name}
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="cc-form-group">
+                    <label class="cc-form-label">Time per turn (hours)</label>
+                    <select class="cc-form-select" id="cc-create-time">
+                        <option value="6">6 hours</option>
+                        <option value="12">12 hours</option>
+                        <option value="24" selected>24 hours</option>
+                        <option value="48">48 hours</option>
+                        <option value="72">72 hours</option>
+                    </select>
+                </div>
+
+                <div class="cc-form-group">
+                    <label class="cc-form-label">Participants</label>
+                    <label class="cc-all-members-toggle">
+                        <input type="checkbox" id="cc-all-members"> All members
+                    </label>
+                    <div class="cc-members-grid" id="cc-members-grid">
+                        ${this.members.map(m => `
+                            <label class="cc-member-checkbox">
+                                <input type="checkbox" value="${m.id}" data-member>
+                                ${this._esc(m.name)}
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="cc-form-actions">
+                    <button class="cc-submit-btn" id="cc-btn-save-circle">Create Circle</button>
+                </div>
+            </div>
+        `;
+
+        document.getElementById('cc-btn-back-create')?.addEventListener('click', () => this._loadCircleList());
+        document.getElementById('cc-all-members')?.addEventListener('change', (e) => {
+            this.container.querySelectorAll('[data-member]').forEach(cb => { cb.checked = e.target.checked; });
+        });
+        document.getElementById('cc-btn-save-circle')?.addEventListener('click', () => this._createCircle());
+    }
+
+    async _createCircle() {
+        const title = document.getElementById('cc-create-title')?.value?.trim();
+        const prompt = document.getElementById('cc-create-prompt')?.value?.trim();
+        const guide = document.getElementById('cc-create-guide')?.value?.trim();
+        const desc = document.getElementById('cc-create-desc')?.value?.trim();
+        const timeLimit = parseInt(document.getElementById('cc-create-time')?.value) || 24;
+        const selectedSkills = [...this.container.querySelectorAll('[data-skill]:checked')].map(cb => cb.value);
+        const selectedMembers = [...this.container.querySelectorAll('[data-member]:checked')].map(cb => cb.value);
+
+        if (!title || !prompt) return;
+        if (selectedMembers.length < 2) return;
+
+        const btn = document.getElementById('cc-btn-save-circle');
+        if (btn) { btn.disabled = true; btn.textContent = 'Creating...'; }
+
+        try {
+            const { data: circle, error } = await this.sb
+                .from('circles')
+                .insert({
+                    title,
+                    task_prompt: prompt,
+                    guide_text: guide || null,
+                    description: desc || null,
+                    time_limit_hours: timeLimit,
+                    created_by: auth.getMemberId(),
+                    status: 'draft',
+                })
+                .select()
+                .single();
+
+            if (error) throw error;
+
+            if (selectedSkills.length) {
+                await this.sb.from('circle_skill_tags').insert(
+                    selectedSkills.map(skillId => ({ circle_id: circle.id, skill_id: skillId }))
+                );
+            }
+
+            const shuffled = this._shuffle([...selectedMembers]);
+            await this.sb.from('circle_participants').insert(
+                shuffled.map((memberId, i) => ({
+                    circle_id: circle.id,
+                    member_id: memberId,
+                    order_position: i,
+                }))
+            );
+
+            await this._openCircle(circle.id);
+        } catch (err) {
+            console.error('Create circle error:', err);
+            if (btn) { btn.disabled = false; btn.textContent = 'Create Circle'; }
+        }
+    }
+
+    async _startCircle(circleId) {
+        const { data: first } = await this.sb
+            .from('circle_participants')
+            .select('id')
+            .eq('circle_id', circleId)
+            .eq('order_position', 0)
+            .single();
+
+        if (!first) return;
+
+        const { data: circle } = await this.sb.from('circles').select('time_limit_hours').eq('id', circleId).single();
+        const now = new Date();
+        const deadline = new Date(now.getTime() + (circle?.time_limit_hours || 24) * 3600000);
+
+        await this.sb
+            .from('circle_participants')
+            .update({ status: 'active', assigned_at: now.toISOString(), deadline_at: deadline.toISOString() })
+            .eq('id', first.id);
+
+        await this.sb
+            .from('circles')
+            .update({ status: 'active', started_at: now.toISOString(), current_turn: 0 })
+            .eq('id', circleId);
+
+        await this._openCircle(circleId);
+    }
+
+    async _cancelCircle(circleId) {
+        await this.sb.from('circles').update({ status: 'cancelled' }).eq('id', circleId);
+        await this._loadCircleList();
+    }
+
+    // ──────── REALTIME ────────
+
+    _subscribeCircle(circleId) {
+        this._unsubscribeAll();
+
+        const ch = this.sb.channel(`circle-${circleId}`)
+            .on('postgres_changes', {
+                event: '*',
+                schema: 'public',
+                table: 'circle_submissions',
+                filter: `circle_id=eq.${circleId}`,
+            }, () => { if (this.currentCircle?.id === circleId) this._openCircle(circleId); })
+            .on('postgres_changes', {
+                event: '*',
+                schema: 'public',
+                table: 'circle_comments',
+                filter: `circle_id=eq.${circleId}`,
+            }, () => { if (this.currentCircle?.id === circleId) this._openCircle(circleId); })
+            .subscribe();
+
+        this.channels.push(ch);
+    }
+
+    _unsubscribeAll() {
+        this.channels.forEach(ch => this.sb.removeChannel(ch));
+        this.channels = [];
+    }
+
+    // ──────── HELPERS ────────
+
+    async _loadSkills() {
+        const { data } = await this.sb.from('circle_skills').select('*').order('name');
+        this.skills = data || [];
+    }
+
+    _formatTimeLeft(deadline) {
+        const ms = new Date(deadline) - Date.now();
+        if (ms <= 0) return 'Overdue';
+        const h = Math.floor(ms / 3600000);
+        const m = Math.floor((ms % 3600000) / 60000);
+        if (h > 0) return `${h}h ${m}m`;
+        return `${m}m`;
+    }
+
+    _formatMentions(text) {
+        return text.replace(/@(\w+)/g, '<span class="cc-mention">@$1</span>');
+    }
+
+    _startCountdown(deadline) {
+        this._clearCountdown();
+        const el = document.getElementById('cc-countdown');
+        if (!el) return;
+        this.countdownTimer = setInterval(() => {
+            const left = this._formatTimeLeft(deadline);
+            el.textContent = left;
+            if (left === 'Overdue') this._clearCountdown();
+        }, 30000);
+    }
+
+    _clearCountdown() {
+        if (this.countdownTimer) {
+            clearInterval(this.countdownTimer);
+            this.countdownTimer = null;
+        }
+    }
+
+    _shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    _esc(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    destroy() {
+        this._clearCountdown();
+        this._unsubscribeAll();
+    }
+}

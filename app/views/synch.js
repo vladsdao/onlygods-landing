@@ -13,12 +13,18 @@ const PHASE_RUNNING = 'running';
 const PHASE_POST = 'post';
 const PHASE_DONE = 'done';
 
+// Tabs
+const TAB_FOCUS = 'focus';
+const TAB_CIRCLE = 'circle';
+
 export default class SynchView {
     constructor(container) {
         this.container = container;
         this.sb = getClient();
         this.mode = MODE_LANDING;
         this.phase = PHASE_LOBBY;
+        this.activeTab = localStorage.getItem('synch_tab') || TAB_FOCUS;
+        this.circleChainView = null;
 
         // Room state
         this.rooms = [];
@@ -53,18 +59,103 @@ export default class SynchView {
     }
 
     async render() {
-        // Count user's completed sessions for score gating
-        await this._loadSessionCount();
-        await this._loadLanding();
+        // Render tab bar + content area
+        this.container.innerHTML = '';
+
+        const tabs = document.createElement('div');
+        tabs.className = 'synch-tabs';
+
+        const focusTab = document.createElement('button');
+        focusTab.className = `synch-tab ${this.activeTab === TAB_FOCUS ? 'active' : ''}`;
+        focusTab.dataset.tab = TAB_FOCUS;
+        focusTab.textContent = 'Focus Link';
+
+        const circleTab = document.createElement('button');
+        circleTab.className = `synch-tab ${this.activeTab === TAB_CIRCLE ? 'active' : ''}`;
+        circleTab.dataset.tab = TAB_CIRCLE;
+        circleTab.textContent = 'Circle Chain';
+
+        const badge = document.createElement('span');
+        badge.id = 'cc-badge';
+        badge.className = 'synch-tab-badge';
+        badge.style.display = 'none';
+        circleTab.appendChild(badge);
+
+        tabs.appendChild(focusTab);
+        tabs.appendChild(circleTab);
+        this.container.appendChild(tabs);
+
+        const content = document.createElement('div');
+        content.id = 'synch-tab-content';
+        this.container.appendChild(content);
+
+        focusTab.addEventListener('click', () => this._switchTab(TAB_FOCUS));
+        circleTab.addEventListener('click', () => this._switchTab(TAB_CIRCLE));
+
+        await this._renderActiveTab();
+    }
+
+    async _switchTab(tab) {
+        if (tab === this.activeTab) return;
+
+        // Cleanup previous tab
+        if (this.activeTab === TAB_FOCUS) {
+            this._cleanupRoom();
+        } else if (this.circleChainView) {
+            this.circleChainView.destroy();
+            this.circleChainView = null;
+        }
+
+        this.activeTab = tab;
+        localStorage.setItem('synch_tab', tab);
+
+        this.container.querySelectorAll('.synch-tab').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.tab === tab);
+        });
+
+        await this._renderActiveTab();
+    }
+
+    async _renderActiveTab() {
+        const content = document.getElementById('synch-tab-content');
+        if (!content) return;
+
+        if (this.activeTab === TAB_CIRCLE) {
+            const { default: CircleChainView } = await import('./circle-chain.js');
+            this.circleChainView = new CircleChainView(content);
+            await this.circleChainView.render();
+            this._checkCircleBadge();
+        } else {
+            await this._loadSessionCount();
+            await this._loadLandingInto(content);
+        }
+    }
+
+    async _checkCircleBadge() {
+        const memberId = auth.getMemberId();
+        if (!memberId) return;
+        const { data } = await this.sb
+            .from('circle_participants')
+            .select('id')
+            .eq('member_id', memberId)
+            .eq('status', 'active')
+            .limit(1);
+        const badge = document.getElementById('cc-badge');
+        if (badge) badge.style.display = (data && data.length > 0) ? 'inline-block' : 'none';
     }
 
     // ──────── LANDING ────────
 
     async _loadLanding() {
+        const content = document.getElementById('synch-tab-content') || this.container;
+        await this._loadLandingInto(content);
+    }
+
+    async _loadLandingInto(target) {
         this.mode = MODE_LANDING;
         this._cleanupRoom();
 
-        this.container.innerHTML = `
+        target.innerHTML = `
             <div class="view-synch">
                 <div class="synch-header">
                     <div class="synch-subtitle">Resonance Network</div>
@@ -1261,7 +1352,8 @@ export default class SynchView {
 
     async _leaveLanding() {
         this._cleanupRoom();
-        await this._loadLanding();
+        const content = document.getElementById('synch-tab-content') || this.container;
+        await this._loadLandingInto(content);
     }
 
     _cleanupRoom() {
@@ -1292,5 +1384,9 @@ export default class SynchView {
         this._stopRecording();
         this.channels.forEach(ch => this.sb.removeChannel(ch));
         this.channels = [];
+        if (this.circleChainView) {
+            this.circleChainView.destroy();
+            this.circleChainView = null;
+        }
     }
 }
