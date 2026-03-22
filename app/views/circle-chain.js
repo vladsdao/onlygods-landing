@@ -115,28 +115,28 @@ export default class CircleChainView {
                 ${yourTurn.length ? `
                     <div class="cc-section">
                         <div class="cc-section-title"><span class="cc-dot cc-dot-active"></span> Your Turn (${yourTurn.length})</div>
-                        ${yourTurn.map(c => this._renderCircleCard(c)).join('')}
+                        <div class="cc-cards-grid">${yourTurn.map(c => this._renderCircleCard(c)).join('')}</div>
                     </div>
                 ` : ''}
 
                 ${inProgress.length ? `
                     <div class="cc-section">
                         <div class="cc-section-title"><span class="cc-dot cc-dot-waiting"></span> In Progress (${inProgress.length})</div>
-                        ${inProgress.map(c => this._renderCircleCard(c)).join('')}
+                        <div class="cc-cards-grid">${inProgress.map(c => this._renderCircleCard(c)).join('')}</div>
                     </div>
                 ` : ''}
 
                 ${completed.length ? `
                     <div class="cc-section">
                         <div class="cc-section-title"><span class="cc-dot cc-dot-done"></span> Completed (${completed.length})</div>
-                        ${completed.map(c => this._renderCircleCard(c)).join('')}
+                        <div class="cc-cards-grid">${completed.map(c => this._renderCircleCard(c)).join('')}</div>
                     </div>
                 ` : ''}
 
                 ${auth.isAdmin() && drafts.length ? `
                     <div class="cc-section">
                         <div class="cc-section-title">Drafts (${drafts.length})</div>
-                        ${drafts.map(c => this._renderCircleCard(c)).join('')}
+                        <div class="cc-cards-grid">${drafts.map(c => this._renderCircleCard(c)).join('')}</div>
                     </div>
                 ` : ''}
 
@@ -163,19 +163,20 @@ export default class CircleChainView {
         const isYourTurn = c._myStatus === 'active';
         const timeLeft = c._deadline ? this._formatTimeLeft(c._deadline) : '';
 
+        const hasCover = !!c.cover_url;
         return `
-            <div class="cc-card ${isYourTurn ? 'cc-card-urgent' : ''}" data-circle-id="${c.id}">
-                ${c.cover_url ? `<div class="cc-card-cover"><img src="${c.cover_url}" alt=""></div>` : ''}
+            <div class="cc-card ${isYourTurn ? 'cc-card-urgent' : ''} ${hasCover ? 'cc-card--has-cover' : 'cc-card--no-cover'}" data-circle-id="${c.id}">
+                ${hasCover ? `<div class="cc-card-cover"><img src="${c.cover_url}" alt="" loading="lazy"></div>` : ''}
                 <div class="cc-card-body">
-                    <div class="cc-card-title">${skills[0]?.icon || '○'} "${this._esc(c.title)}"</div>
+                    <div class="cc-card-title">${skills[0]?.icon || '○'} ${this._esc(c.title)}</div>
                     <div class="cc-card-meta">
-                        ${counts.completed}/${counts.total} completed
+                        ${counts.completed}/${counts.total} done
                         ${isYourTurn && timeLeft ? ` · <span class="cc-time-left">⏱ ${timeLeft}</span>` : ''}
-                        ${!isYourTurn && c.status === 'active' ? ' · waiting...' : ''}
-                        ${c.status === 'completed' ? ' · View results' : ''}
-                        ${c.status === 'draft' ? ' · Draft' : ''}
+                        ${!isYourTurn && c.status === 'active' ? ' · in progress' : ''}
+                        ${c.status === 'completed' ? ' · completed' : ''}
+                        ${c.status === 'draft' ? ' · draft' : ''}
                     </div>
-                    ${skills.length ? `<div class="cc-card-skills">${skills.map(s => `<span class="cc-skill-tag">${s.icon} ${s.name}</span>`).join('')}</div>` : ''}
+                    ${skills.length ? `<div class="cc-card-skills">${skills.map(s => `<span class="cc-skill-tag">${s.icon}</span>`).join('')}</div>` : ''}
                 </div>
             </div>
         `;
@@ -707,14 +708,17 @@ export default class CircleChainView {
                 <div class="cc-form-card">
                     <div class="cc-form-group">
                         <label class="cc-form-label">Cover Photo <span class="cc-form-optional">optional</span></label>
-                        <div class="cc-form-hint">A visual that sets the mood for this circle</div>
+                        <div class="cc-form-hint">Square image — will be cropped to fit the card</div>
                         <div class="cc-cover-upload" id="cc-cover-upload">
                             <input type="file" id="cc-cover-input" accept="image/*" style="display:none">
                             <div class="cc-cover-placeholder" id="cc-cover-placeholder">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
                                 <span>Upload image</span>
                             </div>
-                            <img class="cc-cover-preview" id="cc-cover-preview" style="display:none" alt="">
+                            <div class="cc-cover-preview-wrap" id="cc-cover-preview-wrap">
+                                <canvas id="cc-cover-canvas"></canvas>
+                                <div class="cc-cover-change-hint">Tap to change</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -741,20 +745,36 @@ export default class CircleChainView {
         this.container.querySelectorAll('[data-member]').forEach(cb => cb.addEventListener('change', updateCount));
         document.getElementById('cc-btn-save-circle')?.addEventListener('click', () => this._createCircle());
 
-        // Cover photo upload
+        // Cover photo upload with square crop
         const coverUpload = document.getElementById('cc-cover-upload');
         const coverInput = document.getElementById('cc-cover-input');
-        const coverPreview = document.getElementById('cc-cover-preview');
         const coverPlaceholder = document.getElementById('cc-cover-placeholder');
+        const previewWrap = document.getElementById('cc-cover-preview-wrap');
+        const canvas = document.getElementById('cc-cover-canvas');
         coverUpload?.addEventListener('click', () => coverInput?.click());
         coverInput?.addEventListener('change', (e) => {
             const file = e.target.files[0];
-            if (file && coverPreview && coverPlaceholder) {
-                const url = URL.createObjectURL(file);
-                coverPreview.src = url;
-                coverPreview.style.display = 'block';
+            if (!file || !canvas || !previewWrap || !coverPlaceholder) return;
+            const img = new Image();
+            img.onload = () => {
+                // Square crop from center
+                const size = Math.min(img.width, img.height);
+                const sx = (img.width - size) / 2;
+                const sy = (img.height - size) / 2;
+                const outSize = 600; // output resolution
+                canvas.width = outSize;
+                canvas.height = outSize;
+                canvas.style.width = '100%';
+                canvas.style.height = '100%';
+                canvas.style.display = 'block';
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, sx, sy, size, size, 0, 0, outSize, outSize);
+                previewWrap.classList.add('active');
                 coverPlaceholder.style.display = 'none';
-            }
+                // Store cropped blob for upload
+                canvas.toBlob((blob) => { this._coverBlob = blob; }, 'image/jpeg', 0.85);
+            };
+            img.src = URL.createObjectURL(file);
         });
     }
 
@@ -766,7 +786,7 @@ export default class CircleChainView {
         const timeLimit = parseInt(document.getElementById('cc-create-time')?.value) || 24;
         const selectedSkills = [...this.container.querySelectorAll('[data-skill]:checked')].map(cb => cb.value);
         const selectedMembers = [...this.container.querySelectorAll('[data-member]:checked')].map(cb => cb.value);
-        const coverFile = document.getElementById('cc-cover-input')?.files?.[0];
+        const coverBlob = this._coverBlob || null;
 
         if (!title || !prompt) return;
         if (selectedMembers.length < 2) return;
@@ -775,14 +795,13 @@ export default class CircleChainView {
         if (btn) { btn.disabled = true; btn.textContent = 'Creating...'; }
 
         try {
-            // Upload cover photo first if present
+            // Upload cropped cover photo if present
             let coverUrl = null;
-            if (coverFile) {
-                const ext = coverFile.name.split('.').pop();
-                const path = `covers/${Date.now()}.${ext}`;
+            if (coverBlob) {
+                const path = `covers/${Date.now()}.jpg`;
                 const { error: uploadErr } = await this.sb.storage
                     .from('circle-photos')
-                    .upload(path, coverFile, { upsert: true });
+                    .upload(path, coverBlob, { contentType: 'image/jpeg', upsert: true });
                 if (!uploadErr) {
                     const { data: urlData } = this.sb.storage.from('circle-photos').getPublicUrl(path);
                     coverUrl = urlData?.publicUrl;
@@ -821,6 +840,7 @@ export default class CircleChainView {
                 }))
             );
 
+            this._coverBlob = null;
             // Redirect to list — new circle appears in Drafts section
             await this._loadCircleList();
         } catch (err) {
