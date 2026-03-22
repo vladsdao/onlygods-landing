@@ -1460,9 +1460,14 @@ var T = {
   ua: 'Тексти, трансляції та дослідження для трансформації свідомості'
 },
 'metapedia.content.label': {
-  ru: 'Публикации и видео',
-  en: 'Publications & Video',
-  ua: 'Публікації та відео'
+  ru: 'Публикации',
+  en: 'Publications',
+  ua: 'Публікації'
+},
+'metapedia.video.label': {
+  ru: 'Видео',
+  en: 'Video',
+  ua: 'Відео'
 },
 'metapedia.pub1.title': { ru: '2026 = GAME OVER', en: '2026 = GAME OVER', ua: '2026 = GAME OVER' },
 'metapedia.pub1.desc': {
