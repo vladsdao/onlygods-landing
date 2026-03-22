@@ -1628,6 +1628,12 @@ a { color: var(--text); text-decoration: none; }
     font-weight: 500; cursor: pointer; font-family: inherit;
 }
 .cc-start-btn:hover { opacity: 0.85; }
+.cc-edit-btn {
+    padding: 10px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+    background: none; font-size: 13px; cursor: pointer; font-family: inherit;
+    color: var(--text); font-weight: 500; transition: all 0.15s;
+}
+.cc-edit-btn:hover { border-color: var(--text); }
 .cc-cancel-btn {
     padding: 10px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm);
     background: none; font-size: 13px; cursor: pointer; font-family: inherit;

@@ -287,10 +287,11 @@ export default class CircleChainView {
                     <div class="cc-task-prompt">${this._esc(circle.task_prompt)}</div>
                 </div>
 
-                ${auth.isAdmin() && circle.status === 'draft' ? `
+                ${auth.isAdmin() ? `
                     <div class="cc-admin-actions">
-                        <button class="cc-start-btn" id="cc-btn-start">Start Circle</button>
-                        <button class="cc-cancel-btn" id="cc-btn-cancel-circle">Cancel</button>
+                        <button class="cc-edit-btn" id="cc-btn-edit">Edit</button>
+                        ${circle.status === 'draft' ? `<button class="cc-start-btn" id="cc-btn-start">Start Circle</button>` : ''}
+                        ${circle.status === 'draft' ? `<button class="cc-cancel-btn" id="cc-btn-cancel-circle">Cancel</button>` : ''}
                     </div>
                 ` : ''}
 
@@ -393,6 +394,7 @@ export default class CircleChainView {
         document.getElementById('cc-comment-input')?.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') this._submitComment();
         });
+        document.getElementById('cc-btn-edit')?.addEventListener('click', () => this._showEditForm(circleId));
         document.getElementById('cc-btn-start')?.addEventListener('click', () => this._startCircle(circleId));
         document.getElementById('cc-btn-cancel-circle')?.addEventListener('click', () => this._cancelCircle(circleId));
 
@@ -882,6 +884,241 @@ export default class CircleChainView {
     async _cancelCircle(circleId) {
         await this.sb.from('circles').update({ status: 'cancelled' }).eq('id', circleId);
         await this._loadCircleList();
+    }
+
+    // ──────── ADMIN: EDIT CIRCLE ────────
+
+    async _showEditForm(circleId) {
+        const { data: circle } = await this.sb.from('circles').select('*').eq('id', circleId).single();
+        if (!circle) return;
+
+        const { data: members } = await this.sb.from('members').select('id, name, avatar_url').order('name');
+        this.members = members || [];
+
+        const { data: currentParticipants } = await this.sb
+            .from('circle_participants').select('member_id').eq('circle_id', circleId);
+        const participantIds = new Set((currentParticipants || []).map(p => p.member_id));
+
+        const { data: currentSkillTags } = await this.sb
+            .from('circle_skill_tags').select('skill_id').eq('circle_id', circleId);
+        const skillIds = new Set((currentSkillTags || []).map(st => st.skill_id));
+
+        this._coverBlob = null;
+
+        // Reuse the same form template as create, but pre-filled
+        this.container.innerHTML = `
+            <div class="cc-create-form">
+                <button class="cc-back-btn" id="cc-btn-back-edit">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                    Back
+                </button>
+
+                <div class="cc-create-header">
+                    <div class="cc-create-icon">○</div>
+                    <div class="cc-create-title">Edit Circle</div>
+                </div>
+
+                <div class="cc-form-card">
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">Title</label>
+                        <input type="text" class="cc-form-input" id="cc-edit-title" value="${this._esc(circle.title)}">
+                    </div>
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">Challenge</label>
+                        <textarea class="cc-form-textarea" id="cc-edit-prompt" rows="3">${this._esc(circle.task_prompt)}</textarea>
+                    </div>
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">Guide <span class="cc-form-optional">optional</span></label>
+                        <textarea class="cc-form-textarea" id="cc-edit-guide" rows="2">${this._esc(circle.guide_text || '')}</textarea>
+                    </div>
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">Description <span class="cc-form-optional">optional</span></label>
+                        <input type="text" class="cc-form-input" id="cc-edit-desc" value="${this._esc(circle.description || '')}">
+                    </div>
+                </div>
+
+                <div class="cc-form-card">
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">Skills</label>
+                        <div class="cc-skills-grid">
+                            ${this.skills.map(s => `
+                                <label class="cc-skill-pill">
+                                    <input type="checkbox" value="${s.id}" data-skill ${skillIds.has(s.id) ? 'checked' : ''}>
+                                    <span class="cc-skill-pill-inner">${s.icon} ${s.name_ru || s.name}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">Time per turn</label>
+                        <select class="cc-form-select" id="cc-edit-time">
+                            ${[6,12,24,48,72].map(h => `<option value="${h}" ${circle.time_limit_hours === h ? 'selected' : ''}>${h} hours${h >= 24 ? ` (${h/24}d)` : ''}</option>`).join('')}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="cc-form-card">
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">Cover Photo</label>
+                        <div class="cc-cover-upload" id="cc-cover-upload">
+                            <input type="file" id="cc-cover-input" accept="image/*" style="display:none">
+                            <div class="cc-cover-placeholder" id="cc-cover-placeholder" ${circle.cover_url ? 'style="display:none"' : ''}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                <span>Upload image</span>
+                            </div>
+                            <div class="cc-cover-preview-wrap ${circle.cover_url ? 'active' : ''}" id="cc-cover-preview-wrap">
+                                ${circle.cover_url ? `<img src="${circle.cover_url}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%">` : ''}
+                                <canvas id="cc-cover-canvas" style="${circle.cover_url ? 'display:none' : ''}"></canvas>
+                                <div class="cc-cover-change-hint">Tap to change</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                ${circle.status === 'draft' ? `
+                <div class="cc-form-card">
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">Participants</label>
+                        <label class="cc-all-toggle">
+                            <input type="checkbox" id="cc-all-members">
+                            <span class="cc-all-toggle-label">Everyone</span>
+                        </label>
+                        <div class="cc-members-grid">
+                            ${this.members.map(m => {
+                                const initial = (m.name || '?').charAt(0).toUpperCase();
+                                const hasAvatar = m.avatar_url ? 'style="background-image:url(' + m.avatar_url + ');background-size:cover;"' : '';
+                                return `<label class="cc-member-pill"><input type="checkbox" value="${m.id}" data-member ${participantIds.has(m.id) ? 'checked' : ''}><span class="cc-member-pill-inner"><span class="cc-member-avatar" ${hasAvatar}>${m.avatar_url ? '' : initial}</span><span class="cc-member-name">${this._esc(m.name)}</span></span></label>`;
+                            }).join('')}
+                        </div>
+                        <div class="cc-members-count" id="cc-members-count">${participantIds.size} selected</div>
+                    </div>
+                </div>
+                ` : ''}
+
+                <div class="cc-form-actions">
+                    <button class="cc-create-submit" id="cc-btn-save-edit">
+                        Save Changes
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                    </button>
+                </div>
+            </div>
+        `;
+
+        // Event bindings
+        document.getElementById('cc-btn-back-edit')?.addEventListener('click', () => this._openCircle(circleId));
+        document.getElementById('cc-btn-save-edit')?.addEventListener('click', () => this._saveCircle(circleId));
+
+        const updateCount = () => {
+            const count = this.container.querySelectorAll('[data-member]:checked').length;
+            const el = document.getElementById('cc-members-count');
+            if (el) el.textContent = `${count} selected`;
+        };
+        document.getElementById('cc-all-members')?.addEventListener('change', (e) => {
+            this.container.querySelectorAll('[data-member]').forEach(cb => { cb.checked = e.target.checked; });
+            updateCount();
+        });
+        this.container.querySelectorAll('[data-member]').forEach(cb => cb.addEventListener('change', updateCount));
+
+        // Cover photo upload with circular crop
+        const coverUpload = document.getElementById('cc-cover-upload');
+        const coverInput = document.getElementById('cc-cover-input');
+        const coverPlaceholder = document.getElementById('cc-cover-placeholder');
+        const previewWrap = document.getElementById('cc-cover-preview-wrap');
+        const canvas = document.getElementById('cc-cover-canvas');
+        coverUpload?.addEventListener('click', () => coverInput?.click());
+        coverInput?.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file || !canvas || !previewWrap || !coverPlaceholder) return;
+            const img = new Image();
+            img.onload = () => {
+                const size = Math.min(img.width, img.height);
+                const sx = (img.width - size) / 2;
+                const sy = (img.height - size) / 2;
+                const outSize = 600;
+                canvas.width = outSize;
+                canvas.height = outSize;
+                canvas.style.width = '100%';
+                canvas.style.height = '100%';
+                canvas.style.display = 'block';
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, sx, sy, size, size, 0, 0, outSize, outSize);
+                // Hide existing img if present
+                const existingImg = previewWrap.querySelector('img');
+                if (existingImg) existingImg.style.display = 'none';
+                previewWrap.classList.add('active');
+                coverPlaceholder.style.display = 'none';
+                canvas.toBlob((blob) => { this._coverBlob = blob; }, 'image/jpeg', 0.85);
+            };
+            img.src = URL.createObjectURL(file);
+        });
+    }
+
+    async _saveCircle(circleId) {
+        const title = document.getElementById('cc-edit-title')?.value?.trim();
+        const prompt = document.getElementById('cc-edit-prompt')?.value?.trim();
+        const guide = document.getElementById('cc-edit-guide')?.value?.trim();
+        const desc = document.getElementById('cc-edit-desc')?.value?.trim();
+        const timeLimit = parseInt(document.getElementById('cc-edit-time')?.value) || 24;
+        const selectedSkills = [...this.container.querySelectorAll('[data-skill]:checked')].map(cb => cb.value);
+
+        if (!title || !prompt) return;
+
+        const btn = document.getElementById('cc-btn-save-edit');
+        if (btn) { btn.disabled = true; btn.textContent = 'Saving...'; }
+
+        try {
+            // Upload new cover if changed
+            let coverUrl = undefined; // undefined = don't change
+            if (this._coverBlob) {
+                const path = `covers/${Date.now()}.jpg`;
+                const { error: uploadErr } = await this.sb.storage
+                    .from('circle-photos')
+                    .upload(path, this._coverBlob, { contentType: 'image/jpeg', upsert: true });
+                if (!uploadErr) {
+                    const { data: urlData } = this.sb.storage.from('circle-photos').getPublicUrl(path);
+                    coverUrl = urlData?.publicUrl;
+                }
+            }
+
+            const updateData = {
+                title,
+                task_prompt: prompt,
+                guide_text: guide || null,
+                description: desc || null,
+                time_limit_hours: timeLimit,
+            };
+            if (coverUrl !== undefined) updateData.cover_url = coverUrl;
+
+            await this.sb.from('circles').update(updateData).eq('id', circleId);
+
+            // Update skill tags — delete old, insert new
+            await this.sb.from('circle_skill_tags').delete().eq('circle_id', circleId);
+            if (selectedSkills.length) {
+                await this.sb.from('circle_skill_tags').insert(
+                    selectedSkills.map(skillId => ({ circle_id: circleId, skill_id: skillId }))
+                );
+            }
+
+            // Update participants if draft (form only shows for drafts)
+            const selectedMembers = [...this.container.querySelectorAll('[data-member]:checked')].map(cb => cb.value);
+            if (selectedMembers.length >= 2) {
+                await this.sb.from('circle_participants').delete().eq('circle_id', circleId);
+                const shuffled = this._shuffle([...selectedMembers]);
+                await this.sb.from('circle_participants').insert(
+                    shuffled.map((memberId, i) => ({
+                        circle_id: circleId,
+                        member_id: memberId,
+                        order_position: i,
+                    }))
+                );
+            }
+
+            this._coverBlob = null;
+            await this._openCircle(circleId);
+        } catch (err) {
+            console.error('Save circle error:', err);
+            if (btn) { btn.disabled = false; btn.textContent = 'Save Changes'; }
+        }
     }
 
     // ──────── REALTIME ────────
