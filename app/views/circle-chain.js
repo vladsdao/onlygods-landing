@@ -166,9 +166,12 @@ export default class CircleChainView {
         const hasCover = !!c.cover_url;
         return `
             <div class="cc-card ${isYourTurn ? 'cc-card-urgent' : ''} ${hasCover ? 'cc-card--has-cover' : 'cc-card--no-cover'}" data-circle-id="${c.id}">
-                ${hasCover ? `<div class="cc-card-cover"><img src="${c.cover_url}" alt="" loading="lazy"></div>` : ''}
+                ${hasCover
+                    ? `<div class="cc-card-cover"><img src="${c.cover_url}" alt="" loading="lazy"></div>`
+                    : `<div class="cc-card-cover-empty">${skills[0]?.icon || '○'}</div>`
+                }
                 <div class="cc-card-body">
-                    <div class="cc-card-title">${skills[0]?.icon || '○'} ${this._esc(c.title)}</div>
+                    <div class="cc-card-title">${this._esc(c.title)}</div>
                     <div class="cc-card-meta">
                         ${counts.completed}/${counts.total} done
                         ${isYourTurn && timeLeft ? ` · <span class="cc-time-left">⏱ ${timeLeft}</span>` : ''}
@@ -333,7 +336,7 @@ export default class CircleChainView {
                                     <div class="cc-chain-content">
                                         <div class="cc-chain-name">${this._esc(member?.name || 'Unknown')}</div>
                                         <div class="cc-chain-text">${this._esc(sub.text_content)}</div>
-                                        ${sub.photo_url ? `<img class="cc-chain-photo" src="${sub.photo_url}" alt="">` : ''}
+                                        ${sub.photo_url ? `<img class="cc-chain-photo" src="${sub.photo_url}" alt="" loading="lazy">` : ''}
                                         <div class="cc-chain-actions">
                                             <button class="cc-like-btn ${iLiked ? 'cc-liked' : ''}" data-submission-id="${sub.id}">
                                                 ${iLiked ? '♥' : '♡'} ${likeCount || ''}
