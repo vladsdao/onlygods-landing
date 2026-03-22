@@ -1,4 +1,4 @@
-const CACHE_SHELL = 'og-shell-v1';
+const CACHE_SHELL = 'og-shell-v2';
 const CACHE_CDN = 'og-cdn-v1';
 
 const SHELL_ASSETS = [
@@ -13,6 +13,8 @@ const SHELL_ASSETS = [
     '/app/components/chat-bubble.js',
     '/app/views/chat.js',
     '/app/views/stream.js',
+    '/app/views/synch.js',
+    '/app/views/circle-chain.js',
     '/app/views/profile.js',
     '/app/views/dashboard.js',
     '/app/views/assistant.js',
