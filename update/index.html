@@ -252,6 +252,15 @@ body::after {
     display: block;
 }
 
+.hero-video-wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 48px auto 0;
+    position: relative;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
 .content-section {
     max-width: 1080px;
     margin: 0 auto;
@@ -448,7 +457,7 @@ body::after {
 }
 
 .benefit-card {
-    background: #fbfbfd;
+    background: #f0f0f3;
     padding: 24px 28px;
     border-radius: 3px;
     font-size: 15px;
@@ -462,31 +471,128 @@ body::after {
 }
 
 /* ====================================== */
+/* PROGRAM SECTION                        */
+/* ====================================== */
+.program-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid rgba(29,29,31,0.08);
+}
+
+.program-item {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 18px 24px;
+    border-bottom: 1px solid rgba(29,29,31,0.08);
+    font-size: 15px;
+    color: #1d1d1f;
+    line-height: 1.5;
+}
+
+.program-item:nth-child(odd) {
+    border-right: 1px solid rgba(29,29,31,0.08);
+}
+
+.program-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: #86868b;
+    min-width: 24px;
+    font-weight: 500;
+}
+
+.abilities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 48px;
+}
+
+.ability-card {
+    background: #1d1d1f;
+    color: #f5f5f7;
+    padding: 28px 32px;
+    border-radius: 3px;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+/* ====================================== */
+/* PILLARS (discipline icons)             */
+/* ====================================== */
+.pillars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 20px;
+    justify-content: center;
+    margin-top: 56px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(29, 29, 31, 0.06);
+}
+
+.pillar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: calc(100% / 6 - 20px);
+    min-width: 80px;
+}
+
+.pillar-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pillar-icon svg {
+    width: 40px;
+    height: 40px;
+    stroke: #86868b;
+    stroke-width: 1;
+    fill: none;
+}
+
+.pillar-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #86868b;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* ====================================== */
 /* FIELD HERO (image + text)              */
 /* ====================================== */
 .field-hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
+    gap: 64px;
+    align-items: start;
 }
 
 .field-hero-text {
-    max-width: 520px;
+    max-width: 560px;
+    padding-top: 16px;
 }
 
 .field-hero-image {
-    overflow: hidden;
-    border-radius: 3px;
-    max-height: 480px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .field-hero-image img {
-    width: 140%;
-    margin-left: -20%;
-    object-fit: cover;
-    object-position: 55% 5%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 3px;
 }
+
 
 .benefits-grid {
     display: grid;
@@ -1113,23 +1219,24 @@ body::after {
 }
 
 .join-btn {
-    background: none;
-    border: 1px solid rgba(255,255,255,0.2);
-    color: #ffffff;
-    padding: 16px;
+    background: #ffffff;
+    border: none;
+    color: #1d1d1f;
+    padding: 18px 32px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
     cursor: pointer;
     border-radius: 3px;
-    transition: background 0.3s ease, border-color 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
     margin-top: 8px;
 }
 
 .join-btn:hover {
-    background: rgba(255,255,255,0.06);
-    border-color: rgba(255,255,255,0.4);
+    background: #f0f0f3;
+    transform: translateY(-1px);
 }
 
 .join-note {
@@ -1143,9 +1250,14 @@ body::after {
 /* RESPONSIVE                             */
 /* ====================================== */
 @media (max-width: 768px) {
-    .grid-2, .grid-2-asymmetric, .grid-4, .benefits-grid, .benefit-grid, .field-hero {
+    .grid-2, .grid-2-asymmetric, .grid-4, .benefits-grid, .benefit-grid, .field-hero, .caduceus-hero, .program-grid, .abilities-grid {
         grid-template-columns: 1fr;
     }
+    .program-item:nth-child(odd) {
+        border-right: none;
+    }
+    .caduceus-image { max-height: 400px; }
+    .caduceus-image img { max-height: 400px; }
     .content-section {
         padding: 80px 20px;
     }
@@ -1182,8 +1294,7 @@ body::after {
     <div class="nav-links">
         <a href="manifest.html">Manifest</a>
         <a href="technologies.html">Holy Tech</a>
-        <a href="creators.html">Creators</a>
-        <a href="mindset.html">Mindset 2.0</a>
+        <a href="mindset.html">Metapedia</a>
         <a href="quantumlab.html">Quantum Lab</a>
         <a href="activities.html">Activities</a>
         <a href="playground.html">Playground</a>
@@ -1204,8 +1315,7 @@ body::after {
 <div class="nav-mobile" id="nav-mobile">
     <a href="manifest.html">Manifest</a>
     <a href="technologies.html">Holy Tech</a>
-        <a href="creators.html">Creators</a>
-    <a href="mindset.html">Mindset 2.0</a>
+    <a href="mindset.html">Metapedia</a>
     <a href="quantumlab.html">Quantum Lab</a>
     <a href="activities.html">Activities</a>
         <a href="playground.html">Playground</a>
@@ -1227,8 +1337,9 @@ body::after {
         <div class="hero-subtitle" data-i18n="index.hero.subtitle">Резонансная Сеть Объединенного Сознания</div>
         <h1 class="hero-title hero-title-reveal">OnlyGods</h1>
     </div>
-    <div class="hero-image-wrapper fade-in-up stagger-1">
-        <img src="images/onepager/fork-single.jpg" alt="Tuning fork on marble">
+    <div class="hero-video-wrapper fade-in-up stagger-1">
+        <div id="yololiv-widget-1774115647641-1320185406888607744"></div>
+        <script type="text/javascript" charset="utf-8">(function(d,s,c,o) {var js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];js.src='https://view.yololiv.com/entry.js';js.type="module";js.onload=function(){window.renderYoloLiv('#yololiv-widget-1774115647641-'+c, o);};js.charset='utf-8';fjs.parentNode.insertBefore(js,fjs);})(document, 'script', '1320185406888607744', {"isEmbedPage":1,"mediaType":"events","filter":"event","eventId":"1414281501805121536","isCountdown":0,"isDonation":0,"isThumbnail":1,"isPreEvent":0,"isDesc":1,"isDoc":1,"isVideoIndex":1,"isHightLights":1,"isPlayList":0,"isChat":1,"isBrand":0,"brandType":"default","isTwoColumn":0,"isAutoPlay":0,"isInlinePlay":0,"isDisableDVR":0,"videoSelection":"immediately","sizeType":"responsive","materialIds":"","isCoverText":0,"coverText":"","isPlayLogo":0});</script>
     </div>
     <a href="#join" class="hero-cta fade-in-up stagger-2" data-i18n="index.hero.cta">Подключиться →</a>
 </section>
@@ -1264,11 +1375,7 @@ body::after {
 
     <div class="fade-in-up" style="margin-top: 48px;">
         <p class="body-text" style="max-width: 860px;" data-i18n="index.what.p1">Биологический блокчейн, новая модель общества, технологический IR4 эгрегор, резонансная сеть, инновационный инвестфонд, квантовое DAO, просвещенное сообщество, инструмент для раскрытия творческого потенциала, тайное общество, секта или лаборатория квантового сознания — это отдельные стороны проекта, но здесь важен сам Путь, не подлежащий описанию словами.</p>
-    </div>
-
-
-    <div class="fade-in-up" style="margin-top: 56px;">
-        <p class="body-text" style="max-width: 860px;" data-i18n="index.what.p3">Игра в Бога — это, по сути, и есть проект. Творчество вне рамок, высшие состояния Сознания, Духовность как прямой опыт — вместо книжных знаний, искренний интерес к жизни и Святость в Изобилии — это то что открывается нам при достаточном уровне психо-эмоциональной энергии и открытом уме.</p>
+        <p class="body-text" style="max-width: 860px; margin-top: 32px;" data-i18n="index.what.p3">Игра в Бога — это, по сути, и есть проект. Творчество вне рамок, высшие состояния Сознания, Духовность как прямой опыт — вместо книжных знаний, искренний интерес к жизни и Святость в Изобилии — это то что открывается нам при достаточном уровне психо-эмоциональной энергии и открытом уме.</p>
     </div>
 
     <div class="fade-in-up" style="margin-top: 56px;">
@@ -1313,6 +1420,91 @@ body::after {
 <div class="section-divider"></div>
 
 <!-- ====================================== -->
+<!-- ПРОГРАММА МЫ.БОГИ                      -->
+<!-- ====================================== -->
+<div class="content-section">
+    <div class="fade-in-up">
+        <div class="section-label">Программа</div>
+        <h2 class="section-title">Мы.Боги</h2>
+        <p class="body-text" style="margin-top: 24px; max-width: 720px; color: #86868b;">Первые 3 месяца — деконструкция мировоззрения до фундамента и пересборка. 16 тем, которые не выживают вне поля.</p>
+    </div>
+
+    <div class="program-grid fade-in-up" style="margin-top: 48px;">
+        <div class="program-item"><span class="program-num">01</span> Деконструкция понятия Бог и Мета-рационализм</div>
+        <div class="program-item"><span class="program-num">02</span> Отличие архитектуры майндсета</div>
+        <div class="program-item"><span class="program-num">03</span> Новые инструменты 5Д Сознания и правила игры</div>
+        <div class="program-item"><span class="program-num">04</span> Распаковка своего персонажа</div>
+        <div class="program-item"><span class="program-num">05</span> Вдохновение и движение в потоке</div>
+        <div class="program-item"><span class="program-num">06</span> Алхимия, Дао, Недеяние</div>
+        <div class="program-item"><span class="program-num">07</span> Дух, Объединённое Сознание и Космический разум</div>
+        <div class="program-item"><span class="program-num">08</span> Переписывание контракта души</div>
+        <div class="program-item"><span class="program-num">09</span> Пути и методы эволюции Сознания</div>
+        <div class="program-item"><span class="program-num">10</span> Кунг-фу абстрактного мышления</div>
+        <div class="program-item"><span class="program-num">11</span> Растождествление с иллюзиями отделённости</div>
+        <div class="program-item"><span class="program-num">12</span> Энергетический менеджмент и Синергия</div>
+        <div class="program-item"><span class="program-num">13</span> Построение Резонансной сети</div>
+        <div class="program-item"><span class="program-num">14</span> Эгрегоры. Уровень Администратора</div>
+        <div class="program-item"><span class="program-num">15</span> Ритуалы и церемонии как точки синхронизации</div>
+        <div class="program-item"><span class="program-num">16</span> Идеи. Глубокое понимание и взаимодействие</div>
+    </div>
+
+    <div class="fade-in-up">
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; margin-top: 56px; margin-bottom: 24px; letter-spacing: -0.3px;">Что вы сможете:</h3>
+        <div class="abilities-grid">
+            <div class="ability-card">Переключение веток реальности — нелинейное влияние на события через когерентное намерение группы</div>
+            <div class="ability-card">Построение резонансных сетей — создание энергостанций на уровне семьи, компании, сообщества</div>
+            <div class="ability-card">Считывание людей — истинные намерения, состояния, потенциал. Для бизнеса и жизни</div>
+            <div class="ability-card">Раскрытие интуиции и сверхспособностей — ясновидение, яснослышание, телепатия</div>
+        </div>
+    </div>
+
+    <div class="pillars fade-in-up">
+        <div class="pillar">
+            <div class="pillar-icon">
+                <svg viewBox="0 0 32 32"><path d="M16 3 L29 28 H3 Z"/><circle cx="16" cy="17" r="3"/><circle cx="16" cy="17" r="1.2" fill="#86868b" stroke="none"/></svg>
+            </div>
+            <div class="pillar-label">Герметические<br>Принципы</div>
+        </div>
+        <div class="pillar">
+            <div class="pillar-icon">
+                <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="3"/><ellipse cx="16" cy="16" rx="14" ry="6"/><ellipse cx="16" cy="16" rx="14" ry="6" transform="rotate(60 16 16)"/><ellipse cx="16" cy="16" rx="14" ry="6" transform="rotate(120 16 16)"/></svg>
+            </div>
+            <div class="pillar-label">Квантовая<br>Физика</div>
+        </div>
+        <div class="pillar">
+            <div class="pillar-icon">
+                <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="6"/><circle cx="16" cy="10" r="6"/><circle cx="16" cy="22" r="6"/><circle cx="21.2" cy="13" r="6"/><circle cx="21.2" cy="19" r="6"/><circle cx="10.8" cy="13" r="6"/><circle cx="10.8" cy="19" r="6"/></svg>
+            </div>
+            <div class="pillar-label">Сакральная<br>Геометрия</div>
+        </div>
+        <div class="pillar">
+            <div class="pillar-icon">
+                <svg viewBox="0 0 32 32"><path d="M16 16 C16 12, 20 10, 22 13 C24 16, 20 20, 16 20 C10 20, 7 14, 10 9 C13 4, 22 4, 26 10 C30 16, 26 26, 16 28 C6 30, 1 20, 4 10"/></svg>
+            </div>
+            <div class="pillar-label">Вортекс<br>Математика</div>
+        </div>
+        <div class="pillar">
+            <div class="pillar-icon">
+                <svg viewBox="0 0 32 32">
+                    <path d="M1 16 Q8 7, 16 7 Q24 7, 31 16 Q24 25, 16 25 Q8 25, 1 16Z"/>
+                    <circle cx="16" cy="16" r="7"/>
+                    <circle cx="16" cy="16" r="4.5" fill="#86868b" stroke="none"/>
+                </svg>
+            </div>
+            <div class="pillar-label">Нелокальное<br>Сознание</div>
+        </div>
+        <div class="pillar">
+            <div class="pillar-icon">
+                <svg viewBox="0 0 32 32"><rect x="8" y="8" width="16" height="16" rx="2"/><rect x="12" y="12" width="8" height="8" rx="1"/><line x1="16" y1="4" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="28"/><line x1="4" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="28" y2="16"/><circle cx="16" cy="16" r="2"/></svg>
+            </div>
+            <div class="pillar-label">Высокие<br>Технологии</div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ====================================== -->
 <!-- ПОЛЕ ОБЪЕДИНЁННОГО СОЗНАНИЯ            -->
 <!-- ====================================== -->
 <div class="content-section">
@@ -1339,31 +1531,21 @@ body::after {
             <div class="benefit-card" data-i18n="index.field.f3">Система энергетического менеджмента</div>
             <div class="benefit-card" data-i18n="index.field.f4">Визуализация интерфейса эгрегора и трекинг динамики поля</div>
             <div class="benefit-card" data-i18n="index.field.f5">Инструмент управления сообществом и ресурсами</div>
+            <div class="benefit-card" data-i18n="index.field.f6">Библиотека закрытых знаний — контент, который не выживает вне поля</div>
         </div>
     </div>
 
     <div class="fade-in-up" style="margin-top: 56px;">
-        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; margin-bottom: 24px; letter-spacing: -0.3px;" data-i18n="index.field.benefits.heading">Преимущества от участия в поле:</h3>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; margin-bottom: 24px; letter-spacing: -0.3px;" data-i18n="index.field.benefits.heading">Что вы получаете в поле:</h3>
         <div class="benefit-grid">
-            <div class="benefit-card" data-i18n="index.field.b1">Высокий уровень психо-эмоционально энергии</div>
-            <div class="benefit-card" data-i18n="index.field.b2">Апдейт майндсета и Состояние Творца</div>
-            <div class="benefit-card" data-i18n="index.field.b3">Глубина проживания и интерпретаций жизненного опыта</div>
-            <div class="benefit-card" data-i18n="index.field.b4">Идеи опережающие время и творчество вне рамок</div>
-            <div class="benefit-card" data-i18n="index.field.b5">Синхронистичность внутренних и внешних ритмов, удача</div>
-            <div class="benefit-card" data-i18n="index.field.b6">Раскрытие интуиции и сверх-человеческих качеств 5Д Сознания</div>
-            <div class="benefit-card" data-i18n="index.field.b7">Более высокая проводимость идей, ресурса, состояний</div>
-            <div class="benefit-card" data-i18n="index.field.b8">Использование коллективного опыта и навыков на уровне подсознания</div>
-            <div class="benefit-card" data-i18n="index.field.b9">Более глубокие инсайты за счет коллективного разума</div>
-            <div class="benefit-card" data-i18n="index.field.b10">Возможность коллективно влиять на реальность и переключать ветки</div>
-            <div class="benefit-card" data-i18n="index.field.b11">Снимать информацию из поля и предвидеть будущее</div>
-            <div class="benefit-card" data-i18n="index.field.b12">Повышенная осознанность и стрессоустойчивость</div>
-            <div class="benefit-card" data-i18n="index.field.b13">Внутренний баланс, восстановление здоровья</div>
-            <div class="benefit-card" data-i18n="index.field.b14">Ускоренная эволюция Сознания и более глубокие трансформации</div>
-            <div class="benefit-card" data-i18n="index.field.b15">Общая гармонизация всех сфер жизни и повышение уровня счастья</div>
-            <div class="benefit-card" data-i18n="index.field.b16">Считывание истинных намерений — для бизнеса и жизни</div>
-            <div class="benefit-card" data-i18n="index.field.b17">Умение строить когерентные симбиотические структуры — семья, бизнес, сообщество</div>
-
-            <div class="benefit-card" data-i18n="index.field.b19">Расширение сексуальной энергии как строительного материала</div>
+            <div class="benefit-card" data-i18n="index.field.b1">Проводимость идей, инсайтов, энергии и навыков — умноженная на количество участников по принципу резонанса</div>
+            <div class="benefit-card" data-i18n="index.field.b2">Экстрасенсорика: ясновидение, яснослышание, телепатия, считывание истинных намерений людей</div>
+            <div class="benefit-card" data-i18n="index.field.b3">Доступ к коллективному сознанию — индивидуальный опыт, знания и навыки каждого участника становятся вашими</div>
+            <div class="benefit-card" data-i18n="index.field.b4">Переключение веток реальности — нелинейное влияние на пространство-время через когерентное намерение</div>
+            <div class="benefit-card" data-i18n="index.field.b5">Сексуальная энергия как строительный материал — расширение воображения, масштаб идей, скорость воплощения</div>
+            <div class="benefit-card" data-i18n="index.field.b6">Построение резонансных сетей — энергостанции на уровне семьи, компании, сообщества</div>
+            <div class="benefit-card" data-i18n="index.field.b7">Круг людей, поддерживающих тебя во всём — когерентная искренняя поддержка вместо критики. Решительность и сила действовать</div>
+            <div class="benefit-card" data-i18n="index.field.b8">Ускоренная эволюция: когда поднимается точка напряжения у одного — она трансформируется у всех. 10 лет за один цикл</div>
         </div>
     </div>
 </div>
@@ -1564,21 +1746,10 @@ body::after {
                 </ul>
             </div>
 
-            <!-- RIGHT: Form -->
+            <!-- RIGHT: CTA -->
             <div class="join-form-side">
                 <span class="form-label" data-i18n="index.join.form_label">Три поля. Одно решение.</span>
-                <form class="join-form" action="https://formsubmit.co/vladsdao@onlygods.xyz" method="POST">
-                    <input type="hidden" name="_subject" value="OnlyGods — New Member">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://onlygods.xyz/index.html">
-                    <input class="join-input" type="text" name="name" required
-                           placeholder="Имя" data-i18n-placeholder="index.join.ph_name">
-                    <input class="join-input" type="email" name="email" required
-                           placeholder="Email" data-i18n-placeholder="index.join.ph_email">
-                    <input class="join-input" type="text" name="telegram" required
-                           placeholder="Telegram" data-i18n-placeholder="index.join.ph_telegram">
-                    <button type="submit" class="join-btn" data-i18n="index.join.btn">Подключиться — 936€/месяц</button>
-                </form>
+                <a href="https://secure.wayforpay.com/button/b92d4347cab45" class="join-btn" style="display: block; text-align: center; text-decoration: none;" data-i18n="index.join.btn">Подключиться к полю — 936€/месяц</a>
                 <p class="join-note" data-i18n="index.join.note">Мгновенный доступ после оплаты. Программа Мы.Боги включена.</p>
             </div>
 

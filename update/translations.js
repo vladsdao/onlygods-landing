@@ -803,7 +803,7 @@ var T = {
 'index.join.ph_name': { ru: 'Имя', en: 'Name', ua: 'Ім\'я' },
 'index.join.ph_email': { ru: 'Email', en: 'Email', ua: 'Email' },
 'index.join.ph_telegram': { ru: 'Telegram', en: 'Telegram', ua: 'Telegram' },
-'index.join.btn': { ru: 'Подключиться — 936€/месяц', en: 'Connect — 936€/month', ua: 'Підключитись — 936€/місяць' },
+'index.join.btn': { ru: 'Подключиться к полю — 936€/месяц', en: 'Connect to the field — 936€/month', ua: 'Підключитись до поля — 936€/місяць' },
 'index.join.note': {
   ru: 'Мгновенный доступ после оплаты. Программа Мы.Боги включена.',
   en: 'Instant access after payment. We.Gods program included.',
@@ -825,7 +825,7 @@ var T = {
 // ─── NEUROPRACTICE PAGE ───
 'neuropractice.hero.subtitle': { ru: 'Курс в записи', en: 'Recorded Course', ua: 'Курс у записі' },
 'neuropractice.hero.title': { ru: 'Нейропрактика 2.0', en: 'Neuropractice 2.0', ua: 'Нейропрактика 2.0' },
-'neuropractice.back': { ru: '← Mindset 2.0', en: '← Mindset 2.0', ua: '← Mindset 2.0' },
+'neuropractice.back': { ru: '← Metapedia', en: '← Metapedia', ua: '← Metapedia' },
 'neuropractice.description': {
   ru: 'Курс по работе с нейропластичностью и перепрограммированию паттернов сознания.',
   en: 'A course on neuroplasticity and reprogramming consciousness patterns.',
@@ -836,7 +836,7 @@ var T = {
 // ─── SEXUALITY PAGE ───
 'sexuality.hero.subtitle': { ru: 'Курс', en: 'Course', ua: 'Курс' },
 'sexuality.hero.title': { ru: 'Сексуальность', en: 'Sexuality', ua: 'Сексуальність' },
-'sexuality.back': { ru: '← Mindset 2.0', en: '← Mindset 2.0', ua: '← Mindset 2.0' },
+'sexuality.back': { ru: '← Metapedia', en: '← Metapedia', ua: '← Metapedia' },
 'sexuality.description': {
   ru: 'Исследование сексуальности как инструмента трансформации и энергетического менеджмента.',
   en: 'Exploring sexuality as a tool for transformation and energy management.',
@@ -1168,7 +1168,7 @@ var T = {
 
 // ─── MISHA PERSONAL PAGE ───
 'misha.title': { ru: 'OnlyGods — Misha Gayday', en: 'OnlyGods — Misha Gayday', ua: 'OnlyGods — Misha Gayday' },
-'misha.back': { ru: '← About Us', en: '← About Us', ua: '← About Us' },
+'misha.back': { ru: '← Home', en: '← Home', ua: '← Home' },
 'misha.hero.label': {
   ru: 'Участник ядра', en: 'Core Member', ua: 'Учасник ядра'
 },
@@ -1237,7 +1237,7 @@ var T = {
   ru: 'OnlyGods — Vlad', en: 'OnlyGods — Vlad', ua: 'OnlyGods — Vlad'
 },
 'vlad.back': {
-  ru: '← About Us', en: '← About Us', ua: '← About Us'
+  ru: '← Home', en: '← Home', ua: '← Home'
 },
 'vlad.hero.label': {
   ru: 'Founder', en: 'Founder', ua: 'Founder'
@@ -1344,7 +1344,7 @@ var T = {
   ru: 'OnlyGods — Liza', en: 'OnlyGods — Liza', ua: 'OnlyGods — Liza'
 },
 'liza.back': {
-  ru: '← About Us', en: '← About Us', ua: '← About Us'
+  ru: '← Home', en: '← Home', ua: '← Home'
 },
 'liza.hero.label': {
   ru: 'Founder', en: 'Founder', ua: 'Founder'
@@ -1446,106 +1446,33 @@ var T = {
   ru: 'Написать', en: 'Get in Touch', ua: 'Написати'
 },
 
-// ─── ALIGNMENT PAGE ───
-'alignment.hero.subtitle': {
-  ru: 'Контент и программы для со-настройки',
-  en: 'Content and programs for co-tuning',
-  ua: 'Контент та програми для со-налаштування'
+// ─── METAPEDIA PAGE ───
+'metapedia.title': { ru: 'OnlyGods — Metapedia', en: 'OnlyGods — Metapedia', ua: 'OnlyGods — Metapedia' },
+'metapedia.hero.subtitle': {
+  ru: 'Открытая база знаний',
+  en: 'Open knowledge base',
+  ua: 'Відкрита база знань'
 },
-'alignment.hero.title': {
-  ru: 'Mindset 2.0',
-  en: 'Mindset 2.0',
-  ua: 'Mindset 2.0'
+'metapedia.hero.title': { ru: 'Metapedia', en: 'Metapedia', ua: 'Metapedia' },
+'metapedia.hero.tagline': {
+  ru: 'Тексты, трансляции и исследования для трансформации сознания',
+  en: 'Texts, streams and research for consciousness transformation',
+  ua: 'Тексти, трансляції та дослідження для трансформації свідомості'
 },
-'alignment.hero.tagline': {
-  ru: 'Твой квантовый скачек. Материалы и программы для трансформации сознания',
-  en: 'Your quantum leap. Materials and programs for consciousness transformation',
-  ua: 'Твій квантовий стрибок. Матеріали та програми для трансформації свідомості'
+'metapedia.content.label': {
+  ru: 'Публикации и видео',
+  en: 'Publications & Video',
+  ua: 'Публікації та відео'
 },
-// Quantum Kitchen
-'alignment.ec.kitchen.label': {
-  ru: 'Ближайшее событие',
-  en: 'Next event',
-  ua: 'Найближча подія'
-},
-'alignment.ec.kitchen.title': {
-  ru: 'Quantum Kitchen',
-  en: 'Quantum Kitchen',
-  ua: 'Quantum Kitchen'
-},
-'alignment.ec.kitchen.desc': {
-  ru: 'Закрытый ивент лаборатории сознания. Исследование, ирония, практики, закуски.<br>Дома у Влада и Лизы в Синтре',
-  en: 'Private consciousness lab event. Research, irony, practices, snacks.<br>At Vlad & Liza\'s home in Sintra',
-  ua: 'Закритий івент лабораторії свідомості. Дослідження, іронія, практики, закуски.<br>Вдома у Влада і Лізи в Сінтрі'
-},
-'alignment.ec.kitchen.meta': {
-  ru: '24 марта 2026 · Sintra, Portugal',
-  en: 'March 24, 2026 · Sintra, Portugal',
-  ua: '24 березня 2026 · Sintra, Portugal'
-},
-// Publications carousel
-'alignment.publications.label': {
-  ru: 'Публикации',
-  en: 'Publications',
-  ua: 'Публікації'
-},
-'alignment.publications.title': {
-  ru: 'Тексты',
-  en: 'Texts',
-  ua: 'Тексти'
-},
-'alignment.pub1.date': { ru: '2026', en: '2026', ua: '2026' },
-'alignment.pub1.title': { ru: '2026 = GAME OVER', en: '2026 = GAME OVER', ua: '2026 = GAME OVER' },
-'alignment.pub1.desc': {
+'metapedia.pub1.title': { ru: '2026 = GAME OVER', en: '2026 = GAME OVER', ua: '2026 = GAME OVER' },
+'metapedia.pub1.desc': {
   ru: 'Математика конца света и протокол выхода из легального рабства',
   en: 'The mathematics of the end times and the protocol for escaping legal slavery',
   ua: 'Математика кінця світу та протокол виходу з легального рабства'
 },
-'alignment.pub1.read': { ru: 'Читать →', en: 'Read →', ua: 'Читати →' },
-'alignment.soon': { ru: 'Скоро', en: 'Coming soon', ua: 'Скоро' },
-'alignment.pub2.title': { ru: 'Статья 2', en: 'Article 2', ua: 'Стаття 2' },
-'alignment.pub2.desc': { ru: 'Новый текст в подготовке', en: 'New text in preparation', ua: 'Новий текст в підготовці' },
-'alignment.pub3.title': { ru: 'Статья 3', en: 'Article 3', ua: 'Стаття 3' },
-'alignment.pub3.desc': { ru: 'Новый текст в подготовке', en: 'New text in preparation', ua: 'Новий текст в підготовці' },
-'alignment.pub4.title': { ru: 'Статья 4', en: 'Article 4', ua: 'Стаття 4' },
-'alignment.pub4.desc': { ru: 'Новый текст в подготовке', en: 'New text in preparation', ua: 'Новий текст в підготовці' },
-// Video carousel
-'alignment.video.label': { ru: 'Видео', en: 'Video', ua: 'Відео' },
-'alignment.video.title': { ru: 'Трансляции и записи', en: 'Streams & Recordings', ua: 'Трансляції та записи' },
-'alignment.video.placeholder': { ru: 'Видео скоро', en: 'Video coming soon', ua: 'Відео скоро' },
-'alignment.vid1.title': { ru: 'Видео 1', en: 'Video 1', ua: 'Відео 1' },
-'alignment.vid1.desc': { ru: 'Запись трансляции', en: 'Stream recording', ua: 'Запис трансляції' },
-'alignment.vid2.title': { ru: 'Видео 2', en: 'Video 2', ua: 'Відео 2' },
-'alignment.vid2.desc': { ru: 'Запись трансляции', en: 'Stream recording', ua: 'Запис трансляції' },
-'alignment.vid3.title': { ru: 'Видео 3', en: 'Video 3', ua: 'Відео 3' },
-'alignment.vid3.desc': { ru: 'Запись трансляции', en: 'Stream recording', ua: 'Запис трансляції' },
-// Events & Courses
-'alignment.ec.label': { ru: 'События и Курсы', en: 'Events & Courses', ua: 'Події та Курси' },
-'alignment.ec.title': { ru: 'Активности', en: 'Activities', ua: 'Активності' },
-'alignment.ec.streaming.label': { ru: 'Стриминг', en: 'Streaming', ua: 'Стрімінг' },
-'alignment.ec.streaming.title': { ru: 'Online Streaming', en: 'Online Streaming', ua: 'Online Streaming' },
-'alignment.ec.streaming.desc': {
-  ru: 'Живые трансляции, сессии и практики в поле объединённого сознания',
-  en: 'Live streams, sessions and practices in the field of united consciousness',
-  ua: 'Живі трансляції, сесії та практики в полі об\'єднаної свідомості'
-},
-'alignment.ec.streaming.meta': { ru: 'Смотреть →', en: 'Watch →', ua: 'Дивитися →' },
-'alignment.ec.course.label': { ru: 'Курс', en: 'Course', ua: 'Курс' },
-'alignment.ec.course.title': { ru: 'Мы.Боги', en: 'We.Gods', ua: 'Ми.Боги' },
-'alignment.ec.course.desc': {
-  ru: 'Модель резонансных отношений. 2 месяца трансформации сознания',
-  en: 'Resonance relationship model. 2 months of consciousness transformation',
-  ua: 'Модель резонансних відносин. 2 місяці трансформації свідомості'
-},
-'alignment.ec.course.meta': { ru: '2 000€ / 2 мес', en: '2,000€ / 2 months', ua: '2 000€ / 2 міс' },
-'alignment.ec.retreat.label': { ru: 'Ретрит', en: 'Retreat', ua: 'Ретріт' },
-'alignment.ec.retreat.title': { ru: 'System Reboot', en: 'System Reboot', ua: 'System Reboot' },
-'alignment.ec.retreat.desc': {
-  ru: 'Personal & Couple перезагрузка. Распаковка Креативности и восстановление персонального Дао. 5 дней жизни с нами',
-  en: 'Personal & Couple reboot. Unpacking Creativity and restoring personal Tao. 5 days living with us',
-  ua: 'Personal & Couple перезавантаження. Розпаковка Креативності та відновлення персонального Дао. 5 днів життя з нами'
-},
-'alignment.ec.retreat.meta': { ru: 'По запросу', en: 'On request', ua: 'За запитом' },
+'metapedia.soon': { ru: 'Скоро', en: 'Coming soon', ua: 'Скоро' },
+'metapedia.vid.placeholder': { ru: 'Видео в подготовке', en: 'Video in preparation', ua: 'Відео в підготовці' },
+'metapedia.vid.placeholder.desc': { ru: 'Записи трансляций и новые материалы', en: 'Stream recordings and new materials', ua: 'Записи трансляцій та нові матеріали' },
 
 // ─── QUANTUM KITCHEN PAGE ───
 'qk.title': { ru: 'OnlyGods — Quantum Kitchen', en: 'OnlyGods — Quantum Kitchen', ua: 'OnlyGods — Quantum Kitchen' },
@@ -1681,7 +1608,7 @@ var T = {
 
 // ─── MYBOGI PAGE ───
 'mybogi.title': { ru: 'OnlyGods — Мы.Боги', en: 'OnlyGods — We.Gods', ua: 'OnlyGods — Ми.Боги' },
-'mybogi.back': { ru: '← Alignment', en: '← Alignment', ua: '← Alignment' },
+'mybogi.back': { ru: '← Metapedia', en: '← Metapedia', ua: '← Metapedia' },
 'mybogi.hero.subtitle': { ru: 'Модель резонансных отношений', en: 'A model of resonant relationships', ua: 'Модель резонансних стосунків' },
 'mybogi.hero.title': { ru: 'МЫ. БОГИ.', en: 'WE. GODS.', ua: 'МИ. БОГИ.' },
 'mybogi.hero.authors': {
@@ -2052,7 +1979,7 @@ var T = {
 
 // ─── RETREAT PAGE ───
 'retreat.title': { ru: 'OnlyGods — System Reboot', en: 'OnlyGods — System Reboot', ua: 'OnlyGods — System Reboot' },
-'retreat.back': { ru: '← Alignment', en: '← Alignment', ua: '← Alignment' },
+'retreat.back': { ru: '← Metapedia', en: '← Metapedia', ua: '← Metapedia' },
 'retreat.hero.subtitle': {
   ru: 'Ретрит',
   en: 'Retreat',
@@ -2092,7 +2019,7 @@ var T = {
 
 // ─── GAMEOVER ARTICLE ───
 'gameover.title': { ru: 'OnlyGods — 2026: GAME OVER', en: 'OnlyGods — 2026: GAME OVER', ua: 'OnlyGods — 2026: GAME OVER' },
-'gameover.back': { ru: '← Mindset 2.0', en: '← Mindset 2.0', ua: '← Mindset 2.0' },
+'gameover.back': { ru: '← Metapedia', en: '← Metapedia', ua: '← Metapedia' },
 'gameover.hero.subtitle': { ru: '2026', en: '2026', ua: '2026' },
 'gameover.hero.title': { ru: '2026 = GAME OVER', en: '2026 = GAME OVER', ua: '2026 = GAME OVER' },
 'gameover.hero.tagline': {
