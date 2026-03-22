@@ -120,6 +120,9 @@ body::after {
 /* CONTENT */
 .content-section { max-width: 1200px; margin: 0 auto; padding: 40px 40px 80px; }
 
+.section-divider { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.section-divider::after { content: ''; display: block; width: 100%; height: 40px; background: radial-gradient(ellipse 200px 1px at 50% 50%, rgba(29,29,31,0.08) 0%, transparent 100%), radial-gradient(ellipse 400px 1px at 50% 50%, rgba(29,29,31,0.04) 0%, transparent 100%), radial-gradient(ellipse 600px 1px at 50% 50%, rgba(29,29,31,0.02) 0%, transparent 100%); }
+
 .section-label {
     font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
     color: #86868b; font-weight: 500; margin-bottom: 32px;
@@ -387,7 +390,7 @@ body::after {
     </a>
 
     <!-- GRID -->
-    <div class="section-label fade-in-up" data-i18n="metapedia.content.label">Публикации и видео</div>
+    <div class="section-label fade-in-up" data-i18n="metapedia.content.label">Публикации</div>
 
     <div class="meta-grid">
 
@@ -435,16 +438,69 @@ body::after {
             </div>
         </a>
 
-        <!-- Video placeholder -->
-        <div class="meta-card meta-card-placeholder fade-in-up stagger-3">
-            <div class="meta-card-thumb">
-                <span style="font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #d1d1d6;" data-i18n="metapedia.soon">Скоро</span>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- VIDEO SECTION -->
+<div class="content-section" style="padding-top: 0;">
+    <div class="section-label fade-in-up" data-i18n="metapedia.video.label">Видео</div>
+
+    <div class="meta-grid">
+
+        <!-- Video 1 -->
+        <div class="meta-card fade-in-up stagger-1">
+            <div class="meta-card-thumb" style="aspect-ratio: 16/9;">
+                <iframe src="https://www.youtube.com/embed/fvZIqYtDC-A" title="Самоуверенность: главный growth factor в новом мире" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="meta-card-top">
-                <span class="meta-badge-light" style="border-color: rgba(0,0,0,0.05); color: #d1d1d6;">Видео</span>
+                <span class="meta-badge-light">Видео</span>
             </div>
-            <div class="meta-card-title" data-i18n="metapedia.vid.placeholder">Видео в подготовке</div>
-            <div class="meta-card-desc" data-i18n="metapedia.vid.placeholder.desc">Записи трансляций и новые материалы</div>
+            <div class="meta-card-title">Самоуверенность: главный growth factor</div>
+            <div class="meta-card-desc">Елизавета Сигорская — почему уверенность в себе стала главным активом</div>
+            <div class="meta-card-footer">
+                <span></span>
+                <button class="meta-share-btn" onclick="shareCard('Самоуверенность: главный growth factor', 'https://www.youtube.com/watch?v=fvZIqYtDC-A')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="meta-card fade-in-up stagger-2">
+            <div class="meta-card-thumb" style="aspect-ratio: 16/9;">
+                <iframe src="https://www.youtube.com/embed/g4wEc1aNetg" title="Мировой кризис: пути выхода" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="meta-card-top">
+                <span class="meta-badge-light">Видео</span>
+            </div>
+            <div class="meta-card-title">Мировой кризис: пути выхода</div>
+            <div class="meta-card-desc">Геополитика, экономика, сознание — и что с этим делать</div>
+            <div class="meta-card-footer">
+                <span></span>
+                <button class="meta-share-btn" onclick="shareCard('Мировой кризис: пути выхода', 'https://www.youtube.com/watch?v=g4wEc1aNetg')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="meta-card fade-in-up stagger-3">
+            <div class="meta-card-thumb" style="aspect-ratio: 16/9;">
+                <iframe src="https://www.youtube.com/embed/zKXxX3i6UB4" title="Ловушки Разума" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="meta-card-top">
+                <span class="meta-badge-light">Видео</span>
+            </div>
+            <div class="meta-card-title">Ловушки Разума</div>
+            <div class="meta-card-desc">Как заметить, что тобой играют — и выйти из чужой игры</div>
+            <div class="meta-card-footer">
+                <span></span>
+                <button class="meta-share-btn" onclick="shareCard('Ловушки Разума', 'https://www.youtube.com/watch?v=zKXxX3i6UB4')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                </button>
+            </div>
         </div>
 
     </div>
@@ -462,7 +518,7 @@ const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJ
 
 // Share
 function shareCard(title, path) {
-    const url = window.location.origin + '/' + path;
+    const url = path.startsWith('http') ? path : window.location.origin + '/' + path;
     if (navigator.share) {
         navigator.share({ title: 'OnlyGods — ' + title, url: url }).catch(() => {});
     } else {
