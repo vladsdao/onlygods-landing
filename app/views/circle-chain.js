@@ -615,79 +615,107 @@ export default class CircleChainView {
             .order('name');
         this.members = members || [];
 
+        // All data rendered is from our own Supabase DB and escaped via _esc()
         this.container.innerHTML = `
             <div class="cc-create-form">
-                <button class="cc-back-btn" id="cc-btn-back-create">← Back</button>
-                <div class="cc-create-title">Create Circle</div>
+                <button class="cc-back-btn" id="cc-btn-back-create">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                    Back
+                </button>
 
-                <div class="cc-form-group">
-                    <label class="cc-form-label">Title</label>
-                    <input type="text" class="cc-form-input" id="cc-create-title" placeholder="e.g. Write 4 lines of poetry">
+                <div class="cc-create-header">
+                    <div class="cc-create-icon">○</div>
+                    <div class="cc-create-title">New Circle</div>
+                    <div class="cc-create-subtitle">Create a challenge that flows through your community</div>
                 </div>
 
-                <div class="cc-form-group">
-                    <label class="cc-form-label">Task Prompt</label>
-                    <textarea class="cc-form-textarea" id="cc-create-prompt" rows="3" placeholder="The actual challenge/task description"></textarea>
-                </div>
+                <div class="cc-form-card">
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">Title</label>
+                        <input type="text" class="cc-form-input" id="cc-create-title" placeholder="e.g. Write 4 lines of poetry">
+                    </div>
 
-                <div class="cc-form-group">
-                    <label class="cc-form-label">Guide (optional)</label>
-                    <textarea class="cc-form-textarea" id="cc-create-guide" rows="2" placeholder="Short guide or instructions for participants"></textarea>
-                </div>
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">Challenge</label>
+                        <div class="cc-form-hint">What should each person do when it's their turn?</div>
+                        <textarea class="cc-form-textarea" id="cc-create-prompt" rows="3" placeholder="Describe the task..."></textarea>
+                    </div>
 
-                <div class="cc-form-group">
-                    <label class="cc-form-label">Description (optional)</label>
-                    <input type="text" class="cc-form-input" id="cc-create-desc" placeholder="Brief description of this circle">
-                </div>
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">Guide <span class="cc-form-optional">optional</span></label>
+                        <textarea class="cc-form-textarea" id="cc-create-guide" rows="2" placeholder="Tips, rules, or inspiration for participants"></textarea>
+                    </div>
 
-                <div class="cc-form-group">
-                    <label class="cc-form-label">Skills</label>
-                    <div class="cc-skills-grid" id="cc-skills-grid">
-                        ${this.skills.map(s => `
-                            <label class="cc-skill-checkbox">
-                                <input type="checkbox" value="${s.id}" data-skill>
-                                ${s.icon} ${s.name_ru || s.name}
-                            </label>
-                        `).join('')}
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">Description <span class="cc-form-optional">optional</span></label>
+                        <input type="text" class="cc-form-input" id="cc-create-desc" placeholder="One-liner about what this circle is about">
                     </div>
                 </div>
 
-                <div class="cc-form-group">
-                    <label class="cc-form-label">Time per turn (hours)</label>
-                    <select class="cc-form-select" id="cc-create-time">
-                        <option value="6">6 hours</option>
-                        <option value="12">12 hours</option>
-                        <option value="24" selected>24 hours</option>
-                        <option value="48">48 hours</option>
-                        <option value="72">72 hours</option>
-                    </select>
+                <div class="cc-form-card">
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">What does this circle develop?</label>
+                        <div class="cc-form-hint">Select skills that participants will grow</div>
+                        <div class="cc-skills-grid" id="cc-skills-grid">
+                            ${this.skills.map(s => `
+                                <label class="cc-skill-pill">
+                                    <input type="checkbox" value="${s.id}" data-skill>
+                                    <span class="cc-skill-pill-inner">${s.icon} ${s.name_ru || s.name}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">Time per turn</label>
+                        <select class="cc-form-select" id="cc-create-time">
+                            <option value="6">6 hours</option>
+                            <option value="12">12 hours</option>
+                            <option value="24" selected>24 hours (1 day)</option>
+                            <option value="48">48 hours (2 days)</option>
+                            <option value="72">72 hours (3 days)</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="cc-form-group">
-                    <label class="cc-form-label">Participants</label>
-                    <label class="cc-all-members-toggle">
-                        <input type="checkbox" id="cc-all-members"> All members
-                    </label>
-                    <div class="cc-members-grid" id="cc-members-grid">
-                        ${this.members.map(m => `
-                            <label class="cc-member-checkbox">
-                                <input type="checkbox" value="${m.id}" data-member>
-                                ${this._esc(m.name)}
-                            </label>
-                        `).join('')}
+                <div class="cc-form-card">
+                    <div class="cc-form-group">
+                        <label class="cc-form-label">Who's in the circle?</label>
+                        <label class="cc-all-toggle">
+                            <input type="checkbox" id="cc-all-members">
+                            <span class="cc-all-toggle-label">Everyone</span>
+                        </label>
+                        <div class="cc-members-grid" id="cc-members-grid">
+                            ${this.members.map(m => {
+                                const initial = (m.name || '?').charAt(0).toUpperCase();
+                                const hasAvatar = m.avatar_url ? 'style="background-image:url(' + m.avatar_url + ');background-size:cover;"' : '';
+                                return `<label class="cc-member-pill"><input type="checkbox" value="${m.id}" data-member><span class="cc-member-pill-inner"><span class="cc-member-avatar" ${hasAvatar}>${m.avatar_url ? '' : initial}</span><span class="cc-member-name">${this._esc(m.name)}</span></span></label>`;
+                            }).join('')}
+                        </div>
+                        <div class="cc-members-count" id="cc-members-count">0 selected</div>
                     </div>
                 </div>
 
                 <div class="cc-form-actions">
-                    <button class="cc-submit-btn" id="cc-btn-save-circle">Create Circle</button>
+                    <button class="cc-create-submit" id="cc-btn-save-circle">
+                        Create Circle
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </button>
                 </div>
             </div>
         `;
 
         document.getElementById('cc-btn-back-create')?.addEventListener('click', () => this._loadCircleList());
+        const updateCount = () => {
+            const count = this.container.querySelectorAll('[data-member]:checked').length;
+            const el = document.getElementById('cc-members-count');
+            if (el) el.textContent = count === 0 ? '0 selected' : `${count} selected`;
+        };
         document.getElementById('cc-all-members')?.addEventListener('change', (e) => {
             this.container.querySelectorAll('[data-member]').forEach(cb => { cb.checked = e.target.checked; });
+            updateCount();
         });
+        this.container.querySelectorAll('[data-member]').forEach(cb => cb.addEventListener('change', updateCount));
         document.getElementById('cc-btn-save-circle')?.addEventListener('click', () => this._createCircle());
     }
 
