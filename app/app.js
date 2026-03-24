@@ -2,6 +2,7 @@ import { auth } from './lib/auth.js';
 import { Router } from './lib/router.js';
 import { StreamMini } from './lib/pip.js';
 import { renderNav } from './components/nav.js';
+import { player } from './lib/player.js';
 
 let router = null;
 
@@ -37,10 +38,13 @@ async function init() {
     router = new Router(viewContainer);
     await router.navigate();
 
-    // 7. Activity status tracking
+    // 7. Init focus mini-player
+    setupMiniPlayer();
+
+    // 8. Activity status tracking
     setupActivityTracking();
 
-    // 8. Apply i18n
+    // 9. Apply i18n
     if (typeof OGLang !== 'undefined') {
         OGLang.applyLang(OGLang.getLang());
     }
@@ -94,6 +98,86 @@ function showPendingScreen() {
 function showAuthScreen() {
     // Redirect all unauthenticated users to playground (login gateway)
     window.location.href = '/playground.html';
+}
+
+function setupMiniPlayer() {
+    const mp = document.getElementById('mini-player');
+    if (!mp) return;
+
+    const btn = document.createElement('button');
+    btn.className = 'mini-player-btn';
+    mp.appendChild(btn);
+
+    const info = document.createElement('div');
+    info.className = 'mini-player-info';
+    const title = document.createElement('div');
+    title.className = 'mini-player-title';
+    info.appendChild(title);
+    mp.appendChild(info);
+
+    const time = document.createElement('div');
+    time.className = 'mini-player-time';
+    mp.appendChild(time);
+
+    const progress = document.createElement('div');
+    progress.className = 'mini-player-progress';
+    mp.appendChild(progress);
+
+    function updateIcon() {
+        const svgNS = 'http://www.w3.org/2000/svg';
+        btn.textContent = '';
+        const svg = document.createElementNS(svgNS, 'svg');
+        svg.setAttribute('width', '14'); svg.setAttribute('height', '14');
+        svg.setAttribute('viewBox', '0 0 24 24'); svg.setAttribute('fill', 'currentColor');
+        if (player.isPlaying) {
+            const r1 = document.createElementNS(svgNS, 'rect');
+            r1.setAttribute('x', '6'); r1.setAttribute('y', '4'); r1.setAttribute('width', '4'); r1.setAttribute('height', '16');
+            svg.appendChild(r1);
+            const r2 = document.createElementNS(svgNS, 'rect');
+            r2.setAttribute('x', '14'); r2.setAttribute('y', '4'); r2.setAttribute('width', '4'); r2.setAttribute('height', '16');
+            svg.appendChild(r2);
+        } else {
+            const poly = document.createElementNS(svgNS, 'polygon');
+            poly.setAttribute('points', '6 3 20 12 6 21 6 3');
+            svg.appendChild(poly);
+        }
+        btn.appendChild(svg);
+    }
+
+    function fmtTime(s) {
+        const sec = Math.floor(s);
+        return Math.floor(sec / 60) + ':' + (sec % 60).toString().padStart(2, '0');
+    }
+
+    btn.addEventListener('click', (e) => { e.stopPropagation(); player.toggle(); });
+    mp.addEventListener('click', () => { location.hash = '#/synch'; });
+
+    player.onChange((type) => {
+        const isOnSynch = location.hash === '#/synch';
+        const shouldShow = player.hasTrack && player.isPlaying && !isOnSynch;
+        mp.classList.toggle('visible', shouldShow);
+        document.body.classList.toggle('has-mini-player', shouldShow);
+
+        if (type === 'state' || type === 'loaded') {
+            title.textContent = player.currentPractice?.title || '';
+            updateIcon();
+        }
+        if (type === 'progress') {
+            time.textContent = fmtTime(player.remaining);
+            progress.style.width = (player.progress * 100) + '%';
+        }
+    });
+
+    window.addEventListener('hashchange', () => {
+        const isOnSynch = location.hash === '#/synch';
+        if (isOnSynch) {
+            mp.classList.remove('visible');
+            document.body.classList.remove('has-mini-player');
+        } else if (player.hasTrack && player.isPlaying) {
+            mp.classList.add('visible');
+            document.body.classList.add('has-mini-player');
+        }
+    });
 }
 
 async function setupActivityTracking() {

@@ -1,4 +1,4 @@
-const CACHE_SHELL = 'og-shell-v8';
+const CACHE_SHELL = 'og-shell-v9';
 const CACHE_CDN = 'og-cdn-v1';
 
 const SHELL_ASSETS = [
@@ -8,6 +8,7 @@ const SHELL_ASSETS = [
     '/app/lib/auth.js',
     '/app/lib/supabase.js',
     '/app/lib/router.js',
+    '/app/lib/player.js',
     '/app/lib/pip.js',
     '/app/components/nav.js',
     '/app/components/chat-bubble.js',
