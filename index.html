@@ -292,19 +292,17 @@ async function handleLogin(e) {
             btn.textContent = 'Enter';
             return;
         }
-        window.location.href = '/app.html';
+        // Success — close modal, show welcome state
+        closeModal();
+        document.querySelector('.title').textContent = 'Welcome';
+        document.querySelector('.subtitle').textContent = 'You are connected';
+        document.querySelector('.tagline').textContent = '';
     } catch (err) {
         errEl.textContent = 'Connection error. Try again.';
         btn.disabled = false;
         btn.textContent = 'Enter';
     }
 }
-
-// Auto-redirect if already authenticated
-(async () => {
-    const { data: { session } } = await sb.auth.getSession();
-    if (session) window.location.href = '/app.html';
-})();
 </script>
 </body>
 </html>
