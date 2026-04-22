@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>137 Lab — Архитектура Сознания</title>
+<meta name="description" content="Структурные решения там, где ум-ориентированные подходы упираются в потолок. Архитектура сознания для основателей и творцов.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #fff;
+  --text: #000;
+  --rule: #000;
+  --font: 'Space Mono', 'Courier New', monospace;
+  --fs: 13px;
+  --lh: calc(18 / 13);
+  --height-text: calc(var(--fs) * var(--lh));
+  --height-rule: calc(var(--height-text) / 2);
+  --margin: 15px;
+  --gap: 15px;
+  --gap-row: calc(var(--margin) * 3);
+  --gap-sm: 5px;
+  --speed: 300ms;
+  --ease: cubic-bezier(0.83, 0, 0.17, 1);
+  --col: 5;
+}
+
+@media (max-width: 1024px) { :root { --col: 3; } }
+@media (max-width: 768px)  { :root { --col: 2; } }
+@media (max-width: 500px)  { :root { --col: 1; } }
+
+.dark {
+  --bg: #000;
+  --text: #fff;
+  --rule: #fff;
+}
+
+html {
+  font-family: var(--font);
+  font-size: var(--fs);
+  line-height: var(--lh);
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  min-height: 100vh;
+  padding: 0 var(--margin);
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+::selection {
+  background: var(--text);
+  color: var(--bg);
+}
+
+#landing {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  cursor: pointer;
+  user-select: none;
+  transition: opacity var(--speed) var(--ease);
+}
+
+#landing.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#landing-inner { text-align: center; }
+
+#landing-title {
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+#landing-sub {
+  margin-top: calc(var(--margin) * 2);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  opacity: 0.4;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  background: var(--bg);
+  display: grid;
+  grid-template-columns: repeat(calc(var(--col) * 2), 1fr);
+  column-gap: var(--gap);
+  padding: var(--margin) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-brand {
+  grid-column: 1 / 3;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.nav-links {
+  grid-column: 3 / -1;
+  display: flex;
+  gap: var(--gap-row);
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-links a {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(var(--gap-row) / -2);
+  width: 1px;
+  height: var(--height-rule);
+  background: var(--rule);
+}
+
+.nav-links a:first-child::before { display: none; }
+
+.lang-toggle {
+  opacity: 0.4;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+.lang-toggle .current { font-weight: 700; opacity: 1; }
+
+main { padding: var(--gap-row) 0; }
+
+.section {
+  border-top: 1px solid var(--rule);
+  padding-top: var(--margin);
+  margin-bottom: var(--gap-row);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  cursor: pointer;
+  user-select: none;
+  padding-bottom: var(--margin);
+}
+
+.section-header:hover .section-title {
+  text-decoration: underline;
+}
+
+.section-title {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+}
+
+.section-code {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.4;
+  white-space: nowrap;
+}
+
+.section-arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--text);
+  transition: transform var(--speed) var(--ease);
+  margin-left: var(--gap);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.section.open .section-arrow {
+  transform: rotate(180deg);
+}
+
+.section-body {
+  display: none;
+  padding-bottom: var(--margin);
+}
+
+.section.open .section-body { display: block; }
+
+.content-block {
+  display: grid;
+  grid-template-columns: repeat(var(--col), 1fr);
+  column-gap: var(--gap);
+  row-gap: var(--gap);
+  margin-bottom: var(--gap-row);
+}
+
+.content-block:last-child { margin-bottom: 0; }
+
+.content-text {
+  grid-column: 1 / -1;
+  max-width: 720px;
+}
+
+.content-text p {
+  margin-bottom: calc(var(--fs) * var(--lh));
+}
+
+.content-text p:last-child { margin-bottom: 0; }
+
+.t-bold { font-weight: 700; }
+
+.t-upper {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.t-italic {
+  font-style: italic;
+  opacity: 0.6;
+}
+
+.t-label {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  opacity: 0.4;
+  margin-bottom: var(--gap);
+}
+
+.t-statement {
+  font-weight: 700;
+  margin-top: calc(var(--margin) * 2);
+  margin-bottom: calc(var(--margin) * 2);
+}
+
+.t-quote {
+  font-style: italic;
+  padding: var(--gap-row) 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin: var(--gap-row) 0;
+}
+
+.signal { margin-bottom: var(--gap-row); }
+
+.signal-title {
+  font-weight: 700;
+  margin-bottom: var(--gap);
+}
+
+.signal-mechanism {
+  font-style: italic;
+  opacity: 0.6;
+  margin-top: var(--gap);
+}
+
+.tool { margin-bottom: calc(var(--margin) * 2); }
+
+.tool-name {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--gap-sm);
+}
+
+.domain { margin-bottom: calc(var(--margin) * 2); }
+
+.domain-title {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  margin-bottom: var(--gap);
+}
+
+.phase {
+  margin-bottom: var(--gap-row);
+  padding-bottom: var(--gap-row);
+  border-bottom: 1px solid var(--rule);
+}
+
+.phase:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.phase-label {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  opacity: 0.4;
+  margin-bottom: var(--gap);
+}
+
+.phase-list {
+  list-style: none;
+  margin-top: var(--gap);
+}
+
+.phase-list li {
+  padding-left: 2ch;
+  position: relative;
+  margin-bottom: var(--gap-sm);
+}
+
+.phase-list li::before {
+  content: '\2014';
+  position: absolute;
+  left: 0;
+}
+
+.operator {
+  margin-bottom: var(--gap-row);
+  padding-bottom: var(--gap-row);
+  border-bottom: 1px solid var(--rule);
+}
+
+.operator:last-child { border-bottom: none; }
+
+.operator-label {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  opacity: 0.4;
+  margin-bottom: var(--gap);
+}
+
+.gameover {
+  display: grid;
+  place-items: center;
+  min-height: 60vh;
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  margin-bottom: var(--gap-row);
+}
+
+.gameover-title {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+}
+
+.gameover-sub {
+  margin-top: calc(var(--margin) * 2);
+  opacity: 0.4;
+  letter-spacing: 0.05em;
+}
+
+.closing {
+  display: grid;
+  place-items: center;
+  min-height: 50vh;
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  padding: var(--gap-row) 0;
+}
+
+.closing p {
+  margin-bottom: calc(var(--fs) * var(--lh));
+}
+
+.closing-brand {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  margin-top: var(--gap-row);
+}
+
+.closing-contact {
+  opacity: 0.4;
+  margin-top: var(--gap);
+}
+
+.closing-contact a:hover { opacity: 1; }
+
+.expand-toggle {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  padding: var(--margin) 0;
+  border-top: 1px solid var(--rule);
+  margin-bottom: var(--gap-row);
+}
+
+.expand-toggle:hover { text-decoration: underline; }
+
+footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 9;
+  background: var(--bg);
+  display: grid;
+  grid-template-columns: repeat(calc(var(--col) * 2), 1fr);
+  column-gap: var(--gap);
+  padding: var(--margin) 0;
+  border-top: 1px solid var(--rule);
+}
+
+.footer-left {
+  grid-column: 1 / 3;
+  opacity: 0.4;
+}
+
+.footer-right {
+  grid-column: -3 / -1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+}
+
+.mode-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background var(--speed) var(--ease), border-color var(--speed) var(--ease);
+}
+
+.mode-light {
+  background: transparent;
+  border: 1px solid var(--text);
+}
+
+.mode-dark {
+  background: var(--text);
+  border: 1px solid var(--text);
+}
+
+@media (max-width: 768px) {
+  .nav-links { gap: var(--gap); }
+  .content-text { max-width: 100%; }
+  header { grid-template-columns: 1fr; row-gap: var(--gap); }
+  .nav-brand { grid-column: 1; }
+  .nav-links { grid-column: 1; justify-content: flex-start; }
+  .nav-links a::before { display: none; }
+  footer { grid-template-columns: 1fr 1fr; }
+  .footer-left { grid-column: 1; }
+  .footer-right { grid-column: 2; }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity calc(var(--speed) * 2) linear, transform calc(var(--speed) * 2) var(--ease);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- LANDING SPLASH -->
+<div id="landing" onclick="this.classList.add('hide')">
+  <div id="landing-inner">
+    <div id="landing-title">137 Lab</div>
+    <div id="landing-sub">Архитектура Сознания</div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-brand">137 Lab</div>
+  <nav class="nav-links">
+    <a href="#shift">S1. Сдвиг</a>
+    <a href="#method">S2. Метод</a>
+    <a href="#entry">S3. Вход</a>
+    <a href="./" class="lang-toggle"><span>EN</span> / <span class="current">RU</span></a>
+  </nav>
+</header>
+
+<!-- MAIN -->
+<main>
+
+  <!-- GAME OVER -->
+  <div class="gameover fade-in">
+    <div>
+      <div class="gameover-title">2026 &mdash; Game Over</div>
+      <div class="gameover-sub">Операционная система, которая довела вас сюда, больше не поддерживается.</div>
+    </div>
+  </div>
+
+  <!-- EXPAND ALL -->
+  <div class="expand-toggle" id="expandAll">
+    Раскрыть всё <span class="section-arrow"></span>
+  </div>
+
+  <!-- S1: СДВИГ -->
+  <div class="section" id="shift">
+    <div class="section-header" onclick="toggleSection(this.parentElement)">
+      <div>
+        <span class="section-code">S1 &mdash; </span>
+        <span class="section-title">Ум довёл вас сюда</span>
+      </div>
+      <span class="section-arrow"></span>
+    </div>
+    <div class="section-body">
+      <div class="content-block">
+        <div class="content-text">
+          <p>Триста лет формула была ясна. Точнее аналитика. Жёстче стратегия. Быстрее исполнение. Вся инфраструктура успеха — образование, бизнес, психология — работает на одной предпосылке: думай лучше — живи лучше.</p>
+          <p>Эта предпосылка довела нас далеко. Построила индустрии, технологии, состояния.</p>
+          <p class="t-statement">Она же научила нас игнорировать всё, что работает ниже порога мышления.</p>
+          <p>Сейчас одновременно сходятся три силы.</p>
+          <p>AI обнулил аналитический интеллект. То, что вчера требовало десятилетий обучения, сегодня генерируется за секунды. Конкурентное преимущество мышления стремится к нулю. Редким остаётся одно — способность воспринимать то, что данные показать не могут.</p>
+          <p>Глобальная система дестабилизируется — не случайно, а структурно. Экономика, экология, отношения, психика выдают давление одновременно, потому что у них одна корневая архитектура: разделение, извлечение, линейная причинность. Эта архитектура дошла до своего потолка.</p>
+          <p>И ещё, тоньше: люди переживают состояния, способности и восприятия, которым ни существующая наука, ни классическая духовность не дают адекватного описания. Чувствуют это сильнее всего те, кто уже исчерпал то, что предлагают текущие модели.</p>
+          <p class="t-statement">Территория изменилась. Старые карты всё ещё выглядят рабочими. Они ведут ко всё более неправильным пунктам назначения.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S2: ПЯТЬ СИГНАЛОВ -->
+  <div class="section" id="signals">
+    <div class="section-header" onclick="toggleSection(this.parentElement)">
+      <div>
+        <span class="section-code">S2 &mdash; </span>
+        <span class="section-title">Пять сигналов</span>
+      </div>
+      <span class="section-arrow"></span>
+    </div>
+    <div class="section-body">
+      <div class="content-block">
+        <div class="content-text">
+          <p class="t-italic">Это не проблемы, которые нужно чинить. Это индикаторы того, что ваша система готова работать на уровне, который текущая архитектура удержать не может.</p>
+
+          <div class="signal">
+            <p class="signal-title">Ваши решения потеряли чёткость.</p>
+            <p>Не потому что не хватает данных. Данных у вас больше, чем у любого поколения до вас. Сигнал утонул в шуме. Чем больше информации доступно, тем труднее почувствовать, какое направление действительно ваше. Вы ловите себя на оптимизации внутри системы координат, которую не выбирали.</p>
+            <p class="signal-mechanism">Когда внешний ландшафт перестраивается быстрее, чем внутренний компас успевает калиброваться — ум компенсирует дефицит когерентности избытком анализа. Больше анализа без когерентности даёт точные ответы на неправильные вопросы.</p>
+          </div>
+
+          <div class="signal">
+            <p class="signal-title">Команда функционирует, но не резонирует.</p>
+            <p>Роли заполнены. Процессы работают. KPI выполняются. Но невидимая нить, которая раньше делала взаимодействие лёгким — когда взгляда через комнату хватало, чтобы синхронизироваться — где-то в процессе масштабирования растворилась. Резонанс заменили процедурой. Оно функционирует. Оно не творит.</p>
+            <p class="signal-mechanism">Любая группа работает на двух слоях. Видимый — структура: роли, задачи, коммуникация. Невидимый — общее поле: эмоциональная синхронизация, коллективное внимание, взаимное состояние. Стандартные советы по масштабированию работают только с первым. Второй деградирует в тишине.</p>
+          </div>
+
+          <div class="signal">
+            <p class="signal-title">Ближайшие отношения вдруг тяжелеют.</p>
+            <p>Партнёрство, которое раньше рождало энергию, теперь её съедает. Семейные динамики, бывшие стабильными, вскрывают напряжения, несоразмерные видимой причине. Разговоры, которые раньше решались за минуты, теперь крутятся неделями без посадки.</p>
+            <p class="signal-mechanism">Отношения — это резонансные системы. Когда один человек сдвигает частоту — через рост, кризис, ускорение, которое происходит прямо сейчас — паттерн связки теряет устойчивость. Система требует рекалибровки на уровне, до которого разговор не дотягивается.</p>
+          </div>
+
+          <div class="signal">
+            <p class="signal-title">Успех стал структурно пустым.</p>
+            <p>Больше дохода. Больше свободы. Больше опций. И под этим — сигнал, который становится громче с каждым достижением. Это не депрессия и не неблагодарность. Это узнавание: архитектура вашей жизни спроектирована для того, кем вы больше не являетесь. Контейнер выдержал. Вы из него выросли.</p>
+            <p class="signal-mechanism">Идентичность, убеждения и эмоциональные структуры, построившие вашу текущую реальность, теперь — стены, ограничивающие следующую. Это не задача мышления. Это пересборка фундамента без сноса того, что на нём стоит.</p>
+          </div>
+
+          <div class="signal">
+            <p class="signal-title">Творческая проводимость мерцает.</p>
+            <p>Идеи приходят — возможно, больше, чем когда-либо. Но канал между инсайтом и исполнением работает нестабильно. В один день всё течёт. В другой — тот же ум не выдаёт ничего.</p>
+            <p class="signal-mechanism">Творчество — это не навык. Это проводимость: сколько сигнала ваша система способна провести без искажения. Когда несёте неразрешённые помехи — эмоциональные, реляционные, энергетические — полоса сужается. Сигнал на месте. Приёмник перегружен.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S3: ПРЕДЕЛЫ ИНСТРУМЕНТОВ -->
+  <div class="section" id="limits">
+    <div class="section-header" onclick="toggleSection(this.parentElement)">
+      <div>
+        <span class="section-code">S3 &mdash; </span>
+        <span class="section-title">Пределы текущих инструментов</span>
+      </div>
+      <span class="section-arrow"></span>
+    </div>
+    <div class="section-body">
+      <div class="content-block">
+        <div class="content-text">
+          <p class="t-italic">Вы уже пробовали доступное. Большинство помогло. Никто из них не решил структурный слой.</p>
+
+          <div class="tool">
+            <p class="tool-name">Терапия</p>
+            <p>Картографирует прошлое. Строит понимание. Редко перестраивает архитектуру. Вы выходите с инсайтом о том, почему чувствуете то, что чувствуете — и чувство остаётся. Знание причины — не то же, что изменение структуры.</p>
+          </div>
+
+          <div class="tool">
+            <p class="tool-name">Коучинг</p>
+            <p>Оптимизирует настоящее. Ставит цели, строит отчётность, даёт рамку для действия. Эффективен, когда операционная система исправна и требует калибровки. Упирается в потолок, когда заменить нужно саму ОС.</p>
+          </div>
+
+          <div class="tool">
+            <p class="tool-name">Медитация и духовные практики</p>
+            <p>Открывают восприятие. Создают пространство. Знакомят со слоями опыта, недоступными аналитическому уму. Но большинство практик останавливаются на открытии. Состояние приходит на коврике и растворяется ко вторнику.</p>
+          </div>
+
+          <div class="tool">
+            <p class="tool-name">Стратегический консалтинг</p>
+            <p>Перестраивает видимый слой. Структура, позиционирование, операционная эффективность. Точен в своей области. Слеп к невидимой динамике, от которой зависит, держится ли структура вообще.</p>
+          </div>
+
+          <div class="tool">
+            <p class="tool-name">Ретриты и пиковые переживания</p>
+            <p>Создают моменты прорыва. На неделю всё обретает смысл. Вы возвращаетесь домой — и в течение нескольких дней старый паттерн восстанавливается. Потому что среда изменилась временно. Внутренняя архитектура — нет.</p>
+          </div>
+
+          <p class="t-statement">Каждый инструмент работает в своём масштабе. Ни один не оперирует на уровне, где сознание формирует реальность — не как метафора, а как механизм.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S4: АРХИТЕКТУРА СОЗНАНИЯ -->
+  <div class="section" id="method">
+    <div class="section-header" onclick="toggleSection(this.parentElement)">
+      <div>
+        <span class="section-code">S4 &mdash; </span>
+        <span class="section-title">Архитектура Сознания</span>
+      </div>
+      <span class="section-arrow"></span>
+    </div>
+    <div class="section-body">
+      <div class="content-block">
+        <div class="content-text">
+          <p>137 — постоянная тонкой структуры. Безразмерное число в физике, которое задаёт силу электромагнитного взаимодействия. От него зависит, держатся ли атомы, распространяется ли свет, собирается ли материя вообще. Оно работает под химией, под биологией, под всем видимым. Сдвиньте его на два процента — вселенная невозможна.</p>
+          <p class="t-statement">Мы работаем на человеческом эквиваленте этого слоя.</p>
+          <p>Под вашими стратегиями, под привычками, под убеждениями — архитектура. Структура сознания, которая определяет, что вы способны воспринимать, что создавать, что удерживать. Она собиралась всю жизнь — через опыт, культуру, отношения, решения. Большинство из них — неосознанно.</p>
+          <p>Эта архитектура не зафиксирована. Это не судьба. Это инженерия. И как любая инженерия — её можно картографировать, понять и точно перестроить.</p>
+
+          <div class="t-quote">137 Lab — это практика архитектуры сознания.</div>
+
+          <p>Мы не коучим. Не консультируем. Не учим.</p>
+          <p>Мы диагностируем структурные рассогласования в операционной системе сознания — и делаем точные интервенции, которые каскадом меняют все слои жизни и бизнеса.</p>
+          <p>Работа идёт на пересечении древнего знания и современной науки. Квантовая и классическая физика, волновая механика, теория информации, соматический интеллект, полевая динамика — не как метафоры, а как рабочие модели. Плюс навыки прямого восприятия, о которых большинство практикующих говорит теоретически, а мы применяем как инструмент.</p>
+          <p>Это не духовная работа в обыденном смысле. Здесь нет догмы, нет системы верований, нет практики, которую нужно поддерживать. Это структурная работа на глубочайшем слое операционной системы — с хирургической точностью и проверяемым результатом.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5: ОПЕРАТОРЫ -->
+  <div class="section" id="operators">
+    <div class="section-header" onclick="toggleSection(this.parentElement)">
+      <div>
+        <span class="section-code">S5 &mdash; </span>
+        <span class="section-title">Архитектор и Хирург</span>
+      </div>
+      <span class="section-arrow"></span>
+    </div>
+    <div class="section-body">
+      <div class="content-block">
+        <div class="content-text">
+
+          <div class="operator">
+            <p class="operator-label">Dao &mdash; Инженер резонансных сетей</p>
+            <p>Строит невидимую инфраструктуру. Резонансные сети между людьми. Паттерны синхронизации внутри команд. Энергетическая архитектура под бизнес-системами. Работает с идеями как с живыми структурами, с группами как с полями, с организациями как с организмами.</p>
+            <p>Проектирует то, что большинство не видит: энергетическую топологию, от которой зависит, создаёт ли команда или просто функционирует, усиливает ли партнёрство или истощает, масштабируется ли компания когерентно или распадается под собственным весом.</p>
+            <p>20+ лет исследования сознания сквозь традиции, состояния и практики. Два MVP коллективного разума за плечами (50 и 60 человек). В ноябре 2022 — опыт, в котором процесс Вдохновения развернулся как технология. На следующий день свернул два AI-стартапа и пошёл в лабораторию.</p>
+          </div>
+
+          <div class="operator">
+            <p class="operator-label">Liza &mdash; Хирург трансформации</p>
+            <p class="t-statement">Находит корень. Одна сессия. Одно структурное изменение. Каскадные последствия.</p>
+            <p>Там, где другие месяцами картографируют поверхность, Лиза читает архитектуру напрямую — находит глубочайшую точку рассогласования с точностью, которая делает интервенцию быстрой, а сдвиг — устойчивым. Чем быстрее трансформация, тем глубже она дотягивается.</p>
+            <p>Метод: диагностика архитектуры сознания. Нахождение корневого алгоритма — не симптома и не сюжета, а структурного паттерна под ними. Соматическая перепись на уровне, где паттерн закодирован. Интеграция и отпускание.</p>
+            <p>Не создаёт зависимости. Работа хирургическая: найти разрыв, восстановить структуру, вернуть функцию. Одна сессия решает то, вокруг чего годами ходит обычная работа.</p>
+          </div>
+
+          <div class="t-quote">Dao картографирует систему. Liza перестраивает её. Он видит сеть. Она пересобирает узлы. Архитектура и хирургия как одна практика.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S6: ДОМЕНЫ -->
+  <div class="section" id="domains">
+    <div class="section-header" onclick="toggleSection(this.parentElement)">
+      <div>
+        <span class="section-code">S6 &mdash; </span>
+        <span class="section-title">Домены</span>
+      </div>
+      <span class="section-arrow"></span>
+    </div>
+    <div class="section-body">
+      <div class="content-block">
+        <div class="content-text">
+          <div class="domain">
+            <p class="domain-title">Личная архитектура</p>
+            <p>Внутренняя операционная система — убеждения, эмоциональные паттерны, структуры идентичности, творческая проводимость. Когда фундамент расходится с тем, кем вы становитесь, всё построенное на нём теряет устойчивость. Мы перестраиваем фундамент, не снося того, что на нём стоит.</p>
+          </div>
+          <div class="domain">
+            <p class="domain-title">Отношения и связка</p>
+            <p>Любые значимые отношения — это резонансная система. Партнёры, со-основатели, семья работают как связанные осцилляторы: когда один сдвигается, система должна перекалиброваться или сломаться. Мы делаем точное связывание и расцепление — восстанавливая согласование там, где оно служит обоим, и чисто разводя там, где не служит.</p>
+          </div>
+          <div class="domain">
+            <p class="domain-title">Бизнес как живая система</p>
+            <p>Компания — не машина. Это поле, порождаемое людьми внутри неё. Когда сдвигается сознание основателя — сдвигается компания. Когда падает когерентность команды, никакая стратегия это не компенсирует. Мы работаем с невидимым слоем бизнеса — синхронизируя основателей с их видением, команды между собой, а организации — с реальным потоком возможностей.</p>
+          </div>
+          <div class="domain">
+            <p class="domain-title">Групповое поле и коллективный интеллект</p>
+            <p>У команды, комьюнити, организации формируется своё поле — эмерджентный интеллект, превосходящий любого отдельного участника. Это поле можно осознанно выращивать, уплотнять, направлять. Мы проектируем резонансные сети и работаем с энергетической архитектурой групп.</p>
+          </div>
+          <div class="domain">
+            <p class="domain-title">Кризис как структурная возможность</p>
+            <p>Большинство ответов на кризис пытаются восстановить предыдущее состояние. Мы читаем кризис как момент, когда старая структура стала слишком мала и вскрывается, чтобы пропустить следующую. Интервенция здесь — не ликвидация ущерба, а ускоренный архитектурный переход.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S7: ПРОЦЕСС -->
+  <div class="section" id="process">
+    <div class="section-header" onclick="toggleSection(this.parentElement)">
+      <div>
+        <span class="section-code">S7 &mdash; </span>
+        <span class="section-title">Процесс</span>
+      </div>
+      <span class="section-arrow"></span>
+    </div>
+    <div class="section-body">
+      <div class="content-block">
+        <div class="content-text">
+          <div class="phase">
+            <p class="phase-label">Фаза 1 &mdash; Диагностика</p>
+            <p>Одна сессия, на которой мы картографируем вашу текущую архитектуру. Не через анкеты и тесты — через прямое чтение поля сознания, энергетической структуры и паттернов, работающих вне зоны осознанности.</p>
+            <p>Вы услышите описание своей ситуации точнее, чем сформулируете сами. Конкретные паттерны, конкретные механизмы, конкретные точки интервенции.</p>
+            <p class="t-statement">Диагностика — первое доказательство работы. Если чтение не совпадает с вашей реальностью с неудобной точностью, мы не ваши люди.</p>
+          </div>
+
+          <div class="phase">
+            <p class="phase-label">Фаза 2 &mdash; Архитектура</p>
+            <p>На основе диагностики мы проектируем интервенцию. Каждая работа индивидуальна — потому что индивидуальна каждая архитектура.</p>
+            <ul class="phase-list">
+              <li>Индивидуальная перестройка сознания — хирургические сессии по корневым паттернам</li>
+              <li>Проектирование систем — резонансные сети, синхронизация команд, энергетическая архитектура</li>
+              <li>Рекалибровка отношений — связка и расцепление для партнёров, семей, со-основателей</li>
+              <li>Полевая работа — сборка коллективной когерентности для команд и организаций</li>
+            </ul>
+            <p>Мы определяем минимально-эффективную интервенцию. Больше — не делаем.</p>
+          </div>
+
+          <div class="phase">
+            <p class="phase-label">Фаза 3 &mdash; Интеграция</p>
+            <p>Внутренние сдвиги проявляются внешне с периодом отражения около 13 дней. Во время интеграции перестроенные паттерны стабилизируются и начинают давать наблюдаемые изменения — в решениях, отношениях, творческом выходе, обстоятельствах.</p>
+            <p>Мы не выращиваем зависимость. Цель — структурный ремонт, который держится сам, а не практика, которую нужно поддерживать. Когда архитектура здорова, она работает самостоятельно.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S8: УЗНАВАНИЕ -->
+  <div class="section" id="recognition">
+    <div class="section-header" onclick="toggleSection(this.parentElement)">
+      <div>
+        <span class="section-code">S8 &mdash; </span>
+        <span class="section-title">Узнавание</span>
+      </div>
+      <span class="section-arrow"></span>
+    </div>
+    <div class="section-body">
+      <div class="content-block">
+        <div class="content-text">
+          <p class="t-italic">Эта работа — для определённого человека. Не лучше и не хуже других. Определённого.</p>
+          <p>Вы уже построили что-то значимое. Внешние маркеры успеха на месте. Внутренний опыт с ними не совпадает.</p>
+          <p>Вы честно пробовали доступные решения — с дисциплиной и настоящей вовлечённостью. Они помогли частично. Корневой паттерн остался.</p>
+          <p>Вы оперируете на уровне, где большинство советчиков не видит, что вам на самом деле нужно. Вы научились переводить свои настоящие вопросы на язык, который понимают коучи и консультанты — и в этом переводе теряется что-то существенное.</p>
+          <p>Вы чувствуете, что следующий уровень жизни и работы требует чего-то структурно отличного от всего, что довело сюда — а рынок предлагает то же самое в другой упаковке.</p>
+          <p>Вы прагматичны. Судите по результату, а не по обещаниям. Готовы работать с нестандартными методами ровно настолько, насколько они дают наблюдаемый сдвиг.</p>
+          <p class="t-statement">Вам не нужно во что-то верить. Вам нужно это пережить.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S9: ПОЧЕМУ 137 -->
+  <div class="section" id="why137">
+    <div class="section-header" onclick="toggleSection(this.parentElement)">
+      <div>
+        <span class="section-code">S9 &mdash; </span>
+        <span class="section-title">Почему 137</span>
+      </div>
+      <span class="section-arrow"></span>
+    </div>
+    <div class="section-body">
+      <div class="content-block">
+        <div class="content-text">
+          <p>В физике 1/137 — постоянная тонкой структуры. Она задаёт силу взаимодействия света и материи. От неё зависит размер атомов, поведение электронов, сама возможность химии и биологии. Она лежит под каждым видимым явлением — невидимая, безразмерная, фундаментальная.</p>
+          <p>Ричард Фейнман называл её одной из величайших тайн физики. Вольфганг Паули — физик, работавший с Юнгом над синхронистичностью — провёл последние дни в палате №137 и считал эту константу ключом к объединению физики и сознания.</p>
+          <p>Мы выбрали это число потому, что оно точно описывает, где мы работаем: на фундаментальном слое под видимым. На том слое, который определяет, что вообще возможно на каждом уровне выше него.</p>
+          <div class="t-quote">137 — не бренд. Это координата.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING / ENTRY POINT -->
+  <div class="closing" id="entry">
+    <div>
+      <p class="t-label">Точка входа</p>
+      <p>Диагностическая сессия — это начало.</p>
+      <p>Одна сессия. Прямое чтение архитектуры.<br>Карта того, что работает под вашей ситуацией —<br>с точностью, которая или подтверждает, что мы можем помочь,<br>или честно показывает, что не можем.</p>
+      <p>Никаких обязательств дальше диагностики.<br>Никакой программы, в которую надо вступать.<br>Никакой философии, которую надо принимать.</p>
+      <p class="t-statement">Один разговор, который показывает структуру,<br>которую вы чувствуете, но не можете назвать.</p>
+      <div class="closing-brand">137 Lab</div>
+      <div class="closing-contact"><a href="mailto:vladsdao@gmail.com">vladsdao@gmail.com</a></div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">Архитектура Сознания</div>
+  <div class="footer-right">
+    <span class="mode-dot mode-light" onclick="setMode('light')" title="Light"></span>
+    <span class="mode-dot mode-dark" onclick="setMode('dark')" title="Dark"></span>
+  </div>
+</footer>
+
+<script>
+(function() {
+  const landing = document.getElementById('landing');
+  if (sessionStorage.getItem('137lab-visited')) {
+    landing.classList.add('hide');
+  } else {
+    setTimeout(() => {
+      landing.classList.add('hide');
+      sessionStorage.setItem('137lab-visited', '1');
+    }, 3000);
+    landing.addEventListener('click', () => {
+      sessionStorage.setItem('137lab-visited', '1');
+    });
+  }
+})();
+
+function toggleSection(el) {
+  el.classList.toggle('open');
+}
+
+document.getElementById('expandAll').addEventListener('click', function() {
+  const sections = document.querySelectorAll('.section');
+  const allOpen = [...sections].every(s => s.classList.contains('open'));
+  sections.forEach(s => {
+    if (allOpen) s.classList.remove('open');
+    else s.classList.add('open');
+  });
+});
+
+function setMode(mode) {
+  if (mode === 'dark') {
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('137lab-mode', 'dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('137lab-mode', 'light');
+  }
+}
+
+(function() {
+  const saved = localStorage.getItem('137lab-mode');
+  if (saved === 'dark') document.documentElement.classList.add('dark');
+})();
+
+(function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+})();
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      const section = target.closest('.section') || target;
+      if (section.classList.contains('section') && !section.classList.contains('open')) {
+        section.classList.add('open');
+      }
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

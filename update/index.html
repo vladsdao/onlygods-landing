@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnlyGods | The Resonance Network</title>
+<meta name="description" content="OnlyGods — The Resonance Network. Experience The Spirit.">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #fff;
+    color: #000;
+    overflow: hidden;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: #000; color: #fff; }
+
+/* ── HEADER ── */
+header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+
+.btn-connect {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    padding: 1rem 0;
+    transition: opacity 0.3s;
+}
+.btn-connect:hover { opacity: 0.6; }
+
+/* ── MAIN ── */
+main {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.center-block {
+    text-align: center;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: 0.2rem;
+    line-height: 1;
+    color: #000;
+}
+
+.subtitle {
+    margin-top: 1rem;
+    font-size: 0.6875rem;
+    font-weight: 300;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    color: #999;
+}
+
+.tagline {
+    margin-top: 0.5rem;
+    font-size: 0.625rem;
+    font-weight: 300;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+    color: #bbb;
+}
+
+/* ── FOOTER ── */
+footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+
+.footer-copy {
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    color: #aaa;
+}
+
+.footer-link {
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+.footer-link:hover { color: #000; }
+
+/* ── MODAL OVERLAY ── */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(255,255,255,1);
+    align-items: center;
+    justify-content: center;
+}
+.modal-overlay.active { display: flex; }
+
+.modal {
+    width: 100%;
+    max-width: 320px;
+    padding: 2rem;
+}
+
+.modal-title {
+    font-size: 0.6875rem;
+    font-weight: 300;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.modal-field {
+    width: 100%;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 300;
+    color: #000;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    padding: 0.75rem 0;
+    margin-bottom: 1.5rem;
+    background: transparent;
+    outline: none;
+    transition: border-color 0.3s;
+}
+.modal-field::placeholder { color: #bbb; }
+.modal-field:focus { border-bottom-color: #000; }
+
+.modal-submit {
+    width: 100%;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 300;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: opacity 0.3s;
+}
+.modal-submit:hover { opacity: 0.8; }
+.modal-submit:disabled { opacity: 0.4; cursor: default; }
+
+.modal-error {
+    font-size: 0.6875rem;
+    font-weight: 300;
+    color: #c00;
+    text-align: center;
+    margin-top: 1rem;
+    min-height: 1.2rem;
+}
+
+.modal-close {
+    position: absolute;
+    top: 2rem; right: 3rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    padding: 1rem 0;
+    transition: opacity 0.3s;
+}
+.modal-close:hover { opacity: 0.6; }
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+    header, footer { padding: 1.5rem 1.5rem; }
+    .title { font-size: 2.25rem; }
+    .modal-close { top: 1.5rem; right: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <button class="btn-connect" onclick="openModal()">Connect</button>
+</header>
+
+<main>
+    <div class="center-block">
+        <h1 class="title">OnlyGods</h1>
+        <p class="subtitle">The Resonance Network</p>
+        <p class="tagline">Experience The Spirit</p>
+    </div>
+</main>
+
+<footer>
+    <span class="footer-copy">&copy; 2025 OnlyGods</span>
+    <a href="#" class="footer-link">Protocol</a>
+</footer>
+
+<!-- Login Modal -->
+<div class="modal-overlay" id="loginModal">
+    <button class="modal-close" onclick="closeModal()">Close</button>
+    <div class="modal">
+        <div class="modal-title">Connect</div>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <input class="modal-field" type="email" id="loginEmail" placeholder="Email" required autocomplete="email">
+            <input class="modal-field" type="password" id="loginPassword" placeholder="Password" required autocomplete="current-password">
+            <button class="modal-submit" type="submit" id="loginBtn">Enter</button>
+        </form>
+        <div class="modal-error" id="loginError"></div>
+    </div>
+</div>
+
+<!-- Supabase Auth -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+const SUPABASE_URL = 'https://bnfkicmzxljkhahqxfla.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJuZmtpY216eGxqa2hhaHF4ZmxhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4MzkyOTAsImV4cCI6MjA4ODQxNTI5MH0.Rjnh0AlhclThIvFp1OA1gANoqkeAkvaasqnXHAROaWY';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+function openModal() {
+    document.getElementById('loginModal').classList.add('active');
+    document.getElementById('loginEmail').focus();
+}
+
+function closeModal() {
+    document.getElementById('loginModal').classList.remove('active');
+    document.getElementById('loginError').textContent = '';
+}
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+});
+
+async function handleLogin(e) {
+    e.preventDefault();
+    const btn = document.getElementById('loginBtn');
+    const errEl = document.getElementById('loginError');
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    btn.disabled = true;
+    btn.textContent = '...';
+    errEl.textContent = '';
+
+    try {
+        const { data, error } = await sb.auth.signInWithPassword({ email, password });
+        if (error) {
+            errEl.textContent = error.message;
+            btn.disabled = false;
+            btn.textContent = 'Enter';
+            return;
+        }
+        // Success — close modal, show welcome state
+        closeModal();
+        document.querySelector('.title').textContent = 'Welcome';
+        document.querySelector('.subtitle').textContent = 'You are connected';
+        document.querySelector('.tagline').textContent = '';
+    } catch (err) {
+        errEl.textContent = 'Connection error. Try again.';
+        btn.disabled = false;
+        btn.textContent = 'Enter';
+    }
+}
+</script>
+</body>
+</html>
